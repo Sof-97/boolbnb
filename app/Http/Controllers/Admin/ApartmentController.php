@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Apartment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+
 class ApartmentController extends Controller
 {
     /**
@@ -15,10 +16,10 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         // $id = Auth::id();
         // $apartments = Apartment::all()->where('id', '=', $id);
-        
+
         $apartments = Apartment::all();
 
         return view('admin.apartments.index', compact('apartments'));
@@ -50,7 +51,7 @@ class ApartmentController extends Controller
         $newApartment->fill($data);
         $newApartment->slug = Str::slug($newApartment->title, '-');
         $newApartment->save();
-        
+
         return redirect()->route('admin.apartments.index');
     }
 

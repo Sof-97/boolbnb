@@ -3,7 +3,8 @@
 @section('content')
     <h2>Create</h2>
     <div id="app" class="container">
-        <form method="POST" href="{{route('admin.apartments.store')}}" enctype="application/x-www-form-urlencoded">
+        <form method="POST" href="{{route('admin.apartments.store')}}" enctype="multipart/form-data">
+            @csrf
             {{-- Titolo appartamento --}}
             <div class="form-group">
                 <label for="title">Titolo appartamento</label>
