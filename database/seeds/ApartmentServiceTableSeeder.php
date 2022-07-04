@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Apartment;
 use App\Models\Service;
 
-class ApartmentsServicesTableSeeder extends Seeder
+class ApartmentServiceTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

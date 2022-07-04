@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Apartment;
 use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use PhpParser\Node\Expr\PostDec;
 
@@ -52,10 +53,21 @@ class ApartmentController extends Controller
         $data['id_user'] = $id_user;
 
         $newApartment = new Apartment();
+
+        if (array_key_exists('cover_image', $data)) {
+            $image_url = Storage::put('apartment_images', $data['cover_image']);
+            $data['cover_image'] = $image_url;
+        }
+
+
         $newApartment->fill($data);
         $newApartment->slug = Str::slug($newApartment->title, '-');
         $newApartment->save();
 
+        if(array_key_exists('services', $data)){
+            $newApartment->service()->attach($data['services']);
+        }
+        
         return redirect()->route('admin.apartments.index')->with('created', "Hai aggiunto l'appartamento: $newApartment->title");;
     }
 
