@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Apartment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use PhpParser\Node\Expr\PostDec;
 
 class ApartmentController extends Controller
 {
@@ -52,7 +53,7 @@ class ApartmentController extends Controller
         $newApartment->slug = Str::slug($newApartment->title, '-');
         $newApartment->save();
 
-        return redirect()->route('admin.apartments.index');
+        return redirect()->route('admin.apartments.index')->with('message', "Hai aggiunto l'appartamento: $newApartment->tilte");;
     }
 
     /**
@@ -95,8 +96,10 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->delete();
+
+        return redirect()->route('admin.apartments.index');
     }
 }

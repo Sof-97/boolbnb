@@ -10,7 +10,11 @@ use App\Models\View;
 use App\Models\Sponsorship;
 
 class Apartment extends Model
-{
+{   
+    protected $fillable = [
+        'title', 'description', 'cover_image', 'latitude', 'longitude', 'address', 'rooms', 'beds', 'bathrooms', 'mq2', 'is_visible', 'slug', 'id_user'
+    ];
+
     public function service()
     {
         return $this->belongsToMany('./Service.php');

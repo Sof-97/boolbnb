@@ -11,7 +11,12 @@
         />
         <input type="text" hidden name="latitude" v-model="latitude" />
         <input type="text" hidden name="longitude" v-model="longitude" />
-        <div :key="i" v-for="(result, i) in results" @click="selectAddress(i)" style="cursor: pointer;">
+        <div
+            :key="i"
+            v-for="(result, i) in results"
+            @click="selectAddress(i)"
+            style="cursor: pointer"
+        >
             {{ result.address.freeformAddress }}
         </div>
     </div>
@@ -32,12 +37,12 @@ export default {
         };
     },
     methods: {
-        selectAddress(i){
-            this.address  = this.results[i].address.freeformAddress;
-            this.latitude = this.results[i].position.lat
-            this.longitude = this.results[i].position.lon
-            this.results = []
-        }
+        selectAddress(i) {
+            this.address = this.results[i].address.freeformAddress;
+            this.latitude = this.results[i].position.lat;
+            this.longitude = this.results[i].position.lon;
+            this.results = [];
+        },
     },
     computed: {
         addressSearch: function () {

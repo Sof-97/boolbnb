@@ -19,7 +19,7 @@
                 <th scope="col">Is Visible</th>
                 <th scope="col">Action
                     <button class="btn btn-success ml-4">
-                        <a class="text-light text-decoration-none" href="{{route('admin.apartments.create')}}">
+                        <a class="text-light text-decoration-none" href="{{ route('admin.apartments.create') }}">
                             Crea
                         </a>
                     </button>
@@ -49,7 +49,14 @@
                             </a>
                         </button>
                         <button class="btn btn-warning m-1">Modifica</button>
-                        <button class="btn btn-danger m-1">Elimina</button>
+                        {{-- DELETE --}}
+                        <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="POST" class="delete-form">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">
+                                Elimina
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

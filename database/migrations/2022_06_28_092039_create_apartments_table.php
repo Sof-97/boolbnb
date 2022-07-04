@@ -14,7 +14,6 @@ class CreateApartmentsTable extends Migration
     public function up()
     {
         Schema::create('apartments', function (Blueprint $table) {
- 
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable(false);
             $table->string('title')->nullable(false);
@@ -32,11 +31,9 @@ class CreateApartmentsTable extends Migration
             $table->foreign('id_user')
                 ->references('id')
                 ->on('users')->onDelete('cascade');
-
-                $table->timestamps();
+            $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
