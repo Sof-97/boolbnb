@@ -1929,9 +1929,7 @@ __webpack_require__.r(__webpack_exports__);
       this.latitude = this.results[i].position.lat;
       this.longitude = this.results[i].position.lon;
       this.results = [];
-    }
-  },
-  computed: {
+    },
     addressSearch: function addressSearch() {
       var _this = this;
 
@@ -1983,6 +1981,7 @@ var render = function render() {
       value: _vm.address
     },
     on: {
+      keyup: _vm.addressSearch,
       input: function input($event) {
         if ($event.target.composing) return;
         _vm.address = $event.target.value;

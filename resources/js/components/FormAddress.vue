@@ -3,6 +3,7 @@
         <label for="address">Indirizzo</label>
         <input
             autocomplete="off"
+            @keyup="addressSearch"
             type="text"
             class="form-control"
             name="address"
@@ -43,9 +44,7 @@ export default {
             this.longitude = this.results[i].position.lon;
             this.results = [];
         },
-    },
-    computed: {
-        addressSearch: function () {
+        addressSearch() {
             axios
                 .get(this.baseUrl + this.address + this.tokenSettings)
                 .then((res) => {
