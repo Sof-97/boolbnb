@@ -70,7 +70,7 @@
                             class="delete-form">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit">
+                            <button class="btn btn-danger" type="submit" class="delete-form">
                                 Elimina
                             </button>
                         </form>
@@ -79,4 +79,5 @@
             @endforeach
         </tbody>
     </table>
+    <script src="{{asset('js/confirmDelete.js')}}"></script>
 @endsection
