@@ -1,1 +1,67 @@
-<h2>Edit</h2>
+@extends('layouts.create-edit')
+
+@section('content')
+    <h2>Edit</h2>
+    <div id="app" class="container">
+        <form action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            {{-- Titolo appartamento --}}
+            <div class="form-group">
+                <label for="title">Titolo appartamento</label>
+                <input type="text" class="form-control" name="title" id="title" placeholder="Titolo dell'appartamento"
+                    value="{{ old('title', $apartment->title) }}" />
+            </div>
+            {{-- Descrizione appartamento --}}
+            <div class="form-group">
+                <label for="description">Descrizione appartamento</label>
+                <textarea type="text" rows="5" class="form-control" name="description" id="description"
+                    placeholder="Descrizione appartamento">{{ old('description', $apartment->description) }}</textarea>
+            </div>
+            {{-- Indirizzo tramite Vue --}}
+            <form-address data="{{old('address', $apartment->address)}}" ></form-address>
+            {{-- Immagine Copertina --}}
+            <div class="form-group">
+                <label for="cover_image">Immagine di copertina:</label>
+                <input type="file" name="cover_image" id="cover_image" class="form-control"
+                    value="{{ old('cover_image', $apartment->cover_image) }}" />
+            </div>
+            {{-- N° MQ2 --}}
+            <div class="form-group">
+                <label for="mq2">Metri quadrati</label>
+                <input class="form-control" type="number" name="mq2" id="mq2" min="0"
+                    value="{{ old('mq2', $apartment->mq2) }}" />
+            </div>
+            {{-- N° Stanze --}}
+            <div class="form-group">
+                <label for="rooms">N° di stanze</label>
+                <input class="form-control" type="number" name="rooms" id="rooms" min="0"
+                    value="{{ old('rooms', $apartment->rooms) }}" />
+            </div>
+            {{-- N° letti --}}
+            <div class="form-group">
+                <label for="beds">N° di letti</label>
+                <input class="form-control" type="number" name="beds" id="beds" min="0"
+                    value="{{ old('beds', $apartment->beds) }}" />
+            </div>
+            {{-- N° bagni --}}
+            <div class="form-group">
+                <label for="bathrooms">N° di bagni</label>
+                <input class="form-control" type="number" name="bathrooms" id="bathrooms" min="0"
+                    value="{{ old('bathrooms', $apartment->bathrooms) }}" />
+            </div>
+            {{-- Visibilità appartamento --}}
+            <div class="form-group">
+                <label for="is_visible">L'appartamento è visibile</label>
+                <input type="radio" name="is_visible" id="is_visible" value="1"
+                    @if ($apartment->is_visible) checked @endif /> SI
+
+                <input type="radio" name="is_visible" id="is_visible" value="0"
+                    @if (!$apartment->is_visible) checked @endif /> NO
+            </div>
+            {{-- Submit --}}
+            <button type="submit" class="btn btn-success">Invia</button>
+        </form>
+    </div>
+    <script defer src="{{ asset('js/formCreate.js') }}"></script>
+@endsection

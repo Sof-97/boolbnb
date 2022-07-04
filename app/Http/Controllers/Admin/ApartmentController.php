@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use PhpParser\Node\Expr\PostDec;
@@ -32,8 +33,10 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.apartments.create');
+    {      
+        $services = Service::all();
+        
+        return view('admin.apartments.create', compact('services'));
     }
 
     /**
@@ -53,7 +56,7 @@ class ApartmentController extends Controller
         $newApartment->slug = Str::slug($newApartment->title, '-');
         $newApartment->save();
 
-        return redirect()->route('admin.apartments.index')->with('message', "Hai aggiunto l'appartamento: $newApartment->tilte");;
+        return redirect()->route('admin.apartments.index')->with('created', "Hai aggiunto l'appartamento: $newApartment->title");;
     }
 
     /**
@@ -73,9 +76,9 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Apartment $apartment)
     {
-        //
+        return view('admin.apartments.edit', compact('apartment'));
     }
 
     /**
@@ -85,9 +88,14 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apartment $apartment)
     {
-        //
+        $data = $request->all();
+        $apartment->slug = Str::slug($request->title, '-');
+        $apartment->update($data);
+        
+
+        return redirect()->route('admin.apartments.index')->with('modified', "Hai modificato: $apartment->title");
     }
 
     /**
@@ -100,6 +108,6 @@ class ApartmentController extends Controller
     {
         $apartment->delete();
 
-        return redirect()->route('admin.apartments.index');
+        return redirect()->route('admin.apartments.index')->with('deleted', "Hai eliminato con successo: $apartment->title");
     }
 }

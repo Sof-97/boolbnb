@@ -27,18 +27,26 @@
 import axios from "axios";
 export default {
     name: "FormAddress",
+    props: {
+        data: String,
+    },
     data() {
         return {
             baseUrl: "https://api.tomtom.com/search/2/search/",
-            address: null,
-            tokenSettings: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahead=true&limit=7&countrySet=ITA",
+            address: this.data,
+            tokenSettings:
+                ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahead=true&limit=7&countrySet=ITA",
             results: [],
             latitude: null,
             longitude: null,
         };
     },
+    mounted() {
+        this.addressSearch();
+    },
     methods: {
         selectAddress(i) {
+            console.log("gigi");
             this.address = this.results[i].address.freeformAddress;
             this.latitude = this.results[i].position.lat;
             this.longitude = this.results[i].position.lon;

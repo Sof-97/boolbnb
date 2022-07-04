@@ -1913,18 +1913,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FormAddress",
+  props: {
+    data: String
+  },
   data: function data() {
     return {
       baseUrl: "https://api.tomtom.com/search/2/search/",
-      address: null,
+      address: this.data,
       tokenSettings: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahead=true&limit=7&countrySet=ITA",
       results: [],
       latitude: null,
       longitude: null
     };
   },
+  mounted: function mounted() {
+    this.addressSearch();
+  },
   methods: {
     selectAddress: function selectAddress(i) {
+      console.log("gigi");
       this.address = this.results[i].address.freeformAddress;
       this.latitude = this.results[i].position.lat;
       this.longitude = this.results[i].position.lon;

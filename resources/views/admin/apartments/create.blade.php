@@ -3,20 +3,29 @@
 @section('content')
     <h2>Create</h2>
     <div id="app" class="container">
-        <form action="{{ route('admin.apartments.store') }}" method="POST"  enctype="multipart/form-data">
+        <form action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             {{-- Titolo appartamento --}}
             <div class="form-group">
                 <label for="title">Titolo appartamento</label>
-                <input type="text" class="form-control" name="title" id="title" placeholder="Titolo dell'appartamento" />
+                <input type="text" class="form-control" name="title" id="title"
+                    placeholder="Titolo dell'appartamento" />
             </div>
             {{-- Descrizione appartamento --}}
             <div class="form-group">
                 <label for="description">Descrizione appartamento</label>
-                <textarea type="text" rows="5" class="form-control" name="description" id="description" placeholder="Descrizione appartamento"></textarea>
+                <textarea type="text" rows="5" class="form-control" name="description" id="description"
+                    placeholder="Descrizione appartamento"></textarea>
             </div>
             {{-- Indirizzo tramite Vue --}}
             <form-address></form-address>
+            <div class="form-group">
+                <label for="services">Servizi presenti:</label><br>
+                @foreach ($services as $service)
+                    <input class="ml-3" type="checkbox" name="services[]" value="{{ $service->id }}"
+                        id="{{ $service }}">{{ $service->name }} <br>
+                @endforeach
+            </div>
             {{-- Immagine Copertina --}}
             <div class="form-group">
                 <label for="cover_image">Immagine di copertina:</label>

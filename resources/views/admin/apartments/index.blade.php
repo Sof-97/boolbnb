@@ -1,7 +1,19 @@
 @extends('layouts.dashboard')
 @section('content')
     <h2>Pagina lista appartamenti pubblicati</h2>
-
+    @if (session('deleted'))
+        <div class="alert alert-danger">
+            {{ session('deleted') }}
+        </div>
+    @elseif (session('modified'))
+        <div class="alert alert-success">
+            {{ session('modified') }}
+        </div>
+        @elseif (session('created'))
+        <div class="alert alert-primary">
+            {{ session('created') }}
+        </div>
+    @endif
     <table class="table table-dark">
         <thead>
             <tr>
@@ -48,9 +60,14 @@
                                 Visualizza
                             </a>
                         </button>
-                        <button class="btn btn-warning m-1">Modifica</button>
+                        <button class="btn btn-warning m-1">
+                            <a href="{{ route('admin.apartments.edit', $apartment->id) }}">
+                                Modifica
+                            </a>
+                        </button>
                         {{-- DELETE --}}
-                        <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="POST" class="delete-form">
+                        <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="POST"
+                            class="delete-form">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit">
