@@ -1,8 +1,6 @@
-console.log("gigi");
-
 window.Vue = require('vue');
 
-Vue.component('form-create', require('./components/FormCreate.vue').default);
+Vue.component('form-address', require('./components/FormAddress.vue').default);
 
 const app = new Vue({
     el: '#app',

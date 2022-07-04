@@ -3,7 +3,6 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-console.log("gigi");
 require('./bootstrap');
 
 window.Vue = require('vue');
