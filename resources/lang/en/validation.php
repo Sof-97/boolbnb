@@ -96,7 +96,7 @@ return [
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => 'E\' necessario compilare :attribute.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -130,9 +130,11 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+        'description' => ['required' => 'E\'necessario compilare la descrizione.'],
+        'cover_image' => ['required' => 'E\' necessario caricare un\'immagine di copertina.'],
+        'address' => ['required' => 'E\' necessario compilare l\'indirizzo.'],
+        'mq2' => ['required' => 'E\' necessario compilare i metri quadrati.'],
+        'is_visible' => ['required' => 'E\' necessario specificare la visibilità dell\'appartamento.']
     ],
 
     /*
@@ -146,6 +148,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => 'il titolo',
+        'rooms' => 'le stanze',
+        'beds' => 'i letti',
+        'bathrooms' => 'i bagni'
+    ],
 
 ];

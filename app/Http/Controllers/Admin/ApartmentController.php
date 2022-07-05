@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
-use PhpParser\Node\Expr\PostDec;
 
 class ApartmentController extends Controller
 {
@@ -35,10 +34,10 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {      
+    {
         $services = Service::all();
-        
-        
+
+
         return view('admin.apartments.create', compact('services'));
     }
 
@@ -56,27 +55,9 @@ class ApartmentController extends Controller
 
         $newApartment = new Apartment();
 
-
-    //    $request->validate([
-    //         'title' => 'required',
-    //         'description' => 'required',
-    //         'services' => 'required',
-    //         'cover_image' => 'required',
-    //         'mq2' => 'required',
-    //         'rooms' => 'required',
-    //         'beds' => 'required',
-    //         'bathrooms' => 'required',
-    //         'is_visible' => 'required',
-    //         'address' => 'required',
-    //         'latitude' => 'required',
-    //         'longitude' => 'required',
-        
-    //      ]);
-
         $validator = Validator::make($request->all(), [
-            'title' => 'required',
+            'title' => 'required|string',
             'description' => 'required',
-            'services' => 'required',
             'cover_image' => 'required',
             'mq2' => 'required',
             'rooms' => 'required',
@@ -90,13 +71,9 @@ class ApartmentController extends Controller
 
         if ($validator->fails()) {
             return redirect('admin/apartments/create')
-            ->withErrors($validator)
-                ->withInput();
+                ->withErrors($validator);
         }
 
-
-
-         
 
         if (array_key_exists('cover_image', $data)) {
             $image_url = Storage::put('apartment_images', $data['cover_image']);
@@ -108,10 +85,10 @@ class ApartmentController extends Controller
         $newApartment->slug = Str::slug($newApartment->title, '-');
         $newApartment->save();
 
-        if(array_key_exists('services', $data)){
+        if (array_key_exists('services', $data)) {
             $newApartment->service()->attach($data['services']);
         }
-        
+
         return redirect()->route('admin.apartments.index')->with('created', "Hai aggiunto l'appartamento: $newApartment->title");;
     }
 
@@ -153,15 +130,34 @@ class ApartmentController extends Controller
         $data = $request->all();
         $apartment->slug = Str::slug($request->title, '-');
 
-        if(array_key_exists('cover_image', $data)){
-            if( $apartment->cover_image ) Storage::delete($apartment->cover_image);
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+            'cover_image' => 'required',
+            'mq2' => 'required',
+            'rooms' => 'required',
+            'beds' => 'required',
+            'bathrooms' => 'required',
+            'is_visible' => 'required',
+            'address' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+        ]);
 
-            $image_url = Storage::put('apartment_images', $data['cover_image'] );
+        if ($validator->fails()) {
+            return redirect("admin/apartments/$apartment->id/edit")
+                ->withErrors($validator);
+        }
+
+        if (array_key_exists('cover_image', $data)) {
+            if ($apartment->cover_image) Storage::delete($apartment->cover_image);
+
+            $image_url = Storage::put('apartment_images', $data['cover_image']);
             $data['cover_image'] = $image_url;
         }
 
         $apartment->update($data);
-        
+
 
         return redirect()->route('admin.apartments.index')->with('modified', "Hai modificato: $apartment->title");
     }
