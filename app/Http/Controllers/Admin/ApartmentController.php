@@ -104,6 +104,14 @@ class ApartmentController extends Controller
     {
         $data = $request->all();
         $apartment->slug = Str::slug($request->title, '-');
+
+        if(array_key_exists('cover_image', $data)){
+            if( $apartment->cover_image ) Storage::delete($apartment->cover_image);
+
+            $image_url = Storage::put('apartment_images', $data['cover_image'] );
+            $data['cover_image'] = $image_url;
+        }
+
         $apartment->update($data);
         
 
@@ -118,6 +126,7 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+        Storage::delete($apartment->cover_image);
         $apartment->delete();
 
         return redirect()->route('admin.apartments.index')->with('deleted', "Hai eliminato con successo: $apartment->title");
