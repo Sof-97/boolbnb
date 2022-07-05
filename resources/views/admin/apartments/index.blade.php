@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
-    <h2>Pagina lista appartamenti pubblicati</h2>
+    <h2 class="text-center p-2">Appartementi</h2>
     @if (session('deleted'))
         <div class="alert alert-danger">
             {{ session('deleted') }}

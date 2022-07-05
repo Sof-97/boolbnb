@@ -5,20 +5,42 @@
     <div id="app" class="container">
         <form action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+
+            {{-- @if ($errors->any()) <ul>
+
+            @foreach ($errors->all() as $err)
+            
+            <li> {{$err}} </li>
+            
+            @endforeach </ul>
+           
+            @endif --}}
             {{-- Titolo appartamento --}}
+           
             <div class="form-group">
-                <label for="title">Titolo appartamento</label>
-                <input type="text" class="form-control" name="title" id="title"
+                <label for="title">Titolo appartamento</label> 
+            <input type="text" class="form-control" name="title" id="title"
                     placeholder="Titolo dell'appartamento" />
-            </div>
+                     @error('title') 
+                     <span>{{$message}}</span>
+                     @enderror
+            </div> 
             {{-- Descrizione appartamento --}}
             <div class="form-group">
                 <label for="description">Descrizione appartamento</label>
                 <textarea type="text" rows="5" class="form-control" name="description" id="description"
                     placeholder="Descrizione appartamento"></textarea>
+                     @error('description') 
+                     <span>{{$message}}</span>
+                     @enderror
             </div>
             {{-- Indirizzo tramite Vue --}}
             <form-address></form-address>
+             @error('address') 
+                     <span>{{$message}}</span>
+                     @enderror
+
+     {{-- SERVIZI --}}
             <div class="form-group">
                 <label for="services">Servizi presenti:</label><br>
                 @foreach ($services as $service)
@@ -30,32 +52,51 @@
             <div class="form-group">
                 <label for="cover_image">Immagine di copertina:</label>
                 <input type="file" name="cover_image" id="cover_image" class="form-control" />
+                 @error('cover_image') 
+                     <span>{{$message}}</span>
+                     @enderror
             </div>
             {{-- N° MQ2 --}}
             <div class="form-group">
                 <label for="mq2">Metri quadrati</label>
                 <input class="form-control" type="number" name="mq2" id="mq2" min="0" />
+                 @error('mq2') 
+                     <span>{{$message}}</span>
+                     @enderror
             </div>
             {{-- N° Stanze --}}
             <div class="form-group">
                 <label for="rooms">N° di stanze</label>
                 <input class="form-control" type="number" name="rooms" id="rooms" min="0" />
+                 @error('rooms') 
+                     <span>{{$message}}</span>
+                     @enderror
             </div>
             {{-- N° letti --}}
             <div class="form-group">
                 <label for="beds">N° di letti</label>
                 <input class="form-control" type="number" name="beds" id="beds" min="0" />
+                 @error('beds') 
+                     <span>{{$message}}</span>
+                     @enderror
             </div>
             {{-- N° bagni --}}
             <div class="form-group">
                 <label for="bathrooms">N° di bagni</label>
                 <input class="form-control" type="number" name="bathrooms" id="bathrooms" min="0" />
+                 @error('bathrooms') 
+                     <span>{{$message}}</span>
+                     @enderror
             </div>
             {{-- Visibilità appartamento --}}
             <div class="form-group">
                 <label for="is_visible">L'appartamento è visibile</label>
                 <input type="radio" name="is_visible" id="is_visible" value="1" /> SI
-                <input type="radio" name="is_visible" id="is_visible" value="0" /> NO
+                <input type="radio" name="is_visible" id="is_visible" value="0" /> NO  
+                
+                @error('is_visible') 
+                     <span>{{$message}}</span>
+                     @enderror
             </div>
             {{-- Submit --}}
             <button type="submit" class="btn btn-success">Invia</button>

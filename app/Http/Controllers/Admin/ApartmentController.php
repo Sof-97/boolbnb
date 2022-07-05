@@ -9,6 +9,7 @@ use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
 use PhpParser\Node\Expr\PostDec;
 
 class ApartmentController extends Controller
@@ -37,6 +38,7 @@ class ApartmentController extends Controller
     {      
         $services = Service::all();
         
+        
         return view('admin.apartments.create', compact('services'));
     }
 
@@ -53,6 +55,48 @@ class ApartmentController extends Controller
         $data['id_user'] = $id_user;
 
         $newApartment = new Apartment();
+
+
+    //    $request->validate([
+    //         'title' => 'required',
+    //         'description' => 'required',
+    //         'services' => 'required',
+    //         'cover_image' => 'required',
+    //         'mq2' => 'required',
+    //         'rooms' => 'required',
+    //         'beds' => 'required',
+    //         'bathrooms' => 'required',
+    //         'is_visible' => 'required',
+    //         'address' => 'required',
+    //         'latitude' => 'required',
+    //         'longitude' => 'required',
+        
+    //      ]);
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+            'services' => 'required',
+            'cover_image' => 'required',
+            'mq2' => 'required',
+            'rooms' => 'required',
+            'beds' => 'required',
+            'bathrooms' => 'required',
+            'is_visible' => 'required',
+            'address' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('admin/apartments/create')
+            ->withErrors($validator)
+                ->withInput();
+        }
+
+
+
+         
 
         if (array_key_exists('cover_image', $data)) {
             $image_url = Storage::put('apartment_images', $data['cover_image']);
