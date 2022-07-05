@@ -19,8 +19,8 @@ class CreateApartmentsTable extends Migration
             $table->string('title')->nullable(false);
             $table->string('description')->nullable(false);
             $table->string('cover_image')->nullable(true);
-            $table->float('latitude')->nullable(false);
-            $table->float('longitude')->nullable(false);
+            $table->float('latitude', 9, 5)->nullable(false);
+            $table->float('longitude', 9, 5)->nullable(false);
             $table->string('address')->nullable(false);
             $table->tinyInteger('rooms')->nullable(false);
             $table->tinyInteger('beds')->nullable(false);
