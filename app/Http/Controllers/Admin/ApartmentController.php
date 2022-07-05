@@ -59,14 +59,14 @@ class ApartmentController extends Controller
             'title' => 'required|string',
             'description' => 'required',
             'cover_image' => 'required',
-            'mq2' => 'required',
-            'rooms' => 'required',
-            'beds' => 'required',
-            'bathrooms' => 'required',
-            'is_visible' => 'required',
-            'address' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required',
+            'mq2' => 'required|numeric',
+            'rooms' => 'required|numeric',
+            'beds' => 'required|numeric',
+            'bathrooms' => 'required|numeric',
+            'is_visible' => 'required|boolean',
+            'address' => 'required|string',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
         ]);
 
         if ($validator->fails()) {
@@ -131,17 +131,17 @@ class ApartmentController extends Controller
         $apartment->slug = Str::slug($request->title, '-');
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|string',
+            'description' => 'required|string',
             'cover_image' => 'required',
-            'mq2' => 'required',
-            'rooms' => 'required',
-            'beds' => 'required',
-            'bathrooms' => 'required',
-            'is_visible' => 'required',
-            'address' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required',
+            'mq2' => 'required|numeric',
+            'rooms' => 'required|numeric',
+            'beds' => 'required|numeric',
+            'bathrooms' => 'required|numeric',
+            'is_visible' => 'required|boolean',
+            'address' => 'required|string',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
         ]);
 
         if ($validator->fails()) {
