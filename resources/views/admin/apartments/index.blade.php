@@ -1,7 +1,19 @@
 @extends('layouts.dashboard')
 @section('content')
-    <h2>Pagina lista appartamenti pubblicati</h2>
-
+    <h2 class="text-center p-2">Appartementi</h2>
+    @if (session('deleted'))
+        <div class="alert alert-danger">
+            {{ session('deleted') }}
+        </div>
+    @elseif (session('modified'))
+        <div class="alert alert-success">
+            {{ session('modified') }}
+        </div>
+        @elseif (session('created'))
+        <div class="alert alert-primary">
+            {{ session('created') }}
+        </div>
+    @endif
     <table class="table table-dark">
         <thead>
             <tr>
@@ -19,7 +31,7 @@
                 <th scope="col">Is Visible</th>
                 <th scope="col">Action
                     <button class="btn btn-success ml-4">
-                        <a class="text-light text-decoration-none" href="{{route('admin.apartments.create')}}">
+                        <a class="text-light text-decoration-none" href="{{ route('admin.apartments.create') }}">
                             Crea
                         </a>
                     </button>
@@ -48,11 +60,24 @@
                                 Visualizza
                             </a>
                         </button>
-                        <button class="btn btn-warning m-1">Modifica</button>
-                        <button class="btn btn-danger m-1">Elimina</button>
+                        <button class="btn btn-warning m-1">
+                            <a href="{{ route('admin.apartments.edit', $apartment->id) }}">
+                                Modifica
+                            </a>
+                        </button>
+                        {{-- DELETE --}}
+                        <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" method="POST"
+                            class="delete-form">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit" class="delete-form">
+                                Elimina
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <script src="{{asset('js/confirmDelete.js')}}"></script>
 @endsection

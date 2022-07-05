@@ -14,14 +14,13 @@ class CreateApartmentsTable extends Migration
     public function up()
     {
         Schema::create('apartments', function (Blueprint $table) {
- 
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable(false);
             $table->string('title')->nullable(false);
             $table->string('description')->nullable(false);
             $table->string('cover_image')->nullable(true);
-            $table->float('latitude')->nullable(false);
-            $table->float('longitude')->nullable(false);
+            $table->float('latitude', 9, 5)->nullable(false);
+            $table->float('longitude', 9, 5)->nullable(false);
             $table->string('address')->nullable(false);
             $table->tinyInteger('rooms')->nullable(false);
             $table->tinyInteger('beds')->nullable(false);
@@ -32,11 +31,9 @@ class CreateApartmentsTable extends Migration
             $table->foreign('id_user')
                 ->references('id')
                 ->on('users')->onDelete('cascade');
-
-                $table->timestamps();
+            $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

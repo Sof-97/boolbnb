@@ -1913,15 +1913,30 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FormAddress",
+  props: {
+    data: String
+  },
   data: function data() {
     return {
-      baseUrl: 'https://api.tomtom.com/search/2/search/',
-      address: '',
-      tokenSettings: '.json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahead=true&limit=7',
-      results: []
+      baseUrl: "https://api.tomtom.com/search/2/search/",
+      address: this.data,
+      tokenSettings: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahead=true&limit=7&countrySet=ITA",
+      results: [],
+      latitude: null,
+      longitude: null
     };
   },
-  computed: {
+  mounted: function mounted() {
+    this.addressSearch();
+  },
+  methods: {
+    selectAddress: function selectAddress(i) {
+      console.log("gigi");
+      this.address = this.results[i].address.freeformAddress;
+      this.latitude = this.results[i].position.lat;
+      this.longitude = this.results[i].position.lon;
+      this.results = [];
+    },
     addressSearch: function addressSearch() {
       var _this = this;
 
@@ -1964,6 +1979,7 @@ var render = function render() {
     }],
     staticClass: "form-control",
     attrs: {
+      autocomplete: "off",
       type: "text",
       name: "address",
       id: "address"
@@ -1972,12 +1988,67 @@ var render = function render() {
       value: _vm.address
     },
     on: {
+      keyup: _vm.addressSearch,
       input: function input($event) {
         if ($event.target.composing) return;
         _vm.address = $event.target.value;
       }
     }
-  })]);
+  }), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.latitude,
+      expression: "latitude"
+    }],
+    attrs: {
+      type: "text",
+      hidden: "",
+      name: "latitude"
+    },
+    domProps: {
+      value: _vm.latitude
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.latitude = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.longitude,
+      expression: "longitude"
+    }],
+    attrs: {
+      type: "text",
+      hidden: "",
+      name: "longitude"
+    },
+    domProps: {
+      value: _vm.longitude
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.longitude = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _vm._l(_vm.results, function (result, i) {
+    return _c("div", {
+      key: i,
+      staticStyle: {
+        cursor: "pointer"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.selectAddress(i);
+        }
+      }
+    }, [_vm._v("\r\n            " + _vm._s(result.address.freeformAddress) + "\r\n        ")]);
+  })], 2);
 };
 
 var staticRenderFns = [];
