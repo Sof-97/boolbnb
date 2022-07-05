@@ -20,6 +20,16 @@
             </div>
             {{-- Indirizzo tramite Vue --}}
             <form-address data="{{old('address', $apartment->address)}}" ></form-address>
+            {{-- servizi --}}
+            <div class="form-group">
+                <label for="services">Servizi presenti:</label><br>
+                @foreach ($services as $service)
+                    <input
+                    @if ( in_array($service->id, old('services', $apartment_services_id ) ) ) checked @endif     
+                     class="ml-3" type="checkbox" name="services[]" value="{{ $service->id }}"
+                        id="{{ $service }}">{{ $service->name }} <br>
+                @endforeach
+            </div>
             {{-- Immagine Copertina --}}
             <div class="form-group">
                 <label for="cover_image">Immagine di copertina:</label>
