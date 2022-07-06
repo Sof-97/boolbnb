@@ -57,6 +57,7 @@ class ApartmentController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:150',
+            'price' => 'required|numeric|min:1',
             'description' => 'required|string|max:500',
             'cover_image' => 'required',
             'mq2' => 'required|numeric|min:20|max:300',
@@ -138,6 +139,7 @@ class ApartmentController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:150',
+            'price' => 'required|numeric|min:1',
             'description' => 'required|string|max:500',
             'cover_image' => 'required',
             'mq2' => 'required|numeric|min:20|max:300',

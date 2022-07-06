@@ -19,6 +19,7 @@ class ApartmentsTableSeeder extends Seeder
             $newApartment = new Apartment();
             $newApartment->id_user = $i + 1;
             $newApartment->title = $faker->name();
+            $newApartment->price = $faker->randomFloat(2, 30, 100);
             $newApartment->description = $faker->text();
             $newApartment->cover_image = $faker->imageUrl(250, 250, 'apartments', true);
             $newApartment->latitude = $faker->latitude($min = -90, $max = 90);
@@ -35,6 +36,7 @@ class ApartmentsTableSeeder extends Seeder
         $newApartment = new Apartment();
         $newApartment->is_visible = 0;
         $newApartment->title = $faker->name();
+        $newApartment->price = $faker->randomFloat(2, 30, 100);
         $newApartment->id_user = 1;
         $newApartment->description = $faker->text();
         $newApartment->cover_image = $faker->imageUrl(250, 250, 'apartments', true);

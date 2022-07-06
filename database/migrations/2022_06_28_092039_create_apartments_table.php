@@ -17,6 +17,7 @@ class CreateApartmentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_user')->nullable(false);
             $table->string('title')->nullable(false);
+            $table->decimal('price')->nullable(false);
             $table->string('description')->nullable(false);
             $table->string('cover_image')->nullable(true);
             $table->float('latitude', 9, 5)->nullable(false);

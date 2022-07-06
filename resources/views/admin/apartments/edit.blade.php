@@ -1,7 +1,6 @@
 @extends('layouts.create-edit')
 
 @section('content')
-   
     <h2>Edit</h2>
     <div id="app" class="container">
         <form action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST" enctype="multipart/form-data">
@@ -10,9 +9,19 @@
             {{-- Titolo appartamento --}}
             <div class="form-group">
                 <label for="title">Titolo appartamento</label>
-                <input required type="text" class="form-control" name="title" id="title" placeholder="Titolo dell'appartamento"
-                    value="{{ old('title', $apartment->title) }}" />
+                <input required type="text" class="form-control" name="title" id="title"
+                    placeholder="Titolo dell'appartamento" value="{{ old('title', $apartment->title) }}" />
                 @error('title')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            {{-- Prezzo --}}
+            <div class="form-group">
+                <label for="price">Prezzo dell'appartamento per notte</label>
+                <input step="0.01" min="1" type="number" required name="price" id="price"
+                    class="form-control" placeholder="Prezzo dell'appartamento per notte"
+                    value="{{ old('price', $apartment->price) }}">
+                @error('price')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -50,7 +59,7 @@
             {{-- N° MQ2 --}}
             <div class="form-group">
                 <label for="mq2">Metri quadrati</label>
-                <input required class="form-control" type="number" name="mq2" id="mq2" min="0"
+                <input required class="form-control" type="number" name="mq2" id="mq2" min="1"
                     value="{{ old('mq2', $apartment->mq2) }}" />
                 @error('mq2')
                     <span class="text-danger">{{ $message }}</span>
@@ -59,7 +68,7 @@
             {{-- N° Stanze --}}
             <div class="form-group">
                 <label for="rooms">N° di stanze</label>
-                <input required class="form-control" type="number" name="rooms" id="rooms" min="0"
+                <input required class="form-control" type="number" name="rooms" id="rooms" min="1"
                     value="{{ old('rooms', $apartment->rooms) }}" />
                 @error('rooms')
                     <span class="text-danger">{{ $message }}</span>
@@ -68,7 +77,7 @@
             {{-- N° letti --}}
             <div class="form-group">
                 <label for="beds">N° di letti</label>
-                <input required class="form-control" type="number" name="beds" id="beds" min="0"
+                <input required class="form-control" type="number" name="beds" id="beds" min="1"
                     value="{{ old('beds', $apartment->beds) }}" />
                 @error('beds')
                     <span class="text-danger">{{ $message }}</span>
@@ -77,7 +86,7 @@
             {{-- N° bagni --}}
             <div class="form-group">
                 <label for="bathrooms">N° di bagni</label>
-                <input required class="form-control" type="number" name="bathrooms" id="bathrooms" min="0"
+                <input required class="form-control" type="number" name="bathrooms" id="bathrooms" min="1"
                     value="{{ old('bathrooms', $apartment->bathrooms) }}" />
                 @error('bathrooms')
                     <span class="text-danger">{{ $message }}</span>

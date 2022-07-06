@@ -153,7 +153,8 @@ return [
         'rooms' => 'le stanze',
         'beds' => 'i letti',
         'bathrooms' => 'i bagni',
-        'date' => 'data'
+        'date' => 'data',
+        'price' => 'il prezzo'
     ],
 
 ];
