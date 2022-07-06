@@ -10,7 +10,7 @@
             {{-- Titolo appartamento --}}
             <div class="form-group">
                 <label for="title">Titolo appartamento</label>
-                <input type="text" class="form-control" name="title" id="title" placeholder="Titolo dell'appartamento"
+                <input required type="text" class="form-control" name="title" id="title" placeholder="Titolo dell'appartamento"
                     value="{{ old('title', $apartment->title) }}" />
                 @error('title')
                     <span class="text-danger">{{ $message }}</span>
@@ -19,7 +19,7 @@
             {{-- Descrizione appartamento --}}
             <div class="form-group">
                 <label for="description">Descrizione appartamento</label>
-                <textarea type="text" rows="5" class="form-control" name="description" id="description"
+                <textarea required type="text" rows="5" class="form-control" name="description" id="description"
                     placeholder="Descrizione appartamento">{{ old('description', $apartment->description) }}</textarea>
                 @error('description')
                     <span class="text-danger">{{ $message }}</span>
@@ -34,14 +34,14 @@
             <div class="form-group">
                 <label for="services">Servizi presenti:</label><br>
                 @foreach ($services as $service)
-                    <input @if (in_array($service->id, old('services', $apartment_services_id))) checked @endif class="ml-3" type="checkbox" name="services[]"
+                    <input required @if (in_array($service->id, old('services', $apartment_services_id))) checked @endif class="ml-3" type="checkbox" name="services[]"
                         value="{{ $service->id }}" id="{{ $service }}">{{ $service->name }} <br>
                 @endforeach
             </div>
             {{-- Immagine Copertina --}}
             <div class="form-group">
                 <label for="cover_image">Immagine di copertina:</label>
-                <input type="file" name="cover_image" id="cover_image" class="form-control"
+                <input required type="file" name="cover_image" id="cover_image" class="form-control"
                     value="{{ old('cover_image', $apartment->cover_image) }}" />
                 @error('cover_image')
                     <span class="text-danger">{{ $message }}</span>
@@ -50,7 +50,7 @@
             {{-- N° MQ2 --}}
             <div class="form-group">
                 <label for="mq2">Metri quadrati</label>
-                <input class="form-control" type="number" name="mq2" id="mq2" min="0"
+                <input required class="form-control" type="number" name="mq2" id="mq2" min="0"
                     value="{{ old('mq2', $apartment->mq2) }}" />
                 @error('mq2')
                     <span class="text-danger">{{ $message }}</span>
@@ -59,7 +59,7 @@
             {{-- N° Stanze --}}
             <div class="form-group">
                 <label for="rooms">N° di stanze</label>
-                <input class="form-control" type="number" name="rooms" id="rooms" min="0"
+                <input required class="form-control" type="number" name="rooms" id="rooms" min="0"
                     value="{{ old('rooms', $apartment->rooms) }}" />
                 @error('rooms')
                     <span class="text-danger">{{ $message }}</span>
@@ -68,7 +68,7 @@
             {{-- N° letti --}}
             <div class="form-group">
                 <label for="beds">N° di letti</label>
-                <input class="form-control" type="number" name="beds" id="beds" min="0"
+                <input required class="form-control" type="number" name="beds" id="beds" min="0"
                     value="{{ old('beds', $apartment->beds) }}" />
                 @error('beds')
                     <span class="text-danger">{{ $message }}</span>
@@ -77,7 +77,7 @@
             {{-- N° bagni --}}
             <div class="form-group">
                 <label for="bathrooms">N° di bagni</label>
-                <input class="form-control" type="number" name="bathrooms" id="bathrooms" min="0"
+                <input required class="form-control" type="number" name="bathrooms" id="bathrooms" min="0"
                     value="{{ old('bathrooms', $apartment->bathrooms) }}" />
                 @error('bathrooms')
                     <span class="text-danger">{{ $message }}</span>

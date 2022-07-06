@@ -56,13 +56,13 @@ class ApartmentController extends Controller
         $newApartment = new Apartment();
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string',
-            'description' => 'required',
+            'title' => 'required|string|max:150',
+            'description' => 'required|string|max:500',
             'cover_image' => 'required',
-            'mq2' => 'required|numeric',
-            'rooms' => 'required|numeric',
-            'beds' => 'required|numeric',
-            'bathrooms' => 'required|numeric',
+            'mq2' => 'required|numeric|min:20|max:300',
+            'rooms' => 'required|numeric|min:1',
+            'beds' => 'required|numeric|min:1',
+            'bathrooms' => 'required|numeric|min:1',
             'is_visible' => 'required|boolean',
             'address' => 'required|string',
             'latitude' => 'required|numeric',
@@ -131,13 +131,13 @@ class ApartmentController extends Controller
         $apartment->slug = Str::slug($request->title, '-');
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|string',
-            'description' => 'required|string',
+            'title' => 'required|string|max:150',
+            'description' => 'required|string|max:500',
             'cover_image' => 'required',
-            'mq2' => 'required|numeric',
-            'rooms' => 'required|numeric',
-            'beds' => 'required|numeric',
-            'bathrooms' => 'required|numeric',
+            'mq2' => 'required|numeric|min:20|max:300',
+            'rooms' => 'required|numeric|min:1',
+            'beds' => 'required|numeric|min:1',
+            'bathrooms' => 'required|numeric|min:1',
             'is_visible' => 'required|boolean',
             'address' => 'required|string',
             'latitude' => 'required|numeric',

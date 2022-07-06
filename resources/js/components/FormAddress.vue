@@ -2,6 +2,7 @@
     <div class="form-group">
         <label for="address">Indirizzo</label>
         <input
+            required
             autocomplete="off"
             @keyup="addressSearch"
             type="text"

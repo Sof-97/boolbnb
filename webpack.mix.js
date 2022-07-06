@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/front.js', 'public/js')
     .js('resources/js/formCreate.js', 'public/js')
     .js('resources/js/confirmDelete.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
