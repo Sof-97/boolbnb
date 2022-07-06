@@ -2,6 +2,5 @@
     "/js/confirmDelete.js": "/js/confirmDelete.js",
     "/js/formCreate.js": "/js/formCreate.js",
     "/js/front.js": "/js/front.js",
-    "/css/app.css": "/css/app.css",
-    "/js/route.js": "/js/route.js"
+    "/css/app.css": "/css/app.css"
 }
