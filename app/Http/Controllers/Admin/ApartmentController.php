@@ -21,7 +21,7 @@ class ApartmentController extends Controller
     public function index()
     {
         $id = Auth::id();
-        $apartments = Apartment::all()->where('id', '=', $id);
+        $apartments = Apartment::all()->where('id_user', '=', $id);
 
         // $apartments = Apartment::all();
 

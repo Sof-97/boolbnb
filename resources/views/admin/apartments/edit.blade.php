@@ -1,7 +1,7 @@
 @extends('layouts.create-edit')
 
 @section('content')
-    {{$errors}}
+   
     <h2>Edit</h2>
     <div id="app" class="container">
         <form action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST" enctype="multipart/form-data">
@@ -34,7 +34,7 @@
             <div class="form-group">
                 <label for="services">Servizi presenti:</label><br>
                 @foreach ($services as $service)
-                    <input required @if (in_array($service->id, old('services', $apartment_services_id))) checked @endif class="ml-3" type="checkbox" name="services[]"
+                    <input @if (in_array($service->id, old('services', $apartment_services_id))) checked @endif class="ml-3" type="checkbox" name="services[]"
                         value="{{ $service->id }}" id="{{ $service }}">{{ $service->name }} <br>
                 @endforeach
             </div>
