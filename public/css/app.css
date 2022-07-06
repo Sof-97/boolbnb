@@ -72,6 +72,12 @@ ul {
   width: 80%;
 }
 
+.login-title {
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+}
+
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
