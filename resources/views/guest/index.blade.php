@@ -8,5 +8,7 @@
 </head>
 <body>
     <h1>Landing page frontend</h1>
+    <div id="root"></div>
+    <script src="{{asset('js/front.js')}}"></script>
 </body>
 </html>
