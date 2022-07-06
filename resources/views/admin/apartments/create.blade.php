@@ -35,7 +35,7 @@
             <div class="form-group">
                 <label for="services">Servizi presenti:</label><br>
                 @foreach ($services as $service)
-                    <input required class="ml-3" type="checkbox" name="services[]" value="{{ $service->id }}"
+                    <input class="ml-3" type="checkbox" name="services[]" value="{{ $service->id }}"
                         id="{{ $service }}">{{ $service->name }} <br>
                 @endforeach
             </div>

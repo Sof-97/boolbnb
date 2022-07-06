@@ -20,10 +20,10 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        // $id = Auth::id();
-        // $apartments = Apartment::all()->where('id', '=', $id);
+        $id = Auth::id();
+        $apartments = Apartment::all()->where('id_user', '=', $id);
 
-        $apartments = Apartment::all();
+        // $apartments = Apartment::all();
 
         return view('admin.apartments.index', compact('apartments'));
     }
@@ -100,7 +100,11 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        return view('admin.apartments.show', compact('apartment'));
+        if (Auth::id() == $apartment->id_user) {
+            return view('admin.apartments.show', compact('apartment'));
+        } else {
+            echo "Non hai i diritti";
+        }
     }
 
     /**
@@ -111,11 +115,13 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-
-        $services = Service::all();
-        $apartment_services_id =  $apartment->service->pluck('id')->toArray();
-
-        return view('admin.apartments.edit', compact('apartment', 'services', 'apartment_services_id'));
+        if (Auth::id() == $apartment->id_user) {
+            $services = Service::all();
+            $apartment_services_id =  $apartment->service->pluck('id')->toArray();
+            return view('admin.apartments.edit', compact('apartment', 'services', 'apartment_services_id'));
+        } else {
+            echo "Non hai i diritti";
+        }
     }
 
     /**
@@ -148,17 +154,12 @@ class ApartmentController extends Controller
             return redirect("admin/apartments/$apartment->id/edit")
                 ->withErrors($validator);
         }
-
         if (array_key_exists('cover_image', $data)) {
             if ($apartment->cover_image) Storage::delete($apartment->cover_image);
-
             $image_url = Storage::put('apartment_images', $data['cover_image']);
             $data['cover_image'] = $image_url;
         }
-
         $apartment->update($data);
-
-
         return redirect()->route('admin.apartments.index')->with('modified', "Hai modificato: $apartment->title");
     }
 
