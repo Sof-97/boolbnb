@@ -1,5 +1,77 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.title {
+  color: #ff385c;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.btn-color {
+  background-color: #ff385c !important;
+  border-color: #ff385c !important;
+}
+
+.h2-color {
+  color: #ff385c;
+}
+
+.custom-margin {
+  margin-right: 10px;
+}
+
+.spacing {
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.button-show {
+  background-color: white;
+  color: #222222;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-width: 1px;
+  border-radius: 10px;
+}
+
+.button-show:hover {
+  color: #ff385c;
+  text-decoration: none;
+}
+
+.left {
+  width: 30%;
+  background-color: #c8c8c8;
+  color: #222222;
+  padding-top: 20px;
+}
+
+.menu {
+  list-style-type: none;
+  margin-left: 0 !important;
+}
+
+.menu-items {
+  text-decoration: none;
+  color: #222222;
+}
+
+.menu-items:hover {
+  text-decoration: none;
+  color: #ff385c;
+}
+
+ul {
+  margin-left: 0 !important;
+}
+
+.custom {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  -o-box-shadow: 5px 5px 10px 0px #000000;
+  box-shadow: 5px 5px 10px 0px #222222;
+  width: 80%;
+}
+
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -8357,7 +8429,7 @@ button.bg-dark:focus {
 }
 
 .shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  box-shadow: rgba(0, 0, 0, 0.2509803922) !important;
 }
 
 .shadow-lg {
