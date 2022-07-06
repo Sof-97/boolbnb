@@ -11,14 +11,8 @@
     </title>
 </head>
 
-<body>
-    <div class="float-right">
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button class="btn" type="submit">Logout</button>
-        </form>
-    </div>
-    @yield('content')
-</body>
-
+@yield('content')
+<style>
+    @import "../../resources/sass/app.scss";
+</style>
 </html>

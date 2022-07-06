@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -104,14 +104,14 @@ deleteForm.forEach(function (form) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!*********************************************!*\
   !*** multi ./resources/js/confirmDelete.js ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\confirmDelete.js */"./resources/js/confirmDelete.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolbnb-team3-58/resources/js/confirmDelete.js */"./resources/js/confirmDelete.js");
 
 
 /***/ })
