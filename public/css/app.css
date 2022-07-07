@@ -74,11 +74,13 @@ ul {
 
 .nav-ul {
   list-style-type: none;
+  margin-bottom: 0 !important;
 }
 
 .nav-ul .nav-li {
   text-decoration: none;
   color: #222222;
+  margin-left: 50px;
 }
 
 .nav-ul .nav-li:hover {
@@ -86,26 +88,28 @@ ul {
 }
 
 .title {
-  padding: 10px;
+  padding: 15px;
 }
 
 .nav-flex {
   display: flex;
-  height: 100%;
 }
 
 .button {
   background-color: #ff385c;
-  padding: 10px;
+  padding: 6px;
   border: 0px;
   border-radius: 8px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  color: white;
 }
 
 .pos-rel {
-  position: relative;
+  width: 25vw;
+}
+
+.test {
+  display: flex;
+  justify-content: space-between;
 }
 
 .login-title {

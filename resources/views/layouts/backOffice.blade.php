@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="page-height" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,9 @@
         @yield('title')
     </title>
 </head>
+
+<div class="page-height">
+
 
 <header>
     @include('layouts.nav-title')
@@ -22,6 +25,8 @@
     </div>
 
 </main>
+
+</div>
 
 <style>
     @import "../../resources/sass/app.scss";
