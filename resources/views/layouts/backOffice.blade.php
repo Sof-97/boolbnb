@@ -11,16 +11,16 @@
     </title>
 </head>
 
+<header>
+    @include('layouts.nav-title')
+</header>
 
-<main>
-    <section class="float-left">
-        <nav>
-            Nav laterale
-        </nav>
-    </section>
-    <div class="float-right">
+<main class="height">
+    <div class="nav-flex">
+        @include('layouts.navbar-top')
         @yield('content')
     </div>
+
 </main>
 
 <style>

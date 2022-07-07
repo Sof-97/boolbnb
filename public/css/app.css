@@ -72,6 +72,42 @@ ul {
   width: 80%;
 }
 
+.nav-ul {
+  list-style-type: none;
+}
+
+.nav-ul .nav-li {
+  text-decoration: none;
+  color: #222222;
+}
+
+.nav-ul .nav-li:hover {
+  color: #ff385c;
+}
+
+.title {
+  padding: 10px;
+}
+
+.nav-flex {
+  display: flex;
+  height: 100%;
+}
+
+.button {
+  background-color: #ff385c;
+  padding: 10px;
+  border: 0px;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.pos-rel {
+  position: relative;
+}
+
 .login-title {
   font-weight: bold;
   text-align: center;
@@ -11029,5 +11065,11 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 

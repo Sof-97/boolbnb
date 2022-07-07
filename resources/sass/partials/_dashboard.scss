@@ -1,0 +1,33 @@
+.nav-ul {
+    list-style-type: none;
+    .nav-li {
+        text-decoration: none;
+        color: $color-gray-2;
+    }
+    .nav-li:hover {
+        color: $color-accent;
+    }
+}
+
+.title {
+    padding: 10px;
+}
+
+.nav-flex {
+    display: flex;
+    height: 100%;
+}
+
+.button {
+    background-color: $color-accent;
+    padding: 10px;
+    border: 0px;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.pos-rel {
+    position: relative;
+}

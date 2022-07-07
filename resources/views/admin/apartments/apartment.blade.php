@@ -14,19 +14,6 @@
         </div>
     @endif
 
-    <body class="">
-        <div class="d-flex align-items-center justify-content-between p-2">
-            <div>
-                <img style="height: 50px; width: 50px;" src="{{ asset('img/airbnb-logo.png') }}" alt="tag">
-                <span class="title" style="color: $color-accent">BoolBnB</span>
-            </div>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button class="btn btn-primary btn-color" type="submit">Logout</button>
-            </form>
-        </div>
-
-    </body>
     <div class="d-flex justify-content-center mt-4 mb-4 align-items-center">
         <div class="custom">
             <div class="d-flex justify-content-between m-3">

@@ -4,7 +4,14 @@
 @import 'variables';
 //apartments
 @import './partials/apartments';
+//dahsboard
+@import './partials/dashboard';
 //login
 @import './partials/_login';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
