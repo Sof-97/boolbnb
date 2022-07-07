@@ -34,7 +34,7 @@ class ApartmentController extends Controller
 
         // $apartments = Apartment::all();
 
-        return view('admin.apartments.index', compact('apartments'));
+        return view('admin.apartments.apartment', compact('apartments'));
     }
 
     /**
@@ -99,7 +99,7 @@ class ApartmentController extends Controller
             $newApartment->service()->attach($data['services']);
         }
 
-        return redirect()->route('admin.apartments.index')->with('created', "Hai aggiunto l'appartamento: $newApartment->title");;
+        return redirect()->route('admin.apartments.apartment')->with('created', "Hai aggiunto l'appartamento: $newApartment->title");;
     }
 
     /**
@@ -116,7 +116,7 @@ class ApartmentController extends Controller
             $id = Auth::id();
             $apartments = Apartment::all()->where('id_user', '=', $id);
 
-            return view('admin.apartments.index', compact('apartments'));
+            return view('admin.apartments.apartment', compact('apartments'));
         }
     }
 
@@ -136,7 +136,7 @@ class ApartmentController extends Controller
             $id = Auth::id();
             $apartments = Apartment::all()->where('id_user', '=', $id);
 
-            return view('admin.apartments.index', compact('apartments'));
+            return view('admin.apartments.apartment', compact('apartments'));
         }
     }
 
@@ -177,7 +177,7 @@ class ApartmentController extends Controller
             $data['cover_image'] = $image_url;
         }
         $apartment->update($data);
-        return redirect()->route('admin.apartments.index')->with('modified', "Hai modificato: $apartment->title");
+        return redirect()->route('admin.apartments.apartment')->with('modified', "Hai modificato: $apartment->title");
     }
 
     /**
@@ -191,6 +191,6 @@ class ApartmentController extends Controller
         Storage::delete($apartment->cover_image);
         $apartment->delete();
 
-        return redirect()->route('admin.apartments.index')->with('deleted', "Hai eliminato con successo: $apartment->title");
+        return redirect()->route('admin.apartments.apartment')->with('deleted', "Hai eliminato con successo: $apartment->title");
     }
 }
