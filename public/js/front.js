@@ -15182,9 +15182,6 @@ var router = new !(function webpackMissingModule() { var e = new Error("Cannot f
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Ayadi\Desktop\Files\Exercices\Repository\boolbnb-team3-58\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\Ayadi\Desktop\Files\Exercices\Repository\boolbnb-team3-58\resources\sass\app.scss */"./resources/sass/app.scss");
-
 
 /***/ })
 

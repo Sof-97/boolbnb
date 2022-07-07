@@ -100,8 +100,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button class="button-show" type="submit" class="delete-form">
-
-                                        <a class="button-show" href="">Elimina</a>
+                                       Elimina
                                     </button>
                                 </form>
                             </td>
