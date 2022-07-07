@@ -14363,6 +14363,8 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(/*! C:\Users\dinoa\Desktop\boolbnb-team3-58\resources\js\formCreate.js */"./resources/js/formCreate.js");
+
 
 /***/ })
 

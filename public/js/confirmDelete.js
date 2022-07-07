@@ -111,6 +111,8 @@ deleteForm.forEach(function (form) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(/*! C:\Users\dinoa\Desktop\boolbnb-team3-58\resources\js\confirmDelete.js */"./resources/js/confirmDelete.js");
+
 
 /***/ })
 

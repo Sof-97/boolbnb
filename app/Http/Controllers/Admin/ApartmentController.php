@@ -104,7 +104,10 @@ class ApartmentController extends Controller
         if (Auth::id() == $apartment->id_user) {
             return view('admin.apartments.show', compact('apartment'));
         } else {
-            echo "Non hai i diritti";
+            $id = Auth::id();
+            $apartments = Apartment::all()->where('id_user', '=', $id);
+
+            return view('admin.apartments.index', compact('apartments'));
         }
     }
 
@@ -121,7 +124,10 @@ class ApartmentController extends Controller
             $apartment_services_id =  $apartment->service->pluck('id')->toArray();
             return view('admin.apartments.edit', compact('apartment', 'services', 'apartment_services_id'));
         } else {
-            echo "Non hai i diritti";
+            $id = Auth::id();
+            $apartments = Apartment::all()->where('id_user', '=', $id);
+            
+            return view('admin.apartments.index', compact('apartments'));
         }
     }
 
