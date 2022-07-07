@@ -22,7 +22,7 @@ class PoiController extends Controller
         $response = [];
 
         foreach($apartments as $apartment){
-            $poi = array(
+            $poi['position'] = array(
                 "lat"=> $apartment->latitude,
                 "lon"=> $apartment->longitude,
             );

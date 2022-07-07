@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import TestPage from './components/pages/TestPage.vue';
+import SingleApartment from "./components/pages/SingleApartment.vue";
+import NotFoundPage from "./components/pages/NotFoundPage.vue";
+import LandingPage from "./components/pages/LandingPage.vue";
 
 Vue.use(VueRouter);
 
@@ -8,8 +10,10 @@ const router = new VueRouter({
     mode: 'history',
     routes:[
         {
-            path : '/', component: TestPage, name: 'TestPage'
-        }
+            path : '/show/:slug', component: SingleApartment, name: 'SingleApartment'
+        },
+        { path: '*', component: NotFoundPage, name: 'notFound' },
+        { path: '/', component: LandingPage, name: 'LandingPage' },
     ]
 });
 
