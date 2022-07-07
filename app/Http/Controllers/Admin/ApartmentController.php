@@ -18,6 +18,15 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function dashboard()
+    {
+        return view('admin.apartments.dashboard');
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $id = Auth::id();
@@ -126,7 +135,7 @@ class ApartmentController extends Controller
         } else {
             $id = Auth::id();
             $apartments = Apartment::all()->where('id_user', '=', $id);
-            
+
             return view('admin.apartments.index', compact('apartments'));
         }
     }

@@ -11,8 +11,20 @@
     </title>
 </head>
 
-@yield('content')
+
+<main>
+    <section class="float-left">
+        <nav>
+            Nav laterale
+        </nav>
+    </section>
+    <div class="float-right">
+        @yield('content')
+    </div>
+</main>
+
 <style>
     @import "../../resources/sass/app.scss";
 </style>
+
 </html>
