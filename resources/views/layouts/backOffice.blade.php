@@ -13,17 +13,15 @@
 
 <div class="page-height">
 
-
 <header>
     @include('layouts.nav-title')
 </header>
 
-<main class="height">
+<main class="main-page">
     <div class="nav-flex">
-        @include('layouts.navbar-top')
+        @include('layouts.navbar-side')
         @yield('content')
     </div>
-
 </main>
 
 </div>
