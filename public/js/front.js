@@ -2172,16 +2172,14 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("div", {
-    staticClass: "index-container index-mt-5"
-  }, [_c("input", {
+  return _c("div", [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.search,
       expression: "search"
     }],
-    staticClass: "form-control my-3",
+    staticClass: "index-search",
     attrs: {
       type: "text",
       placeholder: "Cerca"
@@ -2200,6 +2198,8 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("div", {
+    staticClass: "index-container"
+  }, [_c("div", {
     staticClass: "index-cards"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
@@ -2215,9 +2215,9 @@ var render = function render() {
       staticClass: "index-card-title"
     }, [_vm._v(_vm._s(e.title))]), _vm._v(" "), _c("p", {
       staticClass: "index-card-text"
-    }, [_vm._v(_vm._s(e.description))]), _vm._v(" "), _c("p", {
+    }, [_vm._v(_vm._s(e.description))])]), _vm._v(" "), _c("div", [_c("p", {
       staticClass: "index-card-title"
-    }, [_vm._v(_vm._s(e.price) + "€")])]), _vm._v(" "), _c("div", [_c("router-link", {
+    }, [_vm._v(_vm._s(e.price) + "€")]), _vm._v(" "), _c("router-link", {
       staticClass: "index-btn",
       attrs: {
         to: {
@@ -2330,7 +2330,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.index-cards{\n    display:flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    align-items: center;\n    overflow: auto;\n}\n.index-card{\n    display: flex;\n    flex-direction: column;\n    /* align-items: center; */\n    justify-content: space-between;\n    width: calc(100%/4);\n    padding-top: 32px;\n}\n.index-img-top{\n    width: 100%;\n}\n.index-btn{\n    padding: 10px;\n    color: red;\n    border-radius: 10px;\n    border: 0.2px solid grey;\n    box-shadow: 2px 2px 1px gray;\n}\n\n/* .index-card-body{\n    display: flex;\n    flex-wrap: wrap;\n    flex-direction: column;\n    height: 100%;\n    justify-content: space-between; */\n    /* align-items: center; */\n/* } */\n.index-container{\n    width: 80vw;\n    height: 70vh;\n    margin: 0 auto;\n}\n", ""]);
+exports.push([module.i, "\n.index-cards{\n    display:flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    align-items: center;\n}\n.index-card{\n    display: flex;\n    flex-direction: column;\n    flex-wrap: wrap;\n    /* align-items: center; */\n    justify-content: space-between;\n    height: 600px;\n    width: calc(100%/4);\n    padding-top: 32px;\n}\n.index-img-top{\n    width: 100%;\n}\n.index-btn{\n    padding: 10px;\n    color: red;\n    border-radius: 10px;\n    border: 0.2px solid grey;\n    box-shadow: 2px 2px 1px gray;\n}\n\n/* .index-card-body{\n    display: flex;\n    flex-wrap: wrap;\n    flex-direction: column;\n    height: 100%;\n    justify-content: space-between; */\n    /* align-items: center; */\n/* } */\n.index-container{\n    width: 80vw;\n    height: 70vh;\n    margin: 0 auto;\n    overflow: scroll;\n}\n.index-search{\n    width: 60vw;\n    margin-left: 20%;\n    border-radius: 3px;\n    box-shadow: 2px 2px 1px gray;\n    border: 0.0 solid gray;\n    margin-bottom: 10px;\n}\n\n", ""]);
 
 // exports
 
