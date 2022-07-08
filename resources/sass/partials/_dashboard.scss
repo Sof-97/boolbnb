@@ -25,6 +25,7 @@
 
 .nav-flex {
     display: flex;
+    min-height: 100%;
 }
 
 .button {
@@ -122,4 +123,8 @@
 .movement {
     display: flex;
     justify-content: center;
+}
+
+body {
+    min-height: 100vh;
 }

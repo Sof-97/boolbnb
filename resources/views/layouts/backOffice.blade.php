@@ -11,23 +11,21 @@
     </title>
 </head>
 
-<div class="page-height">
+<body>
 
-<header>
-    @include('layouts.nav-title')
-</header>
+    <header>
+        @include('layouts.nav-title')
+    </header>
 
-<main class="main-page">
-    <div class="nav-flex">
-        @include('layouts.navbar-side')
-        @yield('content')
-    </div>
-</main>
+    <main class="main-page" style="min-height: 100%">
+        <div class="nav-flex">
+            @include('layouts.navbar-side')
+            @yield('content')
+        </div>
+    </main>
 
-</div>
 
-<style>
-    @import "../../resources/sass/app.scss";
-</style>
+
+</body>
 
 </html>
