@@ -1,9 +1,9 @@
 <nav>
     <section>
-        <div class="title test">
+        <div class="title flex">
             <div>
                 <img style="height: 50px; width: 50px;" src="{{ asset('img/airbnb-logo.png') }}" alt="tag">
-                <span class="title" style="color: $color-accent">BoolBnB</span>
+                <span style="color: $color-accent">BoolBnB</span>
             </div>
             <div>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">

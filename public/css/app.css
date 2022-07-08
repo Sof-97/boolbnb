@@ -81,7 +81,7 @@ ul {
   text-decoration: none;
   color: #222222;
   margin-left: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .nav-ul .nav-li:hover {
@@ -89,7 +89,14 @@ ul {
 }
 
 .title {
-  padding: 15px;
+  padding: 12px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-flex {
@@ -98,10 +105,11 @@ ul {
 
 .button {
   background-color: #ff385c;
-  padding: 6px;
+  padding: 8px;
   border: 0px;
   border-radius: 8px;
   color: white;
+  font-size: 12px;
 }
 
 .pos-rel {
@@ -113,13 +121,14 @@ ul {
   justify-content: space-between;
 }
 
-.brief-statistics {
-  display: flex;
-}
-
 .template-image {
   height: 160px;
   width: 160px;
+}
+
+.hover:hover {
+  background-color: black;
+  z-index: 1;
 }
 
 .statistics-written {
@@ -129,16 +138,66 @@ ul {
   margin-left: 20px;
 }
 
-h4 {
+.accent {
   padding-bottom: 12px;
-}
-
-.main-page {
-  margin-top: 20px;
+  padding-top: 12px;
+  color: #ff385c;
 }
 
 .spacing-title {
   padding-top: 20px;
+}
+
+.statistics {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.cards {
+  display: flex;
+  margin-top: 20px;
+}
+
+.description {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.dash-title {
+  margin-bottom: 30px;
+  width: 40%;
+}
+
+.color-welcome {
+  color: rgb(114, 114, 114);
+  text-align: center;
+  margin-top: 25px;
+  background-color: #EEEEEE;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.bg-color {
+  background-color: #EEEEEE;
+}
+
+.flex-right {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.nav-bar {
+  padding-top: 50px;
+}
+
+.margin-bottom {
+  margin-bottom: 30px;
+}
+
+.movement {
+  display: flex;
+  justify-content: center;
 }
 
 .login-title {
