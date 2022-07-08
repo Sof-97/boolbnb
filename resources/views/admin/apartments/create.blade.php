@@ -16,6 +16,14 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            {{-- Prezzo --}}
+            <div class="form-group">
+                <label for="price">Prezzo dell'appartamento per notte</label>
+                <input step="0.01" min="1" type="number" required name="price" id="price" class="form-control" placeholder="Prezzo dell'appartamento per notte">
+                @error('price')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
             {{-- Descrizione appartamento --}}
             <div class="form-group">
                 <label for="description">Descrizione appartamento</label>
@@ -35,7 +43,7 @@
             <div class="form-group">
                 <label for="services">Servizi presenti:</label><br>
                 @foreach ($services as $service)
-                    <input required class="ml-3" type="checkbox" name="services[]" value="{{ $service->id }}"
+                    <input class="ml-3" type="checkbox" name="services[]" value="{{ $service->id }}"
                         id="{{ $service }}">{{ $service->name }} <br>
                 @endforeach
             </div>
@@ -50,7 +58,7 @@
             {{-- N° MQ2 --}}
             <div class="form-group">
                 <label for="mq2">Metri quadrati</label>
-                <input required class="form-control" type="number" name="mq2" id="mq2" min="0" />
+                <input required class="form-control" type="number" name="mq2" id="mq2" min="1" />
                 @error('mq2')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -58,7 +66,7 @@
             {{-- N° Stanze --}}
             <div class="form-group">
                 <label for="rooms">N° di stanze</label>
-                <input required class="form-control" type="number" name="rooms" id="rooms" min="0" />
+                <input required class="form-control" type="number" name="rooms" id="rooms" min="1" />
                 @error('rooms')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -66,7 +74,7 @@
             {{-- N° letti --}}
             <div class="form-group">
                 <label for="beds">N° di letti</label>
-                <input required class="form-control" type="number" name="beds" id="beds" min="0" />
+                <input required class="form-control" type="number" name="beds" id="beds" min="1" />
                 @error('beds')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

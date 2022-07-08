@@ -11,14 +11,20 @@
     </title>
 </head>
 
-<body>
+
+<main>
+    <section class="float-left">
+        <nav>
+            Nav laterale
+        </nav>
+    </section>
     <div class="float-right">
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button class="btn" type="submit">Logout</button>
-        </form>
+        @yield('content')
     </div>
-    @yield('content')
-</body>
+</main>
+
+<style>
+    @import "../../resources/sass/app.scss";
+</style>
 
 </html>

@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
+
+
 Route::middleware('auth')
     ->prefix('admin')
     ->name('admin.')
@@ -24,6 +26,7 @@ Route::middleware('auth')
     ->group(
         function () {
             Route::resource('apartments', 'ApartmentController');
+            Route::get('dashboard', 'ApartmentController@dashboard')->name('dashboard');
         }
     );
 
@@ -32,5 +35,5 @@ Route::get('/', function () {
 });
 
 Route::get('{any?}', function () {
-    return view('guest.404');
+    return view('guest.index');
 })->where("any", ".*");

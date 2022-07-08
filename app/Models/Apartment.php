@@ -8,7 +8,7 @@ use App\Models\Sponsorship;
 class Apartment extends Model
 {   
     protected $fillable = [
-        'title', 'description', 'cover_image', 'latitude', 'longitude', 'address', 'rooms', 'beds', 'bathrooms', 'mq2', 'is_visible', 'slug', 'id_user'
+        'title', 'price', 'description', 'cover_image', 'latitude', 'longitude', 'address', 'rooms', 'beds', 'bathrooms', 'mq2', 'is_visible', 'slug', 'id_user'
     ];
 
     public function service()

@@ -1,0 +1,73 @@
+.title {
+    color: $color-accent;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.btn-color {
+    background-color: $color-accent !important;
+    border-color: $color-accent !important;
+}
+
+.h2-color {
+    color: $color-accent;
+}
+
+.custom-margin {
+    margin-right: 10px;
+}
+
+.spacing {
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.button-show {
+    background-color: white;
+    color: $color-gray-2;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+.button-show:hover {
+    color: $color-accent;
+    text-decoration: none;
+}
+
+.left {
+    width: 30%;
+    background-color: $color-gray-1;
+    color: $color-gray-2;
+    padding-top: 20px;
+}
+
+.menu {
+    list-style-type: none;
+    margin-left: 0 !important;
+}
+
+.menu-items {
+    text-decoration: none;
+    color: $color-gray-2;
+}
+
+.menu-items:hover {
+    text-decoration: none;
+    color: $color-accent;
+}
+
+ul {
+    margin-left: 0 !important;
+}
+
+.custom {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 5px 10px 0px #000000;
+    -moz-box-shadow: 5px 5px 10px 0px #000000;
+    -o-box-shadow: 5px 5px 10px 0px #000000;
+    box-shadow: 5px 5px 10px 0px #222222;
+    width: 80%;
+}
