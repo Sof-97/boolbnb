@@ -8,11 +8,11 @@
                 placeholder="Cerca"
                 @keyup.enter="searchPage"
             />
-            <div class="row justify-content-between">
+            <div class="index-cards">
                 <div
                     v-for="(e, i) in apartments"
                     :key="i"
-                    class="col-3 card mb-5 p-2"
+                    class="index-card"
                 >
                     <img
                         class="card-img-top"
@@ -66,4 +66,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<!-- <style lang="scss" scoped></style> -->
+
+<style>
+.index-cards{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+
+.index-card{
+    width: calc((100%/4));
+}
+
+
+</style>
