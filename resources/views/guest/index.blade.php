@@ -8,8 +8,41 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Landing page frontend</h1>
-    <div id="root"></div>
+    <nav>
+        <div class="index-nav-img">
+            <img src="{{asset("img/airbnb-logo.png")}}" alt="Logo">
+            <div class="index-title">
+                BoolBnB
+            </div>
+        </div>
+
+    </nav>
+    <h2 class="index-title">Wellcome on BoolBnB</h2>
+    <div id="root">
+
+    </div>
     <script src="{{asset('js/front.js')}}"></script>
 </body>
 </html>
+
+
+<style>
+.index-nav-img{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    font-weight:700
+}
+
+.index-nav-img, img{
+    width: 60px;
+    padding-right: 16px
+}
+
+.index-title{
+    text-align: center;
+    color: red
+}
+
+</style>
