@@ -50,7 +50,11 @@ export default {
         };
     },
     props: {
-        query: {
+        lat: {
+            type: String,
+            default: "",
+        },
+        lon: {
             type: String,
             default: "",
         },

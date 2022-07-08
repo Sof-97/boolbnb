@@ -23,4 +23,5 @@ Route::namespace('Api')->group(function () {
     Route::get('/apartments/{slug}', 'ApartmentController@show');
     Route::get('/apartments/search/{query}/', 'ApartmentController@search');
     Route::get('/address', 'PoiController@index');
+    Route::get('/distance/{radius}/{lat}/{lon}', 'ApartmentController@radiusSearch');
 });
