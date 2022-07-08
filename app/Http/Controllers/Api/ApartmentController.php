@@ -67,10 +67,27 @@ class ApartmentController extends Controller
 
         $apartments = [];
 
+        $lat2 = deg2rad($lat);
+        $lon2 = deg2rad($lon);
+        
         foreach ($allApartments as $apartment) {
-            $distance = $this->distance($apartment->latitude, $apartment->longitude, $lat, $lon);
 
-            array_push($apartments, $apartment);
+            $lat1 = deg2rad($apartment->latitude);
+            $lon1 = deg2rad($apartment->longitude);
+
+
+            $deltaLat = $lat2 - $lat1;
+            $deltaLon = $lon2 - $lon1;
+
+            $val = pow(sin($deltaLat / 2), 2) + cos($lat1) * cos($lat2) * pow(sin($deltaLon / 2), 2);
+            $res = 2 * asin(sqrt($val));
+
+            $radiusEarth = 6371;
+            $distance = $radiusEarth * $res;
+
+            if ($distance <= $radius) {
+                array_push($apartments, $apartment);
+            }
         }
 
         return response()->json($apartments);
