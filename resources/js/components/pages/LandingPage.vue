@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="container mt-5">
+        <div class="index-container index-mt-5">
+
             <input
                 type="text"
                 v-model="search"
@@ -8,30 +9,40 @@
                 placeholder="Cerca"
                 @keyup.enter="searchPage"
             />
+
             <div class="index-cards">
                 <div
                     v-for="(e, i) in apartments"
                     :key="i"
                     class="index-card"
                 >
-                    <img
-                        class="card-img-top"
-                        :src="`${e.cover_image}`"
-                        alt="Card image cap"
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">{{ e.title }}</h5>
-                        <p class="card-text">{{ e.description }}</p>
-                        <p class="card-title">{{ e.price }}€</p>
-                        <router-link
-                            :to="{
-                                name: 'SingleApartment',
-                                params: { slug: e.slug },
-                            }"
-                            class="btn btn-primary"
-                            >Vai all'appartamento</router-link
-                        >
-                    </div>
+
+                    <!-- <div class="index-card-body"> -->
+
+                        <div>
+                            <img
+                            class="index-img-top"
+                            :src="`${e.cover_image}`"
+                            alt="Card image cap"
+                            />
+
+                            <h5 class="index-card-title">{{ e.title }}</h5>
+                            <p class="index-card-text">{{ e.description }}</p>
+                            <p class="index-card-title">{{ e.price }}€</p>
+                        </div>
+
+                        <div>
+                            <router-link
+                                :to="{
+                                    name: 'SingleApartment',
+                                    params: { slug: e.slug },
+                                }"
+                                class="index-btn"
+                                >Vai all'appartamento</router-link
+                            >
+                        </div>
+
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -73,12 +84,44 @@ export default {
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    /* align-items: center; */
+    align-items: center;
+    overflow: auto;
 }
 
 .index-card{
-    width: calc((100%/4));
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    width: calc(100%/4);
+    padding-top: 32px;
 }
 
+.index-img-top{
+    width: 100%;
 
+}
+
+.index-btn{
+    padding: 10px;
+    color: red;
+    border-radius: 10px;
+    border: 0.2px solid grey;
+    box-shadow: 2px 2px 1px gray;
+}
+
+/* .index-card-body{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between; */
+    /* align-items: center; */
+/* } */
+
+.index-container{
+    width: 80vw;
+    height: 70vh;
+    margin: 0 auto;
+}
 </style>

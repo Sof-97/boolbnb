@@ -2173,7 +2173,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("div", {
-    staticClass: "container mt-5"
+    staticClass: "index-container index-mt-5"
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -2205,22 +2205,20 @@ var render = function render() {
     return _c("div", {
       key: i,
       staticClass: "index-card"
-    }, [_c("img", {
-      staticClass: "card-img-top",
+    }, [_c("div", [_c("img", {
+      staticClass: "index-img-top",
       attrs: {
         src: "".concat(e.cover_image),
         alt: "Card image cap"
       }
-    }), _vm._v(" "), _c("div", {
-      staticClass: "card-body"
-    }, [_c("h5", {
-      staticClass: "card-title"
+    }), _vm._v(" "), _c("h5", {
+      staticClass: "index-card-title"
     }, [_vm._v(_vm._s(e.title))]), _vm._v(" "), _c("p", {
-      staticClass: "card-text"
+      staticClass: "index-card-text"
     }, [_vm._v(_vm._s(e.description))]), _vm._v(" "), _c("p", {
-      staticClass: "card-title"
-    }, [_vm._v(_vm._s(e.price) + "€")]), _vm._v(" "), _c("router-link", {
-      staticClass: "btn btn-primary",
+      staticClass: "index-card-title"
+    }, [_vm._v(_vm._s(e.price) + "€")])]), _vm._v(" "), _c("div", [_c("router-link", {
+      staticClass: "index-btn",
       attrs: {
         to: {
           name: "SingleApartment",
@@ -2332,7 +2330,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.index-cards{\n    display:flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    /* align-items: center; */\n}\n.index-card{\n    width: calc((100%/4));\n}\n\n\n", ""]);
+exports.push([module.i, "\n.index-cards{\n    display:flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    align-items: center;\n    overflow: auto;\n}\n.index-card{\n    display: flex;\n    flex-direction: column;\n    /* align-items: center; */\n    justify-content: space-between;\n    width: calc(100%/4);\n    padding-top: 32px;\n}\n.index-img-top{\n    width: 100%;\n}\n.index-btn{\n    padding: 10px;\n    color: red;\n    border-radius: 10px;\n    border: 0.2px solid grey;\n    box-shadow: 2px 2px 1px gray;\n}\n\n/* .index-card-body{\n    display: flex;\n    flex-wrap: wrap;\n    flex-direction: column;\n    height: 100%;\n    justify-content: space-between; */\n    /* align-items: center; */\n/* } */\n.index-container{\n    width: 80vw;\n    height: 70vh;\n    margin: 0 auto;\n}\n", ""]);
 
 // exports
 
