@@ -14,7 +14,6 @@
 
 .title {
     padding: 12px;
-    border-bottom: 1px solid $dirty-white;
 }
 
 .flex {
@@ -123,8 +122,4 @@
 .movement {
     display: flex;
     justify-content: center;
-}
-
-body {
-    min-height: 100vh;
 }

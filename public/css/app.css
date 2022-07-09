@@ -74,10 +74,6 @@ ul {
   width: 92%;
 }
 
-main {
-  height: 100%;
-}
-
 .nav-ul {
   list-style-type: none;
   margin-bottom: 0 !important;
@@ -96,7 +92,6 @@ main {
 
 .title {
   padding: 12px;
-  border-bottom: 1px solid #EEEEEE;
 }
 
 .flex {
@@ -205,10 +200,6 @@ main {
 .movement {
   display: flex;
   justify-content: center;
-}
-
-body {
-  min-height: 100vh;
 }
 
 .login-title {

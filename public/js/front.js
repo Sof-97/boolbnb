@@ -2031,7 +2031,7 @@ var render = function render() {
           return _vm.select(i);
         }
       }
-    }, [_vm._v("\n                        " + _vm._s(e.address.freeformAddress) + "\n                    ")]);
+    }, [_vm._v("\r\n                        " + _vm._s(e.address.freeformAddress) + "\r\n                    ")]);
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "row justify-content-between"
   }, _vm._l(_vm.apartments, function (e, i) {
@@ -18347,8 +18347,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolbnb-team3-58/resources/js/front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolbnb-team3-58/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

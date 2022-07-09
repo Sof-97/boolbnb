@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="page-height" lang="en">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,21 +11,20 @@
     </title>
 </head>
 
-<body>
-
+<body style="min-height: 100vh;">
     <header>
         @include('layouts.nav-title')
     </header>
-
-    <main class="main-page" style="min-height: 100%">
+    <main style="min-height: 100%">
         <div class="nav-flex">
             @include('layouts.navbar-side')
             @yield('content')
         </div>
     </main>
-
-
-
+    <footer class="d-flex justify-content-center">
+        Footer di test
+    </footer>
+    @yield('script')
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 @extends('layouts.backOffice')
-
+@section('title')
+    Dashboard
+@endsection
 @section('content')
 
 <div class="flex-right">

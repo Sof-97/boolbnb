@@ -1,4 +1,7 @@
 @extends('layouts.backOffice')
+@section('title')
+    Appartamenti
+@endsection
 @section('content')
     @if (session('deleted'))
         <div class="alert alert-danger">
@@ -98,9 +101,7 @@
             </div>
         </div>
     </div>
-
+@endsection
+@section('script')
     <script src="{{ asset('js/confirmDelete.js') }}"></script>
-    <style>
-        @import "../../resources/sass/app.scss";
-    </style>
 @endsection
