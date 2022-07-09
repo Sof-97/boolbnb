@@ -12,7 +12,7 @@ const router = new VueRouter({
     routes: [
         { path: '/show/:slug', component: SingleApartment, name: 'SingleApartment' },
         { path: '/', component: LandingPage, name: 'LandingPage' },
-        { path: '/search', component: AdvancedSearch, name: 'AdvancedSearch', props: route => ({ lat: route.query.lat, lon: route.query.lon }) },
+        { path: '/search', component: AdvancedSearch, name: 'AdvancedSearch', props: route => ({radius: route.query.radius, lat: route.query.lat, lon: route.query.lon }) },
         { path: '*', component: NotFoundPage, name: 'notFound' },
     ]
 });

@@ -1943,19 +1943,21 @@ __webpack_require__.r(__webpack_exports__);
     lon: {
       type: String,
       "default": ""
+    },
+    radius: {
+      type: String,
+      "default": ""
     }
   },
   created: function created() {
-    this.getApartments(this.query);
+    this.getApartments(this.radius, this.lat, this.lon);
   },
   methods: {
-    getApartments: function getApartments(query) {
+    getApartments: function getApartments(radius, lat, lon) {
       var _this = this;
 
-      console.log(query);
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments/search/" + query).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/distance/" + radius + "/" + lat + "/" + lon).then(function (res) {
         _this.apartments = res.data;
-        console.log(res.data);
       });
     },
     getInfoApi: function getInfoApi() {
@@ -1990,14 +1992,17 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       baseUrlTomtom: "https://api.tomtom.com/search/2/search/",
-      keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
+      keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT",
       apartments: null,
       search: "",
-      autocomplete: null
+      autocomplete: null,
+      lat: null,
+      lon: null
     };
   },
   mounted: function mounted() {
     this.getApartments("http://127.0.0.1:8000/api/apartments");
+    var gallery = document.getElementById("gallery");
   },
   methods: {
     getInfoApi: function getInfoApi(query) {
@@ -2013,6 +2018,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     select: function select(i) {
       this.search = this.autocomplete[i].address.freeformAddress;
+      this.lat = this.autocomplete[i].position.lat;
+      this.lon = this.autocomplete[i].position.lon;
+      this.searchPage();
     },
     getApartments: function getApartments(query) {
       var _this2 = this;
@@ -2025,10 +2033,20 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push({
         path: "/search",
         query: {
+          radius: "20",
           lat: this.lat,
           lon: this.lon
         }
       });
+    }
+  },
+  watch: {
+    autocomplete: function autocomplete() {
+      if (this.autocomplete.length > 0) {
+        gallery.classList.add("opacity");
+      } else {
+        gallery.classList.remove("opacity");
+      }
     }
   }
 });
@@ -2127,6 +2145,8 @@ var render = function render() {
 
   return _c("div", [_c("h1", [_vm._v("Search")]), _vm._v(" "), _c("div", {
     staticClass: "container"
+  }, [_c("div", {
+    staticClass: "flex"
   }, [_c("input", {
     staticClass: "form-control my-3",
     attrs: {
@@ -2139,7 +2159,24 @@ var render = function render() {
         return _vm.getApartments.apply(null, arguments);
       }
     }
-  }), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "radius"
+    }
+  }, [_vm._v("Raggio di ricerca ")]), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "range",
+      name: "radius",
+      id: "radius"
+    }
+  })]), _vm._v(" "), _c("p", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.apartments.length == 0,
+      expression: "apartments.length == 0"
+    }]
+  }, [_vm._v("\r\n                Nessun appartamento corrispondete.\r\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "row justify-content-between"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
@@ -2196,6 +2233,8 @@ var render = function render() {
 
   return _c("div", [_c("div", {
     staticClass: "container mt-5"
+  }, [_c("div", {
+    staticClass: "position-relative"
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -2214,7 +2253,7 @@ var render = function render() {
     on: {
       keyup: [function ($event) {
         if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) return null;
-        return _vm.searchPage.apply(null, arguments);
+        return _vm.select(0);
       }, function ($event) {
         return _vm.getInfoApi(_vm.search);
       }],
@@ -2227,15 +2266,24 @@ var render = function render() {
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: _vm.autocomplete != 0,
-      expression: "autocomplete != 0"
-    }]
+      value: _vm.autocomplete != null && _vm.autocomplete.length > 0 && _vm.search != "",
+      expression: "\r\n                        autocomplete != null &&\r\n                        autocomplete.length > 0 &&\r\n                        search != ''\r\n                    "
+    }],
+    staticClass: "autocomplete"
   }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
     return _c("li", {
-      key: i
-    }, [_vm._v("\r\n                        " + _vm._s(e.address.freeformAddress) + "\r\n                    ")]);
-  }), 0)]), _vm._v(" "), _c("div", {
-    staticClass: "row justify-content-between"
+      key: i,
+      on: {
+        click: function click($event) {
+          return _vm.select(i);
+        }
+      }
+    }, [_vm._v("\r\n                            " + _vm._s(e.address.freeformAddress) + "\r\n                        ")]);
+  }), 0)])]), _vm._v(" "), _c("div", {
+    staticClass: "row justify-content-between",
+    attrs: {
+      id: "gallery"
+    }
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
       key: i,
@@ -2348,7 +2396,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "ul[data-v-58eaf320] {\n  list-style: none;\n}\nul li[data-v-58eaf320] {\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".autocomplete[data-v-58eaf320] {\n  z-index: 10;\n  width: 50%;\n  background-color: #fff;\n  padding: 20px;\n  border: 1px solid black;\n  border-radius: 20px;\n  position: absolute;\n}\n.autocomplete ul[data-v-58eaf320] {\n  list-style: none;\n}\n.autocomplete ul li[data-v-58eaf320] {\n  font-family: monospace;\n  opacity: 0.7;\n  border-bottom: 1px solid grey;\n  padding: 5px 0;\n  cursor: pointer;\n}\n.autocomplete ul li[data-v-58eaf320]:last-of-type {\n  border: none;\n}\n.autocomplete ul li[data-v-58eaf320]:hover {\n  opacity: 1;\n}\n.opacity[data-v-58eaf320] {\n  opacity: 0.5;\n}", ""]);
 
 // exports
 
@@ -18479,14 +18527,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************************!*\
   !*** ./resources/js/components/pages/AdvancedSearch.vue ***!
   \**********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdvancedSearch_vue_vue_type_template_id_781a2080_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=template&id=781a2080&scoped=true& */ "./resources/js/components/pages/AdvancedSearch.vue?vue&type=template&id=781a2080&scoped=true&");
 /* harmony import */ var _AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/AdvancedSearch.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -18516,7 +18565,7 @@ component.options.__file = "resources/js/components/pages/AdvancedSearch.vue"
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/pages/AdvancedSearch.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18853,6 +18902,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'AdvancedSearch',
     props: function props(route) {
       return {
+        radius: route.query.radius,
         lat: route.query.lat,
         lon: route.query.lon
       };

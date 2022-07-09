@@ -2,12 +2,19 @@
     <div>
         <h1>Search</h1>
         <div class="container">
-            <input
-                type="text"
-                class="form-control my-3"
-                placeholder="Cerca"
-                @keyup.enter="getApartments"
-            />
+            <div class="flex">
+                <input
+                    type="text"
+                    class="form-control my-3"
+                    placeholder="Cerca"
+                    @keyup.enter="getApartments"
+                />
+                <label for="radius">Raggio di ricerca </label>
+                <input type="range" name="radius" id="radius" />
+            </div>
+            <p v-show="apartments.length == 0">
+                Nessun appartamento corrispondete.
+            </p>
             <div class="row justify-content-between">
                 <div
                     v-for="(e, i) in apartments"
@@ -46,7 +53,7 @@ export default {
             baseUrlTomtom: "https://api.tomtom.com/search/2/search/",
             keySettingsTomtom:
                 ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
-            apartments: null
+            apartments: null,
         };
     },
     props: {
@@ -58,18 +65,27 @@ export default {
             type: String,
             default: "",
         },
+        radius: {
+            type: String,
+            default: "",
+        },
     },
     created() {
-        this.getApartments(this.query);
+        this.getApartments(this.radius, this.lat, this.lon);
     },
     methods: {
-        getApartments(query) {
-            console.log(query);
+        getApartments(radius, lat, lon) {
             axios
-                .get("http://127.0.0.1:8000/api/apartments/search/" + query)
+                .get(
+                    "http://127.0.0.1:8000/api/distance/" +
+                        radius +
+                        "/" +
+                        lat +
+                        "/" +
+                        lon
+                )
                 .then((res) => {
                     this.apartments = res.data;
-                    console.log(res.data);
                 });
         },
         getInfoApi() {
@@ -86,4 +102,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
