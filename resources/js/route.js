@@ -1,15 +1,19 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import TestPage from './components/pages/TestPage.vue';
+import SingleApartment from "./components/pages/SingleApartment.vue";
+import NotFoundPage from "./components/pages/NotFoundPage.vue";
+import LandingPage from "./components/pages/LandingPage.vue";
+import AdvancedSearch from "./components/pages/AdvancedSearch.vue";
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
     mode: 'history',
-    routes:[
-        {
-            path : '/', component: TestPage, name: 'TestPage'
-        }
+    routes: [
+        { path: '/show/:slug', component: SingleApartment, name: 'SingleApartment' },
+        { path: '/', component: LandingPage, name: 'LandingPage' },
+        { path: '/search', component: AdvancedSearch, name: 'AdvancedSearch', props: route => ({radius: route.query.radius, lat: route.query.lat, lon: route.query.lon }) },
+        { path: '*', component: NotFoundPage, name: 'notFound' },
     ]
 });
 

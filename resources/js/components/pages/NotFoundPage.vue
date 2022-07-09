@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h1>Test Page</h1>
+        <h1>Pagina non trovata --VUE</h1>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'TestPage'
+    name:"NotFoundPage"
 }
 </script>

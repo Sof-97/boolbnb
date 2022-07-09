@@ -7,6 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>Document</title>
+    <style>
+        *,
+        *::after,
+        *::before{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 
 <body>
