@@ -4,12 +4,15 @@
 @import 'variables';
 //apartments
 @import './partials/apartments';
+// LandingPage
+@import './partials/landingpage';
 //dahsboard
 @import './partials/dashboard';
 //login
 @import './partials/_login';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
 
 //reset user agent
 * {
