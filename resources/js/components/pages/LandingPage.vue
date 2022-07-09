@@ -90,6 +90,7 @@ export default {
     },
     mounted() {
         this.getApartments("http://127.0.0.1:8000/api/apartments");
+        // FIXME variabile gallery non usata
         const gallery = document.getElementById("gallery");
     },
     methods: {
@@ -130,9 +131,6 @@ export default {
     },
 };
 </script>
-
-
-
 
 <style lang="scss" scoped>
 

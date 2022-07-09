@@ -2001,7 +2001,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.getApartments("http://127.0.0.1:8000/api/apartments");
+    this.getApartments("http://127.0.0.1:8000/api/apartments"); // FIXME variabile gallery non usata
+
     var gallery = document.getElementById("gallery");
   },
   methods: {
