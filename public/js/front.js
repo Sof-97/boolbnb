@@ -2375,7 +2375,42 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("p", {
     staticClass: "my-4"
-  }, [_vm._v("Il prezzo a notte per l'appartamento è" + _vm._s(_vm.apartment.price) + "€")])]);
+  }, [_vm._v("Il prezzo a notte per l'appartamento è " + _vm._s(_vm.apartment.price) + "€")]), _vm._v(" "), _c("form", {
+    attrs: {
+      action: "../php/SendMessage.php",
+      method: "GET"
+    }
+  }, [_c("input", {
+    attrs: {
+      type: "number",
+      name: "id_apartment",
+      id: "id_apartment",
+      hidden: "",
+      required: ""
+    },
+    domProps: {
+      value: _vm.apartment.id
+    }
+  }), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "email",
+      name: "email",
+      id: "email",
+      required: ""
+    }
+  }), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "text",
+      name: "text",
+      id: "text",
+      required: ""
+    }
+  }), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "submit",
+      value: "Invia"
+    }
+  })])]);
 };
 
 var staticRenderFns = [];
@@ -18853,6 +18888,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('SingleApartment', __webpack_require__(/*! ./components/pages/SingleApartment.vue */ "./resources/js/components/pages/SingleApartment.vue"));
 var root = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#root',
   router: _route__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -18935,8 +18971,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolbnb-team3-58\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb-team3-58\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

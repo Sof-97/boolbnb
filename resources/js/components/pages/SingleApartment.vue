@@ -3,7 +3,13 @@
         <h1>Show</h1>
         <h2>{{apartment.title}}</h2>
         <img :src="apartment.cover_image" alt="">
-        <p class="my-4">Il prezzo a notte per l'appartamento è{{apartment.price}}€</p>
+        <p class="my-4">Il prezzo a notte per l'appartamento è {{apartment.price}}€</p>
+        <form action="../php/SendMessage.php" method="GET">
+            <input type="number" name="id_apartment" id="id_apartment" :value="apartment.id" hidden required>
+            <input type="email" name="email" id="email" required>
+            <input type="text" name="text" id="text" required>
+            <input type="submit" value="Invia">
+        </form>
     </div>
 </template>
 
