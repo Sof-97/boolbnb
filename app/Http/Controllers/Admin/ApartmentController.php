@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class ApartmentController extends Controller
 {
@@ -19,8 +20,10 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function dashboard()
-    {
-        return view('admin.apartments.dashboard');
+    {   $id = Auth::id();
+        $user = DB::table('users')->find($id);
+        $apartments = Apartment::all()->where('id_user', '=', $id);
+        return view('admin.apartments.dashboard', compact('user', 'apartments'));  
     }
     /**
      * Display a listing of the resource.
@@ -99,7 +102,7 @@ class ApartmentController extends Controller
             $newApartment->service()->attach($data['services']);
         }
 
-        return redirect()->route('admin.apartments.apartment')->with('created', "Hai aggiunto l'appartamento: $newApartment->title");;
+        return redirect()->route('admin.apartments.index')->with('created', "Hai aggiunto l'appartamento: $newApartment->title");;
     }
 
     /**
@@ -177,7 +180,7 @@ class ApartmentController extends Controller
             $data['cover_image'] = $image_url;
         }
         $apartment->update($data);
-        return redirect()->route('admin.apartments.apartment')->with('modified', "Hai modificato: $apartment->title");
+        return redirect()->route('admin.apartments.index')->with('modified', "Hai modificato: $apartment->title");
     }
 
     /**
@@ -191,6 +194,6 @@ class ApartmentController extends Controller
         Storage::delete($apartment->cover_image);
         $apartment->delete();
 
-        return redirect()->route('admin.apartments.apartment')->with('deleted', "Hai eliminato con successo: $apartment->title");
+        return redirect()->route('admin.apartments.index')->with('deleted', "Hai eliminato con successo: $apartment->title");
     }
 }
