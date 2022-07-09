@@ -1,15 +1,17 @@
 <template>
     <div>
-        <div class="container mt-5">
+            <input
+                type="text"
+                v-model="search"
+                class="index-search"
+                placeholder="Inizia a cercare una destinazione"
+                @keyup.enter="select(0)"
+                @keyup="getInfoApi(search)"
+            />
+        <div class="index-container">
+
             <div class="position-relative">
-                <input
-                    type="text"
-                    v-model="search"
-                    class="form-control my-3"
-                    placeholder="Cerca"
-                    @keyup.enter="select(0)"
-                    @keyup="getInfoApi(search)"
-                />
+
                 <div
                     class="autocomplete"
                     v-show="
@@ -18,14 +20,16 @@
                         search != ''
                     "
                 >
+
                     <ul>
                         <li :key="i" v-for="(e, i) in autocomplete" @click="select(i)">
                             {{ e.address.freeformAddress }}
                         </li>
                     </ul>
                 </div>
+
             </div>
-            <div class="row justify-content-between" id="gallery">
+            <div class="index-cards" id="gallery">
 
                 <div
                     v-for="(e, i) in apartments"
@@ -36,19 +40,20 @@
                     <!-- <div class="index-card-body"> -->
 
                         <div>
-                            <img
-                            class="index-img-top"
-                            :src="`${e.cover_image}`"
-                            alt="Card image cap"
-                            />
+                            <div class="index-img-cont">
+                                <img
+                                class="index-img-top"
+                                :src="`${e.cover_image}`"
+                                alt="Card image cap"
+                                />
+                            </div>
 
-                            <h5 class="index-card-title">{{ e.title }}</h5>
-                            <p class="index-card-text">{{ e.description }}</p>
-
+                            <div class="index-card-title">{{ e.title }}</div>
+                            <div class="index-card-text">{{ e.description }}</div>
                         </div>
 
                         <div>
-                            <p class="index-card-title">{{ e.price }}€</p>
+                            <p class="index-card-price">{{ e.price }}€</p>
                             <router-link
                                 :to="{
                                     name: 'SingleApartment',
@@ -155,6 +160,13 @@ export default {
         }
     }
 }
+.index-container{
+    // box-shadow: 5px 10px #888888;
+    width: 96vw;
+    margin: 0 auto;
+    z-index: 10;
+}
+
 .opacity {
     opacity: 0.5;
 }
@@ -162,24 +174,40 @@ export default {
 .index-cards{
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: start;
     align-items: center;
-
+    overflow: auto;
+    height: 80vh;
+    width: 50vw;
+    margin: 0 auto;
 }
 
 .index-card{
+    border: 1px solid;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    /* align-items: center; */
     justify-content: space-between;
+    align-items: center;
     height: 600px;
-    width: calc(100%/4);
-    padding-top: 32px;
+    width: calc((100%/4) - 10px);
+    padding: 10px 10px 20px 10px;
+    margin-left: 5px;
+    margin-top: 16px;
+    border-radius: 10px;
+}
+
+.index-img-cont{
+width: auto;
+height: auto;
+border-radius: 20px;
+text-align: center;
 }
 
 .index-img-top{
     width: 100%;
+    // margin-left: 7px;
+    border-radius: 20px;
 
 }
 
@@ -191,28 +219,27 @@ export default {
     box-shadow: 2px 2px 1px gray;
 }
 
-/* .index-card-body{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between; */
-    /* align-items: center; */
-/* } */
-
 .index-container{
     width: 80vw;
     height: 70vh;
     margin: 0 auto;
-    overflow: scroll;
+
 }
 
 .index-search{
-    width: 60vw;
-    margin-left: 20%;
-    border-radius: 3px;
+    width: 40vw;
+    margin-left: 30%;
+    border-radius: 5px;
     box-shadow: 2px 2px 1px gray;
     border: 0.0 solid gray;
-    margin-bottom: 10px;
+    // margin-bottom: 5px;
+    margin-top: 16px;
+    padding: 5px 5px 5px 15px;
+}
+
+.index-card-title{
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: 700;
 }
 </style>
