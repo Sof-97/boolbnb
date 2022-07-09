@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Document</title>
+    <title>Welcome Page</title>
     <style>
         *,
         *::after,
@@ -15,7 +15,33 @@
             padding: 0;
             box-sizing: border-box;
         }
+      .index-nav-img{
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 32px;
+            font-weight:700
+        }
+
+        .index-nav-img, img{
+            width: 60px;
+            padding-right: 16px
+        }
+
+        .index-title{
+            text-align: center;
+            color: red;
+            font-weight:700;
+        } 
+        
+        .index-line{
+            border-bottom: 1px grey solid;
+           width: 80%;
+            margin: 0 auto;
+            margin-bottom: 16px;
+        }
     </style>
+
 </head>
 
 <body>
