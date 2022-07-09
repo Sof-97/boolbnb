@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class ApartmentController extends Controller
 {
@@ -19,8 +20,10 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function dashboard()
-    {
-        return view('admin.apartments.dashboard');
+    {   $id = Auth::id();
+        $user = DB::table('users')->find($id);
+        $apartments = Apartment::all()->where('id_user', '=', $id);
+        return view('admin.apartments.dashboard', compact('user', 'apartments'));  
     }
     /**
      * Display a listing of the resource.

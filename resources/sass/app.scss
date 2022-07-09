@@ -4,7 +4,16 @@
 @import 'variables';
 //apartments
 @import './partials/apartments';
+//dahsboard
+@import './partials/dashboard';
 //login
 @import './partials/_login';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+//reset user agent
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

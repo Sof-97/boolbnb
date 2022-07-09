@@ -28,9 +28,11 @@
   background-color: white;
   color: #222222;
   padding: 5px;
+  width: 100px;
   margin-bottom: 10px;
   border-width: 1px;
   border-radius: 10px;
+  font-size: 14px;
 }
 
 .button-show:hover {
@@ -69,7 +71,135 @@ ul {
   border-radius: 10px;
   -o-box-shadow: 5px 5px 10px 0px #000000;
   box-shadow: 5px 5px 10px 0px #222222;
-  width: 80%;
+  width: 92%;
+}
+
+.nav-ul {
+  list-style-type: none;
+  margin-bottom: 0 !important;
+}
+
+.nav-ul .nav-li {
+  text-decoration: none;
+  color: #222222;
+  margin-left: 50px;
+  margin-bottom: 15px;
+}
+
+.nav-ul .nav-li:hover {
+  color: #ff385c;
+}
+
+.title {
+  padding: 12px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-flex {
+  display: flex;
+  min-height: 100%;
+}
+
+.button {
+  background-color: #ff385c;
+  padding: 8px;
+  border: 0px;
+  border-radius: 8px;
+  color: white;
+  font-size: 12px;
+}
+
+.pos-rel {
+  width: 40vw;
+}
+
+.test {
+  display: flex;
+  justify-content: space-between;
+}
+
+.template-image {
+  height: 160px;
+  width: 160px;
+}
+
+.hover:hover {
+  background-color: black;
+  z-index: 1;
+}
+
+.statistics-written {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.accent {
+  padding-bottom: 12px;
+  padding-top: 12px;
+  color: #ff385c;
+}
+
+.spacing-title {
+  padding-top: 20px;
+}
+
+.statistics {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.cards {
+  display: flex;
+  margin-top: 20px;
+}
+
+.description {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.dash-title {
+  margin-bottom: 30px;
+  width: 40%;
+}
+
+.color-welcome {
+  color: rgb(114, 114, 114);
+  text-align: center;
+  margin-top: 25px;
+  background-color: #EEEEEE;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.bg-color {
+  background-color: #EEEEEE;
+}
+
+.flex-right {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.nav-bar {
+  padding-top: 50px;
+}
+
+.margin-bottom {
+  margin-bottom: 30px;
+}
+
+.movement {
+  display: flex;
+  justify-content: center;
 }
 
 .login-title {
@@ -11029,5 +11159,11 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
