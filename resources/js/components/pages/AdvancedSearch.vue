@@ -12,7 +12,7 @@
           v-model="search"
         />
         <div
-          class="positionrelativedellautocompletenonvipreoccupateeprovvisorio"
+          class="posrev"
         >
           <div
             class="autocomplete"
@@ -134,12 +134,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.positionrelativedellautocompletenonvipreoccupateeprovvisorio {
+.posrev {
   position: relative !important;
   .autocomplete {
     z-index: 10;
     width: 300px;
-    margin-left: -1675px;
+    margin-left: -1275px;
     margin-top: 1em;
     background-color: #fff;
     padding: 20px;

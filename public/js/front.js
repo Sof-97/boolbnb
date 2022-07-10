@@ -2185,7 +2185,7 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "positionrelativedellautocompletenonvipreoccupateeprovvisorio"
+    staticClass: "posrev"
   }, [_c("div", {
     directives: [{
       name: "show",
@@ -2543,7 +2543,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".positionrelativedellautocompletenonvipreoccupateeprovvisorio[data-v-781a2080] {\n  position: relative !important;\n}\n.positionrelativedellautocompletenonvipreoccupateeprovvisorio .autocomplete[data-v-781a2080] {\n  z-index: 10;\n  width: 300px;\n  margin-left: -1675px;\n  margin-top: 1em;\n  background-color: #fff;\n  padding: 20px;\n  border: 1px solid black;\n  border-radius: 20px;\n  position: absolute;\n}\n.positionrelativedellautocompletenonvipreoccupateeprovvisorio .autocomplete ul[data-v-781a2080] {\n  list-style: none;\n}\n.positionrelativedellautocompletenonvipreoccupateeprovvisorio .autocomplete ul li[data-v-781a2080] {\n  font-family: monospace;\n  opacity: 0.7;\n  border-bottom: 1px solid grey;\n  padding: 5px 0;\n  cursor: pointer;\n}\n.positionrelativedellautocompletenonvipreoccupateeprovvisorio .autocomplete ul li[data-v-781a2080]:last-of-type {\n  border: none;\n}\n.positionrelativedellautocompletenonvipreoccupateeprovvisorio .autocomplete ul li[data-v-781a2080]:hover {\n  opacity: 1;\n}", ""]);
+exports.push([module.i, ".posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev .autocomplete[data-v-781a2080] {\n  z-index: 10;\n  width: 300px;\n  margin-left: -1275px;\n  margin-top: 1em;\n  background-color: #fff;\n  padding: 20px;\n  border: 1px solid black;\n  border-radius: 20px;\n  position: absolute;\n}\n.posrev .autocomplete ul[data-v-781a2080] {\n  list-style: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080] {\n  font-family: monospace;\n  opacity: 0.7;\n  border-bottom: 1px solid grey;\n  padding: 5px 0;\n  cursor: pointer;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:last-of-type {\n  border: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:hover {\n  opacity: 1;\n}", ""]);
 
 // exports
 
