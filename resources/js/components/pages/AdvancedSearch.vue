@@ -7,14 +7,46 @@
           type="text"
           class="form-control my-3"
           placeholder="Cerca"
-          @keyup.enter="getApartments"
+          @keyup.enter="select(0)"
+          @keyup="getInfoApi(search)"
+          v-model="search"
         />
-        <label for="radius">Raggio di ricerca </label>
-        <input type="range" name="radius" id="radius" min="5" max="20000" step="5" v-model="range" @change="getApartments(range, lat, lon)" />
+        <div
+          class="positionrelativedellautocompletenonvipreoccupateeprovvisorio"
+        >
+          <div
+            class="autocomplete"
+            v-show="
+              autocomplete != null && autocomplete.length > 0 && search != ''
+            "
+          >
+            <ul>
+              <li :key="i" v-for="(e, i) in autocomplete" @click="select(i)">
+                {{ e.address.freeformAddress }}
+              </li>
+            </ul>
+          </div>
+          <label for="radius">Raggio di ricerca </label>
+          <input
+            type="range"
+            name="radius"
+            id="radius"
+            min="5"
+            max="50"
+            step="5"
+            v-model="range"
+            @change="getApartments(range, lat, lon)"
+          />
+          <input type="number" name="stanze" v-model="stanze" min="1" max="9">
+          <input type="number" name="letti" v-model="letti" min="1" max="9">
+        </div>
       </div>
-      <p v-show="!apartments || apartments.length == 0">Nessun appartamento corrispondente.</p>
+
+      <p v-show="!apartments || apartments.length == 0">
+        Nessun appartamento corrispondente.
+      </p>
       <div class="row justify-content-between">
-        <div v-for="(e, i) in apartments" :key="i" class="col-3 card mb-5 p-2">
+        <div v-for="(e, i) in apartments" :key="i" class="col-3 card mb-5 p-2" v-show="e.rooms >= stanze && e.beds >= letti">
           <img
             class="card-img-top"
             :src="`${e.cover_image}`"
@@ -48,7 +80,13 @@ export default {
       keySettingsTomtom:
         ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
       apartments: null,
-      range: this.radius
+      range: this.radius,
+      lat2: this.lat,
+      lon2: this.lon,
+      autocomplete: null,
+      search: null,
+      stanze: 1,
+      letti: 1
     };
   },
   props: {
@@ -86,11 +124,44 @@ export default {
         });
     },
     select(i) {
-      this.search = this.autocomplete[i].address.freeformAddress;
+      this.lat2 = this.autocomplete[i].position.lat;
+      this.lon2 = this.autocomplete[i].position.lon;
+      this.getApartments(this.range, this.lat2, this.lon2);
+      this.search = ``
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.positionrelativedellautocompletenonvipreoccupateeprovvisorio {
+  position: relative !important;
+  .autocomplete {
+    z-index: 10;
+    width: 300px;
+    margin-left: -1675px;
+    margin-top: 1em;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    position: absolute;
+    ul {
+      list-style: none;
+      li {
+        font-family: monospace;
+        opacity: 0.7;
+        border-bottom: 1px solid grey;
+        padding: 5px 0;
+        cursor: pointer;
+        &:last-of-type {
+          border: none;
+        }
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
 </style>
