@@ -1,10 +1,15 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
 // Variables
 @import 'variables';
 //apartments
 @import './partials/apartments';
+//dahsboard
+@import './partials/dashboard';
 //login
-@import './partials/_login';
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import './partials/login';
+
+//reset user agent
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

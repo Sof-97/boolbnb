@@ -7,19 +7,13 @@ import AdvancedSearch from "./components/pages/AdvancedSearch.vue";
 
 Vue.use(VueRouter);
 
-// function query(route) {
-//     return {
-//         query: route.params.query
-//     }
-// }
-
 const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/show/:slug', component: SingleApartment, name: 'SingleApartment' },
-        { path: '*', component: NotFoundPage, name: 'notFound' },
         { path: '/', component: LandingPage, name: 'LandingPage' },
-        { path: '/search', component: AdvancedSearch, name: 'AdvancedSearch', props: route => ({query:route.query.search}) },
+        { path: '/search', component: AdvancedSearch, name: 'AdvancedSearch', props: route => ({radius: route.query.radius, lat: route.query.lat, lon: route.query.lon }) },
+        { path: '*', component: NotFoundPage, name: 'notFound' },
     ]
 });
 

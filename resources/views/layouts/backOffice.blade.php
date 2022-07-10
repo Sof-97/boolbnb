@@ -11,20 +11,20 @@
     </title>
 </head>
 
-
-<main>
-    <section class="float-left">
-        <nav>
-            Nav laterale
-        </nav>
-    </section>
-    <div class="float-right">
-        @yield('content')
-    </div>
-</main>
-
-<style>
-    @import "../../resources/sass/app.scss";
-</style>
+<body style="min-height: 100vh;">
+    <header>
+        @include('layouts.nav-title')
+    </header>
+    <main style="min-height: 100%">
+        <div class="nav-flex">
+            @include('layouts.navbar-side')
+            @yield('content')
+        </div>
+    </main>
+    <footer class="d-flex justify-content-center">
+        Footer di test
+    </footer>
+    @yield('script')
+</body>
 
 </html>

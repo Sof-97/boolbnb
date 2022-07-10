@@ -26,9 +26,11 @@
     background-color: white;
     color: $color-gray-2;
     padding: 5px;
+    width: 100px;
     margin-bottom: 10px;
     border-width: 1px;
     border-radius: 10px;
+    font-size: 14px;
 }
 
 .button-show:hover {
@@ -69,5 +71,5 @@ ul {
     -moz-box-shadow: 5px 5px 10px 0px #000000;
     -o-box-shadow: 5px 5px 10px 0px #000000;
     box-shadow: 5px 5px 10px 0px #222222;
-    width: 80%;
+    width: 92%;
 }
