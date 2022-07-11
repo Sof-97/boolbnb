@@ -73,23 +73,23 @@
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-        height: 650px;
+        height: 700px;
         width: calc((100%/4) - 24px);
-        padding: 10px 10px 20px 10px;
         margin-left: 12px;
         margin-top: 50px;
-        border-radius: 10px;
+        border-radius: 20px;
         box-shadow: 2px 2px 1px gray;
 
         .index-img-top{
             width: 100%;
-            border-radius: 20px;
+            border-radius: 20px 20px 0px 0px;
         }
 
         .index-card-title{
             margin-top: 10px;
-            font-size: 1.2em;
-            font-weight: 700;
+            font-size: 1em;
+            opacity: 0.5;
+            // font-weight: 700;
         }
 
         .index-btn{
@@ -99,6 +99,15 @@
             border: 0.2px solid grey;
             box-shadow: 2px 2px 1px gray;
         }
+
+        .index-card-padding{
+            padding: 10px 10px 10px 10px;
+        }
+
+        .index-card-price{
+            padding: 0px 10px 20px 10px;
+        }
+
 
     }
 }

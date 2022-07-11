@@ -2296,12 +2296,12 @@ var render = function render() {
         alt: "Card image cap"
       }
     })]), _vm._v(" "), _c("div", {
-      staticClass: "index-card-title"
-    }, [_vm._v(_vm._s(e.title))]), _vm._v(" "), _c("div", {
-      staticClass: "index-card-text"
-    }, [_vm._v(_vm._s(e.description))])]), _vm._v(" "), _c("div", [_c("p", {
+      staticClass: "index-card-text index-card-padding"
+    }, [_vm._v(_vm._s(e.description))]), _vm._v(" "), _c("div", {
+      staticClass: "index-card-title index-card-padding"
+    }, [_vm._v("Host: " + _vm._s(e.title))])]), _vm._v(" "), _c("div", {
       staticClass: "index-card-price"
-    }, [_vm._v("prezzo a notte: " + _vm._s(e.price) + "€")]), _vm._v(" "), _c("router-link", {
+    }, [_c("p", [_vm._v("prezzo a notte: " + _vm._s(e.price) + "€")]), _vm._v(" "), _c("router-link", {
       staticClass: "index-btn",
       attrs: {
         to: {

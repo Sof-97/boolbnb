@@ -47,12 +47,18 @@
                                 />
                             </div>
 
-                            <div class="index-card-title">{{ e.title }}</div>
-                            <div class="index-card-text">{{ e.description }}</div>
+
+                            <div class="index-card-text index-card-padding">{{ e.description }}</div>
+                            <div class="index-card-title index-card-padding">Host: {{ e.title }}</div>
+
+                            <!-- <div v-for="(el, h) in e[services]" :key="h">
+                                {{el}}
+                            </div> -->
+
                         </div>
 
-                        <div>
-                            <p class="index-card-price">prezzo a notte: {{ e.price }}€</p>
+                        <div class="index-card-price">
+                            <p>prezzo a notte: {{ e.price }}€</p>
                             <router-link
                                 :to="{
                                     name: 'SingleApartment',
