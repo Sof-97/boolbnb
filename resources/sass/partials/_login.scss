@@ -1,5 +1,45 @@
-.login-title{
+.login-title {
     font-weight: bold;
     text-align: center;
     padding: 1rem;
+}
+.container {
+
+    padding: 10px 5%;
+}
+.button-login{
+   padding: 5px 10px !important;
+   margin: 5px 10px;
+   border-radius: 5px;
+   font-weight: 500;
+   color: white;
+   background-color: $color-accent;
+}
+
+nav {
+    .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       
+    }
+
+    .navbar-brand {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-options {
+        .navbar-nav {
+            a{
+                text-decoration: none;
+                padding: 0 10px;
+            }
+            display: flex;
+            list-style-type: none;
+
+
+        }
+    }
 }

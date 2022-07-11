@@ -206,6 +206,41 @@ ul {
   padding: 1rem;
 }
 
+.container {
+  padding: 10px 5%;
+}
+
+.button-login {
+  padding: 5px 10px !important;
+  margin: 5px 10px;
+  border-radius: 5px;
+  font-weight: 500;
+  color: white;
+  background-color: #ff385c;
+}
+
+nav .navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .navbar-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .navbar-options .navbar-nav {
+  display: flex;
+  list-style-type: none;
+}
+
+nav .navbar-options .navbar-nav a {
+  text-decoration: none;
+  padding: 0 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
