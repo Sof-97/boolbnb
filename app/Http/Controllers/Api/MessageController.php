@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Message;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class MessageController extends Controller
 {
@@ -35,9 +36,10 @@ class MessageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
 
         $data = $request->all();
+        
         $newMessage  = new Message();
         $newMessage->fill($data);
         $newMessage->save();

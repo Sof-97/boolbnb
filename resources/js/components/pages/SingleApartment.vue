@@ -13,7 +13,7 @@
                 type="text"
                 name="email_sender"
                 id="email_sender"
-                v-model="fields.email"
+                v-model="fields.email_sender"
             />
             <label for="text">Il tuo messaggio</label>
             <input type="text" name="text" id="text" v-model="fields.text" />
@@ -37,7 +37,7 @@ export default {
     data() {
         return {
             fields: {
-                id: 1,
+                id_apartment: 1,
             },
             apartment: null,
         };

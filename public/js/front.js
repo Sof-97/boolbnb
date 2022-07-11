@@ -2095,7 +2095,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: {
-        id: 1
+        id_apartment: 1
       },
       apartment: null
     };
@@ -2517,8 +2517,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.fields.email,
-      expression: "fields.email"
+      value: _vm.fields.email_sender,
+      expression: "fields.email_sender"
     }],
     attrs: {
       type: "text",
@@ -2526,13 +2526,13 @@ var render = function render() {
       id: "email_sender"
     },
     domProps: {
-      value: _vm.fields.email
+      value: _vm.fields.email_sender
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
 
-        _vm.$set(_vm.fields, "email", $event.target.value);
+        _vm.$set(_vm.fields, "email_sender", $event.target.value);
       }
     }
   }), _vm._v(" "), _c("label", {
