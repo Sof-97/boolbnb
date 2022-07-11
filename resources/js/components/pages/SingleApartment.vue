@@ -1,16 +1,37 @@
 <template>
-    <div class="container">
-        <h1>Show</h1>
-        <h2>{{apartment.title}}</h2>
-        <img :src="apartment.cover_image" alt="">
-        <p class="my-4">Il prezzo a notte per l'appartamento è {{apartment.price}}€</p>
+
+    <!-- scss di riferimento -singleaoartment.scss -->
+
+<div>
+
+    <div class="sa-container">
+        <div class="sa-title">Appartamento di</div>
+        <div class="sa-owner">{{apartment.title}}</div>
+        <div class="sa-cont-img">
+            <img :src="apartment.cover_image" alt="">
+        </div>
+        <div class="sa-opacity">{{apartment.description}}</div>
+        <!-- FIXME Distanziare prezzo  -->
+        <div class="sa-price"><i>Il prezzo a notte è:</i> <span>{{apartment.price}}€</span></div>
+    </div>
+
+    <div class="sa-form">
         <form action="../php/SendMessage.php" method="GET">
-            <input type="number" name="id_apartment" id="id_apartment" :value="apartment.id" hidden required>
-            <input type="email" name="email" id="email" required>
-            <input type="text" name="text" id="text" required>
-            <input type="submit" value="Invia">
+            <div><i>Per info</i></div>
+
+            <div>
+                <input type="number" name="id_apartment" id="id_apartment" :value="apartment.id" hidden required>
+                <input type="email" name="email" id="email" required placeholder="Tua email">
+                <input type="text" name="text" id="text" required placeholder="Testo messaggio">
+            </div>
+
+            <div class="sa-form-bt">
+                <input type="submit" value="Invia">
+            </div>
         </form>
     </div>
+
+</div>
 </template>
 
 <script>
@@ -39,8 +60,3 @@ export default {
     },
 };
 </script>
-<style lang="scss" scoped>
-h1 {
-    color: red;
-}
-</style>

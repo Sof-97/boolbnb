@@ -9,9 +9,12 @@
 //dahsboard
 @import './partials/dashboard';
 //login
-@import './partials/_login';
+@import './partials/login';
+// Card singolo appartamento
+@import './partials/singleapartment';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
 
 
 //reset user agent

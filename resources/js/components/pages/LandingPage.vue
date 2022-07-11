@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- Tasti ricerca -->
             <input
                 type="text"
                 v-model="search"
@@ -8,17 +9,18 @@
                 @keyup.enter="select(0)"
                 @keyup="getInfoApi(search)"
             />
-        <div class="index-container">
-            <!-- barra di ricerca -->
+
+            <a href="#" class="index-search-2">Ricerca avanzata</a>
+        <div>
+
+            <!-- barra di ricerca a tendina-->
             <div>
                 <div
                     class="autocomplete"
                     v-show="
                         autocomplete != null &&
                         autocomplete.length > 0 &&
-                        search != ''
-                    "
-                >
+                        search != '' ">
 
                     <ul>
                         <li :key="i" v-for="(e, i) in autocomplete" @click="select(i)">
@@ -50,7 +52,7 @@
                         </div>
 
                         <div>
-                            <p class="index-card-price">{{ e.price }}€</p>
+                            <p class="index-card-price">prezzo a notte: {{ e.price }}€</p>
                             <router-link
                                 :to="{
                                     name: 'SingleApartment',
@@ -85,7 +87,6 @@ export default {
     },
     mounted() {
         this.getApartments("http://127.0.0.1:8000/api/apartments");
-        // FIXME variabile gallery non usata
         const gallery = document.getElementById("gallery");
     },
     methods: {
