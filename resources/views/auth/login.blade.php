@@ -54,7 +54,7 @@
     </nav>
     <div class="login-container">
         <div>
-            <div class="col-md-8">
+           
                 <div class="card">
                     <h2 class="login-title">Login</h2>
 
@@ -62,10 +62,10 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
-                            <div class="form-group justify-content-center row">
+                            <div class="form-group ">
 
 
-                                <div class="col-md-6">
+                                <div>
 
                                     <input id="email" placeholder="E-Mail Address" type="email"
                                         class="form-control  @error('email') is-invalid @enderror" name="email"
@@ -79,9 +79,9 @@
                                 </div>
                             </div>
 
-                            <div class="form-group justify-content-center row">
+                            <div class="form-group ">
 
-                                <div class="col-md-6">
+                                <div>
                                     <input id="password" placeholder="Password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
@@ -94,8 +94,8 @@
                                 </div>
                             </div>
 
-                            <div class="form-group justify-content-center  row">
-                                <div class="col-md-6 offset-md-4 m-auto">
+                            <div class="form-group">
+                                <div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}>
@@ -107,14 +107,14 @@
                                 </div>
                             </div>
 
-                            <div class="form-group justify-content-center row mb-0">
-                                <div class="col-md-8 offset-md-4 m-auto text-center">
-                                    <button type="submit" class="btn text-white btn-color">
+                            <div class="form-group">
+                                <div>
+                                    <button type="submit" class="button-login">
                                         {{ __('Login') }}
                                     </button>
 
                                     @if (Route::has('password.request'))
-                                    <a class="btn " href="{{ route('password.request') }}">
+                                    <a class="btn" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                     @endif
@@ -123,7 +123,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            
         </div>
     </div>
 </div>
