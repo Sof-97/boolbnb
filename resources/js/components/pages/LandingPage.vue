@@ -9,9 +9,8 @@
                 @keyup="getInfoApi(search)"
             />
         <div class="index-container">
-
-            <div class="position-relative">
-
+            <!-- barra di ricerca -->
+            <div>
                 <div
                     class="autocomplete"
                     v-show="
@@ -27,8 +26,9 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
+
+            <!-- Elenco delle cards -->
             <div class="index-cards" id="gallery">
 
                 <div
@@ -36,11 +36,8 @@
                     :key="i"
                     class="index-card"
                 >
-
-                    <!-- <div class="index-card-body"> -->
-
                         <div>
-                            <div class="index-img-cont">
+                            <div>
                                 <img
                                 class="index-img-top"
                                 :src="`${e.cover_image}`"
@@ -63,8 +60,6 @@
                                 >Vai all'appartamento</router-link
                             >
                         </div>
-
-                    <!-- </div> -->
                 </div>
             </div>
         </div>

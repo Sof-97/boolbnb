@@ -2261,9 +2261,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "index-container"
-  }, [_c("div", {
-    staticClass: "position-relative"
-  }, [_c("div", {
+  }, [_c("div", [_c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -2289,9 +2287,7 @@ var render = function render() {
     return _c("div", {
       key: i,
       staticClass: "index-card"
-    }, [_c("div", [_c("div", {
-      staticClass: "index-img-cont"
-    }, [_c("img", {
+    }, [_c("div", [_c("div", [_c("img", {
       staticClass: "index-img-top",
       attrs: {
         src: "".concat(e.cover_image),

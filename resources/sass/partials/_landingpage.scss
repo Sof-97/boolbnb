@@ -1,3 +1,24 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.index-title{
+    text-align: center;
+    color: red;
+    font-weight:700;
+}
+
+.index-line{
+    border-bottom: 1px grey solid;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 16px;
+}
+
 .autocomplete {
     z-index: 10;
     width: 50vw;
@@ -23,11 +44,14 @@
         }
     }
 }
+
 .index-container{
     // border-left: 1px solid grey;
     width: 96vw;
     margin: 0 auto;
     z-index: 10;
+    height: 70vh;
+    margin: 0 auto;
 }
 
 .opacity {
@@ -61,17 +85,9 @@
     box-shadow: 2px 2px 1px gray;
 }
 
-.index-img-cont{
-    width: auto;
-    height: auto;
-    border-radius: 20px;
-}
-
 .index-img-top{
     width: 100%;
-    margin-left: 7px;
-    // FIXME Da capire come mai non mi fa il border-radius:
-    // border-radius: 20px;
+    border-radius: 20px;
 }
 
 .index-btn{
@@ -80,13 +96,6 @@
     border-radius: 10px;
     border: 0.2px solid grey;
     box-shadow: 2px 2px 1px gray;
-}
-
-.index-container{
-    width: 80vw;
-    height: 70vh;
-    margin: 0 auto;
-
 }
 
 .index-search{
