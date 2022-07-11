@@ -236,6 +236,7 @@ ul {
 .text_decoration_none {
   text-decoration: none;
   color: inherit;
+
 }
 
 .link-hover:hover {
@@ -246,6 +247,7 @@ ul {
   content: "";
   clear: both;
   display: table;
+
 }
 
 .nav-ul {
