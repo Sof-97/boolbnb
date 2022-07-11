@@ -2094,13 +2094,24 @@ __webpack_require__.r(__webpack_exports__);
   name: "SingleApartment",
   data: function data() {
     return {
-      apartment: null
+      apartment: null,
+      text: null,
+      email: null
     };
   },
   created: function created() {
     this.getApartment();
   },
   methods: {
+    message: function message() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("http://127.0.0.1:8000/api/messages/", {
+        params: {
+          email_sender: this.email,
+          text: this.text,
+          id_apartment: this.apartment.id
+        }
+      });
+    },
     getApartment: function getApartment() {
       var _this = this;
 
@@ -2487,12 +2498,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("p", {
     staticClass: "my-4"
-  }, [_vm._v("Il prezzo a notte per l'appartamento è " + _vm._s(_vm.apartment.price) + "€")]), _vm._v(" "), _c("form", {
-    attrs: {
-      action: "../php/SendMessage.php",
-      method: "GET"
-    }
-  }, [_c("input", {
+  }, [_vm._v("Il prezzo a notte per l'appartamento è " + _vm._s(_vm.apartment.price) + "€")]), _vm._v(" "), _c("form", [_c("input", {
     attrs: {
       type: "number",
       name: "id_apartment",
@@ -2504,23 +2510,56 @@ var render = function render() {
       value: _vm.apartment.id
     }
   }), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.email,
+      expression: "email"
+    }],
     attrs: {
       type: "email",
       name: "email",
       id: "email",
       required: ""
+    },
+    domProps: {
+      value: _vm.email
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.email = $event.target.value;
+      }
     }
   }), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.text,
+      expression: "text"
+    }],
     attrs: {
       type: "text",
       name: "text",
       id: "text",
       required: ""
+    },
+    domProps: {
+      value: _vm.text
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.text = $event.target.value;
+      }
     }
   }), _vm._v(" "), _c("input", {
     attrs: {
       type: "submit",
       value: "Invia"
+    },
+    on: {
+      submit: _vm.message
     }
   })])]);
 };

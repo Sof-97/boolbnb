@@ -4,11 +4,11 @@
         <h2>{{apartment.title}}</h2>
         <img :src="apartment.cover_image" alt="">
         <p class="my-4">Il prezzo a notte per l'appartamento è {{apartment.price}}€</p>
-        <form action="../php/SendMessage.php" method="GET">
+        <form>
             <input type="number" name="id_apartment" id="id_apartment" :value="apartment.id" hidden required>
-            <input type="email" name="email" id="email" required>
-            <input type="text" name="text" id="text" required>
-            <input type="submit" value="Invia">
+            <input type="email" name="email" id="email" v-model="email" required>
+            <input type="text" name="text" id="text" v-model="text" required>
+            <input type="submit" value="Invia" @submit="message">
         </form>
     </div>
 </template>
@@ -21,12 +21,22 @@ export default {
     data() {
         return {
             apartment: null,
+            text: null,
+            email: null
         };
     },
     created() {
         this.getApartment();
     },
     methods: {
+        message(){
+            axios.post("http://127.0.0.1:8000/api/messages/", {params: {
+                email_sender: this.email,
+                text: this.text,
+                id_apartment: this.apartment.id,
+            }
+            })
+        },
         getApartment() {
             console.log("gigi");
             axios
