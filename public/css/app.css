@@ -68,6 +68,10 @@ ul {
   margin-top: 20px;
 }
 
+.between-tables {
+  padding-top: 25px;
+}
+
 .nav-ul {
   list-style-type: none;
   margin-bottom: 0 !important;
@@ -202,11 +206,11 @@ ul {
 
 .button_accent {
   background-color: #ff385c;
-  padding: 8px;
+  padding: 10px;
   border: 0px;
   border-radius: 8px;
   color: white !important;
-  font-size: 12px;
+  font-size: 13px;
   text-decoration: none;
 }
 
@@ -229,6 +233,11 @@ ul {
 
 .text_decoration_none {
   text-decoration: none;
+}
+
+.button-crud:focus {
+  outline: none;
+  color: red;
 }
 
 .login-title {
