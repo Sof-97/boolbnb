@@ -1,38 +1,11 @@
-.nav-ul {
-    list-style-type: none;
-    margin-bottom: 0 !important;
-    .nav-li {
-        text-decoration: none;
-        color: $color-gray-2;
-        margin-left: 50px;
-        margin-bottom: 15px;
-    }
-    .nav-li:hover {
-        color: $color-accent;
-    }
-}
-
-.title {
-    padding: 12px;
-}
-
 .nav-flex {
     display: flex;
     min-height: 100%;
 }
 
-.pos-rel {
-    width: 40vw;
-}
-
 .template-image {
     height: 160px;
     width: 160px;
-}
-
-.hover:hover {
-    background-color: black;
-    z-index: 1;
 }
 
 .statistics-written {
@@ -44,7 +17,6 @@
 
 .accent {
     padding-bottom: 12px;
-    padding-top: 12px;
     color: $color-accent;
 }
 
@@ -82,19 +54,11 @@
     padding: 10px;
 }
 
-.bg-color {
-    background-color: $dirty-white;
-}
-
 .flex-right {
     padding-right: 40px;
     padding-left: 40px;
 }
 
-.nav-bar {
-    padding-top: 50px;
-}
-
-.margin-bottom {
-    margin-bottom: 30px;
+.title-border {
+    border-bottom: 1px solid $dirty-white;
 }

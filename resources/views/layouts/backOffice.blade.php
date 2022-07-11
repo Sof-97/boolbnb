@@ -17,7 +17,6 @@
     </header>
     <main style="min-height: 100%">
         <div class="nav-flex">
-            @include('layouts.navbar-side')
             @yield('content')
         </div>
     </main>

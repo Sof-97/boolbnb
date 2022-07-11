@@ -17,7 +17,7 @@ Appartamenti
 </div>
 @endif
 
-<div class="flex-center">
+<div class="flex-center margin-section">
     <div class="custom apartment-padding">
         <div class="flex-between section-padding">
             <div style="display: block">
@@ -38,19 +38,19 @@ Appartamenti
                         <tr>
 
                             <td><img src="{{ $apartment->cover_image }}" alt=""
-                                    style="width: 100px; height: 100px; margin-right: 20px; margin-left: 20px;"></td>
+                                    style="width: 120px; height: 120px; margin-right: 20px; margin-left: 20px;"></td>
                             <td style="padding-right: 30px; padding-left: 10px;">{{ $apartment->title }}</td>
                             <td style="padding-right: 30px; padding-left: 10px;">{{ $apartment->description }}</td>
                             <td style="padding-right: 30px; padding-left: 10px;">{{ $apartment->address }}</td>
 
                             <td class="between-tables">
                                 <button class="button_crud">
-                                    <a href="{{ route('admin.apartments.show', $apartment->id) }}" class="button-crud text_decoration_none">
+                                    <a href="{{ route('admin.apartments.show', $apartment->id) }}" class="button-crud link-hover text_decoration_none">
                                         Visualizza
                                     </a>
                                 </button>
                                 <button class="button_crud">
-                                    <a href="{{ route('admin.apartments.edit', $apartment->id) }}" class="button-crud text_decoration_none">
+                                    <a href="{{ route('admin.apartments.edit', $apartment->id) }}" class="button-crud link-hover text_decoration_none">
                                         Modifica
                                     </a>
                                 </button>
@@ -59,7 +59,7 @@ Appartamenti
                                     class="delete-form">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="button_crud" type="submit" class="delete-form">
+                                    <button title="Elimina" class=" delete " type="submit" class="delete-form">
                                         Elimina
                                     </button>
                                 </form>

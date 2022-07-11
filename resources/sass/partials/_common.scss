@@ -35,6 +35,11 @@
     color: white !important;
     font-size: 13px;
     text-decoration: none;
+    font-weight: 600 !important;
+}
+
+.m-right {
+    margin-right: 20px;
 }
 
 .button_crud {
@@ -47,12 +52,15 @@
     border-radius: 10px;
     font-size: 14px;
     text-decoration: none;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
 }
 
+.button_crud:hover {
+    border: 1px solid $color-accent;
+    background-color: $color-accent;
+    color: white;
 
-.button-crud:hover {
-    color: $color-accent;
-    text-decoration: none;
 }
 
 .text_decoration_none {
@@ -60,7 +68,13 @@
     color: inherit;
 }
 
-.button-crud:focus {
-    outline: none;
-    color: red;
+.link-hover:hover {
+    color: white !important;
+
+}
+
+.clearfix {
+    content: "";
+    clear: both;
+    display: table;
 }
