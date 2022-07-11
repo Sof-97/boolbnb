@@ -233,6 +233,7 @@ ul {
 
 .text_decoration_none {
   text-decoration: none;
+  color: inherit;
 }
 
 .button-crud:focus {

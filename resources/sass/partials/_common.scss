@@ -49,6 +49,7 @@
     text-decoration: none;
 }
 
+
 .button-crud:hover {
     color: $color-accent;
     text-decoration: none;
@@ -56,6 +57,7 @@
 
 .text_decoration_none {
     text-decoration: none;
+    color: inherit;
 }
 
 .button-crud:focus {
