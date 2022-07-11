@@ -1,6 +1,7 @@
 <template>
 
-    <!-- scss di riferimento -singleaoartment.scss -->
+    <!-- scss di riferimento -singleaoartment.scss
+    I nome delle classi iniziano con "sa" ad indicare "singleapartment"-->
 
 <div>
 
@@ -11,7 +12,6 @@
             <img :src="apartment.cover_image" alt="">
         </div>
         <div class="sa-opacity">{{apartment.description}}</div>
-        <!-- FIXME Distanziare prezzo  -->
         <div class="sa-price"><i>Il prezzo a notte è:</i> <span>{{apartment.price}}€</span></div>
     </div>
 

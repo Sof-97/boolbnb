@@ -7,7 +7,6 @@
     box-shadow: 3px 2px 1px gray;
     padding: 16px;
 
-
     .sa-title{
         font-size: 2em;
         color: red;
@@ -32,6 +31,14 @@
         opacity: 0.5;
         margin-top: 8px;
         margin-bottom: 8px;
+    }
+
+    .sa-price{
+        span{
+            margin-left: 0.5em;
+            font-weight: 500;
+        }
+
     }
 }
 

@@ -352,6 +352,11 @@ ul {
   margin-bottom: 8px;
 }
 
+.sa-container .sa-price span {
+  margin-left: 0.5em;
+  font-weight: 500;
+}
+
 .sa-form {
   margin: 0 auto;
   width: 40vw;
