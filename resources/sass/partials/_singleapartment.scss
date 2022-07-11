@@ -6,6 +6,7 @@
     border-radius: 10px;
     box-shadow: 3px 2px 1px gray;
     padding: 16px;
+    height: 66vh;
 
     .sa-title{
         font-size: 2em;
@@ -50,6 +51,21 @@
     border-radius: 10px;
     box-shadow: 3px 2px 1px gray;
     padding: 16px;
+
+    .sa-inp-text{
+        width: 72%;
+        border: 0.5px solid gray;
+        border-radius: 10px;
+        box-shadow: 3px 2px 1px gray;
+        padding: 5px 10px 5px 10px;
+    }
+
+    .sa-inp-email{
+        border: 0.5px solid gray;
+        border-radius: 10px;
+        box-shadow: 3px 2px 1px gray;
+        padding: 5px 10px 5px 10px;
+    }
 }
 
 .sa-form-bt{
@@ -63,4 +79,7 @@
         border-radius: 10px;
         background-color: white;
     }
+
 }
+
+

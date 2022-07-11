@@ -4,7 +4,7 @@
     I nome delle classi iniziano con "sa" ad indicare "singleapartment"-->
 
 <div>
-
+    <!-- Carta della casa -->
     <div class="sa-container">
         <div class="sa-title">Appartamento di</div>
         <div class="sa-owner">{{apartment.title}}</div>
@@ -14,15 +14,15 @@
         <div class="sa-opacity">{{apartment.description}}</div>
         <div class="sa-price"><i>Il prezzo a notte è:</i> <span>{{apartment.price}}€</span></div>
     </div>
-
+    <!-- Form della email -->
     <div class="sa-form">
         <form action="../php/SendMessage.php" method="GET">
             <div><i>Per info</i></div>
 
             <div>
                 <input type="number" name="id_apartment" id="id_apartment" :value="apartment.id" hidden required>
-                <input type="email" name="email" id="email" required placeholder="Tua email">
-                <input type="text" name="text" id="text" required placeholder="Testo messaggio">
+                <input class="sa-inp-email" type="email" name="email" id="email" required placeholder="Tua email">
+                <input class="sa-inp-text" type="text" name="text" id="text" required placeholder="Testo messaggio">
             </div>
 
             <div class="sa-form-bt">

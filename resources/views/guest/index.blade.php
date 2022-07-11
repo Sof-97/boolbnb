@@ -13,6 +13,7 @@
 @include('layouts.nav-index')
     <div id="root"></div>
     <script src="{{ asset('js/front.js') }}"></script>
+@include('layouts.footer')
 </body>
 
 </html>

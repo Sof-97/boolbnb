@@ -2401,6 +2401,7 @@ var render = function render() {
       value: _vm.apartment.id
     }
   }), _vm._v(" "), _c("input", {
+    staticClass: "sa-inp-email",
     attrs: {
       type: "email",
       name: "email",
@@ -2409,6 +2410,7 @@ var render = function render() {
       placeholder: "Tua email"
     }
   }), _vm._v(" "), _c("input", {
+    staticClass: "sa-inp-text",
     attrs: {
       type: "text",
       name: "text",
