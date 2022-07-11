@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-<div class="flex-right">
+<div class="flex-center">
     <div>
         <div class="movement">
             <div class="dash-title">

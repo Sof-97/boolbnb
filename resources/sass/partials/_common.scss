@@ -1,0 +1,59 @@
+.flex {
+    display: flex;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.align-center {
+    display: flex;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.button_accent {
+    background-color: $color-accent;
+    padding: 8px;
+    border: 0px;
+    border-radius: 8px;
+    color: white !important;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.button_crud {
+    background-color: white;
+    color: $color-gray-2;
+    padding: 5px;
+    width: 100px;
+    margin-bottom: 10px;
+    border-width: 1px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.button-crud:hover {
+    color: $color-accent;
+    text-decoration: none;
+}
+
+.text_decoration_none {
+    text-decoration: none;
+}

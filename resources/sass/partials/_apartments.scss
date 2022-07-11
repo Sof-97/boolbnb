@@ -22,22 +22,6 @@
     margin-top: 5px;
 }
 
-.button-show {
-    background-color: white;
-    color: $color-gray-2;
-    padding: 5px;
-    width: 100px;
-    margin-bottom: 10px;
-    border-width: 1px;
-    border-radius: 10px;
-    font-size: 14px;
-}
-
-.button-show:hover {
-    color: $color-accent;
-    text-decoration: none;
-}
-
 .left {
     width: 30%;
     background-color: $color-gray-1;
@@ -67,9 +51,21 @@ ul {
 .custom {
     border: 1px solid lightgray;
     border-radius: 10px;
-    -webkit-box-shadow: 5px 5px 10px 0px #000000;
-    -moz-box-shadow: 5px 5px 10px 0px #000000;
-    -o-box-shadow: 5px 5px 10px 0px #000000;
-    box-shadow: 5px 5px 10px 0px #222222;
+    box-shadow: 5px 5px 10px 0px lightgray;
     width: 92%;
 }
+
+.apartment-padding {
+    padding: 26px;
+}
+
+.section-padding {
+    margin-top: 5px;
+    padding: 14px;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.between_tables {}

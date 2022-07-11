@@ -21,9 +21,6 @@
             @yield('content')
         </div>
     </main>
-    <footer class="d-flex justify-content-center">
-        Footer di test
-    </footer>
     @yield('script')
 </body>
 

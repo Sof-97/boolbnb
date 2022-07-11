@@ -16,33 +16,13 @@
     padding: 12px;
 }
 
-.flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .nav-flex {
     display: flex;
     min-height: 100%;
 }
 
-.button {
-    background-color: $color-accent;
-    padding: 8px;
-    border: 0px;
-    border-radius: 8px;
-    color: white;
-    font-size: 12px;
-}
-
 .pos-rel {
     width: 40vw;
-}
-
-.test {
-    display: flex;
-    justify-content: space-between;
 }
 
 .template-image {
@@ -117,9 +97,4 @@
 
 .margin-bottom {
     margin-bottom: 30px;
-}
-
-.movement {
-    display: flex;
-    justify-content: center;
 }

@@ -4,12 +4,14 @@
 @import './partials/apartments';
 //dahsboard
 @import './partials/dashboard';
+//common class
+@import './partials/common';
 //login
 @import './partials/login';
-
 //reset user agent
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }

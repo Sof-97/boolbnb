@@ -22,22 +22,6 @@
   margin-top: 5px;
 }
 
-.button-show {
-  background-color: white;
-  color: #222222;
-  padding: 5px;
-  width: 100px;
-  margin-bottom: 10px;
-  border-width: 1px;
-  border-radius: 10px;
-  font-size: 14px;
-}
-
-.button-show:hover {
-  color: #ff385c;
-  text-decoration: none;
-}
-
 .left {
   width: 30%;
   background-color: #c8c8c8;
@@ -67,9 +51,21 @@ ul {
 .custom {
   border: 1px solid lightgray;
   border-radius: 10px;
-  -o-box-shadow: 5px 5px 10px 0px #000000;
-  box-shadow: 5px 5px 10px 0px #222222;
+  box-shadow: 5px 5px 10px 0px lightgray;
   width: 92%;
+}
+
+.apartment-padding {
+  padding: 26px;
+}
+
+.section-padding {
+  margin-top: 5px;
+  padding: 14px;
+}
+
+.table {
+  margin-top: 20px;
 }
 
 .nav-ul {
@@ -92,33 +88,13 @@ ul {
   padding: 12px;
 }
 
-.flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .nav-flex {
   display: flex;
   min-height: 100%;
 }
 
-.button {
-  background-color: #ff385c;
-  padding: 8px;
-  border: 0px;
-  border-radius: 8px;
-  color: white;
-  font-size: 12px;
-}
-
 .pos-rel {
   width: 40vw;
-}
-
-.test {
-  display: flex;
-  justify-content: space-between;
 }
 
 .template-image {
@@ -195,9 +171,64 @@ ul {
   margin-bottom: 30px;
 }
 
-.movement {
+.flex {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex-center {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.button_accent {
+  background-color: #ff385c;
+  padding: 8px;
+  border: 0px;
+  border-radius: 8px;
+  color: white !important;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.button_crud {
+  background-color: white;
+  color: #222222;
+  padding: 5px;
+  width: 100px;
+  margin-bottom: 10px;
+  border-width: 1px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.button-crud:hover {
+  color: #ff385c;
+  text-decoration: none;
+}
+
+.text_decoration_none {
+  text-decoration: none;
 }
 
 .login-title {
@@ -210,5 +241,6 @@ ul {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
