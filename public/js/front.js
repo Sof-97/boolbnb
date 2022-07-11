@@ -1933,13 +1933,15 @@ __webpack_require__.r(__webpack_exports__);
       baseUrlTomtom: "https://api.tomtom.com/search/2/search/",
       keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
       apartments: null,
+      services: null,
       range: this.radius,
       lat2: this.lat,
       lon2: this.lon,
       autocomplete: null,
       search: null,
       stanze: 1,
-      letti: 1
+      letti: 1,
+      checked: []
     };
   },
   props: {
@@ -1958,8 +1960,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getApartments(this.radius, this.lat, this.lon);
+    this.getServices();
   },
   methods: {
+    filterMenu: function filterMenu() {
+      document.getElementById("filter-list").classList.toggle("show");
+    },
     getApartments: function getApartments(radius, lat, lon) {
       var _this = this;
 
@@ -1979,6 +1985,14 @@ __webpack_require__.r(__webpack_exports__);
       this.lon2 = this.autocomplete[i].position.lon;
       this.getApartments(this.range, this.lat2, this.lon2);
       this.search = "";
+    },
+    getServices: function getServices() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/services").then(function (res) {
+        console.log(res);
+        _this3.services = res.data;
+      });
     }
   }
 });
@@ -2199,14 +2213,72 @@ var render = function render() {
         _vm.search = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("div", [_c("div", {
+    attrs: {
+      id: "filter"
+    },
+    on: {
+      click: _vm.filterMenu
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-filter"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "show",
+    attrs: {
+      id: "filter-list"
+    }
+  }, [_c("ul", _vm._l(_vm.services, function (e, i) {
+    return _c("li", {
+      key: i
+    }, [_c("label", {
+      attrs: {
+        "for": e.id
+      }
+    }, [_vm._v("\r\n                                    " + _vm._s(e.name) + "\r\n                                ")]), _vm._v(" "), _c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: _vm.checked,
+        expression: "checked"
+      }],
+      attrs: {
+        type: "checkbox",
+        name: e.name,
+        id: e.id
+      },
+      domProps: {
+        value: e.name,
+        checked: Array.isArray(_vm.checked) ? _vm._i(_vm.checked, e.name) > -1 : _vm.checked
+      },
+      on: {
+        change: function change($event) {
+          var $$a = _vm.checked,
+              $$el = $event.target,
+              $$c = $$el.checked ? true : false;
+
+          if (Array.isArray($$a)) {
+            var $$v = e.name,
+                $$i = _vm._i($$a, $$v);
+
+            if ($$el.checked) {
+              $$i < 0 && (_vm.checked = $$a.concat([$$v]));
+            } else {
+              $$i > -1 && (_vm.checked = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+            }
+          } else {
+            _vm.checked = $$c;
+          }
+        }
+      }
+    })]);
+  }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "posrev"
   }, [_c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
       value: _vm.autocomplete != null && _vm.autocomplete.length > 0 && _vm.search != "",
-      expression: "\r\n              autocomplete != null && autocomplete.length > 0 && search != ''\r\n            "
+      expression: "\r\n                            autocomplete != null &&\r\n                            autocomplete.length > 0 &&\r\n                            search != ''\r\n                        "
     }],
     staticClass: "autocomplete"
   }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
@@ -2217,7 +2289,7 @@ var render = function render() {
           return _vm.select(i);
         }
       }
-    }, [_vm._v("\r\n                " + _vm._s(e.address.freeformAddress) + "\r\n              ")]);
+    }, [_vm._v("\r\n                                " + _vm._s(e.address.freeformAddress) + "\r\n                            ")]);
   }), 0)]), _vm._v(" "), _c("label", {
     attrs: {
       "for": "radius"
@@ -2234,7 +2306,7 @@ var render = function render() {
       name: "radius",
       id: "radius",
       min: "5",
-      max: "50",
+      max: "500000",
       step: "5"
     },
     domProps: {
@@ -2299,7 +2371,7 @@ var render = function render() {
       value: !_vm.apartments || _vm.apartments.length == 0,
       expression: "!apartments || apartments.length == 0"
     }]
-  }, [_vm._v("\r\n        Nessun appartamento corrispondente.\r\n      ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n                Nessun appartamento corrispondente.\r\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "row justify-content-between"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
@@ -2586,7 +2658,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev .autocomplete[data-v-781a2080] {\n  z-index: 10;\n  width: 300px;\n  margin-left: -1275px;\n  margin-top: 1em;\n  background-color: #fff;\n  padding: 20px;\n  border: 1px solid black;\n  border-radius: 20px;\n  position: absolute;\n}\n.posrev .autocomplete ul[data-v-781a2080] {\n  list-style: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080] {\n  font-family: monospace;\n  opacity: 0.7;\n  border-bottom: 1px solid grey;\n  padding: 5px 0;\n  cursor: pointer;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:last-of-type {\n  border: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:hover {\n  opacity: 1;\n}", ""]);
+exports.push([module.i, "#filter[data-v-781a2080] {\n  cursor: pointer;\n  padding: 10px;\n  border: 1px solid black;\n  border-radius: 10px;\n  display: inline-block;\n}\n#filter-list[data-v-781a2080] {\n  background: white;\n  z-index: 1;\n  position: absolute;\n  height: 200px;\n  display: inline-block;\n  padding: 10px 20px;\n  overflow-y: scroll;\n  border: 1px solid grey;\n  border-radius: 10px;\n}\n#filter-list[data-v-781a2080]::-webkit-scrollbar {\n  width: 10px;\n}\n#filter-list input[data-v-781a2080] {\n  margin-right: 0;\n  margin-left: auto;\n}\n#filter-list ul[data-v-781a2080] {\n  list-style: none;\n}\n#filter-list ul li[data-v-781a2080] {\n  padding: 3px 0;\n}\n#filter-list ul li label[data-v-781a2080] {\n  cursor: pointer;\n}\n.posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev .autocomplete[data-v-781a2080] {\n  z-index: 10;\n  width: 300px;\n  margin-left: -1275px;\n  margin-top: 1em;\n  background-color: #fff;\n  padding: 20px;\n  border: 1px solid black;\n  border-radius: 20px;\n  position: absolute;\n}\n.posrev .autocomplete ul[data-v-781a2080] {\n  list-style: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080] {\n  font-family: monospace;\n  opacity: 0.7;\n  border-bottom: 1px solid grey;\n  padding: 5px 0;\n  cursor: pointer;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:last-of-type {\n  border: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:hover {\n  opacity: 1;\n}\n.show[data-v-781a2080] {\n  display: none !important;\n}", ""]);
 
 // exports
 
