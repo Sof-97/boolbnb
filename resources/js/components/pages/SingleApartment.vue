@@ -1,12 +1,21 @@
 <template>
-    <div class="container">
-        <h1>Show</h1>
-        <h2>{{ apartment.title }}</h2>
-        <img :src="apartment.cover_image" alt="" />
-        <p class="my-4">
-            Il prezzo a notte per l'appartamento è {{ apartment.price }}€
-        </p>
 
+    <!-- scss di riferimento -singleaoartment.scss
+    I nome delle classi iniziano con "sa" ad indicare "singleapartment"-->
+
+<div>
+    <!-- Carta della casa -->
+    <div class="sa-container">
+        <div class="sa-title">Appartamento di</div>
+        <div class="sa-owner">{{apartment.title}}</div>
+        <div class="sa-cont-img">
+            <img :src="apartment.cover_image" alt="">
+        </div>
+        <div class="sa-opacity">{{apartment.description}}</div>
+        <div class="sa-price"><i>Il prezzo a notte è:</i> <span>{{apartment.price}}€</span></div>
+    </div>
+    <!-- Form della email -->
+    <div class="sa-form">
         <form @submit.prevent="submit">
             <label for="email">La tua email</label>
             <input
@@ -27,7 +36,18 @@
             />
             <button type="submit">Invia</button>
         </form>
+    <div class="container">
+        <h1>Show</h1>
+        <h2>{{ apartment.title }}</h2>
+        <img :src="apartment.cover_image" alt="" />
+        <p class="my-4">
+            Il prezzo a notte per l'appartamento è {{ apartment.price }}€
+        </p>
+
+        
     </div>
+
+</div>
 </template>
 
 <script>
@@ -74,4 +94,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>

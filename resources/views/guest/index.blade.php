@@ -11,6 +11,10 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- Fontawesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"/>
     <title>Welcome Page</title>
     <style>
         *,
@@ -47,11 +51,22 @@
             margin: 0 auto;
             margin-bottom: 16px;
         }
+        .hero{
+        /* background-image: url("../../../public/img/hero.jpg"); */
+        width: fit-content;
+        height: 2%;
+        margin: 0 auto;
+    }
     </style>
 
 </head>
 
 <body>
+@include('layouts.nav-index')
+<div class="hero">
+    <img src="{{ asset('img/hero.jpg') }}" alt="">
+</div>
+  
     <header>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -112,6 +127,7 @@
     </header>
     <div id="root"></div>
     <script src="{{ asset('js/front.js') }}"></script>
+@include('layouts.footer')
 </body>
 
 </html>

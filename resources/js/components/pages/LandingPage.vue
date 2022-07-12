@@ -1,21 +1,88 @@
 <template>
-  <div>
-    <div class="container mt-5">
-      <div class="position-relative">
-        <input
-          type="text"
-          v-model="search"
-          class="form-control my-3"
-          placeholder="Cerca"
-          @keyup.enter="select(0)"
-          @keyup="getInfoApi(search)"
-        />
-        <div class="autocomplete" v-show="autocomplete != null && autocomplete.length > 0 && search != ''">
-          <ul>
-            <li :key="i" v-for="(e, i) in autocomplete" @click="select(i)">
-              {{ e.address.freeformAddress }}
-            </li>
-          </ul>
+
+    <div class="landpage">
+        <!-- Tasti ricerca -->
+        <div class="index-search-bar">
+            <input
+                type="text"
+                v-model="search"
+                class="index-search"
+                placeholder="Inizia a cercare una destinazione"
+                @keyup.enter="select(0)"
+                @keyup="getInfoApi(search)"
+            />
+        </div>
+
+        <div>
+
+            <!-- barra di ricerca a tendina-->
+            <div>
+                <div
+                    class="autocomplete"
+                    v-show="
+                        autocomplete != null &&
+                        autocomplete.length > 0 &&
+                        search != '' ">
+
+                    <ul>
+                        <li :key="i" v-for="(e, i) in autocomplete" @click="select(i)">
+                            {{ e.address.freeformAddress }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Elenco delle cards -->
+            <div class="index-cards" id="gallery">
+
+                <div
+                    v-for="(e, i) in apartments"
+                    :key="i"
+                    class="index-card"
+                >
+                        <div>
+                            <div class="index-cover-img">
+                                <div>
+                                    <img
+                                    class="index-img-top"
+                                    :src="`${e.cover_image}`"
+                                    alt="Card image cap"
+                                    />
+                                </div>
+                                <div class="index-cover-img-l">
+                                    <span><i class="fa-solid fa-bed"></i> {{ e.rooms }}</span>
+
+                                    <span>- <i class="fa-solid fa-toilet"></i> {{ e.bathrooms }}</span>
+                                </div>
+                            </div>
+
+                            <div class="index-card-text">{{ e.description }}</div>
+
+
+<!-- FIXME Inserire i service -->
+                            <div v-for="(el, h) in e[services]" :key="h">
+                                {{el}}
+                            </div>
+
+                        </div>
+
+                        <div class="index-card-price">
+                            <div class="index-card-title">Host: {{ e.title }}</div>
+                            <!-- <p>prezzo a notte: {{ e.price }}€</p> -->
+                            <div>
+                                <router-link
+                                    :to="{
+                                        name: 'SingleApartment',
+                                        params: { slug: e.slug },
+                                    }"
+                                    class="index-btn"
+                                    >Vai all'appartamento</router-link
+                                >
+                            </div>
+                        </div>
+                </div>
+            </div>
+
         </div>
       </div>
       <div class="row justify-content-between" id="gallery">
@@ -112,9 +179,6 @@ export default {
 };
 </script>
 
-
-
-
 <style lang="scss" scoped>
 .autocomplete {
   z-index: 10;
@@ -200,3 +264,4 @@ export default {
   margin-bottom: 10px;
 }
 </style>
+
