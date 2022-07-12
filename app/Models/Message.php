@@ -7,5 +7,7 @@ use App\Models\Apartment;
 
 class Message extends Model
 {
-    
+    protected $fillable = [
+        'id_apartment', 'text', 'email_sender'
+    ];
 }

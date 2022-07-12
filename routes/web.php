@@ -34,6 +34,8 @@ Route::get('/', function () {
     return view('guest.index');
 });
 
+
+
 Route::get('{any?}', function () {
     return view('guest.index');
 })->where("any", ".*");
