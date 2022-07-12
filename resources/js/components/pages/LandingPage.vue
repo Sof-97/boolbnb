@@ -51,13 +51,9 @@
                                     />
                                 </div>
                                 <div class="index-cover-img-l">
-                                    <span>Rooms: {{ e.rooms }}</span>
-<!-- FIXME Mettere le immagini -->
-                                    <!-- <span><img src="{{asset('../../../../../../../public/img/bedicon.png')}}" alt="bagno">{{ e.bathrooms }}</span> -->
-                                    <!-- <span><img src="('../../../../../../../public/img/bedicon.png')" alt="bagno">{{ e.bathrooms }}</span> -->
-                                    <!-- <span><img src="{{asset('img/bedicon.png')}}" alt="bagno">{{ e.bathrooms }}</span> -->
-                                    <!-- <img src="/img/bedicon.png"> -->
-                                    <span>- Bagni: {{ e.bathrooms }}</span>
+                                    <span><i class="fa-solid fa-bed"></i> {{ e.rooms }}</span>
+
+                                    <span>- <i class="fa-solid fa-toilet"></i> {{ e.bathrooms }}</span>
                                 </div>
                             </div>
 
@@ -65,9 +61,9 @@
 
 
 <!-- FIXME Inserire i service -->
-                            <!-- <div v-for="(el, h) in e[services]" :key="h">
+                            <div v-for="(el, h) in e[services]" :key="h">
                                 {{el}}
-                            </div> -->
+                            </div>
 
                         </div>
 

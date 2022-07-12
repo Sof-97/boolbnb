@@ -2303,9 +2303,17 @@ var render = function render() {
       }
     })]), _vm._v(" "), _c("div", {
       staticClass: "index-cover-img-l"
-    }, [_c("span", [_vm._v("Rooms: " + _vm._s(e.rooms))]), _vm._v(" "), _c("span", [_vm._v("- Bagni: " + _vm._s(e.bathrooms))])])]), _vm._v(" "), _c("div", {
+    }, [_c("span", [_c("i", {
+      staticClass: "fa-solid fa-bed"
+    }), _vm._v(" " + _vm._s(e.rooms))]), _vm._v(" "), _c("span", [_vm._v("- "), _c("i", {
+      staticClass: "fa-solid fa-toilet"
+    }), _vm._v(" " + _vm._s(e.bathrooms))])])]), _vm._v(" "), _c("div", {
       staticClass: "index-card-text"
-    }, [_vm._v(_vm._s(e.description))])]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(e.description))]), _vm._v(" "), _vm._l(e[_vm.services], function (el, h) {
+      return _c("div", {
+        key: h
+      }, [_vm._v("\n                                " + _vm._s(el) + "\n                            ")]);
+    })], 2), _vm._v(" "), _c("div", {
       staticClass: "index-card-price"
     }, [_c("div", {
       staticClass: "index-card-title"
