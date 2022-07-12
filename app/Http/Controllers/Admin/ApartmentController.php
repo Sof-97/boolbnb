@@ -25,6 +25,14 @@ class ApartmentController extends Controller
         $apartments = Apartment::all()->where('id_user', '=', $id);
         return view('admin.apartments.dashboard', compact('user', 'apartments'));  
     }
+    public function sponsor(){
+        $id = Auth::id();
+        $user = DB::table('users')->find($id);
+        // $apartments = Apartment::all()->where('id_user', '=', $id);
+        $apartment = DB::table('apartments')->where('id', '12')->first();
+        $plans = DB::table('sponsorships')->get();
+        return view('admin.apartments.sponsor', compact('user', 'apartment', 'plans'));
+    }
     /**
      * Display a listing of the resource.
      *
