@@ -205,7 +205,8 @@ ul {
 }
 
 .login-title,
-.register-title {
+.register-title,
+.reset-title {
   font-weight: bold;
   text-align: center;
   font-weight: bold;
@@ -217,7 +218,8 @@ ul {
 }
 
 .button-login,
-.button-register {
+.button-register,
+.button-reset {
   padding: 5px 10px !important;
   margin: 5px 10px;
   border-radius: 5px;
@@ -226,6 +228,12 @@ ul {
   border: 0px white solid !important;
   cursor: pointer;
   background-color: #ff385c;
+}
+
+.button-login:hover,
+.button-register:hover,
+.button-reset:hover {
+  background-color: #ff002f;
 }
 
 nav .navbar-container {
@@ -251,7 +259,8 @@ nav .navbar-options .navbar-nav a {
 }
 
 .login-container,
-.register-container {
+.register-container,
+.reset-container {
   text-align: center;
 }
 
@@ -259,7 +268,7 @@ nav .navbar-options .navbar-nav a {
   display: inline-block;
   text-align: center;
   padding: 50px;
-  margin: 100px 0;
+  margin: 50px 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
   background-color: rgb(255, 255, 255);
@@ -267,7 +276,6 @@ nav .navbar-options .navbar-nav a {
 }
 
 .card .form-control {
-  width: 20vw;
   border-radius: 10px;
   padding: 10px;
   font-size: small;
@@ -294,6 +302,29 @@ nav .navbar-options .navbar-nav a {
   color: #ff385c;
   font-size: 0.7rem;
   font-weight: light;
+}
+
+@media screen and (max-width: 480px) {
+  .button-login,
+  .button-register {
+    padding: 5px 5px !important;
+    margin: 5px 5px;
+  }
+
+  .card .form-control {
+    width: auto;
+  }
+
+  .login-reset-area {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card .form-control {
+    width: 20vw;
+  }
 }
 
 * {

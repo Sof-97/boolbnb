@@ -108,7 +108,7 @@
                             </div>
 
                             <div class="form-group">
-                                <div>
+                                <div class="login-reset-area">
                                     <button type="submit" class="button-login">
                                         {{ __('Accedi') }}
                                     </button>
