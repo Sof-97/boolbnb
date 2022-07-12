@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -63,7 +64,12 @@ class ApartmentController extends Controller
     public function radiusSearch($radius, $lat, $lon)
     {
 
-        $allApartments = DB::table('apartments')->where('is_visible', '=', true)->get();
+        // $allApartments = DB::table('apartments')
+        //     ->where('is_visible', '=', true)
+        //     // ->services()
+        //     ->get();
+        $allApartments = Apartment::with('service')->get();
+
         $apartments = [];
 
         $lat2 = deg2rad($lat);
@@ -88,5 +94,10 @@ class ApartmentController extends Controller
         }
 
         return response()->json($apartments);
+    }
+    public function services()
+    {
+        $services = Service::all();
+        return response()->json($services);
     }
 }
