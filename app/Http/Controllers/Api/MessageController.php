@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Message;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -40,6 +41,10 @@ class MessageController extends Controller
 
         $data = $request->all();
         
+        $validation = Validator::make($data, [
+            
+        ]);
+
         $newMessage  = new Message();
         $newMessage->fill($data);
         $newMessage->save();

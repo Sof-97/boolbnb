@@ -1990,9 +1990,19 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/services").then(function (res) {
-        console.log(res);
         _this3.services = res.data;
       });
+    }
+  },
+  computed: {
+    check: function check(a, i) {
+      return function () {
+        this.checked.forEach(function (check) {
+          console.log("Check id:", check.id);
+          console.log("Services:", a.apartments);
+        });
+        return true;
+      };
     }
   }
 });
@@ -2247,8 +2257,14 @@ var render = function render() {
         id: e.id
       },
       domProps: {
-        value: e.name,
-        checked: Array.isArray(_vm.checked) ? _vm._i(_vm.checked, e.name) > -1 : _vm.checked
+        value: {
+          id: e.id,
+          name: e.name
+        },
+        checked: Array.isArray(_vm.checked) ? _vm._i(_vm.checked, {
+          id: e.id,
+          name: e.name
+        }) > -1 : _vm.checked
       },
       on: {
         change: function change($event) {
@@ -2257,7 +2273,10 @@ var render = function render() {
               $$c = $$el.checked ? true : false;
 
           if (Array.isArray($$a)) {
-            var $$v = e.name,
+            var $$v = {
+              id: e.id,
+              name: e.name
+            },
                 $$i = _vm._i($$a, $$v);
 
             if ($$el.checked) {
@@ -2378,8 +2397,17 @@ var render = function render() {
       directives: [{
         name: "show",
         rawName: "v-show",
-        value: e.rooms >= _vm.stanze && e.beds >= _vm.letti,
-        expression: "e.rooms >= stanze && e.beds >= letti"
+        value: e.rooms >= _vm.stanze && e.beds >= _vm.letti && function () {
+          _vm.checked.forEach(function (check) {
+            e.service.forEach(function (toCheck) {
+              if (check.id != toCheck.id) {
+                return false;
+              }
+            });
+            return true;
+          });
+        },
+        expression: "e.rooms >= stanze && e.beds >= letti && function(){\r\n                        checked.forEach((check)=>{\r\n                            e.service.forEach((toCheck)=>{\r\n                                if(check.id != toCheck.id){\r\n                                    return false\r\n                                }\r\n                            })\r\n                            return true\r\n                        })\r\n                    }"
       }],
       key: i,
       staticClass: "col-3 card mb-5 p-2"

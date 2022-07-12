@@ -25,7 +25,7 @@
                                     type="checkbox"
                                     :name="e.name"
                                     :id="e.id"
-                                    :value="e.name"
+                                    :value="{ id: e.id, name: e.name }"
                                     v-model="checked"
                                 />
                             </li>
@@ -87,7 +87,16 @@
                     v-for="(e, i) in apartments"
                     :key="i"
                     class="col-3 card mb-5 p-2"
-                    v-show="e.rooms >= stanze && e.beds >= letti"
+                    v-show="e.rooms >= stanze && e.beds >= letti && function(){
+                        checked.forEach((check)=>{
+                            e.service.forEach((toCheck)=>{
+                                if(check.id != toCheck.id){
+                                    return false
+                                }
+                            })
+                            return true
+                        })
+                    }"
                 >
                     <img
                         class="card-img-top"
@@ -184,9 +193,19 @@ export default {
         },
         getServices() {
             axios.get("http://127.0.0.1:8000/api/services").then((res) => {
-                console.log(res);
                 this.services = res.data;
             });
+        },
+    },
+    computed: {
+        check(a, i) {
+            return function () {
+                this.checked.forEach((check) => {
+                    console.log("Check id:", check.id);
+                    console.log("Services:", a.apartments);
+                });
+                return true;
+            };
         },
     },
 };
