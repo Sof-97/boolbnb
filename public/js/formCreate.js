@@ -1945,7 +1945,15 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   }
-});
+}); //funzione onclick
+
+function myFunction() {
+  var ids = ['title', 'price', 'description', 'address', 'mq2', 'rooms', 'beds', 'bathrooms'];
+  var elements = document.querySelectorAll(ids.map(function (id) {
+    return "".concat(id);
+  }).join(''));
+  elements.classList.add("border-click");
+}
 
 /***/ }),
 
@@ -1983,7 +1991,8 @@ var render = function render() {
       autocomplete: "off",
       type: "text",
       name: "address",
-      id: "address"
+      id: "address",
+      onclick: "myFunction()"
     },
     domProps: {
       value: _vm.address

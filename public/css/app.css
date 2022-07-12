@@ -401,6 +401,42 @@ ul {
   margin-right: 20px;
 }
 
+.pill {
+  color: white;
+  background-color: #ff385c;
+  padding: 10px;
+  border-radius: 30px;
+  text-align: center;
+  width: 25%;
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+.form-create {
+  width: 30vw;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px lightgray;
+}
+
+input:focus,
+textarea:focus {
+  border: 2px solid #ff385c;
+}
+
+.form-create::-moz-placeholder {
+  font-weight: bold;
+  opacity: 0.5;
+  color: gray;
+}
+
+.form-create::placeholder {
+  font-weight: bold;
+  opacity: 0.5;
+  color: gray;
+}
+
 .login-title {
   font-weight: bold;
   text-align: center;
