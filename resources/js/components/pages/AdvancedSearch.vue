@@ -2,7 +2,7 @@
     <div>
         <h1>Search</h1>
         <div class="container">
-            <div class="flex">
+            <div class="flex posrev">
                 <input
                     type="text"
                     class="form-control my-3"
@@ -31,8 +31,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="posrev">
+
                     <div
                         class="autocomplete"
                         v-show="
@@ -193,15 +192,12 @@ export default {
             });
         },
         check(service) {
-            if(this.checked.length == 0){
-                return true
+            if (this.checked.length == 0) {
+                return true;
+            } else {
+                let checker = (service, this.checked) => target.every(v => arr.includes(v));
             }
-            this.checked.forEach((check) => {
-                console.log("Check:", check);
-                console.log("Service:", service);
-
-                service.includes(check);
-            });
+            return checker
         },
     },
 };
@@ -242,19 +238,12 @@ export default {
         }
     }
 }
-input{
-    border: 1px solid red;
-    &:focus{
-        border: 10px solid blue;
-    }
-}
 .posrev {
     position: relative !important;
     .autocomplete {
         z-index: 10;
-        width: 300px;
-        margin-left: -1275px;
         margin-top: 1em;
+        left: 0;
         background-color: #fff;
         padding: 20px;
         border: 1px solid black;
