@@ -2,6 +2,7 @@
     list-style-type: none;
     margin-bottom: 0 !important;
     .nav-li {
+        cursor: pointer;
         text-decoration: none;
         color: $color-gray-2;
         margin-bottom: 15px;

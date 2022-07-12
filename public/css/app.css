@@ -246,6 +246,7 @@ ul {
 }
 
 .nav-ul .nav-li {
+  cursor: pointer;
   text-decoration: none;
   color: #222222;
   margin-bottom: 15px;

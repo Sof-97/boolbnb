@@ -17,13 +17,14 @@
             />
             <label for="text">Il tuo messaggio</label>
             <input type="text" name="text" id="text" v-model="fields.text" />
-            <!-- <input
-                :value="apartment.id"
+            <input
+                value="apartment.id"
                 type="text"
-                name="id_apartment" 
-                id="id_apartment"
+                name="apartment_id" 
+                id="apartment_id"
+                v-model="fields.apartment_id"
                 hidden
-            /> -->
+            />
             <button type="submit">Invia</button>
         </form>
     </div>
@@ -37,9 +38,8 @@ export default {
     data() {
         return {
             fields: {
-                id_apartment: 1,
             },
-            apartment: null,
+            apartment: {},
         };
     },
     created() {
@@ -48,11 +48,13 @@ export default {
     methods: {
         submit() {
             this.errors = {};
+            this.fields['apartment_id'] = this.apartment.id
             axios
                 .post("http://127.0.0.1:8000/api/messages", this.fields)
                 .then((response) => {
                     alert("Message sent!");
-                    console.log(response);
+                    this.fields.text = ''
+                    this.fields.email_sender = ''
                 })
                 .catch((error) => {
                     if (error.response.status === 422) {

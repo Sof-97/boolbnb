@@ -19,11 +19,24 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function messages()
+    {
+        $id = Auth::id();
+        $user = DB::table('users')->find($id);
+        $apartments = Apartment::with('message')->where('id_user', '=', $id)->get();
+        return view('admin.apartments.message', compact('user', 'apartments'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function dashboard()
-    {   $id = Auth::id();
+    {
+        $id = Auth::id();
         $user = DB::table('users')->find($id);
         $apartments = Apartment::all()->where('id_user', '=', $id);
-        return view('admin.apartments.dashboard', compact('user', 'apartments'));  
+        return view('admin.apartments.dashboard', compact('user', 'apartments'));
     }
     /**
      * Display a listing of the resource.
@@ -117,7 +130,7 @@ class ApartmentController extends Controller
             return view('admin.apartments.show', compact('apartment'));
         } else {
             $id = Auth::id();
-            $apartments = Apartment::all()->where('id_user', '=', $id);
+            $apartments = Apartment::with('message')->where('id_user', '=', $id);
 
             return view('admin.apartments.apartment', compact('apartments'));
         }
