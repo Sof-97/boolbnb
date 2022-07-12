@@ -32,25 +32,56 @@
     }
 }
 
-.index-search{
-    width: 40vw;
-    margin-left: 3%;
-    border-radius: 3px;
-    box-shadow: 2px 2px 1px gray;
-    border: 0.0 solid gray;
-    margin-bottom: 16px;
-    margin-top: 16px;
-    padding: 5px 5px 5px 15px;
+.index-search-bar{
+    position: relative;
+
+    .index-search{
+        width: 20vw;
+        margin-left: 3vw;
+        border-radius: 3px;
+        box-shadow: 2px 2px 1px gray;
+        border: 0.0 solid gray;
+        margin-bottom: 16px;
+        margin-top: 16px;
+        padding: 5px 5px 5px 15px;
+    }
+
+    .index-q{
+        position: absolute;
+        z-index: 10;
+        border-radius: 3px;
+        box-shadow: 2px 2px 1px gray;
+        border: 0.0 solid gray;
+        padding: 5px 10px 5px 10px;
+        color:red;
+        top: 15px;
+        left: 409px;
+        background-color: white;
+
+        -webkit-box-shadow: 0 0 5px 2px gray;
+        -moz-box-shadow: 0 0 5px 2px gray;
+        box-shadow: 0 0 5px 2px gray;
+        border: 1px solid gray;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        border-radius: 5px;
+
+        outline: none;
+    }
+
+    .index-search-2{
+        padding: 5px 5px 5px 15px;
+        box-shadow: 2px 2px 1px gray;
+        margin-left: 0.4%;
+        border-radius: 3px;
+        text-decoration: none;
+        color: black;
+    }
+
+
 }
 
-.index-search-2{
-    padding: 5px 5px 5px 15px;
-    box-shadow: 2px 2px 1px gray;
-    margin-left: 0.4%;
-    border-radius: 3px;
-    text-decoration: none;
-    color: black;
-}
 
 .opacity {
     opacity: 0.5;
@@ -65,6 +96,7 @@
     height: 80vh;
     width: 94%;
     margin: 0 auto;
+    padding: 0px 0px 0px 10%;
 
     .index-card{
         border: 1px solid grey;
@@ -73,9 +105,9 @@
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-        height: 700px;
-        width: calc((100%/4) - 24px);
-        margin-left: 12px;
+        height: 75%;
+        width: calc((100%/4) - 72px);
+        margin-left: 36px;
         margin-top: 50px;
         border-radius: 20px;
         box-shadow: 2px 2px 1px gray;
@@ -85,27 +117,49 @@
             border-radius: 20px 20px 0px 0px;
         }
 
-        .index-card-title{
-            margin-top: 10px;
-            font-size: 1em;
-            opacity: 0.5;
-            // font-weight: 700;
+
+
+        .index-card-text{
+            padding: 5%;
+            width: 90%;
+            // height: 15px;
         }
 
-        .index-btn{
-            padding: 10px;
-            color: red;
-            border-radius: 10px;
-            border: 0.2px solid grey;
-            box-shadow: 2px 2px 1px gray;
-        }
 
-        .index-card-padding{
-            padding: 10px 10px 10px 10px;
-        }
 
         .index-card-price{
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
             padding: 0px 10px 20px 10px;
+
+            .index-card-title{
+                font-size: 0.8em;
+                opacity: 0.5;
+            }
+
+            .index-btn{
+                padding: 10px;
+                color: red;
+                border-radius: 10px;
+                border: 0.2px solid grey;
+                box-shadow: 2px 2px 1px gray;
+            }
+        }
+
+        .index-cover-img{
+            position: relative;
+            width: 100%;
+
+            .index-cover-img-l{
+                position: absolute;
+                top: 90%;
+                left: 3%;
+                z-index: 10;
+                color: white;
+            }
         }
 
 

@@ -112,9 +112,13 @@ ul {
   opacity: 1;
 }
 
-.index-search {
-  width: 40vw;
-  margin-left: 3%;
+.index-search-bar {
+  position: relative;
+}
+
+.index-search-bar .index-search {
+  width: 20vw;
+  margin-left: 3vw;
   border-radius: 3px;
   box-shadow: 2px 2px 1px gray;
   border: 0 solid gray;
@@ -123,7 +127,24 @@ ul {
   padding: 5px 5px 5px 15px;
 }
 
-.index-search-2 {
+.index-search-bar .index-q {
+  position: absolute;
+  z-index: 10;
+  border-radius: 3px;
+  box-shadow: 2px 2px 1px gray;
+  border: 0 solid gray;
+  padding: 5px 10px 5px 10px;
+  color: red;
+  top: 15px;
+  left: 409px;
+  background-color: white;
+  box-shadow: 0 0 5px 2px gray;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
+}
+
+.index-search-bar .index-search-2 {
   padding: 5px 5px 5px 15px;
   box-shadow: 2px 2px 1px gray;
   margin-left: 0.4%;
@@ -145,6 +166,7 @@ ul {
   height: 80vh;
   width: 94%;
   margin: 0 auto;
+  padding: 0px 0px 0px 10%;
 }
 
 .index-cards .index-card {
@@ -154,9 +176,9 @@ ul {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  height: 700px;
-  width: calc(25% - 24px);
-  margin-left: 12px;
+  height: 75%;
+  width: calc(25% - 72px);
+  margin-left: 36px;
   margin-top: 50px;
   border-radius: 20px;
   box-shadow: 2px 2px 1px gray;
@@ -167,13 +189,26 @@ ul {
   border-radius: 20px 20px 0px 0px;
 }
 
-.index-cards .index-card .index-card-title {
-  margin-top: 10px;
-  font-size: 1em;
+.index-cards .index-card .index-card-text {
+  padding: 5%;
+  width: 90%;
+}
+
+.index-cards .index-card .index-card-price {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px 20px 10px;
+}
+
+.index-cards .index-card .index-card-price .index-card-title {
+  font-size: 0.8em;
   opacity: 0.5;
 }
 
-.index-cards .index-card .index-btn {
+.index-cards .index-card .index-card-price .index-btn {
   padding: 10px;
   color: red;
   border-radius: 10px;
@@ -181,12 +216,17 @@ ul {
   box-shadow: 2px 2px 1px gray;
 }
 
-.index-cards .index-card .index-card-padding {
-  padding: 10px 10px 10px 10px;
+.index-cards .index-card .index-cover-img {
+  position: relative;
+  width: 100%;
 }
 
-.index-cards .index-card .index-card-price {
-  padding: 0px 10px 20px 10px;
+.index-cards .index-card .index-cover-img .index-cover-img-l {
+  position: absolute;
+  top: 90%;
+  left: 3%;
+  z-index: 10;
+  color: white;
 }
 
 .nav-ul {

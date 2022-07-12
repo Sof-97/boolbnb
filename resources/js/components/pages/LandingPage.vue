@@ -1,6 +1,7 @@
 <template>
     <div>
         <!-- Tasti ricerca -->
+        <div class="index-search-bar">
             <input
                 type="text"
                 v-model="search"
@@ -9,8 +10,10 @@
                 @keyup.enter="select(0)"
                 @keyup="getInfoApi(search)"
             />
-
+            <div class="index-q">Q</div>
             <a href="#" class="index-search-2">Ricerca avanzata</a>
+        </div>
+
         <div>
 
             <!-- barra di ricerca a tendina-->
@@ -39,18 +42,29 @@
                     class="index-card"
                 >
                         <div>
-                            <div>
-                                <img
-                                class="index-img-top"
-                                :src="`${e.cover_image}`"
-                                alt="Card image cap"
-                                />
+                            <div class="index-cover-img">
+                                <div>
+                                    <img
+                                    class="index-img-top"
+                                    :src="`${e.cover_image}`"
+                                    alt="Card image cap"
+                                    />
+                                </div>
+                                <div class="index-cover-img-l">
+                                    <span>Rooms: {{ e.rooms }}</span>
+<!-- FIXME Mettere le immagini -->
+                                    <!-- <span><img src="{{asset('../../../../../../../public/img/bedicon.png')}}" alt="bagno">{{ e.bathrooms }}</span> -->
+                                    <!-- <span><img src="('../../../../../../../public/img/bedicon.png')" alt="bagno">{{ e.bathrooms }}</span> -->
+                                    <!-- <span><img src="{{asset('img/bedicon.png')}}" alt="bagno">{{ e.bathrooms }}</span> -->
+                                    <!-- <img src="/img/bedicon.png"> -->
+                                    <span>- Bagni: {{ e.bathrooms }}</span>
+                                </div>
                             </div>
 
+                            <div class="index-card-text">{{ e.description }}</div>
 
-                            <div class="index-card-text index-card-padding">{{ e.description }}</div>
-                            <div class="index-card-title index-card-padding">Host: {{ e.title }}</div>
 
+<!-- FIXME Inserire i service -->
                             <!-- <div v-for="(el, h) in e[services]" :key="h">
                                 {{el}}
                             </div> -->
@@ -58,15 +72,18 @@
                         </div>
 
                         <div class="index-card-price">
-                            <p>prezzo a notte: {{ e.price }}€</p>
-                            <router-link
-                                :to="{
-                                    name: 'SingleApartment',
-                                    params: { slug: e.slug },
-                                }"
-                                class="index-btn"
-                                >Vai all'appartamento</router-link
-                            >
+                            <div class="index-card-title">Host: {{ e.title }}</div>
+                            <!-- <p>prezzo a notte: {{ e.price }}€</p> -->
+                            <div>
+                                <router-link
+                                    :to="{
+                                        name: 'SingleApartment',
+                                        params: { slug: e.slug },
+                                    }"
+                                    class="index-btn"
+                                    >Vai all'appartamento</router-link
+                                >
+                            </div>
                         </div>
                 </div>
             </div>
@@ -134,6 +151,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
