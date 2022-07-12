@@ -15,9 +15,20 @@
 
 <body>
 @include('layouts.nav-index')
+<div class="hero">
+    <img src="{{ asset('img/hero.jpg') }}" alt="">
+</div>
     <div id="root"></div>
     <script src="{{ asset('js/front.js') }}"></script>
 @include('layouts.footer')
 </body>
 
 </html>
+<style>
+    .hero{
+        /* background-image: url("../../../public/img/hero.jpg"); */
+        width: fit-content;
+        height: 2%;
+        margin: 0 auto;
+    }
+</style>
