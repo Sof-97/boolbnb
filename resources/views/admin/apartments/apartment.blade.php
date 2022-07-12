@@ -25,7 +25,7 @@ Appartamenti
             </div>
             <div>
                 <a class="text_decoration_none button_accent" href="{{ route('admin.apartments.create') }}">
-                    Aggiungi Appartamento
+                    Aggiungi appartamento
                 </a>
             </div>
         </div>

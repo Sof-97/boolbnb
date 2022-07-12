@@ -1,0 +1,182 @@
+.pill {
+    color: white;
+    background-color: $color-accent;
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+    width: 25%;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.form-create {
+    width: 45vw;
+    padding: 10px;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgray;
+}
+
+.price {
+    width: 13vw;
+    padding: 10px;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgray;
+}
+
+.description-form {
+    width: 60vw;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgray;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.address-form {
+    width: 60vw;
+    border: 2px solid lightgray;
+    box-shadow: 2px 2px 7px 0px lightgray;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.address-form2 {
+    width: 60vw;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgray;
+    padding: 10px;
+    z-index: 1;
+}
+
+.services-form {
+    width: 60vw;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgray;
+    padding: 10px;
+}
+
+.services-ul {
+    height: 20vh;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+.services-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: $color-accent;
+    font-weight: bold;
+}
+
+.image-form {
+    width: 60vw;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgray;
+    padding: 20px;
+}
+
+.little-forms {
+    width: 10vw;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgray;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.margin-top-forms {
+    padding-top: 30px;
+}
+
+.radio {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.margin-bottom-forms {
+    padding-bottom: 30px;
+}
+
+.custom-margin-create {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.button-send {
+    background-color: $color-accent;
+    padding: 15px;
+    border: 0px;
+    border-radius: 8px;
+    color: white !important;
+    font-size: 15px;
+    font-weight: 600 !important;
+    width: 12vw;
+}
+
+.margin-top-services {
+    padding-top: 15px;
+}
+
+input,
+textarea {
+    &:focus {
+        border: 2px solid $color-accent;
+    }
+    &:focus-visible {
+        outline: none;
+    }
+    &::-webkit-file-upload-button {
+        border-radius: 5px;
+        border: 1px solid $color-accent;
+        background-color: transparent;
+        color: $color-accent;
+    }
+}
+input[type="file"] {
+    padding: 0.5rem;
+    height: 100%;
+    width: 100%;
+}
+
+.form-create::placeholder {
+    font-weight: bold;
+    color: lightgray;
+}
+
+.price::placeholder {
+    font-weight: bold;
+    color: lightgray;
+}
+
+.description-form::placeholder {
+    font-weight: bold;
+    color: lightgray;
+}
+
+.address-form::placeholder {
+    font-weight: bold;
+    color: lightgray;
+}
+
+.services-form::placeholder {
+    font-weight: bold;
+    color: lightgray;
+}
+
+.li-hover:hover {
+    color: $color-accent;
+}
+
+.margin-form {
+    margin-left: 30px;
+}
+
+.direction {
+    flex-direction: column;
+}

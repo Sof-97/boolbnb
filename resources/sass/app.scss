@@ -1,31 +1,32 @@
 // Variables
-@import 'variables';
+@import "variables";
 //apartments
-@import './partials/apartments';
+@import "./partials/apartments";
 // LandingPage
-@import './partials/landingpage';
+@import "./partials/landingpage";
 //dahsboard
-@import './partials/dashboard';
+@import "./partials/dashboard";
 //common class
-@import './partials/common';
+@import "./partials/common";
 //side navbar
-@import './partials/navbarside';
+@import "./partials/navbarside";
 //title bar
 @import './partials/title';
+//create
+@import './partials/create';
 //login
-@import './partials/login';
+@import "./partials/login";
 // Card singolo appartamento
-@import './partials/singleapartment';
+@import "./partials/singleapartment";
 // footer
-@import './partials/footer';
+@import "./partials/footer";
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 //reset user agent
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    font-family: 'Roboto', sans-serif;
-
+    font-family: "Roboto", sans-serif;
+}
