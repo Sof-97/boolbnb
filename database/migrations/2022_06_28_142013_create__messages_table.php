@@ -17,13 +17,13 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             
-            $table->unsignedBigInteger('id_apartment')->nullable(false);
+            $table->unsignedBigInteger('apartment_id')->nullable(false);
             $table->text('text')->nullable(false);
             $table->string('email_sender')->nullable(false);
             
             $table->timestamps();
            
-            $table->foreign('id_apartment')
+            $table->foreign('apartment_id')
                 ->references('id')
                 ->on('apartments')->onDelete('cascade');
         });
