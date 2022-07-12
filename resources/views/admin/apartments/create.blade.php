@@ -1,106 +1,140 @@
 @extends('layouts.create-edit')
 
 @section('content')
-    <h2>Create</h2>
-    <div id="app" class="container">
-        <form action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
 
-            {{-- Titolo appartamento --}}
+@include('layouts.nav-title')
+<div class="flex-center custom-margin-create">
+<div class="custom">
+<div class="flex-center">
+    <h3 class="pill">Aggiungi un appartamento</h3>
+</div>
 
+<div id="app" class="flex-center">
+    <form action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+
+        {{-- Titolo appartamento --}}
+        <div class="flex wrap justify-center">
             <div class="form-group">
-                <label for="title">Titolo appartamento</label>
-                <input required type="text" class="form-control" name="title" id="title"
+                <input required type="text" class="form-control form-create" name="title" id="title"
                     placeholder="Titolo dell'appartamento" />
                 @error('title')
-                    <span class="text-danger">{{ $message }}</span>
+                <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             {{-- Prezzo --}}
             <div class="form-group">
-                <label for="price">Prezzo dell'appartamento per notte</label>
-                <input step="0.01" min="1" type="number" required name="price" id="price" class="form-control" placeholder="Prezzo dell'appartamento per notte">
+                <input step="0.01" min="1" type="number" required name="price" id="price"
+                    class="form-control price margin-form" placeholder="Prezzo">
                 @error('price')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            {{-- Descrizione appartamento --}}
-            <div class="form-group">
-                <label for="description">Descrizione appartamento</label>
-                <textarea required type="text" rows="5" class="form-control" name="description" id="description"
-                    placeholder="Descrizione appartamento"></textarea>
-                @error('description')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            {{-- Indirizzo tramite Vue --}}
-            <form-address></form-address>
-            @error('address')
                 <span class="text-danger">{{ $message }}</span>
-            @enderror
+                @enderror
+            </div>
+        </div>
 
-            {{-- SERVIZI --}}
-            <div class="form-group">
-                <label for="services">Servizi presenti:</label><br>
+
+        {{-- Descrizione appartamento --}}
+        <div class="form-group">
+            <textarea required type="text" rows="5" class="form-control description-form" name="description"
+                id="description" placeholder="Descrizione"></textarea>
+            @error('description')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+        {{-- Indirizzo tramite Vue --}}
+        <form-address></form-address>
+        @error('address')
+        <span class="text-danger">{{ $message }}</span>
+        @enderror
+
+        {{-- SERVIZI --}}
+        <div>
+            <h4 class="services-title" style="">Servizi: </h4>
+        </div>
+        <div class="form-group services-form">
+            <ul class="services-ul">
                 @foreach ($services as $service)
-                    <input class="ml-3" type="checkbox" name="services[]" value="{{ $service->id }}"
-                        id="{{ $service }}">{{ $service->name }} <br>
+                <li class="list-type">
+                    <input style="margin-right: 15px;" type="checkbox" name="services[]" value="{{ $service->id }}"
+                        id="{{ $service }}">{{ $service->name }}
+                </li>
                 @endforeach
-            </div>
-            {{-- Immagine Copertina --}}
-            <div class="form-group">
-                <label for="cover_image">Immagine di copertina:</label>
-                <input required  type="file" name="cover_image" id="cover_image" class="form-control" />
+            </ul>
+        </div>
+
+        {{-- Immagine Copertina --}}
+        <div style="padding-top: 30px; padding-bottom: 20px;">
+            <label class="services-title" for="cover_image">Carica una foto:</label>
+        </div>
+        <div class="form-group image-form">
+            <div class="button-image">
+                <input required type="file" name="cover_image" id="cover_image" class="form-control" />
                 @error('cover_image')
-                    <span class="text-danger">{{ $message }}</span>
+                <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            {{-- N° MQ2 --}}
-            <div class="form-group">
-                <label for="mq2">Metri quadrati</label>
-                <input required class="form-control" type="number" name="mq2" id="mq2" min="1" />
-                @error('mq2')
+        </div>
+
+        
+        <div class="flex-evenly">
+
+            <div class="margin-top-forms">
+                {{-- N° MQ2 --}}
+                <div class="form-group">
+                    <input placeholder="Metri quadrati" required class="form-control little-forms" type="number" name="mq2" id="mq2" min="1" />
+                    @error('mq2')
                     <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            {{-- N° Stanze --}}
-            <div class="form-group">
-                <label for="rooms">N° di stanze</label>
-                <input required class="form-control" type="number" name="rooms" id="rooms" min="1" />
-                @error('rooms')
+                    @enderror
+                </div>
+                {{-- N° Stanze --}}
+                <div class="form-group margin-top-services">
+                    <input placeholder="N° di stanze" required class="form-control little-forms" type="number" name="rooms" id="rooms" min="1" />
+                    @error('rooms')
                     <span class="text-danger">{{ $message }}</span>
-                @enderror
+                    @enderror
+                </div>
             </div>
-            {{-- N° letti --}}
-            <div class="form-group">
-                <label for="beds">N° di letti</label>
-                <input required class="form-control" type="number" name="beds" id="beds" min="1" />
-                @error('beds')
+
+            <div class="margin-top-forms">
+                {{-- N° letti --}}
+                <div class="form-group">
+                    <input placeholder="N° di letti" required class="form-control little-forms" type="number" name="beds" id="beds" min="1" />
+                    @error('beds')
                     <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            {{-- N° bagni --}}
-            <div class="form-group">
-                <label for="bathrooms">N° di bagni</label>
-                <input required class="form-control" type="number" name="bathrooms" id="bathrooms" min="0" />
-                @error('bathrooms')
+                    @enderror
+                </div>
+                {{-- N° bagni --}}
+                <div class="form-group margin-top-services">
+                    <input placeholder="N° di letti" required class="form-control little-forms" type="number" name="bathrooms" id="bathrooms" min="0" />
+                    @error('bathrooms')
                     <span class="text-danger">{{ $message }}</span>
-                @enderror
+                    @enderror
+                </div>
             </div>
-            {{-- Visibilità appartamento --}}
-            <div class="form-group">
-                <label for="is_visible">L'appartamento è visibile</label>
+        </div>
+
+        {{-- Visibilità appartamento --}}
+        <div class="form-group radio">
+            <label for="is_visible">Desideri che l'appartamento sia visibile?</label>
+            <div>
                 <input type="radio" name="is_visible" id="is_visible" value="1" /> SI
                 <input type="radio" name="is_visible" id="is_visible" value="0" /> NO
-
-                @error('is_visible')
-                    <br>
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
             </div>
-            {{-- Submit --}}
-            <button type="submit" class="btn btn-success">Invia</button>
-        </form>
-    </div>
-    <script defer src="{{ asset('js/formCreate.js') }}"></script>
+
+
+            @error('is_visible')
+            <br>
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+        {{-- Submit --}}
+        <div class="text-center margin-top-forms margin-bottom-forms">
+            <button class="button-send" type="submit">Invia</button>
+        </div>
+
+    </form>
+</div>
+</div>
+</div>
+<script defer src="{{ asset('js/formCreate.js') }}"></script>
 @endsection
