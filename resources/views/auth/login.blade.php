@@ -21,11 +21,11 @@
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class=" button-login " href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class=" button-login " href="{{ route('login') }}">{{ __('Accedi') }}</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class=" button-login " href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class=" button-login " href="{{ route('register') }}">{{ __('Iscriviti') }}</a>
                     </li>
                     @endif
                     @else
@@ -56,7 +56,7 @@
         <div>
            
                 <div class="card">
-                    <h2 class="login-title">Login</h2>
+                    <h2 class="login-title">Accedi</h2>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -101,7 +101,7 @@
                                             {{ old('remember') ? 'checked' : '' }}>
 
                                         <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
+                                            {{ __('Ricordati di me') }}
                                         </label>
                                     </div>
                                 </div>
@@ -110,12 +110,12 @@
                             <div class="form-group">
                                 <div>
                                     <button type="submit" class="button-login">
-                                        {{ __('Login') }}
+                                        {{ __('Accedi') }}
                                     </button>
 
                                     @if (Route::has('password.request'))
                                     <a class="btn" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('Password dimenticata?') }}
                                     </a>
                                     @endif
                                 </div>
