@@ -60,7 +60,6 @@
     border: 1px solid $color-accent;
     background-color: $color-accent;
     color: white;
-
 }
 
 .text_decoration_none {
@@ -70,11 +69,11 @@
 
 .link-hover:hover {
     color: white !important;
-
 }
 
-.clearfix {
-    content: "";
-    clear: both;
-    display: table;
+.custom {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgray;
+    width: 95%;
 }

@@ -16,18 +16,22 @@
 }
 
 .accent {
-    padding-bottom: 12px;
     color: $color-accent;
+    width: 20%;
+    margin-top: 15px;
+    border-radius: 30px;
 }
 
-.spacing-title {
-    padding-top: 20px;
+.p-margin {
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 .statistics {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    margin-top: 10px;
 }
 
 .cards {
@@ -35,23 +39,23 @@
     margin-top: 20px;
 }
 
-.description {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 .dash-title {
     margin-bottom: 30px;
-    width: 40%;
+    width: 30%;
 }
 
-.color-welcome {
-    color: rgb(114, 114, 114);
-    text-align: center;
-    margin-top: 25px;
-    background-color: $dirty-white;
-    border-radius: 10px;
+.description {
+    padding: 20px;
+    margin-left: 10px;
+    width: 80%;
+}
+
+.pill-welcome {
+    color: white;
+    background-color: $color-accent;
     padding: 10px;
+    border-radius: 30px;
+    text-align: center;
 }
 
 .flex-right {
@@ -61,4 +65,17 @@
 
 .title-border {
     border-bottom: 1px solid $dirty-white;
+}
+
+.global-padding {
+    padding: 50px;
+}
+
+.padding-description {
+    padding-bottom: 20px;
+}
+
+.padding-dashboard {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }

@@ -50,13 +50,6 @@ ul {
   margin-left: 0 !important;
 }
 
-.custom {
-  border: 1px solid lightgray;
-  border-radius: 10px;
-  box-shadow: 5px 5px 10px 0px lightgray;
-  width: 95%;
-}
-
 .apartment-padding {
   padding: 26px;
 }
@@ -122,18 +115,22 @@ ul {
 }
 
 .accent {
-  padding-bottom: 12px;
   color: #ff385c;
+  width: 20%;
+  margin-top: 15px;
+  border-radius: 30px;
 }
 
-.spacing-title {
-  padding-top: 20px;
+.p-margin {
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
 .statistics {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .cards {
@@ -141,23 +138,23 @@ ul {
   margin-top: 20px;
 }
 
-.description {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
 .dash-title {
   margin-bottom: 30px;
-  width: 40%;
+  width: 30%;
 }
 
-.color-welcome {
-  color: rgb(114, 114, 114);
-  text-align: center;
-  margin-top: 25px;
-  background-color: #EEEEEE;
-  border-radius: 10px;
+.description {
+  padding: 20px;
+  margin-left: 10px;
+  width: 80%;
+}
+
+.pill-welcome {
+  color: white;
+  background-color: #ff385c;
   padding: 10px;
+  border-radius: 30px;
+  text-align: center;
 }
 
 .flex-right {
@@ -167,6 +164,19 @@ ul {
 
 .title-border {
   border-bottom: 1px solid #EEEEEE;
+}
+
+.global-padding {
+  padding: 50px;
+}
+
+.padding-description {
+  padding-bottom: 20px;
+}
+
+.padding-dashboard {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .flex {
@@ -236,18 +246,17 @@ ul {
 .text_decoration_none {
   text-decoration: none;
   color: inherit;
-
 }
 
 .link-hover:hover {
   color: white !important;
 }
 
-.clearfix {
-  content: "";
-  clear: both;
-  display: table;
-
+.custom {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px lightgray;
+  width: 95%;
 }
 
 .nav-ul {
