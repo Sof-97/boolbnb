@@ -1919,9 +1919,116 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/AdvancedSearch.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\resources\\js\\components\\pages\\AdvancedSearch.vue: Binding member expression. (83:40)\n\n\u001b[0m \u001b[90m 81 |\u001b[39m                 \u001b[36mreturn\u001b[39m \u001b[36mtrue\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 82 |\u001b[39m             } \u001b[36melse\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 83 |\u001b[39m                 \u001b[36mlet\u001b[39m checker \u001b[33m=\u001b[39m (service\u001b[33m,\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mchecked) \u001b[33m=>\u001b[39m target\u001b[33m.\u001b[39mevery(v \u001b[33m=>\u001b[39m arr\u001b[33m.\u001b[39mincludes(v))\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 84 |\u001b[39m             }\u001b[0m\n\u001b[0m \u001b[90m 85 |\u001b[39m             \u001b[36mreturn\u001b[39m checker\u001b[0m\n\u001b[0m \u001b[90m 86 |\u001b[39m         }\u001b[33m,\u001b[39m\u001b[0m\n    at instantiate (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:359:12)\n    at Parser.raise (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:3339:19)\n    at Parser.checkLVal (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12064:14)\n    at Parser.checkParams (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:13993:12)\n    at Parser.parseFunctionBody (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:13945:12)\n    at Parser.parseArrowExpression (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:13922:10)\n    at Parser.parseParenAndDistinguishExpression (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:13419:12)\n    at Parser.parseExprAtom (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12976:23)\n    at Parser.parseExprSubscripts (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12648:23)\n    at Parser.parseUpdate (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12627:21)\n    at Parser.parseMaybeUnary (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12598:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12392:61)\n    at Parser.parseExprOps (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12399:23)\n    at Parser.parseMaybeConditional (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12369:23)\n    at Parser.parseMaybeAssign (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12321:21)\n    at C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12279:39\n    at Parser.allowInAnd (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:14346:16)\n    at Parser.parseMaybeAssignAllowIn (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:12279:17)\n    at Parser.parseVar (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:15374:91)\n    at Parser.parseVarStatement (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:15176:10)\n    at Parser.parseStatementContent (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:14718:21)\n    at Parser.parseStatement (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:14643:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:15286:25)\n    at Parser.parseBlockBody (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:15277:10)\n    at Parser.parseBlock (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:15261:10)\n    at Parser.parseStatementContent (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:14727:21)\n    at Parser.parseStatement (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:14643:17)\n    at Parser.parseIfStatement (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:15042:42)\n    at Parser.parseStatementContent (C:\\Users\\sofes\\Documents\\Coding\\classe_58\\boolbnb-team3\\node_modules\\@babel\\parser\\lib\\index.js:14694:21)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "AdvancedSearch",
+  data: function data() {
+    return {
+      baseUrlTomtom: "https://api.tomtom.com/search/2/search/",
+      keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
+      apartments: null,
+      services: [],
+      range: this.radius,
+      lat2: this.lat,
+      lon2: this.lon,
+      autocomplete: null,
+      search: null,
+      stanze: 1,
+      letti: 1,
+      checked: []
+    };
+  },
+  props: {
+    lat: {
+      type: String,
+      "default": ""
+    },
+    lon: {
+      type: String,
+      "default": ""
+    },
+    radius: {
+      type: String,
+      "default": ""
+    }
+  },
+  created: function created() {
+    this.getApartments(this.radius, this.lat, this.lon);
+    this.getServices();
+  },
+  methods: {
+    filterMenu: function filterMenu() {
+      document.getElementById("filter-list").classList.toggle("show");
+    },
+    getApartments: function getApartments(radius, lat, lon) {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/distance/" + radius + "/" + lat + "/" + lon).then(function (res) {
+        _this.apartments = res.data;
+      });
+    },
+    getInfoApi: function getInfoApi() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.baseUrlTomtom + this.search + this.keySettingsTomtom).then(function (res) {
+        _this2.autocomplete = res.data.results;
+      });
+    },
+    select: function select(i) {
+      this.lat2 = this.autocomplete[i].position.lat;
+      this.lon2 = this.autocomplete[i].position.lon;
+      this.getApartments(this.range, this.lat2, this.lon2);
+      this.search = "";
+    },
+    getServices: function getServices() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/services").then(function (res) {
+        res.data.forEach(function (e) {
+          var obj = {
+            id: e.id,
+            name: e.name
+          };
+
+          _this3.services.push(obj);
+        });
+      });
+    },
+    check: function check(serv) {
+      if (this.checked.length == 0) {
+        return true;
+      } else {
+        if (!serv.length > 0) {
+          return false;
+        }
+
+        var apServ = [];
+        var selected = [];
+        serv.forEach(function (serv) {
+          apServ.push(serv.id);
+        });
+        this.checked.forEach(function (check) {
+          selected.push(check);
+        });
+        var check = false;
+        selected.forEach(function (e) {
+          if (apServ.includes(e)) {
+            check = true;
+          } else {
+            check = false;
+          }
+        });
+        return check;
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -2173,14 +2280,8 @@ var render = function render() {
         id: e.id
       },
       domProps: {
-        value: {
-          id: e.id,
-          name: e.name
-        },
-        checked: Array.isArray(_vm.checked) ? _vm._i(_vm.checked, {
-          id: e.id,
-          name: e.name
-        }) > -1 : _vm.checked
+        value: e.id,
+        checked: Array.isArray(_vm.checked) ? _vm._i(_vm.checked, e.id) > -1 : _vm.checked
       },
       on: {
         change: function change($event) {
@@ -2189,10 +2290,7 @@ var render = function render() {
               $$c = $$el.checked ? true : false;
 
           if (Array.isArray($$a)) {
-            var $$v = {
-              id: e.id,
-              name: e.name
-            },
+            var $$v = e.id,
                 $$i = _vm._i($$a, $$v);
 
             if ($$el.checked) {
@@ -2316,7 +2414,7 @@ var render = function render() {
       }],
       key: i,
       staticClass: "col-3 card mb-5 p-2"
-    }, [_c("img", {
+    }, [_c("h2", [_vm._v("TEST: " + _vm._s(_vm.check(e.service)))]), _vm._v(" "), _c("img", {
       staticClass: "card-img-top",
       attrs: {
         src: "".concat(e.cover_image),
