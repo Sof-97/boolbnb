@@ -1,14 +1,30 @@
 <template>
     <div class="container">
         <h1>Show</h1>
-        <h2>{{apartment.title}}</h2>
-        <img :src="apartment.cover_image" alt="">
-        <p class="my-4">Il prezzo a notte per l'appartamento è {{apartment.price}}€</p>
-        <form>
-            <input type="number" name="id_apartment" id="id_apartment" :value="apartment.id" hidden required>
-            <input type="email" name="email" id="email" v-model="email" required>
-            <input type="text" name="text" id="text" v-model="text" required>
-            <input type="submit" value="Invia" @submit="message">
+        <h2>{{ apartment.title }}</h2>
+        <img :src="apartment.cover_image" alt="" />
+        <p class="my-4">
+            Il prezzo a notte per l'appartamento è {{ apartment.price }}€
+        </p>
+
+        <form @submit.prevent="submit">
+            <label for="email">La tua email</label>
+            <input
+                type="text"
+                name="email_sender"
+                id="email_sender"
+                v-model="fields.email_sender"
+            />
+            <label for="text">Il tuo messaggio</label>
+            <input type="text" name="text" id="text" v-model="fields.text" />
+            <!-- <input
+                :value="apartment.id"
+                type="text"
+                name="id_apartment" 
+                id="id_apartment"
+                hidden
+            /> -->
+            <button type="submit">Invia</button>
         </form>
     </div>
 </template>
@@ -20,37 +36,40 @@ export default {
     name: "SingleApartment",
     data() {
         return {
+            fields: {
+                id_apartment: 1,
+            },
             apartment: null,
-            text: null,
-            email: null
         };
     },
     created() {
         this.getApartment();
     },
     methods: {
-        message(){
-            axios.post("http://127.0.0.1:8000/api/messages/", {params: {
-                email_sender: this.email,
-                text: this.text,
-                id_apartment: this.apartment.id,
-            }
-            })
+        submit() {
+            this.errors = {};
+            axios
+                .post("http://127.0.0.1:8000/api/messages", this.fields)
+                .then((response) => {
+                    alert("Message sent!");
+                    console.log(response);
+                })
+                .catch((error) => {
+                    if (error.response.status === 422) {
+                        this.errors = error.response.data.errors || {};
+                    }
+                });
         },
         getApartment() {
-            console.log("gigi");
             axios
                 .get(
                     "http://127.0.0.1:8000/api/apartments/" +
-                        this.$route.params.slug.split('/show')
+                        this.$route.params.slug.split("/show")
                 )
-                .then((res) => this.apartment = res.data);
+                .then((res) => (this.apartment = res.data));
         },
     },
 };
 </script>
-<style lang="scss" scoped>
-h1 {
-    color: red;
-}
-</style>
+
+<style lang="scss" scoped></style>
