@@ -1945,15 +1945,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   }
-}); //funzione onclick
-
-function myFunction() {
-  var ids = ['title', 'price', 'description', 'address', 'mq2', 'rooms', 'beds', 'bathrooms'];
-  var elements = document.querySelectorAll(ids.map(function (id) {
-    return "".concat(id);
-  }).join(''));
-  elements.classList.add("border-click");
-}
+});
 
 /***/ }),
 
@@ -1974,25 +1966,21 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "form-group"
-  }, [_c("label", {
-    attrs: {
-      "for": "address"
-    }
-  }, [_vm._v("Indirizzo")]), _vm._v(" "), _c("input", {
+  }, [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.address,
       expression: "address"
     }],
-    staticClass: "form-control",
+    staticClass: "form-control address-form",
     attrs: {
       required: "",
       autocomplete: "off",
       type: "text",
       name: "address",
       id: "address",
-      onclick: "myFunction()"
+      placeholder: "Indirizzo"
     },
     domProps: {
       value: _vm.address
@@ -2046,9 +2034,20 @@ var render = function render() {
         _vm.longitude = $event.target.value;
       }
     }
-  }), _vm._v(" "), _vm._l(_vm.results, function (result, i) {
-    return _c("div", {
+  }), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.results.length > 0,
+      expression: "results.length > 0"
+    }],
+    staticClass: "address-form2"
+  }, [_c("ul", {
+    staticClass: "list-type"
+  }, _vm._l(_vm.results, function (result, i) {
+    return _c("li", {
       key: i,
+      staticClass: "li-hover",
       staticStyle: {
         cursor: "pointer"
       },
@@ -2057,8 +2056,8 @@ var render = function render() {
           return _vm.selectAddress(i);
         }
       }
-    }, [_vm._v("\n            " + _vm._s(result.address.freeformAddress) + "\n        ")]);
-  })], 2);
+    }, [_vm._v("\n                    " + _vm._s(result.address.freeformAddress))]);
+  }), 0)])]);
 };
 
 var staticRenderFns = [];
@@ -14372,8 +14371,8 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolbnb-team3-58/resources/js/formCreate.js */"./resources/js/formCreate.js");
 
-  
 
 /***/ })
 

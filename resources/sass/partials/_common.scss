@@ -18,6 +18,12 @@
     align-items: center;
 }
 
+.flex-evenly {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .align-center {
     display: flex;
     align-items: center;
@@ -61,6 +67,10 @@
 .text_decoration_none {
     text-decoration: none;
     color: inherit;
+}
+
+.list-type {
+    list-style-type: none;
 }
 
 .link-hover:hover {
