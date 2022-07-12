@@ -25,7 +25,7 @@
                                     type="checkbox"
                                     :name="e.name"
                                     :id="e.id"
-                                    :value="{ id: e.id, name: e.name }"
+                                    :value="e.id"
                                     v-model="checked"
                                 />
                             </li>
@@ -90,6 +90,7 @@
                         e.rooms >= stanze && e.beds >= letti && check(e.service)
                     "
                 >
+                    <h2>TEST: {{ check(e.service) }}</h2>
                     <img
                         class="card-img-top"
                         :src="`${e.cover_image}`"
@@ -191,13 +192,31 @@ export default {
                 });
             });
         },
-        check(service) {
+        check(serv) {
             if (this.checked.length == 0) {
                 return true;
             } else {
-                let checker = (service, this.checked) => target.every(v => arr.includes(v));
+                if (!serv.length > 0) {
+                    return false;
+                }
+                let apServ = [];
+                let selected = [];
+                serv.forEach((serv) => {
+                    apServ.push(serv.id);
+                });
+                this.checked.forEach((check) => {
+                    selected.push(check);
+                });
+                let check = false
+                selected.forEach((e) => {
+                    if (apServ.includes(e)) {
+                        check = true
+                    } else {
+                        check = false 
+                    }
+                });
+                return check
             }
-            return checker
         },
     },
 };
