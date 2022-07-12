@@ -4,26 +4,28 @@
 @endsection
 @section('content')
 
-<div class="flex-right">
-    <div>
-        <div class="movement">
+<div class="flex-center padding-dashboard">
+
+
+<div class="flex-center custom global-padding">
+    <div class="">
+        <div class="flex-center movement">
             <div class="dash-title">
-                <h4 class="color-welcome">Dashboard di {{ $user->name }} {{ $user->surname }}</h4>
+                <h4 class="pill-welcome">Dashboard di {{ $user->name }} {{ $user->surname }}</h4>
             </div>
         </div>
 
         <div>
             <div>
                 <h4 class="accent">Novità</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacinia volutpat eros, vel volutpat
+                <p class="p-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacinia volutpat eros, vel volutpat
                     tellus porta vitae. Nam lobortis blandit mauris vel lacinia. Proin dignissim vestibulum rutrum. Cras
                     porttitor elit vehicula ligula blandit pharetra. Nunc ac augue quis nisl tincidunt ornare et nec
-                    est.
-                    Fusce non ante orci. Pellentesque diam purus, aliquet eu cursus in, ultricies a sem.</p>
+                    est.Fusce non ante orci. Pellentesque diam purus, aliquet eu cursus in, ultricies a sem.</p>
             </div>
         </div>
         <div>
-            <h4 class="spacing-title accent">Le tue statistiche in breve</h4>
+            <h4 class="accent statistics-padding">Le tue statistiche in breve</h4>
             <div>
                 @foreach ($apartments as $apartment)
                 <div class="statistics">
@@ -32,15 +34,15 @@
                             <img class="template-image image" src={{ $apartment->cover_image }} alt="">  
                         </div>
 
-                        <div class="description">
+                        <div class="flex wrap align-center description">
                             <div>
-                                <h5 class="spacing-title">{{ $apartment->title }}</h5>
+                                <h5 class="spacing-title padding-description">{{ $apartment->title }}</h5>
                             </div>
                             <div>
-                                <p>{{ $apartment->description }}</p>
+                                <div class="padding-description">{{ $apartment->description }}</dic>
                             </div>
                             <div>
-                                <div>views</div>
+                                <div class="padding-description">views</div>
                             </div>
                         </div>
                     </div>
@@ -51,8 +53,7 @@
     </div>
 
 </div>
-
-
+</div>
 <style>
     @import "../../resources/sass/app.scss";
 

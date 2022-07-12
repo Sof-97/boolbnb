@@ -1933,7 +1933,7 @@ __webpack_require__.r(__webpack_exports__);
       baseUrlTomtom: "https://api.tomtom.com/search/2/search/",
       keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
       apartments: null,
-      services: null,
+      services: [],
       range: this.radius,
       lat2: this.lat,
       lon2: this.lon,
@@ -1990,19 +1990,42 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/services").then(function (res) {
-        _this3.services = res.data;
-      });
-    }
-  },
-  computed: {
-    check: function check(a, i) {
-      return function () {
-        this.checked.forEach(function (check) {
-          console.log("Check id:", check.id);
-          console.log("Services:", a.apartments);
+        res.data.forEach(function (e) {
+          var obj = {
+            id: e.id,
+            name: e.name
+          };
+
+          _this3.services.push(obj);
         });
+      });
+    },
+    check: function check(serv) {
+      if (this.checked.length == 0) {
         return true;
-      };
+      } else {
+        if (!serv.length > 0) {
+          return false;
+        }
+
+        var apServ = [];
+        var selected = [];
+        serv.forEach(function (serv) {
+          apServ.push(serv.id);
+        });
+        this.checked.forEach(function (check) {
+          selected.push(check);
+        });
+        var check = false;
+        selected.forEach(function (e) {
+          if (apServ.includes(e)) {
+            check = true;
+          } else {
+            check = false;
+          }
+        });
+        return check;
+      }
     }
   }
 });
@@ -2118,10 +2141,8 @@ __webpack_require__.r(__webpack_exports__);
   name: "SingleApartment",
   data: function data() {
     return {
-      fields: {
-        id_apartment: 1
-      },
-      apartment: null
+      fields: {},
+      apartment: {}
     };
   },
   created: function created() {
@@ -2132,9 +2153,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.errors = {};
+      this.fields['apartment_id'] = this.apartment.id;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("http://127.0.0.1:8000/api/messages", this.fields).then(function (response) {
         alert("Message sent!");
-        console.log(response);
+        _this.fields.text = '';
+        _this.fields.email_sender = '';
       })["catch"](function (error) {
         if (error.response.status === 422) {
           _this.errors = error.response.data.errors || {};
@@ -2195,7 +2218,7 @@ var render = function render() {
   return _c("div", [_c("h1", [_vm._v("Search")]), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "flex"
+    staticClass: "flex posrev"
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -2257,14 +2280,8 @@ var render = function render() {
         id: e.id
       },
       domProps: {
-        value: {
-          id: e.id,
-          name: e.name
-        },
-        checked: Array.isArray(_vm.checked) ? _vm._i(_vm.checked, {
-          id: e.id,
-          name: e.name
-        }) > -1 : _vm.checked
+        value: e.id,
+        checked: Array.isArray(_vm.checked) ? _vm._i(_vm.checked, e.id) > -1 : _vm.checked
       },
       on: {
         change: function change($event) {
@@ -2273,10 +2290,7 @@ var render = function render() {
               $$c = $$el.checked ? true : false;
 
           if (Array.isArray($$a)) {
-            var $$v = {
-              id: e.id,
-              name: e.name
-            },
+            var $$v = e.id,
                 $$i = _vm._i($$a, $$v);
 
             if ($$el.checked) {
@@ -2290,9 +2304,7 @@ var render = function render() {
         }
       }
     })]);
-  }), 0)])]), _vm._v(" "), _c("div", {
-    staticClass: "posrev"
-  }, [_c("div", {
+  }), 0)]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -2397,21 +2409,12 @@ var render = function render() {
       directives: [{
         name: "show",
         rawName: "v-show",
-        value: e.rooms >= _vm.stanze && e.beds >= _vm.letti && function () {
-          _vm.checked.forEach(function (check) {
-            e.service.forEach(function (toCheck) {
-              if (check.id != toCheck.id) {
-                return false;
-              }
-            });
-            return true;
-          });
-        },
-        expression: "e.rooms >= stanze && e.beds >= letti && function(){\r\n                        checked.forEach((check)=>{\r\n                            e.service.forEach((toCheck)=>{\r\n                                if(check.id != toCheck.id){\r\n                                    return false\r\n                                }\r\n                            })\r\n                            return true\r\n                        })\r\n                    }"
+        value: e.rooms >= _vm.stanze && e.beds >= _vm.letti && _vm.check(e.service),
+        expression: "\r\n                        e.rooms >= stanze && e.beds >= letti && check(e.service)\r\n                    "
       }],
       key: i,
       staticClass: "col-3 card mb-5 p-2"
-    }, [_c("img", {
+    }, [_c("h2", [_vm._v("TEST: " + _vm._s(_vm.check(e.service)))]), _vm._v(" "), _c("img", {
       staticClass: "card-img-top",
       attrs: {
         src: "".concat(e.cover_image),
@@ -2661,6 +2664,30 @@ var render = function render() {
         _vm.$set(_vm.fields, "text", $event.target.value);
       }
     }
+  }), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.apartment_id,
+      expression: "fields.apartment_id"
+    }],
+    attrs: {
+      value: "apartment.id",
+      type: "text",
+      name: "apartment_id",
+      id: "apartment_id",
+      hidden: ""
+    },
+    domProps: {
+      value: _vm.fields.apartment_id
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.fields, "apartment_id", $event.target.value);
+      }
+    }
   }), _vm._v(" "), _c("button", {
     attrs: {
       type: "submit"
@@ -2686,7 +2713,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#filter[data-v-781a2080] {\n  cursor: pointer;\n  padding: 10px;\n  border: 1px solid black;\n  border-radius: 10px;\n  display: inline-block;\n}\n#filter-list[data-v-781a2080] {\n  background: white;\n  z-index: 1;\n  position: absolute;\n  height: 200px;\n  display: inline-block;\n  padding: 10px 20px;\n  overflow-y: scroll;\n  border: 1px solid grey;\n  border-radius: 10px;\n}\n#filter-list[data-v-781a2080]::-webkit-scrollbar {\n  width: 10px;\n}\n#filter-list input[data-v-781a2080] {\n  margin-right: 0;\n  margin-left: auto;\n}\n#filter-list ul[data-v-781a2080] {\n  list-style: none;\n}\n#filter-list ul li[data-v-781a2080] {\n  padding: 3px 0;\n}\n#filter-list ul li label[data-v-781a2080] {\n  cursor: pointer;\n}\n.posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev .autocomplete[data-v-781a2080] {\n  z-index: 10;\n  width: 300px;\n  margin-left: -1275px;\n  margin-top: 1em;\n  background-color: #fff;\n  padding: 20px;\n  border: 1px solid black;\n  border-radius: 20px;\n  position: absolute;\n}\n.posrev .autocomplete ul[data-v-781a2080] {\n  list-style: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080] {\n  font-family: monospace;\n  opacity: 0.7;\n  border-bottom: 1px solid grey;\n  padding: 5px 0;\n  cursor: pointer;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:last-of-type {\n  border: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:hover {\n  opacity: 1;\n}\n.show[data-v-781a2080] {\n  display: none !important;\n}", ""]);
+exports.push([module.i, "#filter[data-v-781a2080] {\n  cursor: pointer;\n  padding: 10px;\n  border: 1px solid black;\n  border-radius: 10px;\n  display: inline-block;\n}\n#filter-list[data-v-781a2080] {\n  background: white;\n  z-index: 1;\n  position: absolute;\n  height: 200px;\n  display: inline-block;\n  padding: 10px 20px;\n  overflow-y: scroll;\n  border: 1px solid grey;\n  border-radius: 10px;\n}\n#filter-list[data-v-781a2080]::-webkit-scrollbar {\n  width: 10px;\n}\n#filter-list input[data-v-781a2080] {\n  margin-right: 0;\n  margin-left: auto;\n}\n#filter-list ul[data-v-781a2080] {\n  list-style: none;\n}\n#filter-list ul li[data-v-781a2080] {\n  padding: 3px 0;\n}\n#filter-list ul li label[data-v-781a2080] {\n  cursor: pointer;\n}\n.posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev .autocomplete[data-v-781a2080] {\n  z-index: 10;\n  margin-top: 1em;\n  left: 0;\n  background-color: #fff;\n  padding: 20px;\n  border: 1px solid black;\n  border-radius: 20px;\n  position: absolute;\n}\n.posrev .autocomplete ul[data-v-781a2080] {\n  list-style: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080] {\n  font-family: monospace;\n  opacity: 0.7;\n  border-bottom: 1px solid grey;\n  padding: 5px 0;\n  cursor: pointer;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:last-of-type {\n  border: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:hover {\n  opacity: 1;\n}\n.show[data-v-781a2080] {\n  display: none !important;\n}", ""]);
 
 // exports
 

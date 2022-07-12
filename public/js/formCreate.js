@@ -14345,7 +14345,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+wwindow.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component('form-address', __webpack_require__(/*! ./components/FormAddress.vue */ "./resources/js/components/FormAddress.vue")["default"]);
 var app = new Vue({
   el: '#app',

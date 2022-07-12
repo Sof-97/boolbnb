@@ -2,7 +2,7 @@
     <div>
         <h1>Search</h1>
         <div class="container">
-            <div class="flex">
+            <div class="flex posrev">
                 <input
                     type="text"
                     class="form-control my-3"
@@ -25,14 +25,13 @@
                                     type="checkbox"
                                     :name="e.name"
                                     :id="e.id"
-                                    :value="{ id: e.id, name: e.name }"
+                                    :value="e.id"
                                     v-model="checked"
                                 />
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="posrev">
+
                     <div
                         class="autocomplete"
                         v-show="
@@ -87,17 +86,11 @@
                     v-for="(e, i) in apartments"
                     :key="i"
                     class="col-3 card mb-5 p-2"
-                    v-show="e.rooms >= stanze && e.beds >= letti && function(){
-                        checked.forEach((check)=>{
-                            e.service.forEach((toCheck)=>{
-                                if(check.id != toCheck.id){
-                                    return false
-                                }
-                            })
-                            return true
-                        })
-                    }"
+                    v-show="
+                        e.rooms >= stanze && e.beds >= letti && check(e.service)
+                    "
                 >
+                    <h2>TEST: {{ check(e.service) }}</h2>
                     <img
                         class="card-img-top"
                         :src="`${e.cover_image}`"
@@ -131,7 +124,7 @@ export default {
             keySettingsTomtom:
                 ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
             apartments: null,
-            services: null,
+            services: [],
             range: this.radius,
             lat2: this.lat,
             lon2: this.lon,
@@ -193,19 +186,37 @@ export default {
         },
         getServices() {
             axios.get("http://127.0.0.1:8000/api/services").then((res) => {
-                this.services = res.data;
+                res.data.forEach((e) => {
+                    let obj = { id: e.id, name: e.name };
+                    this.services.push(obj);
+                });
             });
         },
-    },
-    computed: {
-        check(a, i) {
-            return function () {
-                this.checked.forEach((check) => {
-                    console.log("Check id:", check.id);
-                    console.log("Services:", a.apartments);
-                });
+        check(serv) {
+            if (this.checked.length == 0) {
                 return true;
-            };
+            } else {
+                if (!serv.length > 0) {
+                    return false;
+                }
+                let apServ = [];
+                let selected = [];
+                serv.forEach((serv) => {
+                    apServ.push(serv.id);
+                });
+                this.checked.forEach((check) => {
+                    selected.push(check);
+                });
+                let check = false
+                selected.forEach((e) => {
+                    if (apServ.includes(e)) {
+                        check = true
+                    } else {
+                        check = false 
+                    }
+                });
+                return check
+            }
         },
     },
 };
@@ -250,9 +261,8 @@ export default {
     position: relative !important;
     .autocomplete {
         z-index: 10;
-        width: 300px;
-        margin-left: -1275px;
         margin-top: 1em;
+        left: 0;
         background-color: #fff;
         padding: 20px;
         border: 1px solid black;
