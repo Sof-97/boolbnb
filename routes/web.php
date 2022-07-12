@@ -27,12 +27,15 @@ Route::middleware('auth')
         function () {
             Route::resource('apartments', 'ApartmentController');
             Route::get('dashboard', 'ApartmentController@dashboard')->name('dashboard');
+            Route::get('message', 'ApartmentController@messages')->name('message');
         }
     );
 
 Route::get('/', function () {
     return view('guest.index');
 });
+
+
 
 Route::get('{any?}', function () {
     return view('guest.index');

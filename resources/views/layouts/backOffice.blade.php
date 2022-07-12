@@ -16,14 +16,8 @@
         @include('layouts.nav-title')
     </header>
     <main style="min-height: 100%">
-        <div class="nav-flex">
-            @include('layouts.navbar-side')
             @yield('content')
-        </div>
     </main>
-    <footer class="d-flex justify-content-center">
-        Footer di test
-    </footer>
     @yield('script')
 </body>
 

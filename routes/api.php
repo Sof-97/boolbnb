@@ -20,7 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('Api')->group(function () {
     Route::get('/apartments', 'ApartmentController@index');
+    Route::get('/services', 'ApartmentController@services');
     Route::get('/apartments/{slug}', 'ApartmentController@show');
     Route::get('/apartments/search/{query}/', 'ApartmentController@search');
+    Route::resource('messages', 'MessageController');
     Route::get('/distance/{radius}/{lat}/{lon}', 'ApartmentController@radiusSearch');
 });
