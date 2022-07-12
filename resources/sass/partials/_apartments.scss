@@ -1,9 +1,3 @@
-.title {
-    color: $color-accent;
-    font-size: 16px;
-    font-weight: 700;
-}
-
 .btn-color {
     background-color: $color-accent !important;
     border-color: $color-accent !important;
@@ -20,22 +14,6 @@
 .spacing {
     margin-bottom: 20px;
     margin-top: 5px;
-}
-
-.button-show {
-    background-color: white;
-    color: $color-gray-2;
-    padding: 5px;
-    width: 100px;
-    margin-bottom: 10px;
-    border-width: 1px;
-    border-radius: 10px;
-    font-size: 14px;
-}
-
-.button-show:hover {
-    color: $color-accent;
-    text-decoration: none;
 }
 
 .left {
@@ -64,12 +42,49 @@ ul {
     margin-left: 0 !important;
 }
 
-.custom {
-    border: 1px solid lightgray;
+.apartment-padding {
+    padding: 26px;
+}
+
+.section-padding {
+    margin-top: 5px;
+    padding: 14px;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.between-tables {
+    padding-top: 25px;
+}
+
+.nav-flex {
+    display: flex;
+    min-height: 100%;
+}
+
+.delete {
+    background-color: white;
+    color: $color-gray-2;
+    padding: 5px;
+    width: 100px;
+    margin-bottom: 10px;
+    border-width: 1px;
     border-radius: 10px;
-    -webkit-box-shadow: 5px 5px 10px 0px #000000;
-    -moz-box-shadow: 5px 5px 10px 0px #000000;
-    -o-box-shadow: 5px 5px 10px 0px #000000;
-    box-shadow: 5px 5px 10px 0px #222222;
-    width: 92%;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+}
+
+.delete:hover {
+    border: 1px solid $color-accent;
+    background-color: $color-accent;
+    color: white;
+}
+
+.margin-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }

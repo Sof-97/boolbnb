@@ -2297,7 +2297,7 @@ var render = function render() {
       name: "show",
       rawName: "v-show",
       value: _vm.autocomplete != null && _vm.autocomplete.length > 0 && _vm.search != "",
-      expression: "\r\n                            autocomplete != null &&\r\n                            autocomplete.length > 0 &&\r\n                            search != ''\r\n                        "
+
     }],
     staticClass: "autocomplete"
   }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
@@ -2308,7 +2308,7 @@ var render = function render() {
           return _vm.select(i);
         }
       }
-    }, [_vm._v("\r\n                                " + _vm._s(e.address.freeformAddress) + "\r\n                            ")]);
+
   }), 0)]), _vm._v(" "), _c("label", {
     attrs: {
       "for": "radius"
@@ -2390,7 +2390,7 @@ var render = function render() {
       value: !_vm.apartments || _vm.apartments.length == 0,
       expression: "!apartments || apartments.length == 0"
     }]
-  }, [_vm._v("\r\n                Nessun appartamento corrispondente.\r\n            ")]), _vm._v(" "), _c("div", {
+
     staticClass: "row justify-content-between"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
@@ -2507,7 +2507,7 @@ var render = function render() {
           return _vm.select(i);
         }
       }
-    }, [_vm._v("\r\n              " + _vm._s(e.address.freeformAddress) + "\r\n            ")]);
+    }, [_vm._v("\n              " + _vm._s(e.address.freeformAddress) + "\n            ")]);
   }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "row justify-content-between",
     attrs: {
@@ -19225,8 +19225,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
+
 
 
 /***/ })
