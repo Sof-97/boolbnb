@@ -1933,7 +1933,7 @@ __webpack_require__.r(__webpack_exports__);
       baseUrlTomtom: "https://api.tomtom.com/search/2/search/",
       keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
       apartments: null,
-      services: null,
+      services: [],
       range: this.radius,
       lat2: this.lat,
       lon2: this.lon,
@@ -1990,19 +1990,26 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/services").then(function (res) {
-        _this3.services = res.data;
-      });
-    }
-  },
-  computed: {
-    check: function check(a, i) {
-      return function () {
-        this.checked.forEach(function (check) {
-          console.log("Check id:", check.id);
-          console.log("Services:", a.apartments);
+        res.data.forEach(function (e) {
+          var obj = {
+            id: e.id,
+            name: e.name
+          };
+
+          _this3.services.push(obj);
         });
+      });
+    },
+    check: function check(service) {
+      if (this.checked.length == 0) {
         return true;
-      };
+      }
+
+      this.checked.forEach(function (check) {
+        console.log("Check:", check);
+        console.log("Service:", service);
+        service.includes(check);
+      });
     }
   }
 });
@@ -2297,7 +2304,7 @@ var render = function render() {
       name: "show",
       rawName: "v-show",
       value: _vm.autocomplete != null && _vm.autocomplete.length > 0 && _vm.search != "",
-
+      expression: "\r\n                            autocomplete != null &&\r\n                            autocomplete.length > 0 &&\r\n                            search != ''\r\n                        "
     }],
     staticClass: "autocomplete"
   }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
@@ -2308,7 +2315,7 @@ var render = function render() {
           return _vm.select(i);
         }
       }
-
+    }, [_vm._v("\r\n                                " + _vm._s(e.address.freeformAddress) + "\r\n                            ")]);
   }), 0)]), _vm._v(" "), _c("label", {
     attrs: {
       "for": "radius"
@@ -2390,24 +2397,15 @@ var render = function render() {
       value: !_vm.apartments || _vm.apartments.length == 0,
       expression: "!apartments || apartments.length == 0"
     }]
-
+  }, [_vm._v("\r\n                Nessun appartamento corrispondente.\r\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "row justify-content-between"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
       directives: [{
         name: "show",
         rawName: "v-show",
-        value: e.rooms >= _vm.stanze && e.beds >= _vm.letti && function () {
-          _vm.checked.forEach(function (check) {
-            e.service.forEach(function (toCheck) {
-              if (check.id != toCheck.id) {
-                return false;
-              }
-            });
-            return true;
-          });
-        },
-        expression: "e.rooms >= stanze && e.beds >= letti && function(){\r\n                        checked.forEach((check)=>{\r\n                            e.service.forEach((toCheck)=>{\r\n                                if(check.id != toCheck.id){\r\n                                    return false\r\n                                }\r\n                            })\r\n                            return true\r\n                        })\r\n                    }"
+        value: e.rooms >= _vm.stanze && e.beds >= _vm.letti && _vm.check(e.service),
+        expression: "\r\n                        e.rooms >= stanze && e.beds >= letti && check(e.service)\r\n                    "
       }],
       key: i,
       staticClass: "col-3 card mb-5 p-2"
@@ -2507,7 +2505,7 @@ var render = function render() {
           return _vm.select(i);
         }
       }
-    }, [_vm._v("\n              " + _vm._s(e.address.freeformAddress) + "\n            ")]);
+    }, [_vm._v("\r\n              " + _vm._s(e.address.freeformAddress) + "\r\n            ")]);
   }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "row justify-content-between",
     attrs: {
@@ -2686,7 +2684,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#filter[data-v-781a2080] {\n  cursor: pointer;\n  padding: 10px;\n  border: 1px solid black;\n  border-radius: 10px;\n  display: inline-block;\n}\n#filter-list[data-v-781a2080] {\n  background: white;\n  z-index: 1;\n  position: absolute;\n  height: 200px;\n  display: inline-block;\n  padding: 10px 20px;\n  overflow-y: scroll;\n  border: 1px solid grey;\n  border-radius: 10px;\n}\n#filter-list[data-v-781a2080]::-webkit-scrollbar {\n  width: 10px;\n}\n#filter-list input[data-v-781a2080] {\n  margin-right: 0;\n  margin-left: auto;\n}\n#filter-list ul[data-v-781a2080] {\n  list-style: none;\n}\n#filter-list ul li[data-v-781a2080] {\n  padding: 3px 0;\n}\n#filter-list ul li label[data-v-781a2080] {\n  cursor: pointer;\n}\n.posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev .autocomplete[data-v-781a2080] {\n  z-index: 10;\n  width: 300px;\n  margin-left: -1275px;\n  margin-top: 1em;\n  background-color: #fff;\n  padding: 20px;\n  border: 1px solid black;\n  border-radius: 20px;\n  position: absolute;\n}\n.posrev .autocomplete ul[data-v-781a2080] {\n  list-style: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080] {\n  font-family: monospace;\n  opacity: 0.7;\n  border-bottom: 1px solid grey;\n  padding: 5px 0;\n  cursor: pointer;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:last-of-type {\n  border: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:hover {\n  opacity: 1;\n}\n.show[data-v-781a2080] {\n  display: none !important;\n}", ""]);
+exports.push([module.i, "#filter[data-v-781a2080] {\n  cursor: pointer;\n  padding: 10px;\n  border: 1px solid black;\n  border-radius: 10px;\n  display: inline-block;\n}\n#filter-list[data-v-781a2080] {\n  background: white;\n  z-index: 1;\n  position: absolute;\n  height: 200px;\n  display: inline-block;\n  padding: 10px 20px;\n  overflow-y: scroll;\n  border: 1px solid grey;\n  border-radius: 10px;\n}\n#filter-list[data-v-781a2080]::-webkit-scrollbar {\n  width: 10px;\n}\n#filter-list input[data-v-781a2080] {\n  margin-right: 0;\n  margin-left: auto;\n}\n#filter-list ul[data-v-781a2080] {\n  list-style: none;\n}\n#filter-list ul li[data-v-781a2080] {\n  padding: 3px 0;\n}\n#filter-list ul li label[data-v-781a2080] {\n  cursor: pointer;\n}\ninput[data-v-781a2080] {\n  border: 1px solid red;\n}\ninput[data-v-781a2080]:focus {\n  border: 10px solid blue;\n}\n.posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev .autocomplete[data-v-781a2080] {\n  z-index: 10;\n  width: 300px;\n  margin-left: -1275px;\n  margin-top: 1em;\n  background-color: #fff;\n  padding: 20px;\n  border: 1px solid black;\n  border-radius: 20px;\n  position: absolute;\n}\n.posrev .autocomplete ul[data-v-781a2080] {\n  list-style: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080] {\n  font-family: monospace;\n  opacity: 0.7;\n  border-bottom: 1px solid grey;\n  padding: 5px 0;\n  cursor: pointer;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:last-of-type {\n  border: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:hover {\n  opacity: 1;\n}\n.show[data-v-781a2080] {\n  display: none !important;\n}", ""]);
 
 // exports
 
@@ -19225,7 +19223,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-
+__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

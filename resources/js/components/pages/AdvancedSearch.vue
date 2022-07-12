@@ -87,16 +87,9 @@
                     v-for="(e, i) in apartments"
                     :key="i"
                     class="col-3 card mb-5 p-2"
-                    v-show="e.rooms >= stanze && e.beds >= letti && function(){
-                        checked.forEach((check)=>{
-                            e.service.forEach((toCheck)=>{
-                                if(check.id != toCheck.id){
-                                    return false
-                                }
-                            })
-                            return true
-                        })
-                    }"
+                    v-show="
+                        e.rooms >= stanze && e.beds >= letti && check(e.service)
+                    "
                 >
                     <img
                         class="card-img-top"
@@ -131,7 +124,7 @@ export default {
             keySettingsTomtom:
                 ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
             apartments: null,
-            services: null,
+            services: [],
             range: this.radius,
             lat2: this.lat,
             lon2: this.lon,
@@ -193,19 +186,22 @@ export default {
         },
         getServices() {
             axios.get("http://127.0.0.1:8000/api/services").then((res) => {
-                this.services = res.data;
+                res.data.forEach((e) => {
+                    let obj = { id: e.id, name: e.name };
+                    this.services.push(obj);
+                });
             });
         },
-    },
-    computed: {
-        check(a, i) {
-            return function () {
-                this.checked.forEach((check) => {
-                    console.log("Check id:", check.id);
-                    console.log("Services:", a.apartments);
-                });
-                return true;
-            };
+        check(service) {
+            if(this.checked.length == 0){
+                return true
+            }
+            this.checked.forEach((check) => {
+                console.log("Check:", check);
+                console.log("Service:", service);
+
+                service.includes(check);
+            });
         },
     },
 };
@@ -244,6 +240,12 @@ export default {
                 cursor: pointer;
             }
         }
+    }
+}
+input{
+    border: 1px solid red;
+    &:focus{
+        border: 10px solid blue;
     }
 }
 .posrev {

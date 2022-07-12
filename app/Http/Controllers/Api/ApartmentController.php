@@ -98,6 +98,7 @@ class ApartmentController extends Controller
     public function services()
     {
         $services = Service::all();
+
         return response()->json($services);
     }
 }
