@@ -12,7 +12,7 @@
                 <a class="button_accent" href="/" style="margin-right: 20px;">Cerca una casa</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button class="button_accent m-right" type="submit">Logout</button>
+                    <button class="button_accent m-right" type="submit" style="cursor: pointer">Logout</button>
                 </form>
             </div>
         </div>

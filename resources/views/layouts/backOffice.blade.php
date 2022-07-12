@@ -16,9 +16,7 @@
         @include('layouts.nav-title')
     </header>
     <main style="min-height: 100%">
-        <div class="nav-flex">
             @yield('content')
-        </div>
     </main>
     @yield('script')
 </body>

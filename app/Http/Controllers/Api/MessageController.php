@@ -41,20 +41,11 @@ class MessageController extends Controller
 
         $data = $request->all();
         
-        $validation = Validator::make($data, [
-            
-        ]);
 
         $newMessage  = new Message();
         $newMessage->fill($data);
-        $newMessage->save();
+        $newMessage->save();    
 
-        // $message = new Message([
-        //     'text' => $request->input('text'),
-        //     'id_apartment' => $request->input('id'),
-        //     'email_sender' => $request->input('email_sender')
-        // ]);
-        // $message->save();
 
         return response()->json($data);
     }
