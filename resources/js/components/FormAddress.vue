@@ -10,6 +10,7 @@
             name="address"
             id="address"
             v-model="address"
+            onclick="myFunction()"
         />
         <input type="text" hidden name="latitude" v-model="latitude" />
         <input type="text" hidden name="longitude" v-model="longitude" />
@@ -62,4 +63,11 @@ export default {
         },
     },
 };
+
+//funzione onclick
+    function myFunction() {
+        const ids = ['title', 'price', 'description', 'address', 'mq2', 'rooms', 'beds', 'bathrooms'];
+        const elements = document.querySelectorAll(ids.map(id => `${id}`).join(''));
+        elements.classList.add("border-click");
+    }
 </script>
