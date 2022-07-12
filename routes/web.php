@@ -28,6 +28,7 @@ Route::middleware('auth')
             Route::resource('apartments', 'ApartmentController');
             Route::get('dashboard', 'ApartmentController@dashboard')->name('dashboard');
             Route::get('message', 'ApartmentController@messages')->name('message');
+            Route::get('sponsor', 'ApartmentController@sponsor')->name('sponsor');
         }
     );
 
