@@ -82,6 +82,10 @@ ul {
   box-sizing: border-box;
 }
 
+.landpage {
+  width: 100vw;
+}
+
 .autocomplete {
   z-index: 10;
   width: 50vw;
@@ -136,7 +140,7 @@ ul {
   padding: 5px 10px 5px 10px;
   color: red;
   top: 15px;
-  left: 409px;
+  left: 22vw;
   background-color: white;
   box-shadow: 0 0 5px 2px gray;
   border: 1px solid gray;
@@ -164,24 +168,34 @@ ul {
   align-items: center;
   overflow: auto;
   height: 80vh;
-  width: 94%;
+  width: 100%;
   margin: 0 auto;
-  padding: 0px 0px 0px 10%;
+  padding: 0px 30px 0px 0%;
 }
 
 .index-cards .index-card {
   border: 1px solid grey;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  height: 75%;
+  position: relative;
+  height: 75vh;
   width: calc(25% - 72px);
   margin-left: 36px;
-  margin-top: 50px;
+  margin-top: 36px;
+  margin-right: 36px;
   border-radius: 20px;
   box-shadow: 2px 2px 1px gray;
+}
+
+.index-cards .index-card .index-cover-img {
+  position: relative;
+  width: 100%;
+}
+
+.index-cards .index-card .index-cover-img .index-cover-img-l {
+  position: absolute;
+  top: 90%;
+  left: 3%;
+  z-index: 10;
+  color: white;
 }
 
 .index-cards .index-card .index-img-top {
@@ -190,11 +204,15 @@ ul {
 }
 
 .index-cards .index-card .index-card-text {
+  position: absolute;
+  z-index: -10;
   padding: 5%;
   width: 90%;
 }
 
 .index-cards .index-card .index-card-price {
+  position: absolute;
+  top: 90%;
   width: 90%;
   padding: 0px 10px 20px 10px;
 }
@@ -217,19 +235,6 @@ ul {
   box-shadow: 0 0 5px 2px gray;
   border: 1px solid gray;
   border-radius: 5px;
-}
-
-.index-cards .index-card .index-cover-img {
-  position: relative;
-  width: 100%;
-}
-
-.index-cards .index-card .index-cover-img .index-cover-img-l {
-  position: absolute;
-  top: 90%;
-  left: 3%;
-  z-index: 10;
-  color: white;
 }
 
 .nav-ul {
@@ -449,6 +454,8 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 8vh;
+  width: 100vw;
   margin-top: 0.5em;
   text-align: center;
 }

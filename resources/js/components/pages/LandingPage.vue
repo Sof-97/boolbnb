@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="landpage">
         <!-- Tasti ricerca -->
         <div class="index-search-bar">
             <input

@@ -5,7 +5,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.landpage{
+width: 100vw;
+}
 .autocomplete {
     z-index: 10;
     width: 50vw;
@@ -55,7 +57,7 @@
         padding: 5px 10px 5px 10px;
         color:red;
         top: 15px;
-        left: 409px;
+        left: 22vw;
         background-color: white;
 
         -webkit-box-shadow: 0 0 5px 2px gray;
@@ -91,23 +93,33 @@
     align-items: center;
     overflow: auto;
     height: 80vh;
-    width: 94%;
+    width: 100%;
     margin: 0 auto;
-    padding: 0px 0px 0px 10%;
+    padding: 0px 30px 0px 0%;
 
     .index-card{
         border: 1px solid grey;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        height: 75%;
+        position: relative;
+        height: 75vh;
         width: calc((100%/4) - 72px);
         margin-left: 36px;
-        margin-top: 50px;
+        margin-top: 36px;
+        margin-right: 36px;
         border-radius: 20px;
         box-shadow: 2px 2px 1px gray;
+
+        .index-cover-img{
+            position: relative;
+            width: 100%;
+
+            .index-cover-img-l{
+                position: absolute;
+                top: 90%;
+                left: 3%;
+                z-index: 10;
+                color: white;
+            }
+        }
 
         .index-img-top{
             width: 100%;
@@ -115,16 +127,16 @@
         }
 
         .index-card-text{
+            position: absolute;
+            z-index: -10;
             padding: 5%;
             width: 90%;
         }
 
         .index-card-price{
+            position: absolute;
+            top: 90%;
             width: 90%;
-            // display: flex;
-            // flex-wrap: wrap;
-            // justify-content: space-between;
-            // align-items: center;
             padding: 0px 10px 20px 10px;
 
             .index-card-title{
@@ -150,19 +162,6 @@
                     -khtml-border-radius: 5px;
                     border-radius: 5px;
                 };
-            }
-        }
-
-        .index-cover-img{
-            position: relative;
-            width: 100%;
-
-            .index-cover-img-l{
-                position: absolute;
-                top: 90%;
-                left: 3%;
-                z-index: 10;
-                color: white;
             }
         }
     }

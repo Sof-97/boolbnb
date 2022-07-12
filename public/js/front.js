@@ -2231,7 +2231,9 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("div", {
+  return _c("div", {
+    staticClass: "landpage"
+  }, [_c("div", {
     staticClass: "index-search-bar"
   }, [_c("input", {
     directives: [{
