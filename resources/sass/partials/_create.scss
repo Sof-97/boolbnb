@@ -131,6 +131,17 @@ textarea {
     &:focus-visible {
         outline: none;
     }
+    &::-webkit-file-upload-button {
+        border-radius: 5px;
+        border: 1px solid $color-accent;
+        background-color: transparent;
+        color: $color-accent;
+    }
+}
+input[type="file"] {
+    padding: 0.5rem;
+    height: 100%;
+    width: 100%;
 }
 
 .form-create::placeholder {
