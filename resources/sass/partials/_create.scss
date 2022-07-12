@@ -12,7 +12,7 @@
 .form-create {
     width: 30vw;
     padding: 10px;
-    border: 1px solid lightgray;
+    border: 2px solid lightgray;
     border-radius: 10px;
     box-shadow: 5px 5px 10px 0px lightgray;
 }
@@ -21,6 +21,10 @@ input,
 textarea {
     &:focus {
         border: 2px solid $color-accent;
+    }
+    &:focus-visible{
+        outline: none;
+
     }
 }
 
