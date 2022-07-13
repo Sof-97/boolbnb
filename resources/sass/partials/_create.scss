@@ -9,55 +9,41 @@
     margin-bottom: 50px;
 }
 
+.margin-top-forms {
+    margin-top: 30px;
+}
+
 .form-create {
-    width: 45vw;
     padding: 10px;
     border: 2px solid lightgray;
     border-radius: 10px;
     box-shadow: 5px 5px 10px 0px lightgray;
+}
+
+.form-create-width {
+    width: 45vw;
 }
 
 .price {
     width: 13vw;
-    padding: 10px;
-    border: 2px solid lightgray;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 0px lightgray;
 }
 
 .description-form {
     width: 60vw;
-    border: 2px solid lightgray;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 0px lightgray;
-    margin-top: 20px;
-    padding: 10px;
 }
 
 .address-form {
     width: 60vw;
-    border: 2px solid lightgray;
-    box-shadow: 2px 2px 7px 0px lightgray;
     margin-top: 20px;
-    border-radius: 10px;
-    padding: 10px;
 }
 
 .address-form2 {
     width: 60vw;
-    border: 2px solid lightgray;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 0px lightgray;
-    padding: 10px;
-    z-index: 1;
 }
 
 .services-form {
     width: 60vw;
-    border: 2px solid lightgray;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 0px lightgray;
-    padding: 10px;
+    margin-bottom: 30px;
 }
 
 .services-ul {
@@ -67,7 +53,6 @@
 }
 
 .services-title {
-    margin-top: 30px;
     margin-bottom: 20px;
     color: $color-accent;
     font-weight: bold;
@@ -75,10 +60,6 @@
 
 .image-form {
     width: 60vw;
-    border: 2px solid lightgray;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 0px lightgray;
-    padding: 20px;
 }
 
 .little-forms {
@@ -123,6 +104,10 @@
     padding-top: 15px;
 }
 
+.select-visible {
+    margin-top: 15px;
+}
+
 input,
 textarea {
     &:focus {
@@ -138,6 +123,7 @@ textarea {
         color: $color-accent;
     }
 }
+
 input[type="file"] {
     padding: 0.5rem;
     height: 100%;

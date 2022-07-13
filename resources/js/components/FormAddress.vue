@@ -5,7 +5,7 @@
             autocomplete="off"
             @keyup="addressSearch"
             type="text"
-            class="form-control address-form"
+            class="form-control form-create address-form"
             name="address"
             id="address"
             v-model="address"
@@ -13,7 +13,7 @@
         />
         <input type="text" hidden name="latitude" v-model="latitude" />
         <input type="text" hidden name="longitude" v-model="longitude" />
-        <div class="address-form2" v-show="results.length > 0">
+        <div class="form-create address-form2" v-show="results.length > 0">
             <ul class="list-type">
                 <li
                     :key="i"
