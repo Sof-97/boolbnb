@@ -695,6 +695,13 @@ ul {
   margin-top: 15px;
 }
 
+.margin-little-forms-label {
+  color: #ff385c;
+  margin-left: 22px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -900,6 +907,13 @@ input[type=file] {
 
 .select-visible {
   margin-top: 15px;
+}
+
+.margin-little-forms-label {
+  color: #ff385c;
+  margin-left: 22px;
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
 input:focus,
