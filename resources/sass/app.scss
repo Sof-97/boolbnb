@@ -14,15 +14,14 @@
 @import './partials/title';
 //create
 @import './partials/create';
+//edit
+@import './partials/edit';
 //login
 @import "./partials/login";
 // Card singolo appartamento
 @import "./partials/singleapartment";
 // footer
 @import "./partials/footer";
-// Bootstrap
-@import "~bootstrap/scss/bootstrap";
-
 //reset user agent
 * {
     margin: 0;

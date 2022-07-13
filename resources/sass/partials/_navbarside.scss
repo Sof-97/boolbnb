@@ -1,14 +1,14 @@
-.nav-ul {
+.navbar-ul {
     list-style-type: none;
     margin-bottom: 0 !important;
-    .nav-li {
+    .navbar-li {
         cursor: pointer;
         text-decoration: none;
         color: $color-gray-2;
         margin-bottom: 15px;
-    }
-    .nav-li:hover {
-        color: $color-accent;
+        a:hover {
+            color: $color-accent;
+        }
     }
 }
 
@@ -19,6 +19,7 @@
     width: 90%;
     margin: auto;
     margin-top: -12px;
+    padding: 0 !important;
 }
 
 .navbar {
@@ -113,29 +114,29 @@
     font-weight: 500;
 }
 
-.nav-container input[type="checkbox"]:checked ~ .menu-items {
+.nav-container input[type="checkbox"]:checked~.menu-items {
     transform: translateX(0);
     width: 25vw;
 }
 
-.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+.nav-container input[type="checkbox"]:checked~.hamburger-lines .line1 {
     transform: rotate(45deg);
 }
 
-.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+.nav-container input[type="checkbox"]:checked~.hamburger-lines .line2 {
     transform: scaleY(0);
 }
 
-.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+.nav-container input[type="checkbox"]:checked~.hamburger-lines .line3 {
     transform: rotate(-45deg);
 }
 
-.nav-container input[type="checkbox"]:checked ~ .logo {
+.nav-container input[type="checkbox"]:checked~.logo {
     display: none;
 }
 
 .logo {
-    padding-left: 18px;
+    padding-left: 7px;
 }
 
 .menu-items {
