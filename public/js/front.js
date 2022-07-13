@@ -2172,6 +2172,18 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    getMap: function getMap() {
+      var center = [this.apartment.longitude, this.apartment.latitude];
+      var map = tt.map({
+        key: "igkbkqwR2f1uQStetPLGqvyGEGFKLvAA",
+        container: "map",
+        center: center,
+        zoom: 15
+      });
+      new tt.Marker({
+        color: '#ff385c'
+      }).setLngLat(center).addTo(map);
+    },
     submit: function submit() {
       var _this = this;
 
@@ -2191,7 +2203,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/apartments/" + this.$route.params.slug.split("/show")).then(function (res) {
-        return _this2.apartment = res.data;
+        _this2.apartment = res.data;
+
+        _this2.getMap();
       });
     }
   }
@@ -2657,6 +2671,14 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.apartment.description))]), _vm._v(" "), _c("div", {
     staticClass: "sa-price"
   }, [_c("i", [_vm._v("Il prezzo a notte è:")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartment.price) + "€")])])]), _vm._v(" "), _c("div", {
+    staticStyle: {
+      width: "300px",
+      height: "200px"
+    },
+    attrs: {
+      id: "map"
+    }
+  }), _vm._v(" "), _c("div", {
     staticClass: "sa-form"
   }, [_c("form", {
     on: {
@@ -2754,7 +2776,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("p", {
     staticClass: "my-4"
-  }, [_vm._v("\r\n                    Il prezzo a notte per l'appartamento è\r\n                    " + _vm._s(_vm.apartment.price) + "€\r\n                ")])])])]);
+  }, [_vm._v("\r\n          Il prezzo a notte per l'appartamento è\r\n          " + _vm._s(_vm.apartment.price) + "€\r\n        ")])])])]);
 };
 
 var staticRenderFns = [];
