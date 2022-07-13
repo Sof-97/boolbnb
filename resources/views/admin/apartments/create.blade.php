@@ -77,49 +77,6 @@
                     </div>
                 </div>
 
-
-
-                <div class="flex-evenly">
-
-                    <div class="margin-top-forms">
-                        {{-- N° MQ2 --}}
-                        <div class="form-group">
-                            <input placeholder="Metri quadrati" required class="form-control little-forms" type="number"
-                                name="mq2" id="mq2" min="1" />
-                            @error('mq2')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        {{-- N° Stanze --}}
-                        <div class="form-group margin-top-services">
-                            <input placeholder="N° di stanze" required class="form-control little-forms" type="number"
-                                name="rooms" id="rooms" min="1" />
-                            @error('rooms')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="margin-top-forms">
-                        {{-- N° letti --}}
-                        <div class="form-group">
-                            <input placeholder="N° di letti" required class="form-control little-forms" type="number"
-                                name="beds" id="beds" min="1" />
-                            @error('beds')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        {{-- N° bagni --}}
-                        <div class="form-group margin-top-services">
-                            <input placeholder="N° di letti" required class="form-control little-forms" type="number"
-                                name="bathrooms" id="bathrooms" min="0" />
-                            @error('bathrooms')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                </div>
-
                 {{-- Visibilità appartamento --}}
                 <div class="form-group radio">
                     <label for="is_visible">Desideri che l'appartamento sia visibile?</label>

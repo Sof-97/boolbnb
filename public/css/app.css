@@ -781,6 +781,213 @@ input[type=file] {
   flex-direction: column;
 }
 
+.pill {
+  color: white;
+  background-color: #ff385c;
+  padding: 10px;
+  border-radius: 30px;
+  text-align: center;
+  width: 25%;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.margin-top-forms {
+  margin-top: 30px;
+}
+
+.form-create {
+  padding: 10px;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px lightgray;
+}
+
+.form-create-width {
+  width: 45vw;
+}
+
+.price {
+  width: 13vw;
+}
+
+.description-form {
+  width: 60vw;
+}
+
+.address-form {
+  width: 60vw;
+  margin-top: 20px;
+}
+
+.address-form2 {
+  width: 60vw;
+}
+
+.services-form {
+  width: 60vw;
+  margin-bottom: 30px;
+}
+
+.services-ul {
+  height: 20vh;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.services-title {
+  margin-bottom: 20px;
+  color: #ff385c;
+  font-weight: bold;
+}
+
+.image-form {
+  width: 60vw;
+}
+
+.little-forms {
+  width: 10vw;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px lightgray;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.padding-top-forms {
+  padding-top: 30px;
+}
+
+.radio {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.margin-bottom-forms {
+  padding-bottom: 30px;
+}
+
+.custom-margin-create {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.button-send {
+  background-color: #ff385c;
+  padding: 15px;
+  border: 0px;
+  border-radius: 8px;
+  color: white !important;
+  font-size: 15px;
+  font-weight: 600 !important;
+  width: 12vw;
+}
+
+.select-form-visible {
+  padding: 5px;
+  border: 1px solid #ff385c;
+  background-color: white;
+  color: #ff385c;
+  border-radius: 10px;
+}
+
+.margin-top-services {
+  padding-top: 15px;
+}
+
+.select-visible {
+  margin-top: 15px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border: 2px solid #ff385c;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+input::-webkit-file-upload-button,
+textarea::-webkit-file-upload-button,
+select::-webkit-file-upload-button {
+  border-radius: 5px;
+  border: 1px solid #ff385c;
+  background-color: transparent;
+  color: #ff385c;
+}
+
+input[type=file] {
+  padding: 0.5rem;
+  height: 100%;
+  width: 100%;
+}
+
+.form-create::-moz-placeholder {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.form-create::placeholder {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.price::-moz-placeholder {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.price::placeholder {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.description-form::-moz-placeholder {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.description-form::placeholder {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.address-form::-moz-placeholder {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.address-form::placeholder {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.services-form::-moz-placeholder {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.services-form::placeholder {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.li-hover:hover {
+  color: #ff385c;
+}
+
+.margin-form {
+  margin-left: 30px;
+}
+
+.direction {
+  flex-direction: column;
+}
+
 * {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
