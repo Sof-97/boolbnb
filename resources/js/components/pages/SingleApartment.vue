@@ -18,28 +18,13 @@
         <!-- Form della email -->
         <div class="sa-form">
             <form @submit.prevent="submit">
-                <label for="email">La tua email</label>
-                <input
-                    type="text"
-                    name="email_sender"
-                    id="email_sender"
-                    v-model="fields.email_sender"
-                />
+                <label for="email" >La tua email</label>
+                <input type="text" required name="email_sender" id="email_sender" v-model="fields.email_sender" />
                 <label for="text">Il tuo messaggio</label>
-                <input
-                    type="text"
-                    name="text"
-                    id="text"
-                    v-model="fields.text"
-                />
-                <input
-                    value="apartment.id"
-                    type="text"
-                    name="apartment_id"
-                    id="apartment_id"
-                    v-model="fields.apartment_id"
-                    hidden
-                />
+                <input type="text" required name="text" id="text" v-model="fields.text" />
+                <input value="apartment.id" type="text" name="apartment_id" id="apartment_id"
+                    v-model="fields.apartment_id" hidden />
+
                 <button type="submit">Invia</button>
             </form>
             <div class="container">
@@ -67,6 +52,8 @@ export default {
             },
             apartment: {},
             userEmail: window.user,
+            errors: [],
+
         };
     },
     created() {
@@ -86,15 +73,14 @@ export default {
               
               .then((response) => {
                     alert("Message sent!");
-                    this.fields.text = "";
-                    this.fields.email_sender = "";
-                })
-               
-               .catch((error) => {
-                    if (error.response.status === 422) {
-                        this.errors = error.response.data.errors || {};
-                    }
+                }) 
+                .then((response) => {
+                    this.text = "";
+                    this.email_sender = "";
+                    
                 });
+
+                
         },
         getApartment() {
             axios
@@ -104,7 +90,7 @@ export default {
                 )
                 .then((res) => (this.apartment = res.data));
         },
-          
-    },
+
+    }
 };
 </script>

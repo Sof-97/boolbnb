@@ -1197,6 +1197,11 @@ nav .navbar-options .navbar-nav a {
   background-color: white;
 }
 
+.invalid {
+  color: black;
+  font-size: 1.5em;
+}
+
 .sign {
   display: flex;
   justify-content: center;
