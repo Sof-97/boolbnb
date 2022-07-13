@@ -25,5 +25,5 @@ Route::namespace('Api')->group(function () {
     Route::get('/apartments/search/{query}/', 'ApartmentController@search');
     Route::resource('messages', 'MessageController');
     Route::get('/distance/{radius}/{lat}/{lon}', 'ApartmentController@radiusSearch');
-    Route::get('/test', 'TestController@test');
+    Route::get('/', 'TestController@test');
 });
