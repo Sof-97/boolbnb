@@ -11,12 +11,10 @@
     font-weight: bold;
     padding-bottom: 1rem;
 }
-.container {
-    padding: 10px 5%;
-}
 .button-login,
 .button-register,
-.button-reset {
+.button-reset,
+.default-button {
     padding: 5px 10px !important;
     margin: 5px 10px;
     border-radius: 5px;

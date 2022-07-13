@@ -1939,8 +1939,8 @@ __webpack_require__.r(__webpack_exports__);
       lon2: this.lon,
       autocomplete: null,
       search: null,
-      stanze: 1,
-      letti: 1,
+      stanze: "",
+      letti: "",
       checked: []
     };
   },
@@ -2221,10 +2221,10 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h1", [_vm._v("Search")]), _vm._v(" "), _c("div", {
-    staticClass: "container"
+  return _c("div", [_c("div", {
+    staticClass: "container-as"
   }, [_c("div", {
-    staticClass: "flex posrev"
+    staticClass: "flex posrev search-bar-as"
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -2232,10 +2232,10 @@ var render = function render() {
       value: _vm.search,
       expression: "search"
     }],
-    staticClass: "form-control my-3",
+    staticClass: "search-as",
     attrs: {
       type: "text",
-      placeholder: "Cerca"
+      placeholder: "Inizia a cercare una destinazione"
     },
     domProps: {
       value: _vm.search
@@ -2252,7 +2252,9 @@ var render = function render() {
         _vm.search = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("div", [_c("div", {
+  }), _vm._v(" "), _c("div", {
+    staticClass: "filters-as"
+  }, [_c("div", {
     attrs: {
       id: "filter"
     },
@@ -2261,7 +2263,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fa-solid fa-filter"
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v("\r\n                        Filtri\r\n                    ")]), _vm._v(" "), _c("div", {
     staticClass: "show",
     attrs: {
       id: "filter-list"
@@ -2327,11 +2329,11 @@ var render = function render() {
         }
       }
     }, [_vm._v("\r\n                                " + _vm._s(e.address.freeformAddress) + "\r\n                            ")]);
-  }), 0)]), _vm._v(" "), _c("label", {
+  }), 0)]), _vm._v(" "), _c("span", [_c("label", {
     attrs: {
       "for": "radius"
     }
-  }, [_vm._v("Raggio di ricerca ")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Raggio di ricerca:")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2357,16 +2359,17 @@ var render = function render() {
         _vm.range = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("input", {
+  })]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.stanze,
       expression: "stanze"
     }],
+    staticClass: "stanze-letti",
     attrs: {
       type: "number",
-      name: "stanze",
+      placeholder: "Stanze",
       min: "1",
       max: "9"
     },
@@ -2386,8 +2389,10 @@ var render = function render() {
       value: _vm.letti,
       expression: "letti"
     }],
+    staticClass: "stanze-letti",
     attrs: {
       type: "number",
+      placeholder: "Letti",
       name: "letti",
       min: "1",
       max: "9"
@@ -2407,9 +2412,10 @@ var render = function render() {
       rawName: "v-show",
       value: !_vm.apartments || _vm.apartments.length == 0,
       expression: "!apartments || apartments.length == 0"
-    }]
+    }],
+    staticClass: "no-results-as"
   }, [_vm._v("\r\n                Nessun appartamento corrispondente.\r\n            ")]), _vm._v(" "), _c("div", {
-    staticClass: "row justify-content-between"
+    staticClass: "container-cards-as"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
       directives: [{
@@ -2419,23 +2425,30 @@ var render = function render() {
         expression: "\r\n                        e.rooms >= stanze && e.beds >= letti && check(e.service)\r\n                    "
       }],
       key: i,
-      staticClass: "col-3 card mb-5 p-2"
-    }, [_c("h2", [_vm._v("TEST: " + _vm._s(_vm.check(e.service)))]), _vm._v(" "), _c("img", {
-      staticClass: "card-img-top",
+      staticClass: "card-as"
+    }, [_c("span", {
+      staticClass: "card-img-as"
+    }, [_c("img", {
       attrs: {
         src: "".concat(e.cover_image),
         alt: "Card image cap"
       }
     }), _vm._v(" "), _c("div", {
-      staticClass: "card-body"
-    }, [_c("h5", {
-      staticClass: "card-title"
+      staticClass: "icons-as"
+    }, [_c("span", [_c("i", {
+      staticClass: "fa-solid fa-bed"
+    }), _vm._v("\r\n                                " + _vm._s(e.rooms))]), _vm._v(" "), _c("span", [_vm._v("- "), _c("i", {
+      staticClass: "fa-solid fa-toilet"
+    }), _vm._v("\r\n                                " + _vm._s(e.bathrooms))])])]), _vm._v(" "), _c("div", {
+      staticClass: "card-body-as"
+    }, [_c("h3", {
+      staticClass: "card-title-as"
     }, [_vm._v(_vm._s(e.title))]), _vm._v(" "), _c("p", {
-      staticClass: "card-text"
+      staticClass: "card-text-as"
     }, [_vm._v(_vm._s(e.description))]), _vm._v(" "), _c("p", {
-      staticClass: "card-title"
-    }, [_vm._v(_vm._s(e.price) + "€")]), _vm._v(" "), _c("router-link", {
-      staticClass: "btn btn-primary",
+      staticClass: "card-price-as"
+    }, [_c("span", [_vm._v(_vm._s(e.price) + "€")]), _vm._v(" per Notte")]), _vm._v(" "), _c("router-link", {
+      staticClass: "button-show",
       attrs: {
         to: {
           name: "SingleApartment",
@@ -19222,8 +19235,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Ayadi\Desktop\Files\Exercices\Repository\boolbnb-team3-58\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Ayadi\Desktop\Files\Exercices\Repository\boolbnb-team3-58\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
