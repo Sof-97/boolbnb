@@ -5,9 +5,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-.landpage {
-    width: 100vw;
-}
 .autocomplete {
     z-index: 10;
     width: 50vw;
@@ -167,7 +164,9 @@
 }
 .hero {
     /* background-image: url("../../../public/img/hero.jpg"); */
-    width: fit-content;
-    height: 2%;
+    width: 100%;
     margin: 0 auto;
+    img {
+        width: 100%;
+    }
 }

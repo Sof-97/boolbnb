@@ -1,4 +1,4 @@
-wwindow.Vue = require('vue');
+window.Vue = require('vue');
 
 Vue.component('form-address', require('./components/FormAddress.vue').default);
 
