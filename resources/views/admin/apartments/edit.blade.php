@@ -44,7 +44,7 @@
                 </div>
 
                 {{-- Indirizzo tramite Vue --}}
-                <form-address data="{{ old('address', $apartment->address) }}"></form-address>
+                <form-address></form-address>
                 @error('address')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

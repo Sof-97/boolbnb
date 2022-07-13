@@ -417,14 +417,14 @@ ul {
   margin-bottom: 0 !important;
 }
 
-.nav-ul .nav-li {
+.nav-ul .navbar-li {
   cursor: pointer;
   text-decoration: none;
   color: #222222;
   margin-bottom: 15px;
 }
 
-.nav-ul .nav-li:hover {
+.nav-ul .navbar-li::hover {
   color: #ff385c;
 }
 
@@ -433,6 +433,7 @@ ul {
   width: 90%;
   margin: auto;
   margin-top: -12px;
+  padding: 0 !important;
 }
 
 .navbar {
