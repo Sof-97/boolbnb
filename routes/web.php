@@ -32,12 +32,9 @@ Route::middleware('auth')
         }
     );
 
-Route::get('/', function () {
-    return view('guest.index');
-});
+Route::get('/', 'Admin\ApartmentController@home')->name('home');
 
 
+Route::get('{any?}', 'Admin\ApartmentController@home')->where("any", ".*");
 
-Route::get('{any?}', function () {
-    return view('guest.index');
-})->where("any", ".*");
+
