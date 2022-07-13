@@ -46,6 +46,14 @@ class ApartmentController extends Controller
         $plans = DB::table('sponsorships')->get();
         return view('admin.apartments.sponsor', compact('user', 'apartment', 'plans'));
     }
+
+    public function home()
+    {
+        $id = Auth::id();
+        $user = DB::table('users')->find($id);
+        return view('guest.index', compact('user'));
+    }
+    
     /**
      * Display a listing of the resource.
      *
