@@ -1,0 +1,80 @@
+.sa-container {
+    margin: 0 auto;
+    width: 300px;
+    margin-top: 5vh;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    box-shadow: 3px 2px 1px gray;
+    padding: 16px;
+    height: 66vh;
+
+    .sa-title {
+        font-size: 2em;
+        color: red;
+        font-weight: 700;
+    }
+
+    .sa-owner {
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    .sa-cont-img {
+        text-align: center;
+
+        img {
+            width: 80%;
+            border-radius: 10px;
+        }
+    }
+
+    .sa-opacity {
+        opacity: 0.5;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .sa-price {
+        span {
+            margin-left: 0.5em;
+            font-weight: 500;
+        }
+    }
+}
+
+.sa-form {
+    margin: 0 auto;
+    width: 40vw;
+    margin-top: 2vh;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    box-shadow: 3px 2px 1px gray;
+    padding: 16px;
+
+    .sa-inp-text {
+        width: 72%;
+        border: 0.5px solid gray;
+        border-radius: 10px;
+        box-shadow: 3px 2px 1px gray;
+        padding: 5px 10px 5px 10px;
+    }
+
+    .sa-inp-email {
+        border: 0.5px solid gray;
+        border-radius: 10px;
+        box-shadow: 3px 2px 1px gray;
+        padding: 5px 10px 5px 10px;
+    }
+}
+
+.sa-form-bt {
+    width: 100%;
+    text-align: center;
+    margin-top: 1em;
+
+    input {
+        padding: 3px 10px 3px 10px;
+        border-radius: 10px;
+        background-color: white;
+    }
+}

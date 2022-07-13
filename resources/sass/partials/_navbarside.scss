@@ -1,14 +1,14 @@
-.nav-ul {
+.navbar-ul {
     list-style-type: none;
     margin-bottom: 0 !important;
-    .nav-li {
+    .navbar-li {
         cursor: pointer;
         text-decoration: none;
         color: $color-gray-2;
         margin-bottom: 15px;
-    }
-    .nav-li:hover {
-        color: $color-accent;
+        a:hover {
+            color: $color-accent;
+        }
     }
 }
 
@@ -19,11 +19,10 @@
     width: 90%;
     margin: auto;
     margin-top: -12px;
+    padding: 0 !important;
 }
 
-.navbar {
-    width: 100%;
-}
+
 
 .navbar .menu-items {
     display: flex;
@@ -135,7 +134,7 @@
 }
 
 .logo {
-    padding-left: 18px;
+    padding-left: 7px;
 }
 
 .menu-items {

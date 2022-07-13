@@ -1,25 +1,30 @@
-<template>
+ <template>
     <div class="form-group">
-        <label for="address">Indirizzo</label>
         <input
             required
             autocomplete="off"
             @keyup="addressSearch"
             type="text"
-            class="form-control"
+            class="form-control form-create address-form"
             name="address"
             id="address"
             v-model="address"
+            placeholder="Indirizzo"
         />
         <input type="text" hidden name="latitude" v-model="latitude" />
         <input type="text" hidden name="longitude" v-model="longitude" />
-        <div
-            :key="i"
-            v-for="(result, i) in results"
-            @click="selectAddress(i)"
-            style="cursor: pointer"
-        >
-            {{ result.address.freeformAddress }}
+        <div class="form-create address-form2" v-show="results.length > 0">
+            <ul class="list-type">
+                <li
+                    :key="i"
+                    v-for="(result, i) in results"
+                    @click="selectAddress(i)"
+                    style="cursor: pointer"
+                    class="li-hover"
+                >
+                    {{ result.address.freeformAddress }}
+                </li>
+            </ul>
         </div>
     </div>
 </template>

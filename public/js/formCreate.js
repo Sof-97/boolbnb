@@ -1966,24 +1966,21 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "form-group"
-  }, [_c("label", {
-    attrs: {
-      "for": "address"
-    }
-  }, [_vm._v("Indirizzo")]), _vm._v(" "), _c("input", {
+  }, [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.address,
       expression: "address"
     }],
-    staticClass: "form-control",
+    staticClass: "form-control form-create address-form",
     attrs: {
       required: "",
       autocomplete: "off",
       type: "text",
       name: "address",
-      id: "address"
+      id: "address",
+      placeholder: "Indirizzo"
     },
     domProps: {
       value: _vm.address
@@ -2037,9 +2034,20 @@ var render = function render() {
         _vm.longitude = $event.target.value;
       }
     }
-  }), _vm._v(" "), _vm._l(_vm.results, function (result, i) {
-    return _c("div", {
+  }), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.results.length > 0,
+      expression: "results.length > 0"
+    }],
+    staticClass: "form-create address-form2"
+  }, [_c("ul", {
+    staticClass: "list-type"
+  }, _vm._l(_vm.results, function (result, i) {
+    return _c("li", {
       key: i,
+      staticClass: "li-hover",
       staticStyle: {
         cursor: "pointer"
       },
@@ -2048,8 +2056,8 @@ var render = function render() {
           return _vm.selectAddress(i);
         }
       }
-    }, [_vm._v("\r\n            " + _vm._s(result.address.freeformAddress) + "\r\n        ")]);
-  })], 2);
+    }, [_vm._v("\r\n                    " + _vm._s(result.address.freeformAddress) + "\r\n                ")]);
+  }), 0)])]);
 };
 
 var staticRenderFns = [];
@@ -14345,7 +14353,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-wwindow.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component('form-address', __webpack_require__(/*! ./components/FormAddress.vue */ "./resources/js/components/FormAddress.vue")["default"]);
 var app = new Vue({
   el: '#app',

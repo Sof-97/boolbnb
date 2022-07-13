@@ -1,6 +1,11 @@
 @extends('layouts.backOffice')
-<h2>{{$apartment->title}}</h2>
+@section('content')
+    <div class="container">
 
-<img src="{{$apartment->cover_image}}" alt="">
+        <h2>{{ $apartment->title }}</h2>
 
-<p>{{$apartment->description}}</p>
+        <img src="{{ $apartment->cover_image }}" alt="">
+
+        <p>{{ $apartment->description }}</p>
+    </div>
+@endsection
