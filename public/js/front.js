@@ -1965,7 +1965,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getMap: function getMap() {
       var center = [this.lon2, this.lat2];
-      var gerardo = 'napoletano';
       var map = tt.map({
         key: "igkbkqwR2f1uQStetPLGqvyGEGFKLvAA",
         container: "map",

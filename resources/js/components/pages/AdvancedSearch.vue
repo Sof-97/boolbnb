@@ -137,7 +137,6 @@ export default {
   methods: {
     getMap() {
       let center = [this.lon2, this.lat2];
-      let gerardo = 'napoletano'
       let map = tt.map({
         key: "igkbkqwR2f1uQStetPLGqvyGEGFKLvAA",
         container: "map",
