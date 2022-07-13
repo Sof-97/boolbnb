@@ -124,7 +124,7 @@
                 <div class="form-group radio">
                     <label for="is_visible">Desideri che l'appartamento sia visibile?</label>
                     <div class="select-visible">
-                        <select name="cars" id="cars">
+                        <select class="select-form-visible" name="cars" id="cars">
                             <option name="is_visible" id="is_visible" value="1">Sì</option>
                             <option name="is_visible" id="is_visible" value="0">No</option>
                         </select>

@@ -581,8 +581,8 @@ ul {
   border-radius: 30px;
   text-align: center;
   width: 25%;
-  margin-top: 25px;
-  margin-bottom: 50px;
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 
 .margin-top-forms {
@@ -647,7 +647,7 @@ ul {
   margin-left: 20px;
 }
 
-.margin-top-forms {
+.padding-top-forms {
   padding-top: 30px;
 }
 
@@ -676,6 +676,14 @@ ul {
   width: 12vw;
 }
 
+.select-form-visible {
+  padding: 5px;
+  border: 1px solid #ff385c;
+  background-color: white;
+  color: #ff385c;
+  border-radius: 10px;
+}
+
 .margin-top-services {
   padding-top: 15px;
 }
@@ -685,17 +693,20 @@ ul {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   border: 2px solid #ff385c;
 }
 
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+select:focus-visible {
   outline: none;
 }
 
 input::-webkit-file-upload-button,
-textarea::-webkit-file-upload-button {
+textarea::-webkit-file-upload-button,
+select::-webkit-file-upload-button {
   border-radius: 5px;
   border: 1px solid #ff385c;
   background-color: transparent;
