@@ -1963,6 +1963,21 @@ __webpack_require__.r(__webpack_exports__);
     this.getServices();
   },
   methods: {
+    getMap: function getMap() {
+      var center = [this.lon2, this.lat2];
+      var map = tt.map({
+        key: "igkbkqwR2f1uQStetPLGqvyGEGFKLvAA",
+        container: "map",
+        center: center,
+        zoom: 10
+      });
+
+      for (var i = 0; i < this.apartments.length; i++) {
+        new tt.Marker({
+          color: '#ff385c'
+        }).setLngLat([this.apartments[i].longitude, this.apartments[i].latitude]).addTo(map);
+      }
+    },
     filterMenu: function filterMenu() {
       document.getElementById("filter-list").classList.toggle("show");
     },
@@ -1971,6 +1986,8 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/distance/" + radius + "/" + lat + "/" + lon).then(function (res) {
         _this.apartments = res.data;
+
+        _this.getMap();
       });
     },
     getInfoApi: function getInfoApi() {
@@ -2273,7 +2290,7 @@ var render = function render() {
       attrs: {
         "for": e.id
       }
-    }, [_vm._v("\r\n                                    " + _vm._s(e.name) + "\r\n                                ")]), _vm._v(" "), _c("input", {
+    }, [_vm._v("\r\n                  " + _vm._s(e.name) + "\r\n                ")]), _vm._v(" "), _c("input", {
       directives: [{
         name: "model",
         rawName: "v-model",
@@ -2315,7 +2332,7 @@ var render = function render() {
       name: "show",
       rawName: "v-show",
       value: _vm.autocomplete != null && _vm.autocomplete.length > 0 && _vm.search != "",
-      expression: "\r\n                            autocomplete != null &&\r\n                            autocomplete.length > 0 &&\r\n                            search != ''\r\n                        "
+      expression: "\r\n              autocomplete != null && autocomplete.length > 0 && search != ''\r\n            "
     }],
     staticClass: "autocomplete"
   }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
@@ -2326,7 +2343,7 @@ var render = function render() {
           return _vm.select(i);
         }
       }
-    }, [_vm._v("\r\n                                " + _vm._s(e.address.freeformAddress) + "\r\n                            ")]);
+    }, [_vm._v("\r\n                " + _vm._s(e.address.freeformAddress) + "\r\n              ")]);
   }), 0)]), _vm._v(" "), _c("label", {
     attrs: {
       "for": "radius"
@@ -2401,14 +2418,22 @@ var render = function render() {
         _vm.letti = $event.target.value;
       }
     }
-  })])]), _vm._v(" "), _c("p", {
+  })]), _vm._v(" "), _c("div", {
+    staticStyle: {
+      width: "300px",
+      height: "200px"
+    },
+    attrs: {
+      id: "map"
+    }
+  })]), _vm._v(" "), _c("p", {
     directives: [{
       name: "show",
       rawName: "v-show",
       value: !_vm.apartments || _vm.apartments.length == 0,
       expression: "!apartments || apartments.length == 0"
     }]
-  }, [_vm._v("\r\n                Nessun appartamento corrispondente.\r\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n        Nessun appartamento corrispondente.\r\n      ")]), _vm._v(" "), _c("div", {
     staticClass: "row justify-content-between"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
@@ -2416,7 +2441,7 @@ var render = function render() {
         name: "show",
         rawName: "v-show",
         value: e.rooms >= _vm.stanze && e.beds >= _vm.letti && _vm.check(e.service),
-        expression: "\r\n                        e.rooms >= stanze && e.beds >= letti && check(e.service)\r\n                    "
+        expression: "e.rooms >= stanze && e.beds >= letti && check(e.service)"
       }],
       key: i,
       staticClass: "col-3 card mb-5 p-2"
@@ -19222,8 +19247,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolbnb-team3-58\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolbnb-team3-58\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
