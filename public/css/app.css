@@ -412,24 +412,20 @@ ul {
   width: 95%;
 }
 
-.nav-ul {
+.navbar-ul {
   list-style-type: none;
   margin-bottom: 0 !important;
 }
 
-.nav-ul .navbar-li {
+.navbar-ul .navbar-li {
   cursor: pointer;
   text-decoration: none;
   color: #222222;
   margin-bottom: 15px;
 }
 
-.nav-ul .navbar-li:hover {
+.navbar-ul .navbar-li a:hover {
   color: #ff385c;
-}
-
-.nav-ul .navbar-li:hover a {
-  color: inherit;
 }
 
 .container {
@@ -554,7 +550,7 @@ ul {
 }
 
 .logo {
-  padding-left: 18px;
+  padding-left: 7px;
 }
 
 .menu-items {

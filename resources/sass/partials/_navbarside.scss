@@ -1,4 +1,4 @@
-.nav-ul {
+.navbar-ul {
     list-style-type: none;
     margin-bottom: 0 !important;
     .navbar-li {
@@ -6,9 +6,9 @@
         text-decoration: none;
         color: $color-gray-2;
         margin-bottom: 15px;
-    }
-    .navbar-li:hover {
-        color: $color-accent;
+        a:hover {
+            color: $color-accent;
+        }
     }
 }
 
@@ -136,7 +136,7 @@
 }
 
 .logo {
-    padding-left: 18px;
+    padding-left: 7px;
 }
 
 .menu-items {
