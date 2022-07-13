@@ -424,8 +424,12 @@ ul {
   margin-bottom: 15px;
 }
 
-.nav-ul .navbar-li::hover {
+.nav-ul .navbar-li:hover {
   color: #ff385c;
+}
+
+.nav-ul .navbar-li:hover a {
+  color: inherit;
 }
 
 .container {
