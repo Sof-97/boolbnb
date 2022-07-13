@@ -33,6 +33,14 @@
     text-align: center;
 }
 
+.relative {
+    position: relative;
+}
+
+.block {
+    display: block;
+}
+
 .button_accent {
     background-color: $color-accent;
     padding: 10px;
