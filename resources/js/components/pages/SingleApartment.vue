@@ -62,25 +62,35 @@ export default {
     name: "SingleApartment",
     data() {
         return {
-            fields: {},
+            fields: {
+               
+            },
             apartment: {},
+            userEmail: window.user,
         };
     },
     created() {
         this.getApartment();
+        console.log(window.user);
+        if(window.user){
+           this.fields.email_sender = window.user;
+        }
     },
     methods: {
         submit() {
             this.errors = {};
             this.fields["apartment_id"] = this.apartment.id;
             axios
-                .post("http://127.0.0.1:8000/api/messages", this.fields)
-                .then((response) => {
+               
+              .post("http://127.0.0.1:8000/api/messages", this.fields)
+              
+              .then((response) => {
                     alert("Message sent!");
                     this.fields.text = "";
                     this.fields.email_sender = "";
                 })
-                .catch((error) => {
+               
+               .catch((error) => {
                     if (error.response.status === 422) {
                         this.errors = error.response.data.errors || {};
                     }
@@ -94,6 +104,7 @@ export default {
                 )
                 .then((res) => (this.apartment = res.data));
         },
+          
     },
 };
 </script>

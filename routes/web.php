@@ -28,15 +28,13 @@ Route::middleware('auth')
             Route::resource('apartments', 'ApartmentController');
             Route::get('dashboard', 'ApartmentController@dashboard')->name('dashboard');
             Route::get('message', 'ApartmentController@messages')->name('message');
+            Route::get('sponsor', 'ApartmentController@sponsor')->name('sponsor');
         }
     );
 
-Route::get('/', function () {
-    return view('guest.index');
-});
+Route::get('/', 'Admin\ApartmentController@home')->name('home');
 
 
+Route::get('{any?}', 'Admin\ApartmentController@home')->where("any", ".*");
 
-Route::get('{any?}', function () {
-    return view('guest.index');
-})->where("any", ".*");
+
