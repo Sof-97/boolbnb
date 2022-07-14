@@ -34,7 +34,4 @@ Route::middleware('auth')
 
 Route::get('/', 'Admin\ApartmentController@home')->name('home');
 
-
 Route::get('{any?}', 'Admin\ApartmentController@home')->where("any", ".*");
-
-
