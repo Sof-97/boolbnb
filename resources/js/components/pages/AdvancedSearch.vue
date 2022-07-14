@@ -1,7 +1,8 @@
 <template>
     <div>
-        <div class="container-as">
-            <div class="flex posrev search-bar-as">
+        <div class="container">
+            <div class="flex posrev">
+
                 <input
                     type="text"
                     class="search-as"

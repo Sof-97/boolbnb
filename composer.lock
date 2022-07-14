@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13f1d89d5b2b9c0ed413d45e0460f9b1",
+    "content-hash": "cb1841e4d55e0020e76d69114da40d5f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -61,6 +61,55 @@
                 "source": "https://github.com/asm89/stack-cors/tree/1.3.0"
             },
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "braintree/braintree_php",
+            "version": "6.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/braintree/braintree_php.git",
+                "reference": "d5d92080d67ed247b72378e4f47e8c4d0048bddd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/d5d92080d67ed247b72378e4f47e8c4d0048bddd",
+                "reference": "d5d92080d67ed247b72378e4f47e8c4d0048bddd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-hash": "*",
+                "ext-openssl": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=7.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Braintree\\": "lib/Braintree"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Braintree",
+                    "homepage": "https://www.braintreepayments.com"
+                }
+            ],
+            "description": "Braintree PHP Client Library",
+            "support": {
+                "issues": "https://github.com/braintree/braintree_php/issues",
+                "source": "https://github.com/braintree/braintree_php/tree/6.8.0"
+            },
+            "time": "2022-04-01T18:37:18+00:00"
         },
         {
             "name": "brick/math",
