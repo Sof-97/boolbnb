@@ -17,7 +17,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+
+        return response()->json($messages);
     }
 
     /**
@@ -40,7 +42,25 @@ class MessageController extends Controller
     {   
 
         $data = $request->all();
-        
+
+
+        $validator = Validator::make(
+            $data,
+            [
+                'email_sender' => 'required|email',
+                'text' => 'required'
+            ],
+            [
+                'email_sender.required' => 'La mail è obbligatoria .',
+                'text.required' => 'Il testo del messaggio è obbligatorio .'
+            ]
+        );
+       
+       
+        if ($validator->fails()) {
+            return response()->json([$validator->errors()]);
+        }
+
 
         $newMessage  = new Message();
         $newMessage->fill($data);
