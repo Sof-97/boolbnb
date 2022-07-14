@@ -45,8 +45,7 @@
                                 :src="`${e.cover_image}`"
                                 alt="Card image cap"
                             />
-                        </div>
-                        <!-- Icone Letti e bagni -->
+                                                    <!-- Icone Letti e bagni -->
                         <div class="index-cover-img-l">
                             <span
                                 ><i class="fa-solid fa-bed"></i>
@@ -57,10 +56,14 @@
                                 {{ e.bathrooms }}</span
                             >
                         </div>
+                        </div>
+
                     </div>
                     <p class="index-card-text">{{ e.description }}</p>
                     <div class="index-card-price">
-                        <p class="index-card-title">Host: {{ e.title }}</p>
+                        <div class="index-card-title">
+                            Host: {{ e.title }}
+                        </div>
                         <!-- <p>prezzo a notte: {{ e.price }}€</p> -->
                         <router-link
                             :to="{

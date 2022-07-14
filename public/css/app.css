@@ -129,10 +129,6 @@ ul {
   opacity: 1;
 }
 
-.index-search-bar {
-  position: relative;
-}
-
 .index-search-bar .index-search {
   width: 20vw;
   margin-left: 3vw;
@@ -144,32 +140,6 @@ ul {
   padding: 5px 5px 5px 15px;
 }
 
-.index-search-bar .index-q {
-  position: absolute;
-  z-index: 10;
-  border-radius: 3px;
-  box-shadow: 2px 2px 1px gray;
-  border: 0 solid gray;
-  padding: 5px 10px 5px 10px;
-  color: red;
-  top: 15px;
-  left: 22vw;
-  background-color: white;
-  box-shadow: 0 0 5px 2px gray;
-  border: 1px solid gray;
-  border-radius: 5px;
-  outline: none;
-}
-
-.index-search-bar .index-search-2 {
-  padding: 5px 5px 5px 15px;
-  box-shadow: 2px 2px 1px gray;
-  margin-left: 0.4%;
-  border-radius: 3px;
-  text-decoration: none;
-  color: black;
-}
-
 .opacity {
   opacity: 0.5;
 }
@@ -177,9 +147,8 @@ ul {
 .index-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
-  overflow: auto;
   width: 100%;
   margin: 0 auto;
   padding: 0px 30px 0px 0%;
@@ -187,8 +156,7 @@ ul {
 
 .index-cards .index-card {
   border: 1px solid grey;
-  position: relative;
-  height: 75vh;
+  height: 700px;
   width: calc(25% - 72px);
   margin-left: 36px;
   margin-top: 36px;
@@ -198,16 +166,16 @@ ul {
 }
 
 .index-cards .index-card .index-cover-img {
-  position: relative;
   width: 100%;
+  position: relative;
 }
 
 .index-cards .index-card .index-cover-img .index-cover-img-l {
   position: absolute;
-  top: 90%;
+  bottom: 10%;
   left: 3%;
   z-index: 10;
-  color: white;
+  color: red;
 }
 
 .index-cards .index-card .index-img-top {
@@ -216,14 +184,12 @@ ul {
 }
 
 .index-cards .index-card .index-card-text {
-  position: absolute;
   z-index: -10;
   padding: 5%;
   width: 90%;
 }
 
 .index-cards .index-card .index-card-price {
-  position: absolute;
   top: 90%;
   width: 90%;
   padding: 0px 10px 20px 10px;
@@ -232,7 +198,7 @@ ul {
 .index-cards .index-card .index-card-price .index-card-title {
   font-size: 0.8em;
   opacity: 0.5;
-  margin-bottom: 3px;
+  margin-bottom: 16px;
 }
 
 .index-cards .index-card .index-card-price .index-btn {
@@ -241,6 +207,7 @@ ul {
   border-radius: 10px;
   border: 0.2px solid grey;
   box-shadow: 2px 2px 1px gray;
+  margin-top: 16px;
 }
 
 .index-cards .index-card .index-card-price .index-btn:hover {
@@ -250,13 +217,24 @@ ul {
 }
 
 .hero {
-  /* background-image: url("../../../public/img/hero.jpg"); */
   width: 100%;
   margin: 0 auto;
 }
 
 .hero img {
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .index-card {
+    font-size: 0.5em;
+    max-height: 400px;
+    width: 50%;
+  }
+
+  .index-cover-img-l {
+    color: blue !important;
+  }
 }
 
 .template-image {
