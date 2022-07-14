@@ -40,9 +40,10 @@
                             </div>
                             <div>
                                 <div class="padding-description">{{ $apartment->description }}</dic>
+                                
                             </div>
                             <div>
-                                <div class="padding-description">views</div>
+                                <div class="padding-description">views: {{ $viewsTotal[$apartment->id] }}</div>
                             </div>
                         </div>
                     </div>
