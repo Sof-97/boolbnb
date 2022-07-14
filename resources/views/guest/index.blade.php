@@ -24,9 +24,7 @@
 
 <body>
     @include('layouts.nav-index')
-    <div class="hero">
-        {{-- <img src="{{ asset('img/hero.jpg') }}" alt=""> --}}
-    </div>
+
 
     <div id="root"></div>
 

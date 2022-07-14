@@ -2518,6 +2518,8 @@ var render = function render() {
       }
     }, [_vm._v("\n                            " + _vm._s(e.address.freeformAddress) + "\n                        ")]);
   }), 0)])]), _vm._v(" "), _c("div", {
+    staticClass: "hero"
+  }), _vm._v(" "), _c("div", {
     staticClass: "index-cards",
     attrs: {
       id: "gallery"

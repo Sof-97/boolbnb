@@ -9,11 +9,13 @@
 .hero {
     width: 100%;
     margin: 0 auto;
+    margin-top: 20px;
     background-image: url('images/index_2.jpg');
-    height: 300px;
+    height: 600px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-origin: border-box;
 }
 
 .autocomplete {
@@ -182,6 +184,10 @@
             font-size: 1em;
         }
     }
+
+    .hero {
+        height: 400px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -213,6 +219,10 @@
     .sign{
         font-size: 0.7em;
     }
+
+    .hero {
+        height: 310px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -240,6 +250,10 @@
         }
     }
 
+    .hero {
+        height: 280px;
+    }
+
 }
 
 @media screen and (max-width: 425px) {
@@ -260,6 +274,10 @@
 
     .sign{
         font-size: 0.7em;
+    }
+
+    .hero {
+        height: 175px;
     }
 }
 
@@ -291,6 +309,10 @@
     .sign{
         font-size: 0.5em;
     }
+
+    .hero {
+        height: 150px;
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -311,5 +333,9 @@
 
     .sign{
         font-size: 0.5em;
+    }
+
+    .hero {
+        height: 125px;
     }
 }

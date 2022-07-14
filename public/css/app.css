@@ -102,11 +102,13 @@ ul {
 .hero {
   width: 100%;
   margin: 0 auto;
+  margin-top: 20px;
   background-image: url(/images/index_2.jpg?53f542be30af8eea845db4480727e146);
-  height: 300px;
+  height: 600px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-origin: border-box;
 }
 
 .autocomplete {
@@ -266,6 +268,10 @@ ul {
     padding: 10px 15px 10px 15px;
     font-size: 1em;
   }
+
+  .hero {
+    height: 400px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -290,6 +296,10 @@ ul {
   .sign {
     font-size: 0.7em;
   }
+
+  .hero {
+    height: 310px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -311,6 +321,10 @@ ul {
     width: 55%;
     font-size: 0.8em;
   }
+
+  .hero {
+    height: 280px;
+  }
 }
 
 @media screen and (max-width: 425px) {
@@ -326,6 +340,10 @@ ul {
 
   .sign {
     font-size: 0.7em;
+  }
+
+  .hero {
+    height: 175px;
   }
 }
 
@@ -352,6 +370,10 @@ ul {
   .sign {
     font-size: 0.5em;
   }
+
+  .hero {
+    height: 150px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -367,6 +389,10 @@ ul {
 
   .sign {
     font-size: 0.5em;
+  }
+
+  .hero {
+    height: 125px;
   }
 }
 

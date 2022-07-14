@@ -34,6 +34,10 @@
                     </ul>
                 </div>
             </div>
+
+            <!-- HERO -->
+            <div class="hero"></div>
+
             <!-- Elenco delle cards -->
             <div class="index-cards" id="gallery">
                 <div v-for="(e, i) in apartments" :key="i" class="index-card">
