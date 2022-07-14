@@ -30,8 +30,12 @@ Route::middleware('auth')
             Route::get('dashboard', 'ApartmentController@dashboard')->name('dashboard');
             Route::get('message', 'ApartmentController@messages')->name('message');
             Route::get('/payment', 'PaymentController@generateToken');
-            Route::get('/sponsorship', 'PaymentController@sponsorship');
-            Route::post('/payment/checkout', 'PaymentController@checkout');
+
+            //Appartamento da sponsorizzare
+            Route::get('/sponsorship/{apartment}', 'PaymentController@sponsorship')->name('sponsorship');
+            
+            Route::post('/payment/checkout', 'PaymentController@checkout')->name('checkout');
+            Route::get('/payment/{id}', 'PaymentController@payment')->name('payment');
         }
     );
 

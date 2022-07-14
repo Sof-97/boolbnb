@@ -149,6 +149,7 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
+
         if (Auth::id() == $apartment->id_user) {
             return view('admin.apartments.show', compact('apartment'));
         } else {

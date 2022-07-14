@@ -386,6 +386,11 @@ ul {
   font-weight: 600 !important;
 }
 
+.button_accent a {
+  color: white;
+  text-decoration: none;
+}
+
 .button_crud {
   background-color: white;
   color: #222222;
@@ -1286,6 +1291,47 @@ nav .navbar-options .navbar-nav a {
 .ft-img {
   margin-left: 0.3em;
   margin-right: 0.3em;
+}
+
+.sponsorship-card {
+  width: calc(33.3333333333% - 100px);
+  padding: 2.5rem;
+  border: 1px solid #c8c8c8;
+  box-shadow: 5px 5px 10px 0px #c8c8c8;
+  border-radius: 10px;
+}
+
+.sponsorship-card h2 {
+  color: #ff385c;
+  text-align: center;
+}
+
+.sponsorship-card img {
+  display: block;
+  width: 80%;
+  border: 1px solid #ff385c;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+
+.sponsorship-card p {
+  margin: 10px 0;
+}
+
+.sponsorship-card p:last-child {
+  margin: 20px 0;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.h-100 {
+  height: 100%;
 }
 
 * {

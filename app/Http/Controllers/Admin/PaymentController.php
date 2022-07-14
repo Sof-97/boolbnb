@@ -3,20 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Apartment;
 use App\Models\Sponsorship;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
 
 class PaymentController extends Controller
 {
-    public function sponsorship()
+    public function sponsorship(Apartment $apartment)
     {
-        $sponsorship = Sponsorship::all();
+        $sponsorships = Sponsorship::all();
 
-        return view('admin.apartments.sponsor', compact($sponsorship));
+        return view('admin.apartments.sponsor', compact('sponsorships', 'apartment'));
     }
 
-    public function generateToken()
+    public function payment(Sponsorship $sponsorship, Apartment $apartment)
     {
         $gateway = new Gateway([
             'environment' => 'sandbox',
@@ -25,14 +26,19 @@ class PaymentController extends Controller
             'privateKey' => 'd17ee649e85705797b1495224c580309'
         ]);
         $token = $gateway->clientToken()->generate();
-        // dd($token);
-        return view('admin.apartments.sponsor', [
-            'token' => $token
+        return view('admin.apartments.checkout', [
+            'token' => $token,
         ]);
     }
 
-    public function checkout(Request $request)
+    public function generateToken()
     {
+    }
+
+    public function checkout(Sponsorship $sponsorship, Request $request)
+    {
+        dd($sponsorship);
+
         $gateway = new Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'k27t9pcggf8nd87k',
