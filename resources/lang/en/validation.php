@@ -134,7 +134,9 @@ return [
         'cover_image' => ['required' => 'E\' necessario caricare un\'immagine di copertina.'],
         'address' => ['required' => 'E\' necessario compilare l\'indirizzo.'],
         'mq2' => ['required' => 'E\' necessario compilare i metri quadrati.'],
-        'is_visible' => ['required' => 'E\' necessario specificare la visibilità dell\'appartamento.']
+        'is_visible' => ['required' => 'E\' necessario specificare la visibilità dell\'appartamento.'],
+        'email_sender' => ['required' => 'E\' necessario specificare l\'email dell\'appartamento.'],
+        'text' => ['required' => 'E\' necessario specificare il messaggio dell\'appartamento.'],
     ],
 
     /*
@@ -154,7 +156,10 @@ return [
         'beds' => 'i letti',
         'bathrooms' => 'i bagni',
         'date' => 'data',
-        'price' => 'il prezzo'
+        'price' => 'il prezzo',
+        'email_sender' => 'email',
+        'apartment_id' => 'ap_id',
+        'text' => 'messaggio'
     ],
 
 ];

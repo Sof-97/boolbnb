@@ -2143,7 +2143,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       fields: {},
       apartment: {},
-      userEmail: window.user
+      userEmail: window.user,
+      errors: []
     };
   },
   created: function created() {
@@ -2162,12 +2163,9 @@ __webpack_require__.r(__webpack_exports__);
       this.fields["apartment_id"] = this.apartment.id;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("http://127.0.0.1:8000/api/messages", this.fields).then(function (response) {
         alert("Message sent!");
-        _this.fields.text = "";
-        _this.fields.email_sender = "";
-      })["catch"](function (error) {
-        if (error.response.status === 422) {
-          _this.errors = error.response.data.errors || {};
-        }
+      }).then(function (response) {
+        _this.text = "";
+        _this.email_sender = "";
       });
     },
     getApartment: function getApartment() {
@@ -2653,6 +2651,7 @@ var render = function render() {
     }],
     attrs: {
       type: "text",
+      required: "",
       name: "email_sender",
       id: "email_sender"
     },
@@ -2679,6 +2678,7 @@ var render = function render() {
     }],
     attrs: {
       type: "text",
+      required: "",
       name: "text",
       id: "text"
     },
