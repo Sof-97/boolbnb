@@ -20,7 +20,7 @@
             @csrf
             <div id="dropin-container"></div>
             <input type="hidden" id="nonce" name="payment_method_nonce" />
-            <input type="submit" class="button_accent"/>
+            <input type="submit" class="button_accent" />
         </form>
     </div>
 @endsection
@@ -33,6 +33,7 @@
         // Step two: create a dropin instance using that container (or a string
         //   that functions as a query selector such as `#dropin-container`)
         braintree.dropin.create({
+            locale: 'it-IT',
             container: document.getElementById('dropin-container'),
             authorization: token,
             // ...plus remaining configuration

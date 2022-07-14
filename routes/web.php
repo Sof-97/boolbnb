@@ -29,13 +29,13 @@ Route::middleware('auth')
             Route::resource('apartments', 'ApartmentController');
             Route::get('dashboard', 'ApartmentController@dashboard')->name('dashboard');
             Route::get('message', 'ApartmentController@messages')->name('message');
-            Route::get('/payment', 'PaymentController@generateToken');
+            
 
             //Appartamento da sponsorizzare
             Route::get('/sponsorship/{apartment}', 'PaymentController@sponsorship')->name('sponsorship');
-            
+
+            Route::get('/payment/{apartment}/{sponsorship}', 'PaymentController@payment')->name('payment');
             Route::post('/payment/checkout', 'PaymentController@checkout')->name('checkout');
-            Route::get('/payment/{id}', 'PaymentController@payment')->name('payment');
         }
     );
 

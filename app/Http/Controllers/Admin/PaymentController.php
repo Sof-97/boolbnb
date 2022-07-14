@@ -17,8 +17,13 @@ class PaymentController extends Controller
         return view('admin.apartments.sponsor', compact('sponsorships', 'apartment'));
     }
 
-    public function payment(Sponsorship $sponsorship, Apartment $apartment)
+    public function payment(Request $request,  $ap_id, $sp_id)
     {
+        dump($ap_id);
+        dump($sp_id);
+        $sponsorship = Sponsorship::where('id', '=', $sp_id)->first();
+        $apartment = Apartment::where('id', '=', $ap_id)->first();
+        dump($apartment);
         $gateway = new Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'k27t9pcggf8nd87k',
@@ -28,17 +33,14 @@ class PaymentController extends Controller
         $token = $gateway->clientToken()->generate();
         return view('admin.apartments.checkout', [
             'token' => $token,
+            'sponsorship' => $sponsorship,
+            'apartment' => $apartment
         ]);
     }
 
-    public function generateToken()
+    public function checkout(Sponsorship $sponsorship, Apartment $apartment, Request $request)
     {
-    }
-
-    public function checkout(Sponsorship $sponsorship, Request $request)
-    {
-        dd($sponsorship);
-
+        dd($apartment);
         $gateway = new Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'k27t9pcggf8nd87k',
@@ -49,7 +51,7 @@ class PaymentController extends Controller
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
         $result = $gateway->transaction()->sale([
-            'amount' => $request->amount,
+            'amount' => $request->$sponsorship->price,
             'paymentMethodNonce' => $nonce,
             'options' => [
                 'submitForSettlement' => true,

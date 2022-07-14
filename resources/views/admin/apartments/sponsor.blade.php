@@ -3,6 +3,8 @@
     Sponsorship
 @endsection
 @section('content')
+    @dump($sponsorships)
+    @dump($apartment)
     <div class="flex-center margin-section" style="height: 60vh">
         <div class="custom flex apartment-padding space-around h-100 items-center">
             @foreach ($sponsorships as $sponsorship)
@@ -13,7 +15,7 @@
                     <p>Prezzo: {{ $sponsorship->price }}</p>
                     <div class="flex" style="justify-content: flex-end">
                         <button class="button_accent">
-                            <a href="{{route('admin.checkout', $sponsorship->id, $apartment->id)}}">
+                            <a href="{{ url("/admin/payment/$apartment->id/$sponsorship->id") }}">
                                 Compra ora
                             </a>
                         </button>
