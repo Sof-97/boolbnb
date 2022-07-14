@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>Search</h1>
         <div class="container">
             <div class="flex posrev">
                 <input

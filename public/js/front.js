@@ -2219,7 +2219,7 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h1", [_vm._v("Search")]), _vm._v(" "), _c("div", {
+  return _c("div", [_c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "flex posrev"
@@ -19222,8 +19222,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\dinoa\Desktop\boolbnb-team3-58\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\dinoa\Desktop\boolbnb-team3-58\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
