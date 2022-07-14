@@ -40,6 +40,7 @@
                     <input class="stanze-letti" type="number" placeholder="Letti" name="letti" v-model="letti" min="1"
                         max="9" />
                 </div>
+                <div id="map" style="width: 300px; height: 200px"></div>
             </div>
 
             <p class="no-results-as" v-show="!apartments || apartments.length == 0">
@@ -74,8 +75,11 @@
                     </div>
                 </div>
             </div>
+
         </div>
+      </div>
     </div>
+  </div>
 </template>
 <script>
     import axios from "axios";
@@ -116,6 +120,18 @@
             this.getServices();
         },
         methods: {
+        getMap() {
+      let center = [this.lon2, this.lat2];
+      let map = tt.map({
+        key: "igkbkqwR2f1uQStetPLGqvyGEGFKLvAA",
+        container: "map",
+        center: center,
+        zoom: 10,
+      });
+      for (let i = 0; i < this.apartments.length; i++) {
+        new tt.Marker({color: '#ff385c'}).setLngLat([this.apartments[i].longitude, this.apartments[i].latitude]).addTo(map);
+      }
+    },
             filterMenu() {
                 document.getElementById("filter-list").classList.toggle("show");
             },
@@ -131,6 +147,7 @@
                     )
                     .then((res) => {
                         this.apartments = res.data;
+                        this.getMap();
                     });
             },
             getInfoApi() {
@@ -262,9 +279,10 @@
                     }
                 }
             }
-        }
-    }
 
+        }
+      }
+}
     .show {
         display: none !important;
     }
