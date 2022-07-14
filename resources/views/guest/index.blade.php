@@ -12,22 +12,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>Welcome Page</title>
-
     @if ($user)
         <script>
             window.user = "{{ $user->email }}"
         </script>
     @endif
-
 </head>
 
 <body>
     @include('layouts.nav-index')
-
     <div id="root"></div>
-
     @include('layouts.footer')
-    
     <script src="{{ asset('js/front.js') }}"></script>
 </body>
 
