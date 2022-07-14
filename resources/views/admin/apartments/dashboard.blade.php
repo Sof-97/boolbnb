@@ -55,8 +55,4 @@
 
 </div>
 </div>
-<style>
-    @import "../../resources/sass/app.scss";
-
-</style>
 @endsection
