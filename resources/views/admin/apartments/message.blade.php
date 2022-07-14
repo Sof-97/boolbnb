@@ -1,18 +1,19 @@
 @extends('layouts.backOffice')
 
 @section('content')
-<h1>Messaggi</h1>
-<div class="container">
+
+<div class="container-ms">
+    <h1 class="title-ms">Messaggi</h1>
     @foreach ($apartments as $apt)
-    <div class="singleapartment" style="margin-bottom: 70px;">
+    <div class="singleapartment-ms">
         @foreach ($apt->message as $message)
 
         @if($loop->iteration == 1)
-        <h2>Appartamento "{{ $apt->title }}"</h2>
+        <h2 class="apartment-name-ms">Appartamento: "{{ $apt->title }}"</h2>
         @endif
-        <div style=" padding: 20px; border:1px solid black; border-radius: 20px;margin:20px 0;">
-            <p>Messagio da: <u>{{ $message->email_sender }}</u></p>
-            <p>
+        <div class="message-ms">
+            <p class="message-sender-ms">Messagio da: <u>{{ $message->email_sender }}</u></p>
+            <p class="message-content-ms">
                 {{ $message->text }}
             </p>
         </div>

@@ -8,7 +8,7 @@
                 <img style="height: 50px; width: 50px;" src="{{ asset('img/airbnb-logo.png') }}" alt="tag">
                 <span class="align-center">BoolBnB</span>
             </div>
-            <div class="flex-between">
+            <div class="flex-between query-changes">
                 <a class="button_accent" href="/" style="margin-right: 20px;">Cerca una casa</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
