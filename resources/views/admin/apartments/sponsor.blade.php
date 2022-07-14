@@ -3,8 +3,6 @@
     Sponsorship
 @endsection
 @section('content')
-    @dump($sponsorships)
-    @dump($apartment)
     <div class="flex-center margin-section" style="height: 60vh">
         <div class="custom flex apartment-padding space-around h-100 items-center">
             @foreach ($sponsorships as $sponsorship)

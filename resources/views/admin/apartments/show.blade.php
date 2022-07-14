@@ -50,7 +50,7 @@
                     </div>
                     <div class="flex" style="justify-content: flex-end">
                         <button class="button_accent">
-                            <a href="{{route('admin.sponsorship')}}">
+                            <a href="{{route('admin.sponsorship', $apartment)}}">
                                 Sponsorizza
                             </a>
                         </button>

@@ -5,7 +5,6 @@
             {{ session('success_message') }}
         </div>
     @endif
-
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
@@ -16,8 +15,9 @@
         </div>
     @endif
     <div class="flex-center position-ref full-height">
-        <form id="payment-form" action="{{ url('/admin/payment/checkout') }}" method="post">
+        <form id="payment-form" action="{{ route('admin.checkout', [$apartment, $sponsorship]) }}" method="post">
             @csrf
+            @method('POST')
             <div id="dropin-container"></div>
             <input type="hidden" id="nonce" name="payment_method_nonce" />
             <input type="submit" class="button_accent" />
@@ -30,6 +30,8 @@
     <script type="text/javascript">
         const form = document.getElementById('payment-form');
         let token = "{{ $token }}"
+
+
         // Step two: create a dropin instance using that container (or a string
         //   that functions as a query selector such as `#dropin-container`)
         braintree.dropin.create({
