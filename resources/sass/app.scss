@@ -16,12 +16,18 @@
 @import './partials/create';
 //edit
 @import './partials/edit';
+//show
+@import './partials/showlogged';
 //login
 @import "./partials/login";
 // Card singolo appartamento
 @import "./partials/singleapartment";
 // footer
 @import "./partials/footer";
+//Advanced search
+@import "./partials/advancedsearch";
+//Message
+@import "./partials/message";
 //reset user agent
 * {
     margin: 0;

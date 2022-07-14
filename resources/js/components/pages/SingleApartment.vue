@@ -9,25 +9,36 @@
             <div class="sa-owner">{{ apartment.title }}</div>
             <div class="sa-cont-img">
                 <img :src="apartment.cover_image" alt="" />
+                <div
+                    id="map"
+                    style="
+                        width: calc(50% - 20px);
+                        height: 350px;
+                        display: inline-block;
+                        border-radius: 10px;
+                    "
+                ></div>
             </div>
             <div class="sa-opacity">{{ apartment.description }}</div>
             <div class="sa-price">
                 <i>Il prezzo a notte è:</i> <span>{{ apartment.price }}€</span>
             </div>
-        </div>
-        <!-- Form della email -->
-        <div class="sa-form">
             <form @submit.prevent="submit">
                 <label for="email">La tua email</label>
                 <input
+                    class="form-control form-create"
                     type="text"
+                    required
                     name="email_sender"
                     id="email_sender"
                     v-model="fields.email_sender"
                 />
+                <br />
                 <label for="text">Il tuo messaggio</label>
-                <input
+                <textarea
+                    class="form-control form-create description-form"
                     type="text"
+                    required
                     name="text"
                     id="text"
                     v-model="fields.text"
@@ -40,19 +51,13 @@
                     v-model="fields.apartment_id"
                     hidden
                 />
-                <button type="submit">Invia</button>
+                <div class="submit">
+                    <button class="button-send" type="submit">Invia</button>
+                </div>
             </form>
-            <div class="container">
-                <h1>Show</h1>
-                <h2>{{ apartment.title }}</h2>
-                <img :src="apartment.cover_image" alt="" />
-                <p class="my-4">
-                    Il prezzo a notte per l'appartamento è
-                    {{ apartment.price }}€
-                </p>
-            </div>
         </div>
     </div>
+    <!-- Form della email -->
 </template>
 
 <script>
@@ -62,9 +67,7 @@ export default {
     name: "SingleApartment",
     data() {
         return {
-            fields: {
-               
-            },
+            fields: {},
             apartment: {},
             userEmail: window.user,
         };
@@ -72,25 +75,35 @@ export default {
     created() {
         this.getApartment();
         console.log(window.user);
-        if(window.user){
-           this.fields.email_sender = window.user;
+        if (window.user) {
+            this.fields.email_sender = window.user;
         }
     },
     methods: {
+        getMap() {
+            let center = [this.apartment.longitude, this.apartment.latitude];
+            let map = tt.map({
+                key: "igkbkqwR2f1uQStetPLGqvyGEGFKLvAA",
+                container: "map",
+                center: center,
+                zoom: 15,
+            });
+            new tt.Marker({ color: "#ff385c" }).setLngLat(center).addTo(map);
+        },
         submit() {
             this.errors = {};
             this.fields["apartment_id"] = this.apartment.id;
             axios
-               
-              .post("http://127.0.0.1:8000/api/messages", this.fields)
-              
-              .then((response) => {
+
+                .post("http://127.0.0.1:8000/api/messages", this.fields)
+
+                .then((response) => {
                     alert("Message sent!");
                     this.fields.text = "";
                     this.fields.email_sender = "";
                 })
-               
-               .catch((error) => {
+
+                .catch((error) => {
                     if (error.response.status === 422) {
                         this.errors = error.response.data.errors || {};
                     }
@@ -102,9 +115,21 @@ export default {
                     "http://127.0.0.1:8000/api/apartments/" +
                         this.$route.params.slug.split("/show")
                 )
-                .then((res) => (this.apartment = res.data));
+                .then((res) => {
+                    this.apartment = res.data;
+                    this.getMap();
+                });
         },
-          
     },
 };
 </script>
+<style lang="scss" scoped>
+.submit{
+    display: flex;
+    justify-content: flex-end;
+    margin: 0.5rem 0;
+}
+.description-form{
+    width: 100% !important;
+}
+</style>

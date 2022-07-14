@@ -16,12 +16,10 @@ class CreateViewsTable extends Migration
         Schema::create('views', function (Blueprint $table) {
             $table->id();
             $table->string('ip_address');
-            $table->unsignedBigInteger('id_apartment');
-
-            $table->foreign('id_apartment')
+            $table->unsignedBigInteger('apartment_id');
+            $table->foreign('apartment_id')
                 ->references('id')
                 ->on('apartments')->onDelete('cascade');
-
             $table->timestamps();
         });
     }
