@@ -39,12 +39,9 @@ class ApartmentController extends Controller
         $apartments = Apartment::all()->where('id_user', '=', $id);
         $viewsTotal = [];
         foreach ($apartments as $apartment) {
-            $view = [
-                "apartment_id" => $apartment->id,
-                "totalViews" => count(View::all()->where('apartment_id', '=', $apartment->id))
-            ];
-            array_push($viewsTotal, $view);
+            $viewsTotal[$apartment->id] = count(View::all()->where('apartment_id', '=', $apartment->id));
         }
+
         return view('admin.apartments.dashboard', compact('user', 'apartments', 'viewsTotal'));
     }
     public function sponsor()
