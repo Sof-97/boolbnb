@@ -25,4 +25,6 @@ Route::namespace('Api')->group(function () {
     Route::get('/apartments/search/{query}/', 'ApartmentController@search');
     Route::resource('messages', 'MessageController');
     Route::get('/distance/{radius}/{lat}/{lon}', 'ApartmentController@radiusSearch');
+    Route::get('/getToken', 'PaymentController@generateToken');
+    Route::post('/makePayment', 'PaymentController@makePayment');
 });

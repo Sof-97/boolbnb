@@ -82,8 +82,9 @@
 
                     <div class="flex-evenly">
 
-                        <div class="margin-top-forms">
+                        <div>
                             {{-- N° MQ2 --}}
+                            <div class="margin-little-forms-label">Metri quadrati</div>
                             <div class="form-group">
                                 <input placeholder="Metri quadrati" required class="form-control little-forms"
                                     type="number" name="mq2" id="mq2" min="1" max="500" />
@@ -92,7 +93,8 @@
                                 @enderror
                             </div>
                             {{-- N° Stanze --}}
-                            <div class="form-group margin-top-services">
+                            <div class="margin-little-forms-label">Numero di stanze:</div>
+                            <div class="form-group">
                                 <input placeholder="N° di stanze" required class="form-control little-forms" type="number"
                                     name="rooms" id="rooms" min="1" max="15" />
                                 @error('rooms')
@@ -101,8 +103,9 @@
                             </div>
                         </div>
 
-                        <div class="margin-top-forms">
+                        <div>
                             {{-- N° letti --}}
+                            <div class="margin-little-forms-label">Numero di letti:</div>
                             <div class="form-group">
                                 <input placeholder="N° di letti" required class="form-control little-forms" type="number"
                                     name="beds" id="beds" min="1" max="15" />
@@ -111,7 +114,8 @@
                                 @enderror
                             </div>
                             {{-- N° bagni --}}
-                            <div class="form-group margin-top-services">
+                            <div class="margin-little-forms-label">Numero di bagni:</div>
+                            <div class="form-group">
                                 <input placeholder="N° di letti" required class="form-control little-forms" type="number"
                                     name="bathrooms" id="bathrooms" min="1" max="15" />
                                 @error('bathrooms')
