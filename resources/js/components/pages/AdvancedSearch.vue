@@ -78,8 +78,7 @@
 
         </div>
       </div>
-    </div>
-  </div>
+
 </template>
 <script>
     import axios from "axios";
@@ -282,7 +281,6 @@
 
         }
       }
-}
     .show {
         display: none !important;
     }
