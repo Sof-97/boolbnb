@@ -442,6 +442,10 @@ ul {
   padding: 0 !important;
 }
 
+.navbar {
+  padding: 10px 5%;
+}
+
 .navbar .menu-items {
   display: flex;
 }
@@ -1004,13 +1008,10 @@ input[type=file] {
   padding-bottom: 1rem;
 }
 
-.container {
-  padding: 10px 5%;
-}
-
 .button-login,
 .button-register,
-.button-reset {
+.button-reset,
+.default-button {
   padding: 5px 10px !important;
   margin: 5px 10px;
   border-radius: 5px;
@@ -1023,7 +1024,8 @@ input[type=file] {
 
 .button-login:hover,
 .button-register:hover,
-.button-reset:hover {
+.button-reset:hover,
+.default-button:hover {
   background-color: #ff002f;
 }
 
@@ -1214,6 +1216,219 @@ nav .navbar-options .navbar-nav a {
 .ft-img {
   margin-left: 0.3em;
   margin-right: 0.3em;
+}
+
+.container-as {
+  padding: 50px 5%;
+}
+
+.search-as {
+  width: 20%;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: small;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.stanze-letti {
+  width: 100px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: small;
+  font-weight: bold;
+}
+
+.container-cards-as {
+  width: 100%;
+  padding: 50px 0;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-as {
+  color: rgb(113, 113, 113) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  display: inline-block;
+  width: calc(25% - 20px);
+  margin: 20px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  padding: 0 0 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+}
+
+.card-as img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.card-as .card-img-as {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.card-as .icons-as {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+}
+
+.card-as .card-title-as {
+  color: black;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+.card-as .card-price-as span {
+  color: rgb(53, 53, 53);
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.card-as .card-body-as {
+  padding: 10px;
+  text-align: left;
+}
+
+.card-as .card-body-as * {
+  margin-bottom: 15px;
+}
+
+.card-as .button-show {
+  text-decoration: none;
+  padding: 5px 10px !important;
+  border-radius: 5px;
+  font-size: small;
+  font-weight: bold;
+  color: white;
+  border: 0px white solid !important;
+  cursor: pointer;
+  background-color: #ff385c;
+}
+
+.card-as .button-show:hover {
+  background-color: #ff002f;
+}
+
+.no-results-as {
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.search-bar-as {
+  flex-wrap: wrap;
+}
+
+.filters-as span * {
+  margin: 0;
+}
+
+.filters-as * {
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  .card .form-control {
+    width: 20vw;
+  }
+}
+
+@media screen and (max-width: 965px) {
+  .container-as {
+    text-align: center;
+  }
+
+  .card-as {
+    width: calc(33.3333333333% - 5px);
+  }
+
+  .search-bar-as {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .search-bar-as div {
+    display: block;
+  }
+
+  .search-as {
+    margin-bottom: 15px;
+    width: 50%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .search-bar-as span {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .search-as {
+    margin: 0;
+    width: 50vw;
+    margin-bottom: 15px;
+  }
+
+  #filter {
+    margin-bottom: 15px;
+  }
+
+  .card-as {
+    font-size: 12px !important;
+    line-height: 15px !important;
+    width: calc(50% - 5px);
+    display: inline-block;
+    padding: 0 0 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+  }
+
+  .card-as .card-title-as {
+    line-height: 25px !important;
+  }
+
+  .card-as .button-show {
+    font-size: 0.5rem !important;
+  }
+
+  .card-as .card-title-as {
+    font-size: 1.2rem;
+  }
+
+  .card-as .card-price-as span {
+    font-size: 1.1em;
+  }
+
+  .card-as .card-body-as {
+    padding: 10px;
+  }
+
+  .card-as .card-body-as * {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 423px) {
+  .card-as {
+    width: calc(100% - 20px);
+  }
+
+  .container-cards-as {
+    justify-content: center;
+  }
+
+  .search-as {
+    width: 80vw;
+  }
 }
 
 * {
