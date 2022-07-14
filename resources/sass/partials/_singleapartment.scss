@@ -1,12 +1,11 @@
 .sa-container {
     margin: 0 auto;
-    width: 300px;
+    width: 70%;
     margin-top: 5vh;
     border: 0.5px solid gray;
     border-radius: 10px;
     box-shadow: 3px 2px 1px gray;
-    padding: 16px;
-    height: 66vh;
+    padding: 80px;
 
     .sa-title {
         font-size: 2em;
@@ -20,10 +19,12 @@
     }
 
     .sa-cont-img {
-        text-align: center;
-
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 50px 0;
         img {
-            width: 80%;
+            width: calc(50% - 20px);
             border-radius: 10px;
         }
     }
@@ -35,6 +36,9 @@
     }
 
     .sa-price {
+        margin: 1.5rem 0 ;
+        color: $color-accent;
+        font-weight: bolder;
         span {
             margin-left: 0.5em;
             font-weight: 500;
@@ -42,40 +46,27 @@
     }
 }
 
-.sa-form {
-    margin: 0 auto;
-    width: 40vw;
-    margin-top: 2vh;
-    border: 0.5px solid gray;
-    border-radius: 10px;
-    box-shadow: 3px 2px 1px gray;
-    padding: 16px;
-
-    .sa-inp-text {
-        width: 72%;
-        border: 0.5px solid gray;
-        border-radius: 10px;
-        box-shadow: 3px 2px 1px gray;
-        padding: 5px 10px 5px 10px;
-    }
-
-    .sa-inp-email {
-        border: 0.5px solid gray;
-        border-radius: 10px;
-        box-shadow: 3px 2px 1px gray;
-        padding: 5px 10px 5px 10px;
-    }
+label{
+    margin: 1rem 0;
+    display: inline-block;
+    color: $color-accent;
+    font-weight: bold;
 }
 
-.sa-form-bt {
-    width: 100%;
-    text-align: center;
-    margin-top: 1em;
-
-    input {
-        padding: 3px 10px 3px 10px;
-        border-radius: 10px;
-        background-color: white;
+input,
+textarea,
+select {
+    &:focus {
+        border: 2px solid $color-accent;
+    }
+    &:focus-visible {
+        outline: none;
+    }
+    &::-webkit-file-upload-button {
+        border-radius: 5px;
+        border: 1px solid $color-accent;
+        background-color: transparent;
+        color: $color-accent;
     }
 }
 
