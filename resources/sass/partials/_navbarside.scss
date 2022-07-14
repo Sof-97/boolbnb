@@ -22,7 +22,9 @@
     padding: 0 !important;
 }
 
-
+.navbar {
+    z-index: 99;
+}
 
 .navbar .menu-items {
     display: flex;

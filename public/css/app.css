@@ -367,6 +367,14 @@ ul {
   text-align: center;
 }
 
+.relative {
+  position: relative;
+}
+
+.block {
+  display: block;
+}
+
 .button_accent {
   background-color: #ff385c;
   padding: 10px;
@@ -440,6 +448,10 @@ ul {
   margin: auto;
   margin-top: -12px;
   padding: 0 !important;
+}
+
+.navbar {
+  z-index: 99;
 }
 
 .navbar .menu-items {
@@ -695,6 +707,13 @@ ul {
   margin-top: 15px;
 }
 
+.margin-little-forms-label {
+  color: #ff385c;
+  margin-left: 22px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -902,6 +921,13 @@ input[type=file] {
   margin-top: 15px;
 }
 
+.margin-little-forms-label {
+  color: #ff385c;
+  margin-left: 22px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -989,6 +1015,52 @@ input[type=file] {
 
 .direction {
   flex-direction: column;
+}
+
+.padding-show {
+  padding: 30px;
+}
+
+.pill-show {
+  color: white;
+  background-color: #ff385c;
+  padding: 10px;
+  border-radius: 30px;
+  text-align: center;
+  width: 25%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.info-show {
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.icons-absolute {
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  color: white;
+}
+
+.fa-solid {
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.margin-show-info {
+  margin-bottom: 25px;
+}
+
+.margin-show-title {
+  padding-bottom: 10px;
+}
+
+.color-show {
+  color: #ff385c;
 }
 
 * {

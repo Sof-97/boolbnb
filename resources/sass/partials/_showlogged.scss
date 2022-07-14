@@ -1,0 +1,45 @@
+.padding-show {
+    padding: 30px;
+}
+
+.pill-show {
+    color: white;
+    background-color: $color-accent;
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+    width: 25%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.info-show {
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.icons-absolute {
+    position: absolute;
+    bottom: 4px;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    padding: 10px;
+    color: white;
+}
+
+.fa-solid {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.margin-show-info {
+    margin-bottom: 25px;
+}
+
+.margin-show-title {
+    padding-bottom: 10px;
+}
+
+.color-show {
+    color: $color-accent;
+}
