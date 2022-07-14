@@ -1,75 +1,88 @@
 <template>
     <div>
         <div class="landpage">
-            <div style="position:relative">
-            <!-- Tasti ricerca -->
-            <div class="index-search-bar">
-                <input
-                    type="text"
-                    v-model="search"
-                    class="index-search"
-                    placeholder="Inizia a cercare una destinazione"
-                    @keyup.enter="select(0)"
-                    @keyup="getInfoApi(search)"
-                />
+            <div>
+                <!-- Tasti ricerca -->
+                <div class="index-search-bar">
+                    <input
+                        type="text"
+                        v-model="search"
+                        class="index-search"
+                        placeholder="Inizia a cercare una destinazione"
+                        @keyup.enter="select(0)"
+                        @keyup="getInfoApi(search)"
+                    />
+                </div>
+
+                <!-- Auto complete suggerimenti-->
+                <div
+                    class="autocomplete"
+                    v-show="
+                        autocomplete != null &&
+                        autocomplete.length > 0 &&
+                        search != ''
+                    "
+                >
+                    <ul>
+                        <li
+                            :key="i"
+                            v-for="(e, i) in autocomplete"
+                            @click="select(i)"
+                        >
+                            {{ e.address.freeformAddress }}
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Auto complete suggerimenti-->
-            <div
-                class="autocomplete"
-                v-show="
-                    autocomplete != null &&
-                    autocomplete.length > 0 &&
-                    search != ''
-                "
-            >
-                <ul>
-                    <li
-                        :key="i"
-                        v-for="(e, i) in autocomplete"
-                        @click="select(i)"
-                    >
-                        {{ e.address.freeformAddress }}
-                    </li>
-                </ul>
-            </div>
-            </div>
+            <!-- HERO -->
+            <div class="hero"></div>
+
             <!-- Elenco delle cards -->
             <div class="index-cards" id="gallery">
                 <div v-for="(e, i) in apartments" :key="i" class="index-card">
                     <!-- Immagine e icone -->
-                    <div class="index-cover-img">
-                        <div>
-                            <img
-                                class="index-img-top"
-                                :src="`${e.cover_image}`"
-                                alt="Card image cap"
-                            />
+                    <div>
+                        <div class="index-cover-img">
+                            <div>
+                                <img
+                                    class="index-img-top"
+                                    :src="`${e.cover_image}`"
+                                    alt="Card image cap"
+                                />
+                                <!-- Icone Letti e bagni -->
+                                <div class="index-cover-img-l">
+                                    <span
+                                        ><i class="fa-solid fa-bed"></i>
+                                        {{ e.rooms }}</span
+                                    >
+                                    <span
+                                        >- <i class="fa-solid fa-toilet"></i>
+                                        {{ e.bathrooms }}</span
+                                    >
+                                </div>
+                                <div class="index-sponsor">
+                                    Sponsor
+                                </div>
+                            </div>
                         </div>
-                        <!-- Icone Letti e bagni -->
-                        <div class="index-cover-img-l">
-                            <span
-                                ><i class="fa-solid fa-bed"></i>
-                                {{ e.rooms }}</span
-                            >
-                            <span
-                                >- <i class="fa-solid fa-toilet"></i>
-                                {{ e.bathrooms }}</span
-                            >
-                        </div>
+                        <p class="index-card-text">{{ e.description }}</p>
                     </div>
-                    <p class="index-card-text">{{ e.description }}</p>
-                    <div class="index-card-price">
-                        <p class="index-card-title">Host: {{ e.title }}</p>
-                        <!-- <p>prezzo a notte: {{ e.price }}€</p> -->
-                        <router-link
-                            :to="{
-                                name: 'SingleApartment',
-                                params: { slug: e.slug },
-                            }"
-                            class="index-btn"
-                            >Vai all'appartamento</router-link
-                        >
+                    <div>
+                        <div class="index-card-price">
+                            <div class="index-card-title">
+                                Host: {{ e.title }}
+                            </div>
+                            <!-- <p>prezzo a notte: {{ e.price }}€</p> -->
+                            <router-link
+                                :to="{
+                                    name: 'SingleApartment',
+                                    params: { slug: e.slug },
+                                }"
+                                class="index-btn"
+                                >Vai all'appartamento</router-link
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
@@ -136,4 +149,3 @@ export default {
     },
 };
 </script>
-

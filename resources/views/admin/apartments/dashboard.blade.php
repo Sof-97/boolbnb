@@ -44,21 +44,25 @@
                                             <div class="padding-description">{{ $apartment->description }}</dic>
 
                                             </div>
-                                            <div>
-                                                <div class="padding-description">views: {{ $viewsTotal[$apartment->id] }}
-                                                </div>
-                                            </div>
+                                            
+                                            <div class="flex wrap align-center description">
+                           
+                            <div>
+                                <div class="padding-description">Visualizzazioni annuncio: {{ $viewsTotal[$apartment->id] }}</div>
+                            </div>
+                        </div>
                                         </div>
                                     </div>
                                 </div>
                         @endforeach
+
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-    <style>
-        @import "../../resources/sass/app.scss";
-    </style>
+</div>
+</div>
+
 @endsection

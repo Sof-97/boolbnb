@@ -2,17 +2,19 @@
     <div>
         <div class="container">
             <div class="flex posrev">
+
                 <input
                     type="text"
-                    class="form-control my-3"
-                    placeholder="Cerca"
+                    class="search-as"
+                    placeholder="Inizia a cercare una destinazione"
                     @keyup.enter="select(0)"
                     @keyup="getInfoApi(search)"
                     v-model="search"
                 />
-                <div>
+                <div class="filters-as">
                     <div id="filter" @click="filterMenu">
                         <i class="fa-solid fa-filter"></i>
+                        Filtri
                     </div>
                     <div id="filter-list" class="show">
                         <ul>
@@ -49,62 +51,82 @@
                             </li>
                         </ul>
                     </div>
-                    <label for="radius">Raggio di ricerca </label>
+                    <span>
+                        <label for="radius">Raggio di ricerca:</label>
+                        <input
+                            type="range"
+                            name="radius"
+                            id="radius"
+                            min="5"
+                            max="500000"
+                            step="5"
+                            v-model="range"
+                            @change="getApartments(range, lat, lon)"
+                        />
+                    </span>
                     <input
-                        type="range"
-                        name="radius"
-                        id="radius"
-                        min="5"
-                        max="500000"
-                        step="5"
-                        v-model="range"
-                        @change="getApartments(range, lat, lon)"
-                    />
-                    <input
+                        class="stanze-letti"
                         type="number"
-                        name="stanze"
+                        placeholder="Stanze"
                         v-model="stanze"
                         min="1"
                         max="9"
                     />
                     <input
+                        class="stanze-letti"
                         type="number"
+                        placeholder="Letti"
                         name="letti"
                         v-model="letti"
                         min="1"
                         max="9"
                     />
                 </div>
+                <div id="map" style="width: 300px; height: 200px"></div>
             </div>
 
-            <p v-show="!apartments || apartments.length == 0">
+            <p
+                class="no-results-as"
+                v-show="!apartments || apartments.length == 0"
+            >
                 Nessun appartamento corrispondente.
             </p>
-            <div class="row justify-content-between">
+
+            <div class="container-cards-as">
                 <div
                     v-for="(e, i) in apartments"
                     :key="i"
-                    class="col-3 card mb-5 p-2"
+                    class="card-as"
                     v-show="
                         e.rooms >= stanze && e.beds >= letti && check(e.service)
                     "
                 >
-                    <h2>TEST: {{ check(e.service) }}</h2>
-                    <img
-                        class="card-img-top"
-                        :src="`${e.cover_image}`"
-                        alt="Card image cap"
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">{{ e.title }}</h5>
-                        <p class="card-text">{{ e.description }}</p>
-                        <p class="card-title">{{ e.price }}€</p>
+                    <span class="card-img-as">
+                        <img :src="`${e.cover_image}`" alt="Card image cap" />
+                        <div class="icons-as">
+                            <span
+                                ><i class="fa-solid fa-bed"></i>
+                                {{ e.rooms }}</span
+                            >
+                            <span
+                                >- <i class="fa-solid fa-toilet"></i>
+                                {{ e.bathrooms }}</span
+                            >
+                        </div>
+                    </span>
+
+                    <div class="card-body-as">
+                        <h3 class="card-title-as">{{ e.title }}</h3>
+                        <p class="card-text-as">{{ e.description }}</p>
+                        <p class="card-price-as">
+                            <span>{{ e.price }}€</span> per Notte
+                        </p>
                         <router-link
                             :to="{
                                 name: 'SingleApartment',
                                 params: { slug: e.slug },
                             }"
-                            class="btn btn-primary"
+                            class="button-show"
                             >Vai all'appartamento</router-link
                         >
                     </div>
@@ -129,8 +151,8 @@ export default {
             lon2: this.lon,
             autocomplete: null,
             search: null,
-            stanze: 1,
-            letti: 1,
+            stanze: "",
+            letti: "",
             checked: [],
         };
     },
@@ -153,6 +175,23 @@ export default {
         this.getServices();
     },
     methods: {
+        getMap() {
+            let center = [this.lon2, this.lat2];
+            let map = tt.map({
+                key: "igkbkqwR2f1uQStetPLGqvyGEGFKLvAA",
+                container: "map",
+                center: center,
+                zoom: 10,
+            });
+            for (let i = 0; i < this.apartments.length; i++) {
+                new tt.Marker({ color: "#ff385c" })
+                    .setLngLat([
+                        this.apartments[i].longitude,
+                        this.apartments[i].latitude,
+                    ])
+                    .addTo(map);
+            }
+        },
         filterMenu() {
             document.getElementById("filter-list").classList.toggle("show");
         },
@@ -168,6 +207,7 @@ export default {
                 )
                 .then((res) => {
                     this.apartments = res.data;
+                    this.getMap();
                 });
         },
         getInfoApi() {
@@ -186,7 +226,10 @@ export default {
         getServices() {
             axios.get("http://127.0.0.1:8000/api/services").then((res) => {
                 res.data.forEach((e) => {
-                    let obj = { id: e.id, name: e.name };
+                    let obj = {
+                        id: e.id,
+                        name: e.name,
+                    };
                     this.services.push(obj);
                 });
             });
@@ -206,15 +249,15 @@ export default {
                 this.checked.forEach((check) => {
                     selected.push(check);
                 });
-                let check = false
+                let check = false;
                 selected.forEach((e) => {
                     if (apServ.includes(e)) {
-                        check = true
+                        check = true;
                     } else {
-                        check = false 
+                        check = false;
                     }
                 });
-                return check
+                return check;
             }
         },
     },
@@ -229,6 +272,7 @@ export default {
     border-radius: 10px;
     display: inline-block;
 }
+
 #filter-list {
     background: white;
     z-index: 1;
@@ -239,25 +283,32 @@ export default {
     overflow-y: scroll;
     border: 1px solid grey;
     border-radius: 10px;
+
     &::-webkit-scrollbar {
         width: 10px;
     }
+
     input {
         margin-right: 0;
         margin-left: auto;
     }
+
     ul {
         list-style: none;
+
         li {
             padding: 3px 0;
+
             label {
                 cursor: pointer;
             }
         }
     }
 }
+
 .posrev {
     position: relative !important;
+
     .autocomplete {
         z-index: 10;
         margin-top: 1em;
@@ -267,17 +318,21 @@ export default {
         border: 1px solid black;
         border-radius: 20px;
         position: absolute;
+
         ul {
             list-style: none;
+
             li {
                 font-family: monospace;
                 opacity: 0.7;
                 border-bottom: 1px solid grey;
                 padding: 5px 0;
                 cursor: pointer;
+
                 &:last-of-type {
                     border: none;
                 }
+
                 &:hover {
                     opacity: 1;
                 }

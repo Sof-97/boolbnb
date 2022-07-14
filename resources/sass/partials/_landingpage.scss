@@ -5,6 +5,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.hero {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    // background-image: url('images/index_2.jpg');
+    height: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-origin: border-box;
+}
+
 .autocomplete {
     z-index: 10;
     width: 50vw;
@@ -32,50 +45,15 @@
 }
 
 .index-search-bar {
-    position: relative;
-
+    margin-left: 3%;
     .index-search {
-        width: 20vw;
-        margin-left: 3vw;
-        border-radius: 3px;
+        width: 30%;
+        border-radius: 10px;
         box-shadow: 2px 2px 1px gray;
-        border: 0 solid gray;
-        margin-bottom: 16px;
+        border: 0.5 solid lightgray;
         margin-top: 16px;
-        padding: 5px 5px 5px 15px;
-    }
-
-    .index-q {
-        position: absolute;
-        z-index: 10;
-        border-radius: 3px;
-        box-shadow: 2px 2px 1px gray;
-        border: 0 solid gray;
-        padding: 5px 10px 5px 10px;
-        color: red;
-        top: 15px;
-        left: 22vw;
-        background-color: white;
-
-        -webkit-box-shadow: 0 0 5px 2px gray;
-        -moz-box-shadow: 0 0 5px 2px gray;
-        box-shadow: 0 0 5px 2px gray;
-        border: 1px solid gray;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        -khtml-border-radius: 5px;
-        border-radius: 5px;
-
-        outline: none;
-    }
-
-    .index-search-2 {
-        padding: 5px 5px 5px 15px;
-        box-shadow: 2px 2px 1px gray;
-        margin-left: 0.4%;
-        border-radius: 3px;
-        text-decoration: none;
-        color: black;
+        padding: 10px 15px 10px 15px;
+        font-size: 1.5em;
     }
 }
 
@@ -86,17 +64,18 @@
 .index-cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
-    overflow: auto;
     width: 100%;
     margin: 0 auto;
     padding: 0px 30px 0px 0%;
 
     .index-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         border: 1px solid grey;
-        position: relative;
-        height: 75vh;
+        height: 750px;
         width: calc((100% / 4) - 72px);
         margin-left: 36px;
         margin-top: 36px;
@@ -105,15 +84,26 @@
         box-shadow: 2px 2px 1px gray;
 
         .index-cover-img {
-            position: relative;
             width: 100%;
+            position: relative;
 
             .index-cover-img-l {
                 position: absolute;
-                top: 90%;
+                bottom: 10%;
                 left: 3%;
                 z-index: 10;
                 color: white;
+            }
+
+            .index-sponsor{
+                position: absolute;
+                bottom: 90%;
+                left: 7%;
+                z-index: 10;
+                color: white;
+                padding: 5px;
+                border: 1px solid white;
+                border-radius: 10px;
             }
         }
 
@@ -123,14 +113,12 @@
         }
 
         .index-card-text {
-            position: absolute;
             z-index: -10;
             padding: 5%;
             width: 90%;
         }
 
         .index-card-price {
-            position: absolute;
             top: 90%;
             width: 90%;
             padding: 0px 10px 20px 10px;
@@ -138,7 +126,7 @@
             .index-card-title {
                 font-size: 0.8em;
                 opacity: 0.5;
-                margin-bottom: 3px;
+                margin-bottom: 16px;
             }
 
             .index-btn {
@@ -147,6 +135,7 @@
                 border-radius: 10px;
                 border: 0.2px solid grey;
                 box-shadow: 2px 2px 1px gray;
+                margin-top: 16px;
 
                 &:hover {
                     -webkit-box-shadow: 0 0 5px 2px gray;
@@ -162,11 +151,190 @@
         }
     }
 }
-.hero {
-    /* background-image: url("../../../public/img/hero.jpg"); */
-    width: 100%;
-    margin: 0 auto;
-    img {
-        width: 100%;
+
+
+// SECTION Media Query
+@media screen and (max-width: 1440px) {
+
+    .index-cards {
+        .index-card {
+            //   background-color: red;
+            font-size: 0.5em;
+            max-height: 400px;
+
+            .index-cover-img{
+                .index-sponsor{
+                    bottom: 85%;
+                }
+            }
+        }
+    }
+
+    .index-search-bar {
+        margin-left: 3%;
+
+        .index-search {
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 2px 2px 1px gray;
+            border: 0.5 solid gray;
+            margin-top: 16px;
+            padding: 10px 15px 10px 15px;
+            font-size: 1em;
+        }
+    }
+
+    .hero {
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .index-cards {
+
+        .index-card {
+            //   background-color: red;
+            font-size: 0.5em;
+            max-height: 300px;
+
+            .index-cover-img{
+
+                .index-sponsor{
+                    bottom: 80%;
+                }
+            }
+        }
+    }
+
+    .index-search-bar {
+        margin-left: 3%;
+
+        .index-search {
+            width: 35%;
+            font-size: 0.8em;
+        }
+    }
+
+    .sign{
+        font-size: 0.7em;
+    }
+
+    .hero {
+        height: 310px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .index-cards {
+        .index-card {
+            font-size: 0.5em;
+            max-height: 450px;
+            width: calc((50% - 72px));
+
+            .index-cover-img{
+
+                .index-sponsor{
+                    bottom: 90%;
+                }
+            }
+        }
+    }
+
+    .index-search-bar {
+        margin-left: 3%;
+
+        .index-search {
+            width: 55%;
+            font-size: 0.8em;
+        }
+    }
+
+    .hero {
+        height: 280px;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    .index-cards {
+        .index-card {
+            font-size: 0.5em;
+            max-height: 450px;
+            width: 80%;
+
+            .index-cover-img{
+
+                .index-sponsor{
+                    bottom: 85%;
+                }
+            }
+        }
+    }
+
+    .sign{
+        font-size: 0.7em;
+    }
+
+    .hero {
+        height: 175px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .index-cards {
+        .index-card {
+            font-size: 0.5em;
+            max-height: 400px;
+            width: 80%;
+
+            .index-cover-img{
+
+                .index-sponsor{
+                    bottom: 85%;
+                }
+            }
+        }
+    }
+
+    .index-search-bar {
+        margin-left: 3%;
+
+        .index-search {
+            width: 55%;
+            font-size: 0.6em;
+        }
+    }
+
+    .sign{
+        font-size: 0.5em;
+    }
+
+    .hero {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .index-cards {
+        .index-card {
+            font-size: 0.5em;
+            max-height: 350px;
+            width: 80%;
+
+            .index-cover-img{
+
+                .index-sponsor{
+                    bottom: 85%;
+                }
+            }
+        }
+    }
+
+    .sign{
+        font-size: 0.5em;
+    }
+
+    .hero {
+        height: 125px;
     }
 }
