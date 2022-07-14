@@ -5,6 +5,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.hero {
+    width: 100%;
+    margin: 0 auto;
+
+    // img {
+    //     width: 100%;
+    // }
+}
+
 .autocomplete {
     z-index: 10;
     width: 50vw;
@@ -32,15 +42,15 @@
 }
 
 .index-search-bar {
+    margin-left: 3%;
     .index-search {
-        width: 20vw;
-        margin-left: 3vw;
-        border-radius: 3px;
+        width: 30%;
+        border-radius: 10px;
         box-shadow: 2px 2px 1px gray;
-        border: 0 solid gray;
-        margin-bottom: 16px;
+        border: 0.5 solid lightgray;
         margin-top: 16px;
-        padding: 5px 5px 5px 15px;
+        padding: 10px 15px 10px 15px;
+        font-size: 1.5em;
     }
 }
 
@@ -139,28 +149,43 @@
     }
 }
 
-// .hero {
-//     width: 100%;
-//     margin: 0 auto;
 
-//     img {
-//         width: 100%;
-//     }
-// }
 
-// table
+// SECTION Media Query
 @media screen and (max-width: 1440px) {
+
     .index-cards {
         .index-card {
             //   background-color: red;
             font-size: 0.5em;
             max-height: 400px;
+
+            .index-cover-img{
+                .index-sponsor{
+                    bottom: 85%;
+                }
+            }
+        }
+    }
+
+    .index-search-bar {
+        margin-left: 3%;
+
+        .index-search {
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 2px 2px 1px gray;
+            border: 0.5 solid gray;
+            margin-top: 16px;
+            padding: 10px 15px 10px 15px;
+            font-size: 1em;
         }
     }
 }
 
 @media screen and (max-width: 1024px) {
     .index-cards {
+
         .index-card {
             //   background-color: red;
             font-size: 0.5em;
@@ -169,19 +194,29 @@
             .index-cover-img{
 
                 .index-sponsor{
-                    bottom: 85%;
+                    bottom: 80%;
                 }
             }
         }
+    }
 
+    .index-search-bar {
+        margin-left: 3%;
 
+        .index-search {
+            width: 35%;
+            font-size: 0.8em;
+        }
+    }
+
+    .sign{
+        font-size: 0.7em;
     }
 }
 
 @media screen and (max-width: 768px) {
     .index-cards {
         .index-card {
-            //   background-color: red;
             font-size: 0.5em;
             max-height: 450px;
             width: calc((50% - 72px));
@@ -194,6 +229,16 @@
             }
         }
     }
+
+    .index-search-bar {
+        margin-left: 3%;
+
+        .index-search {
+            width: 55%;
+            font-size: 0.8em;
+        }
+    }
+
 }
 
 @media screen and (max-width: 425px) {
@@ -230,6 +275,15 @@
                     bottom: 85%;
                 }
             }
+        }
+    }
+
+    .index-search-bar {
+        margin-left: 3%;
+
+        .index-search {
+            width: 55%;
+            font-size: 0.6em;
         }
     }
 
