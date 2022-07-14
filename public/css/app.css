@@ -249,16 +249,6 @@ ul {
   border-radius: 5px;
 }
 
-.hero {
-  /* background-image: url("../../../public/img/hero.jpg"); */
-  width: 100%;
-  margin: 0 auto;
-}
-
-.hero img {
-  width: 100%;
-}
-
 .template-image {
   height: 160px;
   width: 160px;
@@ -367,6 +357,14 @@ ul {
   text-align: center;
 }
 
+.relative {
+  position: relative;
+}
+
+.block {
+  display: block;
+}
+
 .button_accent {
   background-color: #ff385c;
   padding: 10px;
@@ -443,7 +441,7 @@ ul {
 }
 
 .navbar {
-  padding: 10px 5%;
+  z-index: 99;
 }
 
 .navbar .menu-items {
@@ -699,6 +697,13 @@ ul {
   margin-top: 15px;
 }
 
+.margin-little-forms-label {
+  color: #ff385c;
+  margin-left: 22px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -906,6 +911,13 @@ input[type=file] {
   margin-top: 15px;
 }
 
+.margin-little-forms-label {
+  color: #ff385c;
+  margin-left: 22px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -993,6 +1005,52 @@ input[type=file] {
 
 .direction {
   flex-direction: column;
+}
+
+.padding-show {
+  padding: 30px;
+}
+
+.pill-show {
+  color: white;
+  background-color: #ff385c;
+  padding: 10px;
+  border-radius: 30px;
+  text-align: center;
+  width: 25%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.info-show {
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.icons-absolute {
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  color: white;
+}
+
+.fa-solid {
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.margin-show-info {
+  margin-bottom: 25px;
+}
+
+.margin-show-title {
+  padding-bottom: 10px;
+}
+
+.color-show {
+  color: #ff385c;
 }
 
 * {
@@ -1122,13 +1180,12 @@ nav .navbar-options .navbar-nav a {
 
 .sa-container {
   margin: 0 auto;
-  width: 300px;
+  width: 70%;
   margin-top: 5vh;
   border: 0.5px solid gray;
   border-radius: 10px;
   box-shadow: 3px 2px 1px gray;
-  padding: 16px;
-  height: 66vh;
+  padding: 80px;
 }
 
 .sa-container .sa-title {
@@ -1143,11 +1200,14 @@ nav .navbar-options .navbar-nav a {
 }
 
 .sa-container .sa-cont-img {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px 0;
 }
 
 .sa-container .sa-cont-img img {
-  width: 80%;
+  width: calc(50% - 20px);
   border-radius: 10px;
 }
 
@@ -1157,46 +1217,48 @@ nav .navbar-options .navbar-nav a {
   margin-bottom: 8px;
 }
 
+.sa-container .sa-price {
+  margin: 1.5rem 0;
+  color: #ff385c;
+  font-weight: bolder;
+}
+
 .sa-container .sa-price span {
   margin-left: 0.5em;
   font-weight: 500;
 }
 
-.sa-form {
-  margin: 0 auto;
-  width: 40vw;
-  margin-top: 2vh;
-  border: 0.5px solid gray;
-  border-radius: 10px;
-  box-shadow: 3px 2px 1px gray;
-  padding: 16px;
+label {
+  margin: 1rem 0;
+  display: inline-block;
+  color: #ff385c;
+  font-weight: bold;
 }
 
-.sa-form .sa-inp-text {
-  width: 72%;
-  border: 0.5px solid gray;
-  border-radius: 10px;
-  box-shadow: 3px 2px 1px gray;
-  padding: 5px 10px 5px 10px;
+input:focus,
+textarea:focus,
+select:focus {
+  border: 2px solid #ff385c;
 }
 
-.sa-form .sa-inp-email {
-  border: 0.5px solid gray;
-  border-radius: 10px;
-  box-shadow: 3px 2px 1px gray;
-  padding: 5px 10px 5px 10px;
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
 }
 
-.sa-form-bt {
-  width: 100%;
-  text-align: center;
-  margin-top: 1em;
+input::-webkit-file-upload-button,
+textarea::-webkit-file-upload-button,
+select::-webkit-file-upload-button {
+  border-radius: 5px;
+  border: 1px solid #ff385c;
+  background-color: transparent;
+  color: #ff385c;
 }
 
-.sa-form-bt input {
-  padding: 3px 10px 3px 10px;
-  border-radius: 10px;
-  background-color: white;
+.invalid {
+  color: black;
+  font-size: 1.5em;
 }
 
 .sign {
