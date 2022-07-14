@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="landpage">
-            <div style="position: relative">
+            <div>
                 <!-- Tasti ricerca -->
                 <div class="index-search-bar">
                     <input
@@ -38,28 +38,33 @@
             <div class="index-cards" id="gallery">
                 <div v-for="(e, i) in apartments" :key="i" class="index-card">
                     <!-- Immagine e icone -->
-                    <div class="index-cover-img">
-                        <div>
-                            <img
-                                class="index-img-top"
-                                :src="`${e.cover_image}`"
-                                alt="Card image cap"
-                            />
-                            <!-- Icone Letti e bagni -->
-                            <div class="index-cover-img-l">
-                                <span
-                                    ><i class="fa-solid fa-bed"></i>
-                                    {{ e.rooms }}</span
-                                >
-                                <span
-                                    >- <i class="fa-solid fa-toilet"></i>
-                                    {{ e.bathrooms }}</span
-                                >
+                    <div>
+                        <div class="index-cover-img">
+                            <div>
+                                <img
+                                    class="index-img-top"
+                                    :src="`${e.cover_image}`"
+                                    alt="Card image cap"
+                                />
+                                <!-- Icone Letti e bagni -->
+                                <div class="index-cover-img-l">
+                                    <span
+                                        ><i class="fa-solid fa-bed"></i>
+                                        {{ e.rooms }}</span
+                                    >
+                                    <span
+                                        >- <i class="fa-solid fa-toilet"></i>
+                                        {{ e.bathrooms }}</span
+                                    >
+                                </div>
+                                <div class="index-sponsor">
+                                    Sponsor
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex" style="flex-direction: column; justify-content: space-between">
                         <p class="index-card-text">{{ e.description }}</p>
+                    </div>
+                    <div>
                         <div class="index-card-price">
                             <div class="index-card-title">
                                 Host: {{ e.title }}
