@@ -7,13 +7,5 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-    public function generateToken()
-    {
-        return response()->json("Generato");
-    }
-
-    public function makePayment()
-    {
-        return response()->json("Pagamento");
-    }
+    //
 }

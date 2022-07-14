@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -28,7 +29,9 @@ Route::middleware('auth')
             Route::resource('apartments', 'ApartmentController');
             Route::get('dashboard', 'ApartmentController@dashboard')->name('dashboard');
             Route::get('message', 'ApartmentController@messages')->name('message');
-            Route::get('sponsor', 'ApartmentController@sponsor')->name('sponsor');
+            Route::get('/payment', 'PaymentController@generateToken');
+            Route::get('/sponsorship', 'PaymentController@sponsorship');
+            Route::post('/payment/checkout', 'PaymentController@checkout');
         }
     );
 

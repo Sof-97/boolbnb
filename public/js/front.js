@@ -2271,7 +2271,7 @@ var render = function render() {
       attrs: {
         "for": e.id
       }
-    }, [_vm._v("\n                                    " + _vm._s(e.name) + "\n                                ")]), _vm._v(" "), _c("input", {
+    }, [_vm._v("\r\n                                    " + _vm._s(e.name) + "\r\n                                ")]), _vm._v(" "), _c("input", {
       directives: [{
         name: "model",
         rawName: "v-model",
@@ -2313,7 +2313,7 @@ var render = function render() {
       name: "show",
       rawName: "v-show",
       value: _vm.autocomplete != null && _vm.autocomplete.length > 0 && _vm.search != "",
-      expression: "\n                            autocomplete != null &&\n                            autocomplete.length > 0 &&\n                            search != ''\n                        "
+      expression: "\r\n                            autocomplete != null &&\r\n                            autocomplete.length > 0 &&\r\n                            search != ''\r\n                        "
     }],
     staticClass: "autocomplete"
   }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
@@ -2324,7 +2324,7 @@ var render = function render() {
           return _vm.select(i);
         }
       }
-    }, [_vm._v("\n                                " + _vm._s(e.address.freeformAddress) + "\n                            ")]);
+    }, [_vm._v("\r\n                                " + _vm._s(e.address.freeformAddress) + "\r\n                            ")]);
   }), 0)]), _vm._v(" "), _c("label", {
     attrs: {
       "for": "radius"
@@ -2406,7 +2406,7 @@ var render = function render() {
       value: !_vm.apartments || _vm.apartments.length == 0,
       expression: "!apartments || apartments.length == 0"
     }]
-  }, [_vm._v("\n                Nessun appartamento corrispondente.\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n                Nessun appartamento corrispondente.\r\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "row justify-content-between"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
@@ -2414,7 +2414,7 @@ var render = function render() {
         name: "show",
         rawName: "v-show",
         value: e.rooms >= _vm.stanze && e.beds >= _vm.letti && _vm.check(e.service),
-        expression: "\n                        e.rooms >= stanze && e.beds >= letti && check(e.service)\n                    "
+        expression: "\r\n                        e.rooms >= stanze && e.beds >= letti && check(e.service)\r\n                    "
       }],
       key: i,
       staticClass: "col-3 card mb-5 p-2"
@@ -2507,7 +2507,7 @@ var render = function render() {
       name: "show",
       rawName: "v-show",
       value: _vm.autocomplete != null && _vm.autocomplete.length > 0 && _vm.search != "",
-      expression: "\n                    autocomplete != null &&\n                    autocomplete.length > 0 &&\n                    search != ''\n                "
+      expression: "\r\n                    autocomplete != null &&\r\n                    autocomplete.length > 0 &&\r\n                    search != ''\r\n                "
     }],
     staticClass: "autocomplete"
   }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
@@ -2518,7 +2518,7 @@ var render = function render() {
           return _vm.select(i);
         }
       }
-    }, [_vm._v("\n                        " + _vm._s(e.address.freeformAddress) + "\n                    ")]);
+    }, [_vm._v("\r\n                        " + _vm._s(e.address.freeformAddress) + "\r\n                    ")]);
   }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "index-cards",
     attrs: {
@@ -2540,9 +2540,9 @@ var render = function render() {
       staticClass: "index-cover-img-l"
     }, [_c("span", [_c("i", {
       staticClass: "fa-solid fa-bed"
-    }), _vm._v("\n                                " + _vm._s(e.rooms))]), _vm._v(" "), _c("span", [_vm._v("- "), _c("i", {
+    }), _vm._v("\r\n                                " + _vm._s(e.rooms))]), _vm._v(" "), _c("span", [_vm._v("- "), _c("i", {
       staticClass: "fa-solid fa-toilet"
-    }), _vm._v("\n                                " + _vm._s(e.bathrooms))])])]), _vm._v(" "), _c("p", {
+    }), _vm._v("\r\n                                " + _vm._s(e.bathrooms))])])]), _vm._v(" "), _c("p", {
       staticClass: "index-card-text"
     }, [_vm._v(_vm._s(e.description))]), _vm._v(" "), _c("div", {
       staticClass: "index-card-price"
@@ -2729,7 +2729,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("p", {
     staticClass: "my-4"
-  }, [_vm._v("\n                    Il prezzo a notte per l'appartamento è\n                    " + _vm._s(_vm.apartment.price) + "€\n                ")])])])]);
+  }, [_vm._v("\r\n                    Il prezzo a notte per l'appartamento è\r\n                    " + _vm._s(_vm.apartment.price) + "€\r\n                ")])])])]);
 };
 
 var staticRenderFns = [];
@@ -19222,8 +19222,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/boolbnb-team3-58/resources/js/front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/boolbnb-team3-58/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
