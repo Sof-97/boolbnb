@@ -102,10 +102,11 @@ ul {
 .hero {
   width: 100%;
   margin: 0 auto;
-  background-image: url(/images/index.jpg?3dad9c989f9475a568447842e7abecdd);
-  height: 200px;
+  background-image: url(/images/index_2.jpg?53f542be30af8eea845db4480727e146);
+  height: 300px;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 }
 
 .autocomplete {

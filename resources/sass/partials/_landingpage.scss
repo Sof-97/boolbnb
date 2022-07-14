@@ -9,10 +9,11 @@
 .hero {
     width: 100%;
     margin: 0 auto;
-    background-image: url('img/index.jpg');
-    height: 200px;
+    background-image: url('images/index_2.jpg');
+    height: 300px;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
 }
 
 .autocomplete {
