@@ -43,7 +43,7 @@
                                 
                             </div>
                             <div>
-                                <div class="padding-description">views: {{ $viewsTotal[$apartment->id] }}</div>
+                                <div class="padding-description">Visualizzazioni annuncio: {{ $viewsTotal[$apartment->id] }}</div>
                             </div>
                         </div>
                     </div>
