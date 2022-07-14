@@ -2509,7 +2509,7 @@ var render = function render() {
       name: "show",
       rawName: "v-show",
       value: _vm.autocomplete != null && _vm.autocomplete.length > 0 && _vm.search != "",
-      expression: "\n                    autocomplete != null &&\n                    autocomplete.length > 0 &&\n                    search != ''\n                "
+      expression: "\r\n                        autocomplete != null &&\r\n                        autocomplete.length > 0 &&\r\n                        search != ''\r\n                    "
     }],
     staticClass: "autocomplete"
   }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
@@ -2520,7 +2520,7 @@ var render = function render() {
           return _vm.select(i);
         }
       }
-    }, [_vm._v("\n                        " + _vm._s(e.address.freeformAddress) + "\n                    ")]);
+    }, [_vm._v("\r\n                            " + _vm._s(e.address.freeformAddress) + "\r\n                        ")]);
   }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "index-cards",
     attrs: {
@@ -2542,15 +2542,21 @@ var render = function render() {
       staticClass: "index-cover-img-l"
     }, [_c("span", [_c("i", {
       staticClass: "fa-solid fa-bed"
-    }), _vm._v("\n                                " + _vm._s(e.rooms))]), _vm._v(" "), _c("span", [_vm._v("- "), _c("i", {
+    }), _vm._v("\r\n                                    " + _vm._s(e.rooms))]), _vm._v(" "), _c("span", [_vm._v("- "), _c("i", {
       staticClass: "fa-solid fa-toilet"
-    }), _vm._v("\n                                " + _vm._s(e.bathrooms))])])])]), _vm._v(" "), _c("p", {
+    }), _vm._v("\r\n                                    " + _vm._s(e.bathrooms))])])])]), _vm._v(" "), _c("div", {
+      staticClass: "flex",
+      staticStyle: {
+        "flex-direction": "column",
+        "justify-content": "space-between"
+      }
+    }, [_c("p", {
       staticClass: "index-card-text"
     }, [_vm._v(_vm._s(e.description))]), _vm._v(" "), _c("div", {
       staticClass: "index-card-price"
     }, [_c("div", {
       staticClass: "index-card-title"
-    }, [_vm._v("\n                            Host: " + _vm._s(e.title) + "\n                        ")]), _vm._v(" "), _c("router-link", {
+    }, [_vm._v("\r\n                                Host: " + _vm._s(e.title) + "\r\n                            ")]), _vm._v(" "), _c("router-link", {
       staticClass: "index-btn",
       attrs: {
         to: {
@@ -2560,7 +2566,7 @@ var render = function render() {
           }
         }
       }
-    }, [_vm._v("Vai all'appartamento")])], 1)]);
+    }, [_vm._v("Vai all'appartamento")])], 1)])]);
   }), 0)])]);
 };
 
@@ -19222,8 +19228,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\00_Progetto_finale\Branch Angelo\boolbnb-team3-58\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! D:\Boolean\00_Progetto_finale\Branch Angelo\boolbnb-team3-58\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

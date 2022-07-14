@@ -226,10 +226,10 @@ ul {
 }
 
 @media screen and (max-width: 768px) {
-  .index-card {
+  .index-cards .index-card {
     font-size: 0.5em;
     max-height: 400px;
-    width: 50%;
+    width: calc(50% - 72px);
   }
 
   .index-cover-img-l {

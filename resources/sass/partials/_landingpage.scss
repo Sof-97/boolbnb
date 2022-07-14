@@ -32,7 +32,6 @@
 }
 
 .index-search-bar {
-
     .index-search {
         width: 20vw;
         margin-left: 3vw;
@@ -43,7 +42,6 @@
         margin-top: 16px;
         padding: 5px 5px 5px 15px;
     }
-
 }
 
 .opacity {
@@ -64,7 +62,6 @@
         // position: relative;
         height: 700px;
         width: calc((100% / 4) - 72px);
-        // width: 20%;
         margin-left: 36px;
         margin-top: 36px;
         margin-right: 36px;
@@ -139,19 +136,17 @@
     }
 }
 // table
-@media screen and (max-width: 768px)
-{
-    .index-card {
-    //   background-color: red;
-      font-size: 0.5em;
-      max-height: 400px;
-      width: 50%;
+@media screen and (max-width: 768px) {
+    .index-cards {
+        .index-card {
+            //   background-color: red;
+            font-size: 0.5em;
+            max-height: 400px;
+            width: calc((50% - 72px));
+        }
     }
-
     .index-cover-img-l {
         color: blue !important;
         // top: 30%;
     }
-
-  }
-
+}
