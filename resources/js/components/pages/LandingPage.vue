@@ -57,7 +57,7 @@
                                         {{ e.rooms }}</span
                                     >
                                     <span
-                                        >- <i class="fa-solid fa-toilet"></i>
+                                        ><i class="fa-solid fa-toilet"></i>
                                         {{ e.bathrooms }}</span
                                     >
                                 </div>

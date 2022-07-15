@@ -1,5 +1,5 @@
 <div class="navbar">
-    <div class="container nav-container">
+    <div class="nav-container">
         <input class="checkbox" type="checkbox" name="" id="" />
         <div class="hamburger-lines">
             <span class="line line1"></span>
@@ -7,10 +7,10 @@
             <span class="line line3"></span>
         </div>
         <div class="menu-items">
-            <li class="logo flex">
+            <div class="logo">
                 <img style="height: 50px; width: 50px;" src="{{ asset('img/airbnb-logo.png') }}" alt="tag">
                 <span class="align-center">BoolBnB</span>
-            </li>
+            </div>
             <ul class="navbar-ul">
                 <li class="navbar-li"><a href="/admin/dashboard">Dashboard</a></li>
                 <li class="navbar-li"><a href="/admin/apartments">I tuoi appartamenti</a></li>
