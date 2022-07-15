@@ -1,47 +1,40 @@
 <header>
     <nav class="navbar">
-        <div class="navbar-container">
+        <div class="navbar-guest">
 
-            <div class="navbar-brand" href="{{ url('/') }}">
-                <img style="height: 50px; width: 50px;" src="{{ asset('img/airbnb-logo.png') }}" alt="tag">
-                <span class="title">BoolBnB</span>
+            <div class="nav-logo" href="{{ url('/') }}"><a href="/" style="text-decoration: none; color:inherit">
+                    <img style="height: 50px; width: 50px;" src="{{ asset('img/airbnb-logo.png') }}" alt="tag">
+                    <span class="title">BoolBnB</span></a>
             </div>
-            {{-- <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-            </button> --}}
-
             <div class="navbar-options">
 
                 <ul class="navbar-nav ">
                     <!-- Authentication Links -->
                     @guest
-                    <li class="nav-item">
-                        <a class=" button-login " href="{{ route('login') }}">{{ __('Accedi') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class=" button-login " href="{{ route('register') }}">{{ __('Iscriviti') }}</a>
-                    </li>
-                    @endif
-                    @else
-                    <li class="nav-item dropdown">
-                        <a  class=" default-button " href="#" role="button"v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); Giodocument.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                        <li class="nav-item">
+                            <button class="button_accent" style="margin-right: 20px">
+                                <a " href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                                </button>
+                            </li>
+                             @if (Route::has('register'))
+                        <li class="nav-item">
+                            <button class="button_accent">
+                                <a " href="{{ route('register') }}">{{ __('Iscriviti') }}</a>
+                                    </button>
+                                </li>
+     @endif
+                                @else
+                        <li class="flex">
+                            <button class="button_accent" style="margin-right: 20px">
+                                <a href="/admin/dashboard" role="button"v-pre>
+                                    {{ Auth::user()->name }}
                                 </a>
-
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            </button>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
+                                <button class="button_accent m-right" type="submit" style="cursor: pointer">Logout</button>
                             </form>
-                      
-                    </li>
+                        </li>
                     @endguest
                 </ul>
             </div>

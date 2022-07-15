@@ -2,7 +2,6 @@
     <div>
         <div class="container">
             <div class="flex posrev">
-
                 <input
                     type="text"
                     class="search-as"
@@ -82,8 +81,8 @@
                         max="9"
                     />
                 </div>
-                <div id="map" style="width: 300px; height: 200px"></div>
             </div>
+            <div id="map" style="width: 300px; height: 200px; margin:30px 0; border-radius: 10px"></div>
 
             <p
                 class="no-results-as"

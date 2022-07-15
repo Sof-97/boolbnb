@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="landpage">
-            <div>
+            <div id="search">
                 <!-- Tasti ricerca -->
                 <div class="index-search-bar">
                     <input
@@ -36,7 +36,7 @@
             </div>
 
             <!-- HERO -->
-            <div class="hero"></div>
+            <!-- <div class="hero"></div> -->
 
             <!-- Elenco delle cards -->
             <div class="index-cards" id="gallery">
@@ -149,3 +149,14 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+#search{
+    position: relative;
+    margin: 0 auto;
+    width: 50vw;
+    .autocomplete{
+        left: 0;
+    }
+}
+
+</style>

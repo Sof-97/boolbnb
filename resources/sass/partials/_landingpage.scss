@@ -20,10 +20,10 @@
 
 .autocomplete {
     z-index: 10;
-    width: 50vw;
     background-color: #fff;
     padding: 20px;
-    border: 1px solid black;
+    width: 100%;
+    border: 1px solid $color-accent;
     border-radius: 20px;
     position: absolute;
     ul {
@@ -39,15 +39,15 @@
             }
             &:hover {
                 opacity: 1;
+                color: $color-accent;
             }
         }
     }
 }
 
 .index-search-bar {
-    margin-left: 3%;
     .index-search {
-        width: 30%;
+        width: 100%;
         border-radius: 10px;
         box-shadow: 2px 2px 1px gray;
         border: 0.5 solid lightgray;
