@@ -6,6 +6,12 @@
     border-radius: 10px;
     box-shadow: 3px 2px 1px gray;
     padding: 80px;
+    label {
+        margin: 1rem 0;
+        display: inline-block;
+        color: $color-accent;
+        font-weight: bold;
+    }
 
     .sa-title {
         font-size: 2em;
@@ -36,7 +42,7 @@
     }
 
     .sa-price {
-        margin: 1.5rem 0 ;
+        margin: 1.5rem 0;
         color: $color-accent;
         font-weight: bolder;
         span {
@@ -44,13 +50,6 @@
             font-weight: 500;
         }
     }
-}
-
-label{
-    margin: 1rem 0;
-    display: inline-block;
-    color: $color-accent;
-    font-weight: bold;
 }
 
 input,

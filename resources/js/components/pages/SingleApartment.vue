@@ -27,11 +27,23 @@
                 <label for="email">La tua email</label>
                 <input
                     class="form-control form-create"
-                    type="text"
+                    type="email"
                     required
+                    :disabled="userEmail"
                     name="email_sender"
                     id="email_sender"
                     v-model="fields.email_sender"
+                />
+                <br />
+                <label for="text">Il tuo nome</label>
+                <input
+                    class="form-control form-create"
+                    type="text"
+                    required
+                    :disabled="userName"
+                    name="name"
+                    id="name"
+                    v-model="fields.name"
                 />
                 <br />
                 <label for="text">Il tuo messaggio</label>
@@ -70,13 +82,14 @@ export default {
             fields: {},
             apartment: {},
             userEmail: window.user,
+            userName: window.name,
         };
     },
     created() {
         this.getApartment();
-        console.log(window.user);
         if (window.user) {
             this.fields.email_sender = window.user;
+            this.fields.name = window.name;
         }
     },
     methods: {
@@ -124,12 +137,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.submit{
+.submit {
     display: flex;
     justify-content: flex-end;
     margin: 0.5rem 0;
 }
-.description-form{
+.description-form {
     width: 100% !important;
 }
 </style>

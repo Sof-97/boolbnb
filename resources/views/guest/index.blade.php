@@ -17,6 +17,7 @@
     @if ($user)
         <script>
             window.user = "{{ $user->email }}"
+            window.name = "{{$user->name}}"
         </script>
     @endif
 </head>

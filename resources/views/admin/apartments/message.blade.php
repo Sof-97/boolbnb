@@ -4,6 +4,7 @@
 
 <div class="container-ms">
     <h1 class="title-ms">Messaggi</h1>
+    @dump($apartments)
     @foreach ($apartments as $apt)
     <div class="singleapartment-ms">
         @foreach ($apt->message as $message)

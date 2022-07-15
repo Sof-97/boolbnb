@@ -2160,15 +2160,16 @@ __webpack_require__.r(__webpack_exports__);
     return {
       fields: {},
       apartment: {},
-      userEmail: window.user
+      userEmail: window.user,
+      userName: window.name
     };
   },
   created: function created() {
     this.getApartment();
-    console.log(window.user);
 
     if (window.user) {
       this.fields.email_sender = window.user;
+      this.fields.name = window.name;
     }
   },
   methods: {
@@ -2600,7 +2601,7 @@ var render = function render() {
       staticClass: "fa-solid fa-toilet"
     }), _vm._v("\r\n                                        " + _vm._s(e.bathrooms))])]), _vm._v(" "), _c("div", {
       staticClass: "index-sponsor"
-    }, [_vm._v("\r\n                                    Sponsor\r\n                                ")])])]), _vm._v(" "), _c("p", {
+    }, [_vm._v("Sponsor")])])]), _vm._v(" "), _c("p", {
       staticClass: "index-card-text"
     }, [_vm._v(_vm._s(e.description))])]), _vm._v(" "), _c("div", [_c("div", {
       staticClass: "index-card-price"
@@ -2719,8 +2720,9 @@ var render = function render() {
     }],
     staticClass: "form-control form-create",
     attrs: {
-      type: "text",
+      type: "email",
       required: "",
+      disabled: _vm.userEmail,
       name: "email_sender",
       id: "email_sender"
     },
@@ -2732,6 +2734,35 @@ var render = function render() {
         if ($event.target.composing) return;
 
         _vm.$set(_vm.fields, "email_sender", $event.target.value);
+      }
+    }
+  }), _vm._v(" "), _c("br"), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "text"
+    }
+  }, [_vm._v("Il tuo nome")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.fields.name,
+      expression: "fields.name"
+    }],
+    staticClass: "form-control form-create",
+    attrs: {
+      type: "text",
+      required: "",
+      disabled: _vm.userName,
+      name: "name",
+      id: "name"
+    },
+    domProps: {
+      value: _vm.fields.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.fields, "name", $event.target.value);
       }
     }
   }), _vm._v(" "), _c("br"), _vm._v(" "), _c("label", {

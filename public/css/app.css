@@ -1353,6 +1353,13 @@ nav .navbar-options .navbar-nav a {
   padding: 80px;
 }
 
+.sa-container label {
+  margin: 1rem 0;
+  display: inline-block;
+  color: #ff385c;
+  font-weight: bold;
+}
+
 .sa-container .sa-title {
   font-size: 2em;
   color: red;
@@ -1391,13 +1398,6 @@ nav .navbar-options .navbar-nav a {
 .sa-container .sa-price span {
   margin-left: 0.5em;
   font-weight: 500;
-}
-
-label {
-  margin: 1rem 0;
-  display: inline-block;
-  color: #ff385c;
-  font-weight: bold;
 }
 
 input:focus,

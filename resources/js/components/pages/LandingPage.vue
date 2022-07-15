@@ -61,9 +61,7 @@
                                         {{ e.bathrooms }}</span
                                     >
                                 </div>
-                                <div class="index-sponsor">
-                                    Sponsor
-                                </div>
+                                <div class="index-sponsor">Sponsor</div>
                             </div>
                         </div>
                         <p class="index-card-text">{{ e.description }}</p>
@@ -150,13 +148,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-#search{
+#search {
     position: relative;
     margin: 0 auto;
     width: 50vw;
-    .autocomplete{
+    .autocomplete {
         left: 0;
     }
 }
-
 </style>
