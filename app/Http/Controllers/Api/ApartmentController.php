@@ -17,8 +17,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = DB::table('apartments')
-            ->where('is_visible', '=', true)
+        $apartments = Apartment::where('is_visible', '=', true)
+            ->with('sponsorship')
             ->get();
         return response()->json($apartments);
     }
