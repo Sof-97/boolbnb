@@ -2067,11 +2067,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       baseUrlTomtom: "https://api.tomtom.com/search/2/search/",
       keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT",
-      apartments: null,
+      apartments: [],
+      sponsored: [],
       search: "",
       autocomplete: null,
       lat: null,
-      lon: null
+      lon: null,
+      all: null
     };
   },
   mounted: function mounted() {
@@ -2100,7 +2102,20 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(query).then(function (res) {
-        return _this2.apartments = res.data;
+        _this2.array = res.data;
+        console.log(_this2.array);
+
+        _this2.array.forEach(function (element) {
+          console.log(element);
+
+          if (element.sponsorship.length > 0) {
+            console.log("Sponsored:", element);
+
+            _this2.sponsored.push(element);
+          } else {
+            _this2.apartments.push(element);
+          }
+        });
       });
     },
     searchPage: function searchPage() {
@@ -2569,7 +2584,7 @@ var render = function render() {
     staticClass: "autocomplete"
   }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
     return _c("li", {
-      key: i,
+      key: i + "autocomplete",
       on: {
         click: function click($event) {
           return _vm.select(i);
@@ -2581,9 +2596,9 @@ var render = function render() {
     attrs: {
       id: "gallery"
     }
-  }, _vm._l(_vm.apartments, function (e, i) {
+  }, [_vm._l(_vm.sponsored, function (e, i) {
     return _c("div", {
-      key: i,
+      key: i + "sponsored",
       staticClass: "index-card"
     }, [_c("div", [_c("div", {
       staticClass: "index-cover-img"
@@ -2601,7 +2616,7 @@ var render = function render() {
       staticClass: "fa-solid fa-toilet"
     }), _vm._v("\r\n                                        " + _vm._s(e.bathrooms))])]), _vm._v(" "), _c("div", {
       staticClass: "index-sponsor"
-    }, [_vm._v("Sponsor")])])]), _vm._v(" "), _c("p", {
+    }, [_vm._v("Sponsored")])])]), _vm._v(" "), _c("p", {
       staticClass: "index-card-text"
     }, [_vm._v(_vm._s(e.description))])]), _vm._v(" "), _c("div", [_c("div", {
       staticClass: "index-card-price"
@@ -2618,7 +2633,42 @@ var render = function render() {
         }
       }
     }, [_vm._v("Vai all'appartamento")])], 1)])]);
-  }), 0)])]);
+  }), _vm._v(" "), _c("br"), _vm._v(" "), _vm._l(_vm.apartments, function (e, i) {
+    return _c("div", {
+      key: i,
+      staticClass: "index-card"
+    }, [_c("div", [_c("div", {
+      staticClass: "index-cover-img"
+    }, [_c("div", [_c("img", {
+      staticClass: "index-img-top",
+      attrs: {
+        src: "".concat(e.cover_image),
+        alt: "Card image cap"
+      }
+    }), _vm._v(" "), _c("div", {
+      staticClass: "index-cover-img-l"
+    }, [_c("span", [_c("i", {
+      staticClass: "fa-solid fa-bed"
+    }), _vm._v("\r\n                                        " + _vm._s(e.rooms))]), _vm._v(" "), _c("span", [_vm._v("- "), _c("i", {
+      staticClass: "fa-solid fa-toilet"
+    }), _vm._v("\r\n                                        " + _vm._s(e.bathrooms))])])])]), _vm._v(" "), _c("p", {
+      staticClass: "index-card-text"
+    }, [_vm._v(_vm._s(e.description))])]), _vm._v(" "), _c("div", [_c("div", {
+      staticClass: "index-card-price"
+    }, [_c("div", {
+      staticClass: "index-card-title"
+    }, [_vm._v("\r\n                                Host: " + _vm._s(e.title) + "\r\n                            ")]), _vm._v(" "), _c("router-link", {
+      staticClass: "index-btn",
+      attrs: {
+        to: {
+          name: "SingleApartment",
+          params: {
+            slug: e.slug
+          }
+        }
+      }
+    }, [_vm._v("Vai all'appartamento")])], 1)])]);
+  })], 2)])]);
 };
 
 var staticRenderFns = [];
