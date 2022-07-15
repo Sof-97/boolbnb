@@ -21,8 +21,10 @@
         <div class="flex-center custom global-padding">
             <div class="">
                 <div class="flex-center movement">
-                    <div class="dash-title">
-                        <h4 class="pill-welcome">Dashboard di {{ $user->name }} {{ $user->surname }}</h4>
+                    <div>
+                        <div style="width: 20vw" class="dash-title">
+                            <h4 class="pill-welcome">Dashboard di {{ $user->name }} {{ $user->surname }}</h4>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -47,8 +49,11 @@
                                             alt="">
                                     </div>
                                     <div class="flex wrap description" style="flex-direction: column;">
-                                        <div>
-                                            <h5 class="spacing-title padding-description">{{ $apartment->title }}</h5>
+                                        <div class="flex align-center spacing-title padding-description">
+                                            <h5>{{ $apartment->title }}</h5>
+                                            @if (count($apartment->sponsorship)>0)
+                                                <span><i class="fa-solid fa-crown"></i></span>
+                                            @endif
                                         </div>
                                         <div>
                                             <div class="padding-description">{{ $apartment->description }}</dic>

@@ -465,6 +465,12 @@ ul {
   padding-bottom: 30px;
 }
 
+.fa-crown {
+  color: white;
+  background-color: gold;
+  padding: 6px;
+}
+
 .flex {
   display: flex;
 }
