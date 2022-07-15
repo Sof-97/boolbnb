@@ -5,9 +5,9 @@
 <div class="container-ms">
     <h1 class="title-ms">Messaggi</h1>
     @foreach ($apartments as $apt)
-    <div class="singleapartment-ms">
+    
         @foreach ($apt->message as $message)
-
+        <div class="singleapartment-ms">
         @if($loop->iteration == 1)
         <h2 class="apartment-name-ms">Appartamento: "{{ $apt->title }}"</h2>
         @endif
