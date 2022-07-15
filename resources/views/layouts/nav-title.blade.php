@@ -4,16 +4,18 @@
             <div class="flex margin-nav">
                 @include('layouts.navbar-side')
             </div>
-            <div class="flex">
-                <img style="height: 50px; width: 50px;" src="{{ asset('img/airbnb-logo.png') }}" alt="tag">
-                <span class="align-center">BoolBnB</span>
+            
+            <div class="nav-logo" href="{{ url('/') }}"><a href="/" style="text-decoration: none; color:inherit">
+                    <img style="height: 50px; width: 50px;" src="{{ asset('img/airbnb-logo.png') }}" alt="tag">
+                    <span class="title">BoolBnB</span></a>
+            </div>
+            <div>
+                <a class="text_decoration_none button_accent" href="{{ route('admin.apartments.create') }}">
+                    Aggiungi appartamento
+                </a>
             </div>
             <div class="flex-between query-changes">
                 <a class="button_accent" href="/" style="margin-right: 20px;">Cerca una casa</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button class="button_accent m-right" type="submit" style="cursor: pointer">Logout</button>
-                </form>
             </div>
         </div>
     </section>

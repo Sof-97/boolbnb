@@ -12,7 +12,7 @@
             {{ session('modified') }}
         </div>
     @elseif (session('created'))
-        <div class="alert alert-primary">
+        <div class="alert alert-created">
             {{ session('created') }}
         </div>
     @endif

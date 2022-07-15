@@ -8,6 +8,6 @@ use App\Models\Apartment;
 class Message extends Model
 {
     protected $fillable = [
-        'apartment_id', 'text', 'email_sender'
+        'apartment_id', 'text', 'email_sender', 'name'
     ];
 }

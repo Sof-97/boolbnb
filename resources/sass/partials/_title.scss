@@ -15,3 +15,21 @@
 .m-right {
     margin-right: 20px;
 }
+
+.navbar-guest {
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.nav-logo {
+    a {
+        display: flex;
+        align-items: center;
+        align-items: center;
+        span {
+            margin-left: 10px;
+        }
+    }
+}

@@ -20,7 +20,7 @@ class CreateMessagesTable extends Migration
             $table->unsignedBigInteger('apartment_id')->nullable(false);
             $table->text('text')->nullable(false);
             $table->string('email_sender')->nullable(false);
-            
+            $table->string('name');
             $table->timestamps();
            
             $table->foreign('apartment_id')

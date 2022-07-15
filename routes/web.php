@@ -14,11 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-
-
 Auth::routes();
-
-
 
 Route::middleware('auth')
     ->prefix('admin')
@@ -30,9 +26,9 @@ Route::middleware('auth')
             Route::get('dashboard', 'ApartmentController@dashboard')->name('dashboard');
             Route::get('message', 'ApartmentController@messages')->name('message');
 
-
             //Appartamento da sponsorizzare
             Route::get('/sponsorship/{apartment}', 'PaymentController@sponsorship')->name('sponsorship');
+            Route::get('/stats', 'ApartmentController@stats')->name('stats');
             Route::get('/payment/{apartment}/{sponsorship}', 'PaymentController@payment')->name('payment');
             Route::post('/payment/checkout/{apartment}/{sponsorship}', 'PaymentController@checkout')->name('checkout');
         }

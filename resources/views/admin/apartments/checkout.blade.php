@@ -1,19 +1,5 @@
 @extends('layouts.backOffice')
 @section('content')
-    @if (session('success_message'))
-        <div class="alert alert-success">
-            {{ session('success_message') }}
-        </div>
-    @endif
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <div class="flex-center position-ref full-height">
         <form id="payment-form" action="{{ route('admin.checkout', [$apartment, $sponsorship]) }}" method="post">
             @csrf

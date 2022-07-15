@@ -71,13 +71,13 @@ class PaymentController extends Controller
             }
             $newTransaction->end = Carbon::now('Europe/Rome')->addDay($days);
             $newTransaction->save();
-            return back()->with('success_message', 'Transazione completata. ID: ' . $transaction->id);
+            return redirect(route('admin.dashboard'))->with('success_message', 'Transazione completata. ID: ' . $transaction->id);
         } else {
             $errorString = '';
             foreach ($result->errors->deepAll() as $error) {
                 $errorString .= 'Errore: ' . $error->code . ': ' . $error->message . '\n';
             }
-            return back()->withErrors('Errore nella transazione: ' . $result->message);
+            return redirect(route('admin.dashboard'))->withErrors('Errore nella transazione: ' . $result->message);
         }
     }
 }
