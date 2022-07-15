@@ -16,13 +16,13 @@
                                 <a " href="{{ route('login') }}">{{ __('Accedi') }}</a>
                                 </button>
                             </li>
-                             @if (Route::has('register'))
+                        @if (Route::has('register'))
                         <li class="nav-item">
                             <button class="button_accent">
                                 <a " href="{{ route('register') }}">{{ __('Iscriviti') }}</a>
                                     </button>
                                 </li>
-     @endif
+                        @endif
                                 @else
                         <li class="flex">
                             <button class="button_accent" style="margin-right: 20px">

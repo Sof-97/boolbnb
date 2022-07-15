@@ -20,6 +20,18 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function stats()
+    {
+        $id = Auth::id();
+        $apartments = Apartment::with('view')->where('id_user', '=', $id)->get();
+
+        return view('admin.apartments.stats', compact('apartments'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function messages()
     {
         $id = Auth::id();
@@ -36,12 +48,11 @@ class ApartmentController extends Controller
     {
         $id = Auth::id();
         $user = DB::table('users')->find($id);
-        $apartments = Apartment::all()->where('id_user', '=', $id);
+        $apartments = Apartment::with('sponsorship')->where('id_user', '=', $id)->get();
         $viewsTotal = [];
         foreach ($apartments as $apartment) {
             $viewsTotal[$apartment->id] = count(View::all()->where('apartment_id', '=', $apartment->id));
         }
-
         return view('admin.apartments.dashboard', compact('user', 'apartments', 'viewsTotal'));
     }
     public function sponsor()

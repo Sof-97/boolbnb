@@ -3,9 +3,21 @@
     Dashboard
 @endsection
 @section('content')
+    @if (session('success_message'))
+        <div class="alert alert-success">
+            {{ session('success_message') }}
+        </div>
+    @endif
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="flex-center padding-dashboard">
-
-
         <div class="flex-center custom global-padding">
             <div class="">
                 <div class="flex-center movement">
@@ -13,7 +25,6 @@
                         <h4 class="pill-welcome">Dashboard di {{ $user->name }} {{ $user->surname }}</h4>
                     </div>
                 </div>
-
                 <div>
                     <div>
                         <h4 class="accent">Novità</h4>
@@ -35,34 +46,34 @@
                                         <img class="template-image image" src={{ $apartment->cover_image }}
                                             alt="">
                                     </div>
-
-                                    <div class="flex wrap align-center description">
+                                    <div class="flex wrap description" style="flex-direction: column;">
                                         <div>
                                             <h5 class="spacing-title padding-description">{{ $apartment->title }}</h5>
                                         </div>
                                         <div>
                                             <div class="padding-description">{{ $apartment->description }}</dic>
-
                                             </div>
-                                            
-                                            <div class="flex wrap align-center description">
-                           
-                            <div>
-                                <div class="padding-description">Visualizzazioni annuncio: {{ $viewsTotal[$apartment->id] }}</div>
-                            </div>
-                        </div>
+                                            <div>
+                                                <div>Visualizzazioni annuncio:
+                                                    {{ $viewsTotal[$apartment->id] }}</div>
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div>
+                                        <button class="button_accent">
+                                            <a href="{{ route('admin.sponsorship', $apartment) }}">
+                                                Sponsorizza
+                                            </a>
+                                        </button>
                                     </div>
                                 </div>
                         @endforeach
-
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-</div>
-</div>
+    </div>
+    </div>
 
 @endsection
