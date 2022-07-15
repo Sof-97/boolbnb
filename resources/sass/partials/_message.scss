@@ -1,58 +1,54 @@
 // the word 'ms' at the end of the class stands for message
 
-.container-ms{
+.container-ms {
     padding: 50px 5%;
 }
-.title-ms{
+.title-ms {
     color: #ff385c;
-    padding:20px ;
+    padding: 20px;
     font-weight: 700;
 }
-.singleapartment-ms{
+.singleapartment-ms {
     padding: 20px;
     margin: 20px 0;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: rgb(255, 255, 255);
     border-radius: 15px;
 }
-.apartment-name-ms{
+.apartment-name-ms {
     font-size: 1.5rem;
-        font-weight: bold;
-    padding-bottom:20px ;
+    font-weight: bold;
+    padding-bottom: 20px;
 }
-.message-ms{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.message-ms {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 20px;
     margin: 20px 0;
     border-radius: 15px;
-    .message-sender-ms{
+    .message-sender-ms {
         font-size: 1.2rem;
         font-weight: bold;
         margin-bottom: 20px;
     }
-    .message-content-ms{
+    .message-content-ms {
         color: rgb(114, 114, 114);
         font-weight: 600;
     }
 }
 @media screen and (max-width: 510px) {
-   
-    .query-changes{
+    .query-changes {
         flex-direction: column;
         padding: 5px;
         margin-left: 5px;
-        form{
+        form {
             margin: 5px;
         }
     }
-    .button_accent{
-        font-size:0.5em;
+    .button_accent {
+        font-size: 0.5em;
         margin: 0px !important;
     }
-    h1{
+    h1 {
         font-size: 2rem;
-    }
-    *{
-        font-size:0.9em;
     }
 }

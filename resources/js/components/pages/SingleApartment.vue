@@ -5,19 +5,11 @@
     <div>
         <!-- Carta della casa -->
         <div class="sa-container">
-            <div class="sa-title">Appartamento di</div>
-            <div class="sa-owner">{{ apartment.title }}</div>
+            <div class="sa-title">Appartamento</div>
+            <span class="sa-owner">{{ apartment.title }}</span>
             <div class="sa-cont-img">
                 <img :src="apartment.cover_image" alt="" />
-                <div
-                    id="map"
-                    style="
-                        width: calc(50% - 20px);
-                        height: 350px;
-                        display: inline-block;
-                        border-radius: 10px;
-                    "
-                ></div>
+                <div id="map" class="id"></div>
             </div>
             <div class="sa-opacity">{{ apartment.description }}</div>
             <div class="sa-price">
@@ -145,4 +137,5 @@ export default {
 .description-form {
     width: 100% !important;
 }
+
 </style>

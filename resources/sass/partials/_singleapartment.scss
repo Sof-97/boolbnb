@@ -1,29 +1,26 @@
 .sa-container {
     margin: 0 auto;
-    width: 70%;
+    width: 80%;
     margin-top: 5vh;
-    border: 0.5px solid gray;
+    border: 1px solid lightgray;
     border-radius: 10px;
-    box-shadow: 3px 2px 1px gray;
-    padding: 80px;
+    box-shadow: 5px 5px 10px 0px lightgray;
+    padding: 30px;
     label {
         margin: 1rem 0;
         display: inline-block;
         color: $color-accent;
         font-weight: bold;
     }
-
     .sa-title {
         font-size: 2em;
         color: red;
         font-weight: 700;
     }
-
     .sa-owner {
         margin-bottom: 8px;
         font-weight: 500;
     }
-
     .sa-cont-img {
         display: flex;
         align-items: center;
@@ -34,13 +31,11 @@
             border-radius: 10px;
         }
     }
-
     .sa-opacity {
         opacity: 0.5;
         margin-top: 8px;
         margin-bottom: 8px;
     }
-
     .sa-price {
         margin: 1.5rem 0;
         color: $color-accent;
@@ -49,6 +44,47 @@
             margin-left: 0.5em;
             font-weight: 500;
         }
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .sa-container {
+        margin-top: 0;
+        width: 80%;
+        padding: 20px;
+        .sa-cont-img {
+            width: 100%;
+            flex-wrap: wrap;
+            img {
+                width: 100%;
+            }
+            .id {
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sa-container {
+        margin-top: 0;
+        width: 98%;
+        padding: 15px;
+        .sa-cont-img {
+            width: 100%;
+            flex-wrap: wrap;
+            img {
+                width: 100%;
+            }
+            .id {
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
+    }
+    .button-send {
+        width: fit-content;
     }
 }
 
@@ -68,8 +104,9 @@ select {
         color: $color-accent;
     }
 }
-
-.invalid {
-    color: black;
-    font-size: 1.5em;
+.id {
+    width: calc(50% - 20px);
+    height: 350px;
+    display: inline-block;
+    border-radius: 10px;
 }

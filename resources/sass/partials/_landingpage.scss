@@ -10,7 +10,6 @@
     width: 100%;
     margin: 0 auto;
     margin-top: 20px;
-    // background-image: url('images/index_2.jpg');
     height: 600px;
     background-repeat: no-repeat;
     background-position: center;
@@ -53,7 +52,6 @@
         border: 0.5 solid lightgray;
         margin-top: 16px;
         padding: 10px 15px 10px 15px;
-        font-size: 1.5em;
     }
 }
 
@@ -95,7 +93,7 @@
                 color: white;
             }
 
-            .index-sponsor{
+            .index-sponsor {
                 position: absolute;
                 bottom: 90%;
                 left: 7%;
@@ -124,7 +122,6 @@
             padding: 0px 10px 20px 10px;
 
             .index-card-title {
-                font-size: 0.8em;
                 opacity: 0.5;
                 margin-bottom: 16px;
             }
@@ -152,18 +149,13 @@
     }
 }
 
-
 // SECTION Media Query
 @media screen and (max-width: 1440px) {
-
     .index-cards {
         .index-card {
-            //   background-color: red;
-            font-size: 0.5em;
             max-height: 400px;
-
-            .index-cover-img{
-                .index-sponsor{
+            .index-cover-img {
+                .index-sponsor {
                     bottom: 85%;
                 }
             }
@@ -171,8 +163,6 @@
     }
 
     .index-search-bar {
-        margin-left: 3%;
-
         .index-search {
             width: 30%;
             border-radius: 10px;
@@ -180,7 +170,6 @@
             border: 0.5 solid gray;
             margin-top: 16px;
             padding: 10px 15px 10px 15px;
-            font-size: 1em;
         }
     }
 
@@ -191,34 +180,21 @@
 
 @media screen and (max-width: 1024px) {
     .index-cards {
-
         .index-card {
-            //   background-color: red;
-            font-size: 0.5em;
             max-height: 300px;
 
-            .index-cover-img{
-
-                .index-sponsor{
+            .index-cover-img {
+                .index-sponsor {
                     bottom: 80%;
                 }
             }
         }
     }
-
     .index-search-bar {
-        margin-left: 3%;
-
         .index-search {
             width: 35%;
-            font-size: 0.8em;
         }
     }
-
-    .sign{
-        font-size: 0.7em;
-    }
-
     .hero {
         height: 310px;
     }
@@ -227,13 +203,10 @@
 @media screen and (max-width: 768px) {
     .index-cards {
         .index-card {
-            font-size: 0.5em;
             max-height: 450px;
             width: calc((50% - 72px));
-
-            .index-cover-img{
-
-                .index-sponsor{
+            .index-cover-img {
+                .index-sponsor {
                     bottom: 90%;
                 }
             }
@@ -241,40 +214,28 @@
     }
 
     .index-search-bar {
-        margin-left: 3%;
-
         .index-search {
             width: 55%;
-            font-size: 0.8em;
         }
     }
 
     .hero {
         height: 280px;
     }
-
 }
 
 @media screen and (max-width: 425px) {
     .index-cards {
         .index-card {
-            font-size: 0.5em;
             max-height: 450px;
             width: 80%;
-
-            .index-cover-img{
-
-                .index-sponsor{
+            .index-cover-img {
+                .index-sponsor {
                     bottom: 85%;
                 }
             }
         }
     }
-
-    .sign{
-        font-size: 0.7em;
-    }
-
     .hero {
         height: 175px;
     }
@@ -283,13 +244,11 @@
 @media screen and (max-width: 375px) {
     .index-cards {
         .index-card {
-            font-size: 0.5em;
             max-height: 400px;
             width: 80%;
 
-            .index-cover-img{
-
-                .index-sponsor{
+            .index-cover-img {
+                .index-sponsor {
                     bottom: 85%;
                 }
             }
@@ -297,16 +256,9 @@
     }
 
     .index-search-bar {
-        margin-left: 3%;
-
         .index-search {
             width: 55%;
-            font-size: 0.6em;
         }
-    }
-
-    .sign{
-        font-size: 0.5em;
     }
 
     .hero {
@@ -317,23 +269,15 @@
 @media screen and (max-width: 320px) {
     .index-cards {
         .index-card {
-            font-size: 0.5em;
             max-height: 350px;
             width: 80%;
-
-            .index-cover-img{
-
-                .index-sponsor{
+            .index-cover-img {
+                .index-sponsor {
                     bottom: 85%;
                 }
             }
         }
     }
-
-    .sign{
-        font-size: 0.5em;
-    }
-
     .hero {
         height: 125px;
     }

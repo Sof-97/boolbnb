@@ -148,7 +148,6 @@ ul {
   border: 0.5 solid lightgray;
   margin-top: 16px;
   padding: 10px 15px 10px 15px;
-  font-size: 1.5em;
 }
 
 .opacity {
@@ -221,7 +220,6 @@ ul {
 }
 
 .index-cards .index-card .index-card-price .index-card-title {
-  font-size: 0.8em;
   opacity: 0.5;
   margin-bottom: 16px;
 }
@@ -243,16 +241,11 @@ ul {
 
 @media screen and (max-width: 1440px) {
   .index-cards .index-card {
-    font-size: 0.5em;
     max-height: 400px;
   }
 
   .index-cards .index-card .index-cover-img .index-sponsor {
     bottom: 85%;
-  }
-
-  .index-search-bar {
-    margin-left: 3%;
   }
 
   .index-search-bar .index-search {
@@ -262,7 +255,6 @@ ul {
     border: 0.5 solid gray;
     margin-top: 16px;
     padding: 10px 15px 10px 15px;
-    font-size: 1em;
   }
 
   .hero {
@@ -272,7 +264,6 @@ ul {
 
 @media screen and (max-width: 1024px) {
   .index-cards .index-card {
-    font-size: 0.5em;
     max-height: 300px;
   }
 
@@ -280,17 +271,8 @@ ul {
     bottom: 80%;
   }
 
-  .index-search-bar {
-    margin-left: 3%;
-  }
-
   .index-search-bar .index-search {
     width: 35%;
-    font-size: 0.8em;
-  }
-
-  .sign {
-    font-size: 0.7em;
   }
 
   .hero {
@@ -300,7 +282,6 @@ ul {
 
 @media screen and (max-width: 768px) {
   .index-cards .index-card {
-    font-size: 0.5em;
     max-height: 450px;
     width: calc(50% - 72px);
   }
@@ -309,13 +290,8 @@ ul {
     bottom: 90%;
   }
 
-  .index-search-bar {
-    margin-left: 3%;
-  }
-
   .index-search-bar .index-search {
     width: 55%;
-    font-size: 0.8em;
   }
 
   .hero {
@@ -325,17 +301,12 @@ ul {
 
 @media screen and (max-width: 425px) {
   .index-cards .index-card {
-    font-size: 0.5em;
     max-height: 450px;
     width: 80%;
   }
 
   .index-cards .index-card .index-cover-img .index-sponsor {
     bottom: 85%;
-  }
-
-  .sign {
-    font-size: 0.7em;
   }
 
   .hero {
@@ -345,7 +316,6 @@ ul {
 
 @media screen and (max-width: 375px) {
   .index-cards .index-card {
-    font-size: 0.5em;
     max-height: 400px;
     width: 80%;
   }
@@ -354,17 +324,8 @@ ul {
     bottom: 85%;
   }
 
-  .index-search-bar {
-    margin-left: 3%;
-  }
-
   .index-search-bar .index-search {
     width: 55%;
-    font-size: 0.6em;
-  }
-
-  .sign {
-    font-size: 0.5em;
   }
 
   .hero {
@@ -374,17 +335,12 @@ ul {
 
 @media screen and (max-width: 320px) {
   .index-cards .index-card {
-    font-size: 0.5em;
     max-height: 350px;
     width: 80%;
   }
 
   .index-cards .index-card .index-cover-img .index-sponsor {
     bottom: 85%;
-  }
-
-  .sign {
-    font-size: 0.5em;
   }
 
   .hero {
@@ -1334,12 +1290,12 @@ nav .navbar-options .navbar-nav a {
 
 .sa-container {
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
   margin-top: 5vh;
-  border: 0.5px solid gray;
+  border: 1px solid lightgray;
   border-radius: 10px;
-  box-shadow: 3px 2px 1px gray;
-  padding: 80px;
+  box-shadow: 5px 5px 10px 0px lightgray;
+  padding: 30px;
 }
 
 .sa-container label {
@@ -1389,6 +1345,56 @@ nav .navbar-options .navbar-nav a {
   font-weight: 500;
 }
 
+@media screen and (max-width: 830px) {
+  .sa-container {
+    margin-top: 0;
+    width: 80%;
+    padding: 20px;
+  }
+
+  .sa-container .sa-cont-img {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .sa-container .sa-cont-img img {
+    width: 100%;
+  }
+
+  .sa-container .sa-cont-img .id {
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sa-container {
+    margin-top: 0;
+    width: 98%;
+    padding: 15px;
+  }
+
+  .sa-container .sa-cont-img {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .sa-container .sa-cont-img img {
+    width: 100%;
+  }
+
+  .sa-container .sa-cont-img .id {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .button-send {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -1410,9 +1416,11 @@ select::-webkit-file-upload-button {
   color: #ff385c;
 }
 
-.invalid {
-  color: black;
-  font-size: 1.5em;
+.id {
+  width: calc(50% - 20px);
+  height: 350px;
+  display: inline-block;
+  border-radius: 10px;
 }
 
 .sign {
@@ -1743,10 +1751,6 @@ select::-webkit-file-upload-button {
 
   h1 {
     font-size: 2rem;
-  }
-
-  * {
-    font-size: 0.9em;
   }
 }
 
