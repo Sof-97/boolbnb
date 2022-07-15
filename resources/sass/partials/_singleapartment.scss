@@ -6,18 +6,15 @@
     border-radius: 10px;
     box-shadow: 3px 2px 1px gray;
     padding: 80px;
-
     .sa-title {
         font-size: 2em;
         color: red;
         font-weight: 700;
     }
-
     .sa-owner {
         margin-bottom: 8px;
         font-weight: 500;
     }
-
     .sa-cont-img {
         display: flex;
         align-items: center;
@@ -28,15 +25,13 @@
             border-radius: 10px;
         }
     }
-
     .sa-opacity {
         opacity: 0.5;
         margin-top: 8px;
         margin-bottom: 8px;
     }
-
     .sa-price {
-        margin: 1.5rem 0 ;
+        margin: 1.5rem 0;
         color: $color-accent;
         font-weight: bolder;
         span {
@@ -46,11 +41,13 @@
     }
 }
 
-label{
-    margin: 1rem 0;
-    display: inline-block;
-    color: $color-accent;
-    font-weight: bold;
+.sa-container {
+    label {
+        margin: 1rem 0;
+        display: inline-block;
+        color: $color-accent;
+        font-weight: bold;
+    }
 }
 
 input,

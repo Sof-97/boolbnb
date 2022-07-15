@@ -1184,11 +1184,11 @@ input[type=file] {
   text-align: center;
   width: 25%;
   margin-top: 20px;
-  margin-bottom: 30px;
 }
 
 .info-show {
   margin-left: 20px;
+  margin-top: 50px;
   font-size: 15px;
 }
 
@@ -1393,7 +1393,7 @@ nav .navbar-options .navbar-nav a {
   font-weight: 500;
 }
 
-label {
+.sa-container label {
   margin: 1rem 0;
   display: inline-block;
   color: #ff385c;
