@@ -22,14 +22,30 @@ class ApartmentController extends Controller
      */
     public function stats($apartment)
     {
-        $show = Apartment::where('id', '=', $apartment)->with('view')->first();
-        // if (Auth::id() == $show->id_user) {
-            return view('admin.apartments.stats', compact('show'));
-        // } else {
-        //     $id = Auth::id();
-        //     $apartments = Apartment::all()->where('id_user', '=', $id);
-        //     return view('admin.apartments.apartment', compact('apartments'));
-        // }
+        $apartment = Apartment::where('id', '=', $apartment)->with('view')->first();
+        if (Auth::id() == $apartment->id_user) {
+            $views = [];
+            $months = [
+                ['2022-01-01 00:00:00', '2022-01-31 23:59:59'],
+                ['2022-02-01 00:00:00', '2022-02-31 23:59:59'],
+                ['2022-03-01 00:00:00', '2022-03-31 23:59:59'],
+                ['2022-04-01 00:00:00', '2022-04-31 23:59:59'],
+                ['2022-05-01 00:00:00', '2022-05-31 23:59:59'],
+                ['2022-06-01 00:00:00', '2022-06-31 23:59:59'],
+                ['2022-07-01 00:00:00', '2022-07-31 23:59:59'],
+            ];
+
+            foreach ($months as $key => $value) {
+                $viewMonth = $apartment->view->whereBetween('created_at', $value);
+                array_push($views, $viewMonth);
+            }
+
+            return view('admin.apartments.stats', compact('apartment', 'views'));
+        } else {
+            $id = Auth::id();
+            $apartments = Apartment::all()->where('id_user', '=', $id);
+            return view('admin.apartments.apartment', compact('apartments'));
+        }
     }
     /**
      * Display a listing of the resource.

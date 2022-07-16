@@ -19,7 +19,7 @@ class ViewsTableSeeder extends Seeder
         $apartments  = Apartment::all();
         $period = new CarbonPeriod('2022-01-01', 'today');
         foreach ($apartments as $apartment) {
-            for ($i = 0; $i < rand(20, 100); $i++) {
+            for ($i = 0; $i < rand(10, 20); $i++) {
                 foreach ($period as $key => $value) {
                     $view = new View();
                     $value->addHours(rand(3, 7));
