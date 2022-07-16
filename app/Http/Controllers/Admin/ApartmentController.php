@@ -23,7 +23,7 @@ class ApartmentController extends Controller
     public function stats()
     {
         $id = Auth::id();
-        $apartments = Apartment::with('view')->where('id_user', '=', $id)->get();
+        $apartments = Apartment::where('id_user', '=', $id)->with('view')->get();
 
         return view('admin.apartments.stats', compact('apartments'));
     }

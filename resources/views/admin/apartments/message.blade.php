@@ -1,5 +1,7 @@
 @extends('layouts.backOffice')
-
+@section('title')
+Messaggi
+@endsection
 @section('content')
 
 <div class="container-ms">

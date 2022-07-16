@@ -1,6 +1,6 @@
 @extends('layouts.backOffice')
 @section('title')
-    Sponsorship
+Sponsorship
 @endsection
 @section('content')
     <div class="flex-center margin-section" style="height: 60vh">

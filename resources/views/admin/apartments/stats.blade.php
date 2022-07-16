@@ -1,5 +1,7 @@
 @extends('layouts.backOffice')
-
+@section('title')
+Statistiche
+@endsection
 @section('content')
 <div class="container-ms">
     <h1 class="title-ms">Stats</h1>
