@@ -158,6 +158,8 @@ class ApartmentController extends Controller
     {
 
         if (Auth::id() == $apartment->id_user) {
+            $show = Apartment::where('id', '=', $apartment->id)->with('service')->first();
+            $apartment = $show;
             return view('admin.apartments.show', compact('apartment'));
         } else {
             $id = Auth::id();
@@ -224,6 +226,9 @@ class ApartmentController extends Controller
             $data['cover_image'] = $image_url;
         }
         $apartment->update($data);
+
+        if (array_key_exists('services', $data))  $apartment->service()->sync($data['services']);
+
         return redirect()->route('admin.apartments.index')->with('modified', "Hai modificato: $apartment->title");
     }
 

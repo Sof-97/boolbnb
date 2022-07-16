@@ -1,4 +1,5 @@
 .padding-show {
+    min-width: 100%;
     padding: 30px;
 }
 
@@ -16,6 +17,7 @@
 .info-show {
     margin-left: 20px;
     font-size: 15px;
+    justify-content: space-between;
 }
 
 .icons-absolute {
@@ -42,4 +44,26 @@
 
 .color-show {
     color: $color-accent;
+}
+.show-services {
+    color: $color-accent;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        li {
+            color: #000;
+            border: 1px solid lightgray;
+            padding: 0.35rem;
+            border-radius: 0.5rem;
+            box-shadow: 5px 5px 10px 0px lightgrey;
+            margin-top: 0.2rem;
+            width: fit-content;
+            opacity: 0.8;
+            margin-right: 0.3rem;
+        }
+    }
 }

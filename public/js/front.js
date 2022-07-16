@@ -2877,7 +2877,8 @@ var render = function render() {
     }],
     attrs: {
       value: "apartment.id",
-      type: "text",
+      type: "number",
+      min: "1",
       name: "apartment_id",
       id: "apartment_id",
       hidden: ""
