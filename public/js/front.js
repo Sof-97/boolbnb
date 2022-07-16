@@ -1961,6 +1961,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getApartments(this.radius, this.lat, this.lon);
     this.getServices();
+    var gallery = document.getElementById("gallery");
   },
   methods: {
     getMap: function getMap() {
@@ -2044,6 +2045,15 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
         return check;
+      }
+    }
+  },
+  watch: {
+    autocomplete: function autocomplete() {
+      if (this.autocomplete.length > 0) {
+        gallery.classList.add("opacity");
+      } else {
+        gallery.classList.remove("opacity");
       }
     }
   }
@@ -2270,10 +2280,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "flex advanced"
   }, [_c("div", {
-    staticClass: "posrev",
-    staticStyle: {
-      width: "50%"
-    }
+    staticClass: "posrev"
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -2327,9 +2334,7 @@ var render = function render() {
     on: {
       click: _vm.filterMenu
     }
-  }, [_c("i", {
-    staticClass: "fa-solid fa-filter"
-  }), _vm._v("\r\n                        Filtri\r\n                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._m(0)]), _vm._v(" "), _c("div", {
     staticClass: "show",
     attrs: {
       id: "filter-list"
@@ -2381,7 +2386,6 @@ var render = function render() {
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "flex",
     staticStyle: {
-      margin: "0 1.5rem",
       "align-items": "center"
     }
   }, [_c("label", {
@@ -2462,12 +2466,11 @@ var render = function render() {
       }
     }
   })])]), _vm._v(" "), _c("div", {
-    staticStyle: {
-      width: "300px",
-      height: "200px",
-      margin: "30px 0",
-      "border-radius": "10px"
-    },
+    staticClass: "padding-dashboard",
+    attrs: {
+      id: "gallery"
+    }
+  }, [_c("div", {
     attrs: {
       id: "map"
     }
@@ -2479,7 +2482,7 @@ var render = function render() {
       expression: "!apartments || apartments.length == 0"
     }],
     staticClass: "no-results-as"
-  }, [_vm._v("\r\n                Nessun appartamento corrispondente.\r\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n                    Nessun appartamento corrispondente.\r\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "container-cards-as"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
@@ -2487,7 +2490,7 @@ var render = function render() {
         name: "show",
         rawName: "v-show",
         value: e.rooms >= _vm.stanze && e.beds >= _vm.letti && _vm.check(e.service),
-        expression: "\r\n                        e.rooms >= stanze && e.beds >= letti && check(e.service)\r\n                    "
+        expression: "\r\n                            e.rooms >= stanze &&\r\n                            e.beds >= letti &&\r\n                            check(e.service)\r\n                        "
       }],
       key: i,
       staticClass: "card-as"
@@ -2502,9 +2505,9 @@ var render = function render() {
       staticClass: "icons-as"
     }, [_c("span", [_c("i", {
       staticClass: "fa-solid fa-bed"
-    }), _vm._v("\r\n                                " + _vm._s(e.rooms))]), _vm._v(" "), _c("span", [_vm._v("- "), _c("i", {
+    }), _vm._v("\r\n                                    " + _vm._s(e.rooms))]), _vm._v(" "), _c("span", [_vm._v("- "), _c("i", {
       staticClass: "fa-solid fa-toilet"
-    }), _vm._v("\r\n                                " + _vm._s(e.bathrooms))])])]), _vm._v(" "), _c("div", {
+    }), _vm._v("\r\n                                    " + _vm._s(e.bathrooms))])])]), _vm._v(" "), _c("div", {
       staticClass: "card-body-as"
     }, [_c("h3", {
       staticClass: "card-title-as"
@@ -2512,7 +2515,7 @@ var render = function render() {
       staticClass: "card-text-as"
     }, [_vm._v(_vm._s(e.description))]), _vm._v(" "), _c("p", {
       staticClass: "card-price-as"
-    }, [_c("span", [_vm._v(_vm._s(e.price) + "€")]), _vm._v(" per Notte\r\n                        ")]), _vm._v(" "), _c("router-link", {
+    }, [_c("span", [_vm._v(_vm._s(e.price) + "€")]), _vm._v(" per Notte\r\n                            ")]), _vm._v(" "), _c("router-link", {
       staticClass: "button-show",
       attrs: {
         to: {
@@ -2523,10 +2526,17 @@ var render = function render() {
         }
       }
     }, [_vm._v("Vai all'appartamento")])], 1)]);
-  }), 0)])]);
+  }), 0)])])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("span", [_c("i", {
+    staticClass: "fa-solid fa-filter"
+  }), _vm._v("Filtri ")]);
+}];
 render._withStripped = true;
 
 
@@ -2733,7 +2743,11 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("div", {
+  return _c("div", {
+    staticStyle: {
+      "padding-top": "0.5rem"
+    }
+  }, [_c("div", {
     staticClass: "sa-container"
   }, [_c("div", {
     staticClass: "sa-title"
@@ -2755,7 +2769,13 @@ var render = function render() {
     staticClass: "sa-opacity"
   }, [_vm._v(_vm._s(_vm.apartment.description))]), _vm._v(" "), _c("div", {
     staticClass: "sa-price"
-  }, [_c("i", [_vm._v("Il prezzo a notte è:")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartment.price) + "€")])]), _vm._v(" "), _c("form", {
+  }, [_c("i", [_vm._v("Il prezzo a notte è:")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartment.price) + "€")])]), _vm._v(" "), _c("div", [_c("span", {
+    staticClass: "sa-price"
+  }, [_vm._v("Servizi inclusi:")]), _vm._v(" "), _c("ul", _vm._l(_vm.apartment.service, function (service) {
+    return _c("li", {
+      key: service.id
+    }, [_vm._v("\r\n                        " + _vm._s(service.name) + "\r\n                    ")]);
+  }), 0)]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -2905,7 +2925,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#filter[data-v-781a2080] {\n  cursor: pointer;\n  padding: 10px;\n  border: 0.5px solid lightgray;\n  border-radius: 10px;\n  box-shadow: 5px 5px 10px 0px lightgrey;\n  display: inline-block;\n}\n#filter .fa-solid[data-v-781a2080] {\n  margin: 0;\n  opacity: 0.7;\n}\n#filter-list[data-v-781a2080] {\n  background: white;\n  z-index: 1;\n  position: absolute;\n  height: 200px;\n  top: 2.8rem;\n  display: inline-block;\n  padding: 10px 20px;\n  overflow-y: scroll;\n  border: 1px solid grey;\n  border-radius: 10px;\n}\n#filter-list[data-v-781a2080]::-webkit-scrollbar {\n  width: 10px;\n}\n#filter-list input[data-v-781a2080] {\n  margin-right: 0;\n  margin-left: auto;\n}\n#filter-list ul[data-v-781a2080] {\n  list-style: none;\n}\n#filter-list ul li[data-v-781a2080] {\n  padding: 3px 0;\n}\n#filter-list ul li label[data-v-781a2080] {\n  cursor: pointer;\n}\n.posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev input[type=text][data-v-781a2080]:focus {\n  border: 2px solid black;\n}\n.show[data-v-781a2080] {\n  display: none !important;\n}\ninput[type=text][data-v-781a2080],\ninput[type=number][data-v-781a2080] {\n  border: 0.5px solid lightgray;\n  border-radius: 10px;\n  box-shadow: 5px 5px 10px 0px lightgrey;\n  padding: 10px 15px 10px 15px;\n}\ninput[type=number][data-v-781a2080] {\n  margin: 0 0.2rem;\n}", ""]);
+exports.push([module.i, "#filter[data-v-781a2080] {\n  cursor: pointer;\n  padding: 10px;\n  border: 0.5px solid lightgray;\n  border-radius: 10px;\n  box-shadow: 5px 5px 10px 0px lightgrey;\n  display: inline-block;\n  min-width: -webkit-fit-content;\n  min-width: -moz-fit-content;\n  min-width: fit-content;\n}\n#filter .fa-solid[data-v-781a2080] {\n  margin: 0;\n  margin-right: 0.2rem;\n  opacity: 0.7;\n}\n#filter-list[data-v-781a2080] {\n  background: white;\n  z-index: 1;\n  position: absolute;\n  height: 200px;\n  top: 2.8rem;\n  display: inline-block;\n  padding: 10px 20px;\n  overflow-y: scroll;\n  border: 1px solid grey;\n  border-radius: 10px;\n}\n#filter-list[data-v-781a2080]::-webkit-scrollbar {\n  width: 10px;\n}\n#filter-list input[data-v-781a2080] {\n  margin-right: 0;\n  margin-left: auto;\n}\n#filter-list ul[data-v-781a2080] {\n  list-style: none;\n}\n#filter-list ul li[data-v-781a2080] {\n  padding: 3px 0;\n}\n#filter-list ul li label[data-v-781a2080] {\n  cursor: pointer;\n}\n#map[data-v-781a2080] {\n  width: 70%;\n  height: 400px;\n  margin: 1rem auto;\n  border-radius: 10px;\n}\n@media screen and (max-width: 1024px) {\n#map[data-v-781a2080] {\n    width: 80%;\n    height: 400px;\n}\n.container .advanced[data-v-781a2080] {\n    flex-direction: column;\n}\n.container .advanced .posrev[data-v-781a2080] {\n    margin-bottom: 1rem;\n    width: 100%;\n}\n}\n@media screen and (max-width: 820px) {\n#map[data-v-781a2080] {\n    width: 90%;\n    height: 400px;\n}\n}\n.advanced .posrev[data-v-781a2080] {\n  width: 50%;\n}\n.posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev input[type=text][data-v-781a2080]:focus {\n  border: 2px solid black;\n}\n.show[data-v-781a2080] {\n  display: none !important;\n}\ninput[type=text][data-v-781a2080],\ninput[type=number][data-v-781a2080] {\n  border: 0.5px solid lightgray;\n  border-radius: 10px;\n  box-shadow: 5px 5px 10px 0px lightgrey;\n  padding: 10px 15px 10px 15px;\n}\ninput[type=number][data-v-781a2080] {\n  margin: 0 0.2rem;\n}", ""]);
 
 // exports
 
@@ -2943,7 +2963,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".submit[data-v-7bb436a4] {\n  display: flex;\n  justify-content: flex-end;\n  margin: 0.5rem 0;\n}\n.description-form[data-v-7bb436a4] {\n  width: 100% !important;\n}", ""]);
+exports.push([module.i, ".submit[data-v-7bb436a4] {\n  display: flex;\n  justify-content: flex-end;\n  margin: 0.5rem 0;\n}\n.description-form[data-v-7bb436a4] {\n  width: 100% !important;\n}\nul[data-v-7bb436a4] {\n  list-style: none;\n  display: flex;\n  flex-wrap: wrap;\n}\nul li[data-v-7bb436a4] {\n  border: 1px solid lightgray;\n  padding: 0.35rem;\n  border-radius: 0.5rem;\n  box-shadow: 5px 5px 10px 0px lightgrey;\n  margin-left: 1rem;\n  margin-top: 0.2rem;\n  opacity: 0.8;\n}", ""]);
 
 // exports
 

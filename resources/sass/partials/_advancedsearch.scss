@@ -1,10 +1,4 @@
-
 // "as" stands for Advanced Search
-
-
-.container-as {
-    padding: 50px 5%;
-}
 
 .search-as {
     width: 80%;
@@ -24,12 +18,11 @@
 
 .container-cards-as {
     width: 100%;
-    padding: 50px 0;
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
 }
-.advanced{
+.advanced {
     justify-content: space-around;
     padding: 30px 0;
     margin: 0 auto;
@@ -37,21 +30,21 @@
 }
 .card-as {
     color: rgb(113, 113, 113) !important;
-        font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-        font-weight: 400 !important;
-        font-size: 14px !important;
-        line-height: 20px !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+        "Helvetica Neue", sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
 
     img {
         width: 100%;
         border-radius: 15px;
-        
     }
-    .card-img-as{
+    .card-img-as {
         margin-bottom: 10px;
         position: relative;
     }
-    .icons-as{
+    .icons-as {
         position: absolute;
         bottom: 10px;
         left: 10px;
@@ -64,8 +57,8 @@
         font-size: 1.2rem;
     }
 
-    .card-price-as{
-        span{
+    .card-price-as {
+        span {
             color: rgb(53, 53, 53);
             font-weight: bold;
             font-size: 1.1em;
@@ -91,7 +84,6 @@
         border: 0px white solid !important;
         cursor: pointer;
         background-color: $color-accent;
-
         &:hover {
             background-color: $color-accent-hover;
         }
@@ -100,19 +92,18 @@
     display: inline-block;
     width: calc((100% / 4) - 20px);
     margin: 20px 0;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
     padding: 0 0 20px;
     background-color: rgb(255, 255, 255);
     border-radius: 15px;
 }
-.no-results-as{
+.no-results-as {
     font-weight: bold;
     text-align: center;
     padding-top: 100px;
 }
-.search-bar-as{
+.search-bar-as {
     flex-wrap: wrap;
 }
 
@@ -124,95 +115,86 @@
     }
 }
 @media screen and (max-width: 965px) {
-    .container-as{
+    .container-as {
         text-align: center;
     }
-    .card-as{
+    .card-as {
         width: calc((100% / 3) - 5px);
     }
-    .search-bar-as{
+    .search-bar-as {
         display: inline-block;
         text-align: center;
-        div{
+        div {
             display: block;
-
         }
     }
-    .search-as{
-        margin-bottom: 15px;
-        width: 50%;
-        text-align: center;
-    }
-    
-
-    
 }
 @media screen and (max-width: 680px) {
-    .search-bar-as{
-        span{
+    .search-bar-as {
+        span {
             display: block;
             margin-bottom: 15px;
         }
     }
-    .search-as{
-        margin: 0;
-        width: 50vw;
-        margin-bottom: 15px;
-    }
-    #filter{
-        margin-bottom: 15px;
-    }
     .card-as {
-        .card-title-as{
+        .card-title-as {
             line-height: 25px !important;
         }
         font-size: 12px !important;
         line-height: 15px !important;
         width: calc((100% / 2) - 5px);
-        .button-show{
+        .button-show {
             font-size: 0.5rem !important;
         }
         .card-title-as {
-            
             font-size: 1.2rem;
         }
-    
-        .card-price-as{
-            span{
-                
+
+        .card-price-as {
+            span {
                 font-size: 1.1em;
             }
         }
-    
+
         .card-body-as {
             padding: 10px;
-            
-    
             * {
                 margin-bottom: 15px;
             }
         }
-    
-        
-    
         display: inline-block;
-       
         padding: 0 0 20px;
         background-color: rgb(255, 255, 255);
         border-radius: 15px;
     }
-    
 }
-@media screen and (max-width: 423px) {
-    .card-as{
+@media screen and (max-width: 420px) {
+    .card-as {
         width: calc(100% - 20px);
     }
     .container-cards-as {
         justify-content: center;
     }
-    .search-as{
-        width: 80vw;
+    #filter {
+        display: flex !important;
+        align-items: center;
+    }
+    body
+        > main
+        > div
+        > div
+        > div
+        > div.flex.advanced
+        > div.filters-as.flex.posrev {
+            margin: 0;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .flex{
+            
+            margin: 0;
+        }
+        > *{
+            margin: 0.1rem auto;
+        }
     }
 }
-
-

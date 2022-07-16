@@ -2,7 +2,7 @@
     <div>
         <div class="container">
             <div class="flex advanced">
-                <div class="posrev" style="width: 50%">
+                <div class="posrev">
                     <input
                         type="text"
                         class="search-as"
@@ -32,8 +32,7 @@
                 </div>
                 <div class="filters-as flex posrev">
                     <div id="filter" @click="filterMenu">
-                        <i class="fa-solid fa-filter"></i>
-                        Filtri
+                        <span> <i class="fa-solid fa-filter"></i>Filtri </span>
                     </div>
                     <div id="filter-list" class="show">
                         <ul>
@@ -52,8 +51,8 @@
                     </div>
 
                     <div
-                        style="margin: 0 1.5rem; align-items: center"
                         class="flex"
+                        style="align-items: center;"
                     >
                         <label for="radius">Raggio di ricerca:</label>
                         <input
@@ -86,60 +85,57 @@
                     />
                 </div>
             </div>
-            <div
-                id="map"
-                style="
-                    width: 300px;
-                    height: 200px;
-                    margin: 30px 0;
-                    border-radius: 10px;
-                "
-            ></div>
 
-            <p
-                class="no-results-as"
-                v-show="!apartments || apartments.length == 0"
-            >
-                Nessun appartamento corrispondente.
-            </p>
-
-            <div class="container-cards-as">
-                <div
-                    v-for="(e, i) in apartments"
-                    :key="i"
-                    class="card-as"
-                    v-show="
-                        e.rooms >= stanze && e.beds >= letti && check(e.service)
-                    "
+            <div class="padding-dashboard" id="gallery">
+                <div id="map"></div>
+                <p
+                    class="no-results-as"
+                    v-show="!apartments || apartments.length == 0"
                 >
-                    <span class="card-img-as">
-                        <img :src="`${e.cover_image}`" alt="Card image cap" />
-                        <div class="icons-as">
-                            <span
-                                ><i class="fa-solid fa-bed"></i>
-                                {{ e.rooms }}</span
-                            >
-                            <span
-                                >- <i class="fa-solid fa-toilet"></i>
-                                {{ e.bathrooms }}</span
+                    Nessun appartamento corrispondente.
+                </p>
+                <div class="container-cards-as">
+                    <div
+                        v-for="(e, i) in apartments"
+                        :key="i"
+                        class="card-as"
+                        v-show="
+                            e.rooms >= stanze &&
+                            e.beds >= letti &&
+                            check(e.service)
+                        "
+                    >
+                        <span class="card-img-as">
+                            <img
+                                :src="`${e.cover_image}`"
+                                alt="Card image cap"
+                            />
+                            <div class="icons-as">
+                                <span
+                                    ><i class="fa-solid fa-bed"></i>
+                                    {{ e.rooms }}</span
+                                >
+                                <span
+                                    >- <i class="fa-solid fa-toilet"></i>
+                                    {{ e.bathrooms }}</span
+                                >
+                            </div>
+                        </span>
+                        <div class="card-body-as">
+                            <h3 class="card-title-as">{{ e.title }}</h3>
+                            <p class="card-text-as">{{ e.description }}</p>
+                            <p class="card-price-as">
+                                <span>{{ e.price }}€</span> per Notte
+                            </p>
+                            <router-link
+                                :to="{
+                                    name: 'SingleApartment',
+                                    params: { slug: e.slug },
+                                }"
+                                class="button-show"
+                                >Vai all'appartamento</router-link
                             >
                         </div>
-                    </span>
-
-                    <div class="card-body-as">
-                        <h3 class="card-title-as">{{ e.title }}</h3>
-                        <p class="card-text-as">{{ e.description }}</p>
-                        <p class="card-price-as">
-                            <span>{{ e.price }}€</span> per Notte
-                        </p>
-                        <router-link
-                            :to="{
-                                name: 'SingleApartment',
-                                params: { slug: e.slug },
-                            }"
-                            class="button-show"
-                            >Vai all'appartamento</router-link
-                        >
                     </div>
                 </div>
             </div>
@@ -184,6 +180,7 @@ export default {
     created() {
         this.getApartments(this.radius, this.lat, this.lon);
         this.getServices();
+        const gallery = document.getElementById("gallery");
     },
     methods: {
         getMap() {
@@ -273,6 +270,15 @@ export default {
             }
         },
     },
+    watch: {
+        autocomplete: function () {
+            if (this.autocomplete.length > 0) {
+                gallery.classList.add("opacity");
+            } else {
+                gallery.classList.remove("opacity");
+            }
+        },
+    },
 };
 </script>
 
@@ -284,8 +290,10 @@ export default {
     border-radius: 10px;
     box-shadow: 5px 5px 10px 0px lightgrey;
     display: inline-block;
-    .fa-solid{
+    min-width: fit-content;
+    .fa-solid {
         margin: 0;
+        margin-right: 0.2rem;
         opacity: 0.7;
     }
 }
@@ -295,7 +303,7 @@ export default {
     z-index: 1;
     position: absolute;
     height: 200px;
-    top:2.8rem;
+    top: 2.8rem;
     display: inline-block;
     padding: 10px 20px;
     overflow-y: scroll;
@@ -316,6 +324,39 @@ export default {
                 cursor: pointer;
             }
         }
+    }
+}
+
+#map {
+    width: 70%;
+    height: 400px;
+    margin: 1rem auto;
+    border-radius: 10px;
+}
+@media screen and (max-width: 1024px) {
+    #map {
+        width: 80%;
+        height: 400px;
+    }
+    .container {
+        .advanced {
+            flex-direction: column;
+            .posrev {
+                margin-bottom: 1rem;
+                width: 100%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 820px) {
+    #map {
+        width: 90%;
+        height: 400px;
+    }
+}
+.advanced {
+    .posrev {
+        width: 50%;
     }
 }
 

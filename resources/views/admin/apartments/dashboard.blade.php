@@ -55,15 +55,13 @@
                                             </div>
                                             <div>
                                                 <div>Visualizzazioni annuncio:
-                                                    {{ $viewsTotal[$apartment->id] }}</div>
+                                                    {{ count($apartment->view)}}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div>
                                         <button class="button_accent">
-                                            <a href="{{ route('admin.sponsorship', $apartment) }}">
-                                                Sponsorizza
-                                            </a>
+                                            <a href="{{ route('admin.sponsorship', $apartment) }}">Sponsorizza</a>
                                         </button>
                                     </div>
                                 </div>

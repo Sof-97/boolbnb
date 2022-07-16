@@ -2,7 +2,7 @@
     <!-- scss di riferimento -singleaoartment.scss
     I nome delle classi iniziano con "sa" ad indicare "singleapartment"-->
 
-    <div>
+    <div style="padding-top: 0.5rem">
         <!-- Carta della casa -->
         <div class="sa-container">
             <div class="sa-title">Appartamento</div>
@@ -15,6 +15,15 @@
             <div class="sa-price">
                 <i>Il prezzo a notte è:</i> <span>{{ apartment.price }}€</span>
             </div>
+            <div >
+                <span class="sa-price">Servizi inclusi:</span>
+                <ul>
+                    <li :key="service.id" v-for="service in apartment.service">
+                        {{service.name}}
+                    </li>
+                </ul>
+            </div>
+                <!-- Form della email -->
             <form @submit.prevent="submit">
                 <label for="email">La tua email</label>
                 <input
@@ -61,7 +70,6 @@
             </form>
         </div>
     </div>
-    <!-- Form della email -->
 </template>
 
 <script>
@@ -137,5 +145,18 @@ export default {
 .description-form {
     width: 100% !important;
 }
-
+ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    li{
+        border: 1px solid lightgray;
+        padding:0.35rem;
+        border-radius: 0.5rem;
+        box-shadow: 5px 5px 10px 0px lightgrey;
+        margin-left: 1rem;
+        margin-top: 0.2rem;
+        opacity: 0.8;
+    }
+}
 </style>
