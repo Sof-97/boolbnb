@@ -50,7 +50,7 @@
                         </ul>
                     </div>
 
-                    <div class="flex" style="align-items: center">
+                    <div class="flex" style="align-items: center; margin-left:0.39rem">
                         <label for="radius">Raggio di ricerca:</label>
                         <input
                             type="range"
@@ -147,7 +147,7 @@ export default {
         return {
             baseUrlTomtom: "https://api.tomtom.com/search/2/search/",
             keySettingsTomtom:
-                ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
+                ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT",
             apartments: null,
             services: [],
             range: this.radius,

@@ -1931,7 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       baseUrlTomtom: "https://api.tomtom.com/search/2/search/",
-      keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
+      keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT",
       apartments: null,
       services: [],
       range: this.radius,
@@ -2389,7 +2389,8 @@ var render = function render() {
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "flex",
     staticStyle: {
-      "align-items": "center"
+      "align-items": "center",
+      "margin-left": "0.39rem"
     }
   }, [_c("label", {
     attrs: {
