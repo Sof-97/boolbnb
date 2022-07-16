@@ -2,36 +2,49 @@
     <!-- scss di riferimento -singleaoartment.scss
     I nome delle classi iniziano con "sa" ad indicare "singleapartment"-->
 
-    <div>
+    <div style="padding-top: 0.5rem">
         <!-- Carta della casa -->
         <div class="sa-container">
-            <div class="sa-title">Appartamento di</div>
-            <div class="sa-owner">{{ apartment.title }}</div>
+            <div class="sa-title">Appartamento</div>
+            <span class="sa-owner">{{ apartment.title }}</span>
             <div class="sa-cont-img">
                 <img :src="apartment.cover_image" alt="" />
-                <div
-                    id="map"
-                    style="
-                        width: calc(50% - 20px);
-                        height: 350px;
-                        display: inline-block;
-                        border-radius: 10px;
-                    "
-                ></div>
+                <div id="map" class="id"></div>
             </div>
             <div class="sa-opacity">{{ apartment.description }}</div>
             <div class="sa-price">
                 <i>Il prezzo a notte è:</i> <span>{{ apartment.price }}€</span>
             </div>
+            <div >
+                <span class="sa-price">Servizi inclusi:</span>
+                <ul>
+                    <li :key="service.id" v-for="service in apartment.service">
+                        {{service.name}}
+                    </li>
+                </ul>
+            </div>
+                <!-- Form della email -->
             <form @submit.prevent="submit">
                 <label for="email">La tua email</label>
                 <input
                     class="form-control form-create"
-                    type="text"
+                    type="email"
                     required
+                    :disabled="userEmail"
                     name="email_sender"
                     id="email_sender"
                     v-model="fields.email_sender"
+                />
+                <br />
+                <label for="text">Il tuo nome</label>
+                <input
+                    class="form-control form-create"
+                    type="text"
+                    required
+                    :disabled="userName"
+                    name="name"
+                    id="name"
+                    v-model="fields.name"
                 />
                 <br />
                 <label for="text">Il tuo messaggio</label>
@@ -45,7 +58,8 @@
                 />
                 <input
                     value="apartment.id"
-                    type="text"
+                    type="number"
+                    min="1"
                     name="apartment_id"
                     id="apartment_id"
                     v-model="fields.apartment_id"
@@ -57,7 +71,6 @@
             </form>
         </div>
     </div>
-    <!-- Form della email -->
 </template>
 
 <script>
@@ -70,13 +83,14 @@ export default {
             fields: {},
             apartment: {},
             userEmail: window.user,
+            userName: window.name,
         };
     },
     created() {
         this.getApartment();
-        console.log(window.user);
         if (window.user) {
             this.fields.email_sender = window.user;
+            this.fields.name = window.name;
         }
     },
     methods: {
@@ -124,12 +138,26 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.submit{
+.submit {
     display: flex;
     justify-content: flex-end;
     margin: 0.5rem 0;
 }
-.description-form{
+.description-form {
     width: 100% !important;
+}
+ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    li{
+        border: 1px solid lightgray;
+        padding:0.35rem;
+        border-radius: 0.5rem;
+        box-shadow: 5px 5px 10px 0px lightgrey;
+        margin-left: 1rem;
+        margin-top: 0.2rem;
+        opacity: 0.8;
+    }
 }
 </style>

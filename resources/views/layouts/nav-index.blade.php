@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar">
+    <nav class="nav">
         <div class="navbar-guest">
 
             <div class="nav-logo" href="{{ url('/') }}"><a href="/" style="text-decoration: none; color:inherit">
@@ -8,35 +8,28 @@
             </div>
             <div class="navbar-options">
 
-                <ul class="navbar-nav ">
-                    <!-- Authentication Links -->
-                    @guest
-                        <li class="nav-item">
-                            <button class="button_accent" style="margin-right: 20px">
-                                <a " href="{{ route('login') }}">{{ __('Accedi') }}</a>
-                                </button>
-                            </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
+                <!-- Authentication Links -->
+                @guest
+                    <button class="button_accent" style="margin-right: 20px">
+                        <a " href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                                                            </button>
+                                               @if (Route::has('register'))
                             <button class="button_accent">
                                 <a " href="{{ route('register') }}">{{ __('Iscriviti') }}</a>
-                                    </button>
-                                </li>
-                        @endif
+                                                                </button>
+     @endif
                                 @else
-                        <li class="flex">
-                            <button class="button_accent" style="margin-right: 20px">
-                                <a href="/admin/dashboard" role="button"v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-                            </button>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button class="button_accent m-right" type="submit" style="cursor: pointer">Logout</button>
-                            </form>
-                        </li>
-                    @endguest
-                </ul>
+                                    <button class="button_accent" style="margin-right: 20px">
+                                        <a href="/admin/dashboard" role="button"v-pre>
+                                            {{ Auth::user()->name }}
+                                        </a>
+                                    </button>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button class="button_accent m-right" type="submit"
+                                            style="cursor: pointer">Logout</button>
+                                    </form>
+                                @endguest
             </div>
         </div>
 

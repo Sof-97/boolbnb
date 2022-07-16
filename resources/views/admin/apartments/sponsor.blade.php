@@ -3,8 +3,8 @@
     Sponsorship
 @endsection
 @section('content')
-    <div class="flex-center margin-section" style="height: 60vh">
-        <div class="custom flex apartment-padding space-around h-100 items-center">
+    <div class="flex-center margin-section">
+        <div style="height: 80vh;" class="custom flex apartment-padding space-around items-center">
             @foreach ($sponsorships as $sponsorship)
                 <div class="sponsorship-card">
                     <h2>{{ $sponsorship->name }}</h2>

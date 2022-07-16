@@ -16,7 +16,7 @@
             {{ session('created') }}
         </div>
     @endif
-    <div class="flex-center margin-section">
+    <div class="flex-center padding-dashboard">
         <div class="custom apartment-padding">
             <div class="flex-between section-padding">
                 <div style="display: block">
