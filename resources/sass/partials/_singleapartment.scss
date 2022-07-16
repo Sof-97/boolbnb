@@ -1,11 +1,17 @@
 .sa-container {
     margin: 0 auto;
-    width: 70%;
+    width: 80%;
     margin-top: 5vh;
-    border: 0.5px solid gray;
+    border: 1px solid lightgray;
     border-radius: 10px;
-    box-shadow: 3px 2px 1px gray;
-    padding: 80px;
+    box-shadow: 5px 5px 10px 0px lightgray;
+    padding: 30px;
+    label {
+        margin: 1rem 0;
+        display: inline-block;
+        color: $color-accent;
+        font-weight: bold;
+    }
     .sa-title {
         font-size: 2em;
         color: red;
@@ -41,14 +47,6 @@
     }
 }
 
-.sa-container {
-    label {
-        margin: 1rem 0;
-        display: inline-block;
-        color: $color-accent;
-        font-weight: bold;
-    }
-}
 
 input,
 textarea,
@@ -67,7 +65,9 @@ select {
     }
 }
 
-.invalid {
-    color: black;
-    font-size: 1.5em;
+.id {
+    width: calc(50% - 20px);
+    height: 350px;
+    display: inline-block;
+    border-radius: 10px;
 }

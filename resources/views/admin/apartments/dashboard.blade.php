@@ -39,27 +39,36 @@ Dashboard
                 </div>
             </div>
             <div>
-                <h4 class="accent statistics-padding">Le tue statistiche in breve</h4>
-                <div>
-                    @foreach ($apartments as $apartment)
-                    <div class="statistics">
-                        <div class="cards">
-                            <div class="margin-bottom">
-                                <img class="template-image image" src={{ $apartment->cover_image }} alt="">
-                            </div>
-                            <div class="flex wrap description" style="flex-direction: column;">
-                                <div class="flex align-center spacing-title padding-description">
-                                    <h5>{{ $apartment->title }}</h5>
-                                    @if (count($apartment->sponsorship)>0)
-                                    <span><i class="fa-solid fa-crown"></i></span>
-                                    @endif
-                                </div>
-                                <div>
-                                    <div class="padding-description">{{ $apartment->description }}</dic>
+                    <h4 class="accent statistics-padding">Le tue statistiche in breve</h4>
+                    <div>
+                        @foreach ($apartments as $apartment)
+                            <div class="statistics">
+                                <div class="cards">
+                                    <div class="margin-bottom">
+                                        <img class="template-image image" src={{ $apartment->cover_image }}
+                                            alt="">
+                                    </div>
+                                    <div class="flex wrap description" style="flex-direction: column;">
+                                        <div>
+                                            <h5 class="spacing-title padding-description">{{ $apartment->title }}</h5>
+                                            @if (count($apartment->sponsorship)>0)
+                                               <span><i class="fa-solid fa-crown"></i></span>
+                                            @endif
+                                        </div>
+                                        <div>
+                                            <div class="padding-description">{{ $apartment->description }}</dic>
+                                            </div>
+                                            <div>
+                                                <div>Visualizzazioni annuncio:
+                                                    {{ count($apartment->view)}}</div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div>
-                                        <div>Visualizzazioni annuncio:
-                                            {{ $viewsTotal[$apartment->id] }}</div>
+                                        <button class="button_accent">
+                                            <a href="{{ route('admin.sponsorship', $apartment) }}">Sponsorizza</a>
+                                        </button>
+
                                     </div>
                                 </div>
                             </div>
