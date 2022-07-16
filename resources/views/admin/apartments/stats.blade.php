@@ -11,9 +11,8 @@ Statistiche
         <p>Visite totali: {{ count($apartment->view) }}</p>
         <input type="number" id="input{{ $apartment->id }}" value="{{ count($apartment->view) }}" hidden>
         <canvas id="myChart{{ $apartment->id }}" width="400" height="100"></canvas>
-</div>
-        @endforeach
-    
+    </div>
+    @endforeach
 </div>
 @endsection
 @section('script')
