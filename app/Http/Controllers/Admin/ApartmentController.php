@@ -22,24 +22,14 @@ class ApartmentController extends Controller
      */
     public function stats($apartment)
     {
-        $apartment = Apartment::where('id', '=', $apartment)->with('view')->first();
+        $apartment = Apartment::where('id', '=', $apartment)->first();
+
+
         if (Auth::id() == $apartment->id_user) {
-            $views = [];
-            $months = [
-                ['2022-01-01 00:00:00', '2022-01-31 23:59:59'],
-                ['2022-02-01 00:00:00', '2022-02-31 23:59:59'],
-                ['2022-03-01 00:00:00', '2022-03-31 23:59:59'],
-                ['2022-04-01 00:00:00', '2022-04-31 23:59:59'],
-                ['2022-05-01 00:00:00', '2022-05-31 23:59:59'],
-                ['2022-06-01 00:00:00', '2022-06-31 23:59:59'],
-                ['2022-07-01 00:00:00', '2022-07-31 23:59:59'],
-            ];
-
-            foreach ($months as $key => $value) {
-                $viewMonth = $apartment->view->whereBetween('created_at', $value);
-                array_push($views, $viewMonth);
-            }
-
+            $views = View::selectRaw('count(month(created_at)) as views')
+                ->where('apartment_id', '=', $apartment->id)
+                ->groupByRaw('month(created_at)')
+                ->get();
             return view('admin.apartments.stats', compact('apartment', 'views'));
         } else {
             $id = Auth::id();

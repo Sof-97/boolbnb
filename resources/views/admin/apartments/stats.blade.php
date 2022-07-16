@@ -5,12 +5,12 @@
 @section('content')
     <div class="container-ms">
         <h1 class="title-ms">Stats</h1>
-            <div class="singleapartment-ms">
-                <h2 class="apartment-name-ms">Appartamento "{{ $apartment->title }}"</h2>
-                <p>Visite totali: {{ count($apartment->view) }}</p>
-                <input type="number" id="input{{ $apartment->id }}" value="{{ count($apartment->view) }}" hidden>
-                <canvas id="myChart" width="400" height="100"></canvas>
-            </div>
+        <div class="singleapartment-ms">
+            <h2 class="apartment-name-ms">Appartamento "{{ $apartment->title }}"</h2>
+            <p>Visite totali: {{ count($apartment->view) }}</p>
+            <input type="number" id="input{{ $apartment->id }}" value="{{ count($apartment->view) }}" hidden>
+            <canvas id="myChart" width="400" height="100"></canvas>
+        </div>
     </div>
 @endsection
 @section('script')
@@ -29,10 +29,10 @@
                     label: 'Visite',
                     data: [
                         @php
-                        for($i=0;$i<7;$i++){
-                            echo(count($views[$i]). ',');
-                        }
-                        @endphp , null, null, null,null,null
+                            foreach($views as $view){
+                                echo($view->views . ',');
+                            }
+                        @endphp
                     ],
                     backgroundColor: '#ff385c',
                     borderColor: '#ff385c',
