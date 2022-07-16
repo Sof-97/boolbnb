@@ -58,7 +58,8 @@
                 />
                 <input
                     value="apartment.id"
-                    type="text"
+                    type="number"
+                    min="1"
                     name="apartment_id"
                     id="apartment_id"
                     v-model="fields.apartment_id"
