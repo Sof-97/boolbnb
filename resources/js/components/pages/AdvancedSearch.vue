@@ -50,10 +50,7 @@
                         </ul>
                     </div>
 
-                    <div
-                        class="flex"
-                        style="align-items: center;"
-                    >
+                    <div class="flex" style="align-items: center">
                         <label for="radius">Raggio di ricerca:</label>
                         <input
                             type="range"
@@ -219,17 +216,26 @@ export default {
                 });
         },
         getInfoApi() {
-            axios
-                .get(this.baseUrlTomtom + this.search + this.keySettingsTomtom)
-                .then((res) => {
-                    this.autocomplete = res.data.results;
-                });
+            if (!this.search == "") {
+                axios
+                    .get(
+                        this.baseUrlTomtom +
+                            this.search +
+                            this.keySettingsTomtom
+                    )
+                    .then((res) => {
+                        this.autocomplete = res.data.results;
+                    });
+            } else {
+                this.autocomplete = [];
+            }
         },
         select(i) {
             this.lat2 = this.autocomplete[i].position.lat;
             this.lon2 = this.autocomplete[i].position.lon;
             this.getApartments(this.range, this.lat2, this.lon2);
             this.search = "";
+            this.autocomplete = [];
         },
         getServices() {
             axios.get("http://127.0.0.1:8000/api/services").then((res) => {
@@ -243,7 +249,6 @@ export default {
             });
         },
         check(serv) {
-            console.log(serv);
             if (this.checked.length == 0) {
                 return true;
             } else {
