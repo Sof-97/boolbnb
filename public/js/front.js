@@ -2392,11 +2392,13 @@ var render = function render() {
       "align-items": "center",
       "margin-left": "0.39rem"
     }
+  }, [_c("div", {
+    staticClass: "radiusdiv"
   }, [_c("label", {
     attrs: {
       "for": "radius"
     }
-  }, [_vm._v("Raggio di ricerca:")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Raggio di ricerca")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2422,7 +2424,7 @@ var render = function render() {
         _vm.range = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("input", {
+  })])]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2486,7 +2488,7 @@ var render = function render() {
       expression: "!apartments || apartments.length == 0"
     }],
     staticClass: "no-results-as"
-  }, [_vm._v("\r\n                    Nessun appartamento corrispondente.\r\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n                    Nessun appartamento corrispondente\r\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "container-cards-as"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
@@ -19536,8 +19538,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\MAMP\htdocs\boolbnb-team3-58\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! D:\MAMP\htdocs\boolbnb-team3-58\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

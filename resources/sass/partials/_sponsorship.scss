@@ -1,3 +1,7 @@
+.margin-section{
+    margin-top: 3rem;
+}
+
 .sponsorship-card{
         width: calc((100% / 3) - 100px )  ;
         padding: 2.5rem;
@@ -11,9 +15,18 @@
         img{
             display: block;
             width: 80%;
-            border: 1px solid $color-accent;
+            border: none;
             border-radius: 10px;
             margin: 10px auto;
+        }
+        img.Bronze{
+            filter: hue-rotate(25deg) saturate(0.8);
+        }
+        img.Silver{
+            filter: saturate(0) brightness(1.2);
+        }
+        img.Gold{
+            filter: hue-rotate(50deg) brightness(1.5);
         }
         p{
             margin: 10px 0;

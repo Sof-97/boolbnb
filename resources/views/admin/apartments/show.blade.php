@@ -5,7 +5,7 @@
 @section('content')
     <div class="flex-center padding-show">
         <div class="custom padding-show">
-            <div class="">
+            <div>
                 <div class="pill-show">
                     <h2>{{ $apartment->title }}</h2>
                 </div>
@@ -13,7 +13,7 @@
             <div class="flex align-center">
                 <div class="relative">
                     <div class="block">
-                        <img style="width: 300px; z-index: 1;" src="{{ $apartment->cover_image }}" alt="">
+                        <img class="aptimg" src="{{ $apartment->cover_image }}" alt="{{ $apartment->title }}">
                     </div>
                     <div class="info-show flex">
                         <div>
