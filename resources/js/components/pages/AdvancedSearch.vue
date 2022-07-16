@@ -51,7 +51,8 @@
                     </div>
 
                     <div class="flex" style="align-items: center; margin-left:0.39rem">
-                        <label for="radius">Raggio di ricerca:</label>
+                        <div class="radiusdiv">
+                        <label for="radius">Raggio di ricerca</label>
                         <input
                             type="range"
                             name="radius"
@@ -62,6 +63,7 @@
                             v-model="range"
                             @change="getApartments(range, lat, lon)"
                         />
+                    </div>
                     </div>
                     <input
                         class="stanze-letti"
@@ -89,7 +91,7 @@
                     class="no-results-as"
                     v-show="!apartments || apartments.length == 0"
                 >
-                    Nessun appartamento corrispondente.
+                    Nessun appartamento corrispondente
                 </p>
                 <div class="container-cards-as">
                     <div

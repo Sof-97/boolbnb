@@ -37,8 +37,8 @@ I tuoi appartamenti
                                 <tr>
 
 
-                            <td><img src="{{ $apartment->cover_image }}" alt=""
-                                    style="width: 120px; height: 120px; margin-right: 20px; margin-left: 20px;"></td>
+                            <td><img src="{{ $apartment->cover_image }}" alt="{{ $apartment->title }}"
+                                    class="listaptimg"></td>
                             <td style="padding-right: 30px; padding-left: 10px; font-weight: bold;">{{ $apartment->title }}</td>
                             <td style="padding-right: 30px; padding-left: 10px;">{{ $apartment->description }}</td>
                             <td style="padding-right: 30px; padding-left: 10px;">{{ $apartment->address }}</td>

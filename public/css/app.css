@@ -86,6 +86,14 @@ ul {
   color: white;
 }
 
+.listaptimg {
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+
 .hero {
   width: 100%;
   margin: 0 auto;
@@ -181,11 +189,9 @@ ul {
   top: 5%;
   left: 5%;
   z-index: 10;
-  color: white;
+  background-color: white;
   padding: 5px;
-  border: 1px solid white;
-  border-radius: 10px;
-  text-shadow: 1px 1px 1px #ff385c;
+  border-radius: 30px;
 }
 
 .index-cards .index-card .index-img-top {
@@ -213,16 +219,15 @@ ul {
   color: #ff385c;
   width: 100%;
   border-radius: 10px;
-  border: 1px solid lightgray;
-  border-radius: 10px;
   box-shadow: 5px 5px 10px 0px lightgray;
   margin-top: 16px;
   text-decoration: none;
+  transition: 0.3s;
 }
 
 .index-cards .index-card .index-card-price .index-btn:hover {
-  box-shadow: 0 0 5px 2px #9b9b9b;
-  border: 1px solid gray;
+  color: white;
+  background-color: #ff385c;
 }
 
 .index-card-title {
@@ -276,6 +281,7 @@ ul {
 .template-image {
   height: 160px;
   width: 160px;
+  border-radius: 10px;
 }
 
 .statistics-written {
@@ -1096,7 +1102,13 @@ input[type=file] {
   border-radius: 30px;
   text-align: center;
   width: 25%;
-  margin-top: 20px;
+  margin: 20px 0;
+}
+
+.aptimg {
+  width: 300px;
+  z-index: 1;
+  border-radius: 10px;
 }
 
 .info-show {
@@ -1383,6 +1395,10 @@ select::-webkit-file-upload-button {
   margin-right: 0.3em;
 }
 
+.margin-section {
+  margin-top: 3rem;
+}
+
 .sponsorship-card {
   width: calc(33.3333333333% - 100px);
   padding: 2.5rem;
@@ -1442,6 +1458,17 @@ select::-webkit-file-upload-button {
   padding: 10px;
   font-size: small;
   font-weight: bold;
+}
+
+.radiusdiv {
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0 lightgray;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  display: inline-block;
+  padding: 10px;
 }
 
 .stanze-letti {
@@ -1537,6 +1564,7 @@ select::-webkit-file-upload-button {
 }
 
 .no-results-as {
+  font-size: 3rem;
   font-weight: bold;
   text-align: center;
   padding-top: 100px;

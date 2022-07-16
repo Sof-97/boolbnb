@@ -51,7 +51,7 @@
 
                     {{-- SERVIZI --}}
                     <div>
-                        <h4 class="services-title margin-top-forms" style="">Servizi: </h4>
+                        <h4 class="services-title margin-top-forms">Servizi </h4>
                     </div>
                     <div class="form-group form-create services-form">
                         <ul class="services-ul">
@@ -67,7 +67,7 @@
 
                     {{-- Immagine Copertina --}}
                     <div>
-                        <label class="services-title" for="cover_image">Carica una foto:</label>
+                        <label class="services-title" for="cover_image">Carica una foto</label>
                     </div>
                     <div class="flex wrap">
                         <div class="form-group margin-top-forms form-create image-form">
@@ -84,16 +84,16 @@
 
                         <div>
                             {{-- N° MQ2 --}}
-                            <div class="margin-little-forms-label">Metri quadrati</div>
+                            <div class="margin-little-forms-label services-title">Metri quadri</div>
                             <div class="form-group">
-                                <input placeholder="Metri quadrati" required class="form-control little-forms"
+                                <input placeholder="Metri quadi" required class="form-control little-forms"
                                     type="number" name="mq2" id="mq2" min="1" max="500" />
                                 @error('mq2')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             {{-- N° Stanze --}}
-                            <div class="margin-little-forms-label">Numero di stanze:</div>
+                            <div class="margin-little-forms-label services-title">Numero di stanze</div>
                             <div class="form-group">
                                 <input placeholder="N° di stanze" required class="form-control little-forms" type="number"
                                     name="rooms" id="rooms" min="1" max="15" />
@@ -105,7 +105,7 @@
 
                         <div>
                             {{-- N° letti --}}
-                            <div class="margin-little-forms-label">Numero di letti:</div>
+                            <div class="margin-little-forms-label services-title">Numero di letti</div>
                             <div class="form-group">
                                 <input placeholder="N° di letti" required class="form-control little-forms" type="number"
                                     name="beds" id="beds" min="1" max="15" />
@@ -114,7 +114,7 @@
                                 @enderror
                             </div>
                             {{-- N° bagni --}}
-                            <div class="margin-little-forms-label">Numero di bagni:</div>
+                            <div class="margin-little-forms-label services-title">Numero di bagni</div>
                             <div class="form-group">
                                 <input placeholder="N° di letti" required class="form-control little-forms" type="number"
                                     name="bathrooms" id="bathrooms" min="1" max="15" />
@@ -127,7 +127,7 @@
 
                     {{-- Visibilità appartamento --}}
                     <div class="form-group radio">
-                        <label for="is_visible">Desideri che l'appartamento sia visibile?</label>
+                        <label for="is_visible" class="services-title">Visibilità</label>
                         <div class="select-visible">
                             <select name="is_visible" id="is_visible">
                                 <option value="1">Sì</option>
