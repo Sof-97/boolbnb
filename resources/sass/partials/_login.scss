@@ -31,7 +31,7 @@
 nav {
     .navbar-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
     }
 
@@ -93,19 +93,21 @@ nav {
 }
 
 @media screen and (max-width: 480px) {
-    .button-login,
-    .button-register {
-        padding: 5px 5px !important;
-        margin: 5px 5px;
-    }
-    .card {
-        .form-control {
-            width: auto;
+    .login-container {
+        .button-login,
+        .button-register {
+            padding: 5px 5px !important;
+            margin: 5px 5px;
         }
-    }
-    .login-reset-area {
-        display: flex;
-        flex-direction: column;
+        .card {
+            .form-control {
+                width: auto;
+            }
+        }
+        .login-reset-area {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
 @media screen and (min-width: 1024px) {

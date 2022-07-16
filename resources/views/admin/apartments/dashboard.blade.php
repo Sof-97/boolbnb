@@ -21,8 +21,10 @@
         <div class="flex-center custom global-padding">
             <div class="">
                 <div class="flex-center movement">
-                    <div class="dash-title">
-                        <h4 class="pill-welcome">Dashboard di {{ $user->name }} {{ $user->surname }}</h4>
+                    <div>
+                        <div style="width: 20vw" class="dash-title">
+                            <h4 class="pill-welcome">Dashboard di {{ $user->name }} {{ $user->surname }}</h4>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -48,32 +50,35 @@
                                     </div>
                                     <div class="flex wrap description" style="flex-direction: column;">
                                         <div>
-                                            <h5 class="spacing-title padding-description">{{ $apartment->title }}</h5>
+                                            <h5 class="spacing-title padding-description">{{ $apartment->title }}
+                                                @if (count($apartment->sponsorship) > 0)
+                                                    <i class="fa-solid fa-crown"></i>
+                                                @endif
+                                            </h5>
                                         </div>
                                         <div>
                                             <div class="padding-description">{{ $apartment->description }}</dic>
                                             </div>
                                             <div>
                                                 <div>Visualizzazioni annuncio:
-                                                    {{ $viewsTotal[$apartment->id] }}</div>
+                                                    {{ count($apartment->view) }}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div>
                                         <button class="button_accent">
-                                            <a href="{{ route('admin.sponsorship', $apartment) }}">
-                                                Sponsorizza
-                                            </a>
+                                            <a href="{{ route('admin.sponsorship', $apartment) }}">Sponsorizza</a>
                                         </button>
                                     </div>
                                 </div>
-                        @endforeach
+                            </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
     </div>
     </div>
-
+    </div>
 @endsection

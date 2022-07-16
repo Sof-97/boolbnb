@@ -1,37 +1,16 @@
 <template>
     <div>
         <div class="container">
-            <div class="flex posrev">
-                <input
-                    type="text"
-                    class="search-as"
-                    placeholder="Inizia a cercare una destinazione"
-                    @keyup.enter="select(0)"
-                    @keyup="getInfoApi(search)"
-                    v-model="search"
-                />
-                <div class="filters-as">
-                    <div id="filter" @click="filterMenu">
-                        <i class="fa-solid fa-filter"></i>
-                        Filtri
-                    </div>
-                    <div id="filter-list" class="show">
-                        <ul>
-                            <li :key="i" v-for="(e, i) in services">
-                                <label :for="e.id">
-                                    {{ e.name }}
-                                </label>
-                                <input
-                                    type="checkbox"
-                                    :name="e.name"
-                                    :id="e.id"
-                                    :value="e.id"
-                                    v-model="checked"
-                                />
-                            </li>
-                        </ul>
-                    </div>
-
+            <div class="flex advanced">
+                <div class="posrev">
+                    <input
+                        type="text"
+                        class="search-as"
+                        placeholder="Inizia a cercare una destinazione"
+                        @keyup.enter="select(0)"
+                        @keyup="getInfoApi(search)"
+                        v-model="search"
+                    />
                     <div
                         class="autocomplete"
                         v-show="
@@ -50,7 +29,28 @@
                             </li>
                         </ul>
                     </div>
-                    <span>
+                </div>
+                <div class="filters-as flex posrev">
+                    <div id="filter" @click="filterMenu">
+                        <span> <i class="fa-solid fa-filter"></i>Filtri </span>
+                    </div>
+                    <div id="filter-list" class="show">
+                        <ul>
+                            <li :key="i" v-for="(e, i) in services">
+                                <input
+                                    type="checkbox"
+                                    :name="e.name"
+                                    :id="e.id"
+                                    :value="e.id"
+                                    v-model="checked"
+                                /><label :for="e.id">
+                                    {{ e.name }}
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex" style="align-items: center">
                         <label for="radius">Raggio di ricerca:</label>
                         <input
                             type="range"
@@ -62,7 +62,7 @@
                             v-model="range"
                             @change="getApartments(range, lat, lon)"
                         />
-                    </span>
+                    </div>
                     <input
                         class="stanze-letti"
                         type="number"
@@ -82,52 +82,57 @@
                     />
                 </div>
             </div>
-            <div id="map" style="width: 300px; height: 200px; margin:30px 0; border-radius: 10px"></div>
 
-            <p
-                class="no-results-as"
-                v-show="!apartments || apartments.length == 0"
-            >
-                Nessun appartamento corrispondente.
-            </p>
-
-            <div class="container-cards-as">
-                <div
-                    v-for="(e, i) in apartments"
-                    :key="i"
-                    class="card-as"
-                    v-show="
-                        e.rooms >= stanze && e.beds >= letti && check(e.service)
-                    "
+            <div class="padding-dashboard" id="gallery">
+                <div id="map"></div>
+                <p
+                    class="no-results-as"
+                    v-show="!apartments || apartments.length == 0"
                 >
-                    <span class="card-img-as">
-                        <img :src="`${e.cover_image}`" alt="Card image cap" />
-                        <div class="icons-as">
-                            <span
-                                ><i class="fa-solid fa-bed"></i>
-                                {{ e.rooms }}</span
-                            >
-                            <span
-                                >- <i class="fa-solid fa-toilet"></i>
-                                {{ e.bathrooms }}</span
+                    Nessun appartamento corrispondente.
+                </p>
+                <div class="container-cards-as">
+                    <div
+                        v-for="(e, i) in apartments"
+                        :key="i"
+                        class="card-as"
+                        v-show="
+                            e.rooms >= stanze &&
+                            e.beds >= letti &&
+                            check(e.service)
+                        "
+                    >
+                        <span class="card-img-as">
+                            <img
+                                :src="`${e.cover_image}`"
+                                alt="Card image cap"
+                            />
+                            <div class="icons-as">
+                                <span
+                                    ><i class="fa-solid fa-bed"></i>
+                                    {{ e.rooms }}</span
+                                >
+                                <span
+                                    >- <i class="fa-solid fa-toilet"></i>
+                                    {{ e.bathrooms }}</span
+                                >
+                            </div>
+                        </span>
+                        <div class="card-body-as">
+                            <h3 class="card-title-as">{{ e.title }}</h3>
+                            <p class="card-text-as">{{ e.description }}</p>
+                            <p class="card-price-as">
+                                <span>{{ e.price }}€</span> per Notte
+                            </p>
+                            <router-link
+                                :to="{
+                                    name: 'SingleApartment',
+                                    params: { slug: e.slug },
+                                }"
+                                class="button-show"
+                                >Vai all'appartamento</router-link
                             >
                         </div>
-                    </span>
-
-                    <div class="card-body-as">
-                        <h3 class="card-title-as">{{ e.title }}</h3>
-                        <p class="card-text-as">{{ e.description }}</p>
-                        <p class="card-price-as">
-                            <span>{{ e.price }}€</span> per Notte
-                        </p>
-                        <router-link
-                            :to="{
-                                name: 'SingleApartment',
-                                params: { slug: e.slug },
-                            }"
-                            class="button-show"
-                            >Vai all'appartamento</router-link
-                        >
                     </div>
                 </div>
             </div>
@@ -172,6 +177,7 @@ export default {
     created() {
         this.getApartments(this.radius, this.lat, this.lon);
         this.getServices();
+        const gallery = document.getElementById("gallery");
     },
     methods: {
         getMap() {
@@ -210,17 +216,26 @@ export default {
                 });
         },
         getInfoApi() {
-            axios
-                .get(this.baseUrlTomtom + this.search + this.keySettingsTomtom)
-                .then((res) => {
-                    this.autocomplete = res.data.results;
-                });
+            if (!this.search == "") {
+                axios
+                    .get(
+                        this.baseUrlTomtom +
+                            this.search +
+                            this.keySettingsTomtom
+                    )
+                    .then((res) => {
+                        this.autocomplete = res.data.results;
+                    });
+            } else {
+                this.autocomplete = [];
+            }
         },
         select(i) {
             this.lat2 = this.autocomplete[i].position.lat;
             this.lon2 = this.autocomplete[i].position.lon;
             this.getApartments(this.range, this.lat2, this.lon2);
             this.search = "";
+            this.autocomplete = [];
         },
         getServices() {
             axios.get("http://127.0.0.1:8000/api/services").then((res) => {
@@ -260,6 +275,15 @@ export default {
             }
         },
     },
+    watch: {
+        autocomplete: function () {
+            if (this.autocomplete.length > 0) {
+                gallery.classList.add("opacity");
+            } else {
+                gallery.classList.remove("opacity");
+            }
+        },
+    },
 };
 </script>
 
@@ -267,9 +291,16 @@ export default {
 #filter {
     cursor: pointer;
     padding: 10px;
-    border: 1px solid black;
+    border: 0.5px solid lightgray;
     border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgrey;
     display: inline-block;
+    min-width: fit-content;
+    .fa-solid {
+        margin: 0;
+        margin-right: 0.2rem;
+        opacity: 0.7;
+    }
 }
 
 #filter-list {
@@ -277,27 +308,23 @@ export default {
     z-index: 1;
     position: absolute;
     height: 200px;
+    top: 2.8rem;
     display: inline-block;
     padding: 10px 20px;
     overflow-y: scroll;
     border: 1px solid grey;
     border-radius: 10px;
-
     &::-webkit-scrollbar {
         width: 10px;
     }
-
     input {
         margin-right: 0;
         margin-left: auto;
     }
-
     ul {
         list-style: none;
-
         li {
             padding: 3px 0;
-
             label {
                 cursor: pointer;
             }
@@ -305,41 +332,56 @@ export default {
     }
 }
 
-.posrev {
-    position: relative !important;
-
-    .autocomplete {
-        z-index: 10;
-        margin-top: 1em;
-        left: 0;
-        background-color: #fff;
-        padding: 20px;
-        border: 1px solid black;
-        border-radius: 20px;
-        position: absolute;
-
-        ul {
-            list-style: none;
-
-            li {
-                font-family: monospace;
-                opacity: 0.7;
-                border-bottom: 1px solid grey;
-                padding: 5px 0;
-                cursor: pointer;
-
-                &:last-of-type {
-                    border: none;
-                }
-
-                &:hover {
-                    opacity: 1;
-                }
+#map {
+    width: 70%;
+    height: 400px;
+    margin: 1rem auto;
+    border-radius: 10px;
+}
+@media screen and (max-width: 1024px) {
+    #map {
+        width: 80%;
+        height: 400px;
+    }
+    .container {
+        .advanced {
+            flex-direction: column;
+            .posrev {
+                margin-bottom: 1rem;
+                width: 100%;
             }
         }
     }
 }
+@media screen and (max-width: 820px) {
+    #map {
+        width: 90%;
+        height: 400px;
+    }
+}
+.advanced {
+    .posrev {
+        width: 50%;
+    }
+}
+
+.posrev {
+    position: relative !important;
+    input[type="text"]:focus {
+        border: 2px solid black;
+    }
+}
 .show {
     display: none !important;
+}
+input[type="text"],
+input[type="number"] {
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgrey;
+    padding: 10px 15px 10px 15px;
+}
+input[type="number"] {
+    margin: 0 0.2rem;
 }
 </style>
