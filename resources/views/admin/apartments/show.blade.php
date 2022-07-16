@@ -48,6 +48,11 @@
                                 @endforelse
                             </ul>
                             <div class="flex" style="justify-content: flex-end; margin-top:auto;">
+                                <button class="button_accent" style="margin-right: 0.5rem">
+                                    <a href="{{ route('admin.stats', $apartment) }}">
+                                        Statistiche
+                                    </a>
+                                </button>
                                 <button class="button_accent">
                                     <a href="{{ route('admin.sponsorship', $apartment) }}">
                                         Sponsorizza

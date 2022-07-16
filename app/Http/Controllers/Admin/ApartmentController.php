@@ -20,12 +20,16 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function stats()
+    public function stats($apartment)
     {
-        $id = Auth::id();
-        $apartments = Apartment::where('id_user', '=', $id)->with('view')->get();
-
-        return view('admin.apartments.stats', compact('apartments'));
+        $show = Apartment::where('id', '=', $apartment)->with('view')->first();
+        // if (Auth::id() == $show->id_user) {
+            return view('admin.apartments.stats', compact('show'));
+        // } else {
+        //     $id = Auth::id();
+        //     $apartments = Apartment::all()->where('id_user', '=', $id);
+        //     return view('admin.apartments.apartment', compact('apartments'));
+        // }
     }
     /**
      * Display a listing of the resource.
@@ -77,9 +81,6 @@ class ApartmentController extends Controller
     {
         $id = Auth::id();
         $apartments = Apartment::all()->where('id_user', '=', $id);
-
-        // $apartments = Apartment::all();
-
         return view('admin.apartments.apartment', compact('apartments'));
     }
 
