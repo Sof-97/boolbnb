@@ -1,37 +1,16 @@
 <template>
     <div>
         <div class="container">
-            <div class="flex posrev">
-                <input
-                    type="text"
-                    class="search-as"
-                    placeholder="Inizia a cercare una destinazione"
-                    @keyup.enter="select(0)"
-                    @keyup="getInfoApi(search)"
-                    v-model="search"
-                />
-                <div class="filters-as">
-                    <div id="filter" @click="filterMenu">
-                        <i class="fa-solid fa-filter"></i>
-                        Filtri
-                    </div>
-                    <div id="filter-list" class="show">
-                        <ul>
-                            <li :key="i" v-for="(e, i) in services">
-                                <label :for="e.id">
-                                    {{ e.name }}
-                                </label>
-                                <input
-                                    type="checkbox"
-                                    :name="e.name"
-                                    :id="e.id"
-                                    :value="e.id"
-                                    v-model="checked"
-                                />
-                            </li>
-                        </ul>
-                    </div>
-
+            <div class="flex advanced">
+                <div class="posrev" style="width: 50%">
+                    <input
+                        type="text"
+                        class="search-as"
+                        placeholder="Inizia a cercare una destinazione"
+                        @keyup.enter="select(0)"
+                        @keyup="getInfoApi(search)"
+                        v-model="search"
+                    />
                     <div
                         class="autocomplete"
                         v-show="
@@ -50,7 +29,32 @@
                             </li>
                         </ul>
                     </div>
-                    <span>
+                </div>
+                <div class="filters-as flex posrev">
+                    <div id="filter" @click="filterMenu">
+                        <i class="fa-solid fa-filter"></i>
+                        Filtri
+                    </div>
+                    <div id="filter-list" class="show">
+                        <ul>
+                            <li :key="i" v-for="(e, i) in services">
+                                <input
+                                    type="checkbox"
+                                    :name="e.name"
+                                    :id="e.id"
+                                    :value="e.id"
+                                    v-model="checked"
+                                /><label :for="e.id">
+                                    {{ e.name }}
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style="margin: 0 1.5rem; align-items: center"
+                        class="flex"
+                    >
                         <label for="radius">Raggio di ricerca:</label>
                         <input
                             type="range"
@@ -62,7 +66,7 @@
                             v-model="range"
                             @change="getApartments(range, lat, lon)"
                         />
-                    </span>
+                    </div>
                     <input
                         class="stanze-letti"
                         type="number"
@@ -276,9 +280,14 @@ export default {
 #filter {
     cursor: pointer;
     padding: 10px;
-    border: 1px solid black;
+    border: 0.5px solid lightgray;
     border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgrey;
     display: inline-block;
+    .fa-solid{
+        margin: 0;
+        opacity: 0.7;
+    }
 }
 
 #filter-list {
@@ -286,6 +295,7 @@ export default {
     z-index: 1;
     position: absolute;
     height: 200px;
+    top:2.8rem;
     display: inline-block;
     padding: 10px 20px;
     overflow-y: scroll;
@@ -294,7 +304,7 @@ export default {
     &::-webkit-scrollbar {
         width: 10px;
     }
-    input{
+    input {
         margin-right: 0;
         margin-left: auto;
     }
@@ -311,34 +321,21 @@ export default {
 
 .posrev {
     position: relative !important;
-    .autocomplete {
-        z-index: 10;
-        margin-top: 1em;
-        left: 0;
-        background-color: #fff;
-        padding: 20px;
-        border: 1px solid black;
-        border-radius: 20px;
-        position: absolute;
-        ul {
-            list-style: none;
-            li {
-                font-family: monospace;
-                opacity: 0.7;
-                border-bottom: 1px solid grey;
-                padding: 5px 0;
-                cursor: pointer;
-                &:last-of-type {
-                    border: none;
-                }
-                &:hover {
-                    opacity: 1;
-                }
-            }
-        }
+    input[type="text"]:focus {
+        border: 2px solid black;
     }
 }
 .show {
     display: none !important;
+}
+input[type="text"],
+input[type="number"] {
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px lightgrey;
+    padding: 10px 15px 10px 15px;
+}
+input[type="number"] {
+    margin: 0 0.2rem;
 }
 </style>

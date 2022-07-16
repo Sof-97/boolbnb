@@ -1436,12 +1436,11 @@ select::-webkit-file-upload-button {
 }
 
 .search-as {
-  width: 20%;
+  width: 80%;
   border-radius: 10px;
   padding: 10px;
   font-size: small;
   font-weight: bold;
-  margin-right: 10px;
 }
 
 .stanze-letti {
@@ -1458,6 +1457,13 @@ select::-webkit-file-upload-button {
   justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
+}
+
+.advanced {
+  justify-content: space-around;
+  padding: 30px 0;
+  margin: 0 auto;
+  width: 90%;
 }
 
 .card-as {
@@ -1538,14 +1544,6 @@ select::-webkit-file-upload-button {
 
 .search-bar-as {
   flex-wrap: wrap;
-}
-
-.filters-as span * {
-  margin: 0;
-}
-
-.filters-as * {
-  margin-left: 10px;
 }
 
 @media screen and (min-width: 1024px) {

@@ -2268,7 +2268,12 @@ var render = function render() {
   return _c("div", [_c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "flex posrev"
+    staticClass: "flex advanced"
+  }, [_c("div", {
+    staticClass: "posrev",
+    staticStyle: {
+      width: "50%"
+    }
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -2297,7 +2302,24 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "filters-as"
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.autocomplete != null && _vm.autocomplete.length > 0 && _vm.search != "",
+      expression: "\r\n                            autocomplete != null &&\r\n                            autocomplete.length > 0 &&\r\n                            search != ''\r\n                        "
+    }],
+    staticClass: "autocomplete"
+  }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
+    return _c("li", {
+      key: i,
+      on: {
+        click: function click($event) {
+          return _vm.select(i);
+        }
+      }
+    }, [_vm._v("\r\n                                " + _vm._s(e.address.freeformAddress) + "\r\n                            ")]);
+  }), 0)])]), _vm._v(" "), _c("div", {
+    staticClass: "filters-as flex posrev"
   }, [_c("div", {
     attrs: {
       id: "filter"
@@ -2315,11 +2337,7 @@ var render = function render() {
   }, [_c("ul", _vm._l(_vm.services, function (e, i) {
     return _c("li", {
       key: i
-    }, [_c("label", {
-      attrs: {
-        "for": e.id
-      }
-    }, [_vm._v("\r\n                                    " + _vm._s(e.name) + "\r\n                                ")]), _vm._v(" "), _c("input", {
+    }, [_c("input", {
       directives: [{
         name: "model",
         rawName: "v-model",
@@ -2355,25 +2373,18 @@ var render = function render() {
           }
         }
       }
-    })]);
-  }), 0)]), _vm._v(" "), _c("div", {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: _vm.autocomplete != null && _vm.autocomplete.length > 0 && _vm.search != "",
-      expression: "\r\n                            autocomplete != null &&\r\n                            autocomplete.length > 0 &&\r\n                            search != ''\r\n                        "
-    }],
-    staticClass: "autocomplete"
-  }, [_c("ul", _vm._l(_vm.autocomplete, function (e, i) {
-    return _c("li", {
-      key: i,
-      on: {
-        click: function click($event) {
-          return _vm.select(i);
-        }
+    }), _c("label", {
+      attrs: {
+        "for": e.id
       }
-    }, [_vm._v("\r\n                                " + _vm._s(e.address.freeformAddress) + "\r\n                            ")]);
-  }), 0)]), _vm._v(" "), _c("span", [_c("label", {
+    }, [_vm._v("\r\n                                    " + _vm._s(e.name) + "\r\n                                ")])]);
+  }), 0)]), _vm._v(" "), _c("div", {
+    staticClass: "flex",
+    staticStyle: {
+      margin: "0 1.5rem",
+      "align-items": "center"
+    }
+  }, [_c("label", {
     attrs: {
       "for": "radius"
     }
@@ -2894,7 +2905,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#filter[data-v-781a2080] {\n  cursor: pointer;\n  padding: 10px;\n  border: 1px solid black;\n  border-radius: 10px;\n  display: inline-block;\n}\n#filter-list[data-v-781a2080] {\n  background: white;\n  z-index: 1;\n  position: absolute;\n  height: 200px;\n  display: inline-block;\n  padding: 10px 20px;\n  overflow-y: scroll;\n  border: 1px solid grey;\n  border-radius: 10px;\n}\n#filter-list[data-v-781a2080]::-webkit-scrollbar {\n  width: 10px;\n}\n#filter-list input[data-v-781a2080] {\n  margin-right: 0;\n  margin-left: auto;\n}\n#filter-list ul[data-v-781a2080] {\n  list-style: none;\n}\n#filter-list ul li[data-v-781a2080] {\n  padding: 3px 0;\n}\n#filter-list ul li label[data-v-781a2080] {\n  cursor: pointer;\n}\n.posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev .autocomplete[data-v-781a2080] {\n  z-index: 10;\n  margin-top: 1em;\n  left: 0;\n  background-color: #fff;\n  padding: 20px;\n  border: 1px solid black;\n  border-radius: 20px;\n  position: absolute;\n}\n.posrev .autocomplete ul[data-v-781a2080] {\n  list-style: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080] {\n  font-family: monospace;\n  opacity: 0.7;\n  border-bottom: 1px solid grey;\n  padding: 5px 0;\n  cursor: pointer;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:last-of-type {\n  border: none;\n}\n.posrev .autocomplete ul li[data-v-781a2080]:hover {\n  opacity: 1;\n}\n.show[data-v-781a2080] {\n  display: none !important;\n}", ""]);
+exports.push([module.i, "#filter[data-v-781a2080] {\n  cursor: pointer;\n  padding: 10px;\n  border: 0.5px solid lightgray;\n  border-radius: 10px;\n  box-shadow: 5px 5px 10px 0px lightgrey;\n  display: inline-block;\n}\n#filter .fa-solid[data-v-781a2080] {\n  margin: 0;\n  opacity: 0.7;\n}\n#filter-list[data-v-781a2080] {\n  background: white;\n  z-index: 1;\n  position: absolute;\n  height: 200px;\n  top: 2.8rem;\n  display: inline-block;\n  padding: 10px 20px;\n  overflow-y: scroll;\n  border: 1px solid grey;\n  border-radius: 10px;\n}\n#filter-list[data-v-781a2080]::-webkit-scrollbar {\n  width: 10px;\n}\n#filter-list input[data-v-781a2080] {\n  margin-right: 0;\n  margin-left: auto;\n}\n#filter-list ul[data-v-781a2080] {\n  list-style: none;\n}\n#filter-list ul li[data-v-781a2080] {\n  padding: 3px 0;\n}\n#filter-list ul li label[data-v-781a2080] {\n  cursor: pointer;\n}\n.posrev[data-v-781a2080] {\n  position: relative !important;\n}\n.posrev input[type=text][data-v-781a2080]:focus {\n  border: 2px solid black;\n}\n.show[data-v-781a2080] {\n  display: none !important;\n}\ninput[type=text][data-v-781a2080],\ninput[type=number][data-v-781a2080] {\n  border: 0.5px solid lightgray;\n  border-radius: 10px;\n  box-shadow: 5px 5px 10px 0px lightgrey;\n  padding: 10px 15px 10px 15px;\n}\ninput[type=number][data-v-781a2080] {\n  margin: 0 0.2rem;\n}", ""]);
 
 // exports
 
