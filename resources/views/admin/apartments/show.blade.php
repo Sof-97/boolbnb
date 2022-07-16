@@ -1,4 +1,7 @@
 @extends('layouts.backOffice')
+@section('title')
+{{ $apartment->title }}
+@endsection
 @section('content')
     <div class="flex-center padding-show">
         <div class="custom padding-show">

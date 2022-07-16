@@ -26,7 +26,7 @@
                         </div>
                         {{-- Prezzo --}}
                         <div class="form-group">
-                            <input step="0.01" min="1" type="number" required name="price" id="price"
+                            <input step="1" min="1" type="number" required name="price" id="price"
                                 class="form-control price form-create margin-form" placeholder="Prezzo">
                             @error('price')
                                 <span class="text-danger">{{ $message }}</span>

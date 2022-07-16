@@ -1,6 +1,6 @@
 @extends('layouts.backOffice')
 @section('title')
-    Appartamenti
+I tuoi appartamenti
 @endsection
 @section('content')
     @if (session('deleted'))
