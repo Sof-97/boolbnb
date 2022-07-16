@@ -1399,9 +1399,21 @@ select::-webkit-file-upload-button {
 .sponsorship-card img {
   display: block;
   width: 80%;
-  border: 1px solid #ff385c;
+  border: none;
   border-radius: 10px;
   margin: 10px auto;
+}
+
+.sponsorship-card img.Bronze {
+  filter: hue-rotate(25deg) saturate(0.8);
+}
+
+.sponsorship-card img.Silver {
+  filter: saturate(0) brightness(1.2);
+}
+
+.sponsorship-card img.Gold {
+  filter: hue-rotate(50deg) brightness(1.5);
 }
 
 .sponsorship-card p {
