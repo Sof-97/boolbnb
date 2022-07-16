@@ -1,128 +1,111 @@
 <template>
-    <div>
-        <div class="landpage">
-            <div id="search">
-                <!-- Tasti ricerca -->
-                <div class="index-search-bar">
-                    <input
-                        type="text"
-                        v-model="search"
-                        class="index-search"
-                        placeholder="Inizia a cercare una destinazione"
-                        @keyup.enter="select(0)"
-                        @keyup="getInfoApi(search)"
-                    />
-                </div>
+    <div class="landpage">
+        <!-- Tasti ricerca -->
+        <div class="index-search-bar">
+            <input
+                type="text"
+                v-model="search"
+                class="index-search"
+                placeholder="Inizia a cercare una destinazione"
+                @keyup.enter="select(0)"
+                @keyup="getInfoApi(search)"
+            />
 
-                <!-- Auto complete suggerimenti-->
-                <div
-                    class="autocomplete"
-                    v-show="
-                        autocomplete != null &&
-                        autocomplete.length > 0 &&
-                        search != ''
-                    "
-                >
-                    <ul>
-                        <li
-                            :key="i + 'autocomplete'"
-                            v-for="(e, i) in autocomplete"
-                            @click="select(i)"
-                        >
-                            {{ e.address.freeformAddress }}
-                        </li>
-                    </ul>
+            <!-- Auto complete suggerimenti-->
+            <div
+                class="autocomplete"
+                v-show="
+                    autocomplete != null &&
+                    autocomplete.length > 0 &&
+                    search != ''
+                "
+            >
+                <ul>
+                    <li
+                        :key="i + 'autocomplete'"
+                        v-for="(e, i) in autocomplete"
+                        @click="select(i)"
+                    >
+                        {{ e.address.freeformAddress }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HERO -->
+        <!-- <div class="hero"></div> -->
+
+        <!-- Elenco delle cards -->
+        <div class="index-cards" id="gallery">
+            <div
+                v-for="(e, i) in sponsored"
+                :key="i + 'sponsored'"
+                class="index-card custom"
+            >
+                <!-- Immagine e icone -->
+                <div class="index-cover-img">
+                    <div class="index-sponsor">Sponsored</div>
+                    <img
+                        class="index-img-top"
+                        :src="`${e.cover_image}`"
+                        alt="Card image cap"
+                    />
+                    <!-- Icone Letti e bagni -->
+                    <div class="index-cover-img-l">
+                        <i class="fa-solid fa-bed"></i
+                        ><span>{{ e.rooms }}</span>
+                        <i class="fa-solid fa-toilet"></i
+                        ><span>{{ e.bathrooms }}</span>
+                    </div>
+                </div>
+                <div class="index-card-text">
+                    <p class="index-card-title">{{ e.title }}</p>
+                    <p>{{ e.description }}</p>
+                </div>
+                <div class="index-card-price" style="width: 100%">
+                    <router-link
+                        :to="{
+                            name: 'SingleApartment',
+                            params: { slug: e.slug },
+                        }"
+                        class="index-btn"
+                        >Vai all'appartamento</router-link
+                    >
                 </div>
             </div>
-
-            <!-- HERO -->
-            <!-- <div class="hero"></div> -->
-
-            <!-- Elenco delle cards -->
-            <div class="index-cards" id="gallery">
-                <div v-for="(e, i) in sponsored" :key="i + 'sponsored' " class="index-card">
-                    <!-- Immagine e icone -->
-                    <div>
-                        <div class="index-cover-img">
-                            <div>
-                                <img
-                                    class="index-img-top"
-                                    :src="`${e.cover_image}`"
-                                    alt="Card image cap"
-                                />
-                                <!-- Icone Letti e bagni -->
-                                <div class="index-cover-img-l">
-                                    <span
-                                        ><i class="fa-solid fa-bed"></i>
-                                        {{ e.rooms }}</span
-                                    >
-                                    <span
-                                        >- <i class="fa-solid fa-toilet"></i>
-                                        {{ e.bathrooms }}</span
-                                    >
-                                </div>
-                                <div class="index-sponsor">Sponsored</div>
-                            </div>
-                        </div>
-                        <p class="index-card-text">{{ e.description }}</p>
-                    </div>
-                    <div>
-                        <div class="index-card-price">
-                            <div class="index-card-title">
-                                Host: {{ e.title }}
-                            </div>
-                            <router-link
-                                :to="{
-                                    name: 'SingleApartment',
-                                    params: { slug: e.slug },
-                                }"
-                                class="index-btn"
-                                >Vai all'appartamento</router-link
-                            >
-                        </div>
+            <div
+                v-for="(e, i) in apartments"
+                :key="i"
+                class="index-card custom"
+            >
+                <!-- Immagine e icone -->
+                <div class="index-cover-img">
+                    <img
+                        class="index-img-top"
+                        :src="`${e.cover_image}`"
+                        alt="Card image cap"
+                    />
+                    <!-- Icone Letti e bagni -->
+                    <div class="index-cover-img-l">
+                        <i class="fa-solid fa-bed"></i
+                        ><span>{{ e.rooms }}</span>
+                        <i class="fa-solid fa-toilet"></i
+                        ><span>{{ e.bathrooms }}</span>
                     </div>
                 </div>
-                <br />
-                <div v-for="(e, i) in apartments" :key="i" class="index-card">
-                    <!-- Immagine e icone -->
-                    <div>
-                        <div class="index-cover-img">
-                            <div>
-                                <img
-                                    class="index-img-top"
-                                    :src="`${e.cover_image}`"
-                                    alt="Card image cap"
-                                />
-                                <!-- Icone Letti e bagni -->
-                                <div class="index-cover-img-l">
-                                    <span
-                                        ><i class="fa-solid fa-bed"></i>
-                                        {{ e.rooms }}</span
-                                    >
-                                    <span
-                                        ><i class="fa-solid fa-toilet"></i>
-                                        {{ e.bathrooms }}</span
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <p class="index-card-text">{{ e.description }}</p>
-                    </div>
-                    <div>
-                        <div class="index-card-price">
-                            <div class="index-card-title">
-                                Host: {{ e.title }}
-                            </div>
-                            <router-link
-                                :to="{
-                                    name: 'SingleApartment',
-                                    params: { slug: e.slug },
-                                }"
-                                class="index-btn"
-                                >Vai all'appartamento</router-link
-                            >
-                        </div>
-                    </div>
+                <div class="index-card-text">
+                    <p class="index-card-title">{{ e.title }}</p>
+                    <p>{{ e.description }}</p>
+                </div>
+                <div class="index-card-price" style="width: 100%">
+                    <router-link
+                        :to="{
+                            name: 'SingleApartment',
+                            params: { slug: e.slug },
+                        }"
+                        class="index-btn"
+                        >Vai all'appartamento</router-link
+                    >
                 </div>
             </div>
         </div>
@@ -172,11 +155,8 @@ export default {
         getApartments(query) {
             axios.get(query).then((res) => {
                 this.array = res.data;
-                console.log(this.array);
                 this.array.forEach((element) => {
-                    console.log(element);
                     if (element.sponsorship.length > 0) {
-                        console.log("Sponsored:", element);
                         this.sponsored.push(element);
                     } else {
                         this.apartments.push(element);
@@ -202,13 +182,3 @@ export default {
     },
 };
 </script>
-<style lang="scss" scoped>
-#search {
-    position: relative;
-    margin: 0 auto;
-    width: 50vw;
-    .autocomplete {
-        left: 0;
-    }
-}
-</style>

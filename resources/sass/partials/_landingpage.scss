@@ -1,11 +1,3 @@
-*,
-*::after,
-*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .hero {
     width: 100%;
     margin: 0 auto;
@@ -45,11 +37,14 @@
 }
 
 .index-search-bar {
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
     .index-search {
         width: 100%;
+        border: 0.5px solid lightgray;
         border-radius: 10px;
-        box-shadow: 2px 2px 1px gray;
-        border: 0.5 solid lightgray;
+        box-shadow: 5px 5px 10px 0px lightgray;
         margin-top: 16px;
         padding: 10px 15px 10px 15px;
     }
@@ -63,24 +58,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
-    width: 100%;
     margin: 0 auto;
-    padding: 0px 30px 0px 0%;
 
     .index-card {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        border: 1px solid grey;
-        height: 750px;
         width: calc((100% / 4) - 72px);
-        margin-left: 36px;
-        margin-top: 36px;
-        margin-right: 36px;
+        margin: 32px;
         border-radius: 20px;
-        box-shadow: 2px 2px 1px gray;
-
+        border: none !important;
         .index-cover-img {
             width: 100%;
             position: relative;
@@ -95,13 +81,14 @@
 
             .index-sponsor {
                 position: absolute;
-                bottom: 90%;
-                left: 7%;
+                top: 5%;
+                left: 5%;
                 z-index: 10;
                 color: white;
                 padding: 5px;
                 border: 1px solid white;
                 border-radius: 10px;
+                text-shadow: 1px 1px 1px $color-accent;
             }
         }
 
@@ -111,111 +98,51 @@
         }
 
         .index-card-text {
-            z-index: -10;
-            padding: 5%;
+            margin: 1rem auto;
             width: 90%;
+            p {
+                margin: 0.2rem 0;
+            }
         }
 
         .index-card-price {
-            top: 90%;
             width: 90%;
+            margin-top: auto;
             padding: 0px 10px 20px 10px;
-
-            .index-card-title {
-                opacity: 0.5;
-                margin-bottom: 16px;
-            }
 
             .index-btn {
                 padding: 5px;
-                color: red;
+                color: $color-accent;
+                width: 100%;
                 border-radius: 10px;
-                border: 0.2px solid grey;
-                box-shadow: 2px 2px 1px gray;
+                border: 1px solid lightgray;
+                border-radius: 10px;
+                box-shadow: 5px 5px 10px 0px lightgray;
                 margin-top: 16px;
+                text-decoration: none;
 
                 &:hover {
-                    -webkit-box-shadow: 0 0 5px 2px gray;
-                    -moz-box-shadow: 0 0 5px 2px gray;
-                    box-shadow: 0 0 5px 2px gray;
+                    -webkit-box-shadow: 0 0 5px 2px $color-gray-1-hover;
+                    -moz-box-shadow: 0 0 5px 2px $color-gray-1-hover;
+                    box-shadow: 0 0 5px 2px $color-gray-1-hover;
                     border: 1px solid gray;
-                    -moz-border-radius: 5px;
-                    -webkit-border-radius: 5px;
-                    -khtml-border-radius: 5px;
-                    border-radius: 5px;
                 }
             }
         }
     }
+}
+
+.index-card-title {
+    opacity: 0.5;
 }
 
 // SECTION Media Query
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1080px) {
     .index-cards {
+        margin-top: 16px;
         .index-card {
-            max-height: 400px;
-            .index-cover-img {
-                .index-sponsor {
-                    bottom: 85%;
-                }
-            }
-        }
-    }
-
-    .index-search-bar {
-        .index-search {
-            width: 30%;
-            border-radius: 10px;
-            box-shadow: 2px 2px 1px gray;
-            border: 0.5 solid gray;
-            margin-top: 16px;
-            padding: 10px 15px 10px 15px;
-        }
-    }
-
-    .hero {
-        height: 400px;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .index-cards {
-        .index-card {
-            max-height: 300px;
-
-            .index-cover-img {
-                .index-sponsor {
-                    bottom: 80%;
-                }
-            }
-        }
-    }
-    .index-search-bar {
-        .index-search {
-            width: 35%;
-        }
-    }
-    .hero {
-        height: 310px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .index-cards {
-        .index-card {
-            max-height: 450px;
-            width: calc((50% - 72px));
-            .index-cover-img {
-                .index-sponsor {
-                    bottom: 90%;
-                }
-            }
-        }
-    }
-
-    .index-search-bar {
-        .index-search {
-            width: 55%;
+            width: calc((100% / 3 - 32px));
+            margin: 16px;
         }
     }
 
@@ -224,61 +151,31 @@
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
     .index-cards {
         .index-card {
-            max-height: 450px;
+            width: calc((100%/2 - 36px));
+            margin: 18px;
+        }
+    }
+    .hero {
+        height: 280px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .index-search-bar {
+        width: 80%;
+        .index-search {
+            width: 100%;
+        }
+    }
+    .index-cards {
+        .index-card {
             width: 80%;
-            .index-cover-img {
-                .index-sponsor {
-                    bottom: 85%;
-                }
-            }
         }
     }
     .hero {
         height: 175px;
-    }
-}
-
-@media screen and (max-width: 375px) {
-    .index-cards {
-        .index-card {
-            max-height: 400px;
-            width: 80%;
-
-            .index-cover-img {
-                .index-sponsor {
-                    bottom: 85%;
-                }
-            }
-        }
-    }
-
-    .index-search-bar {
-        .index-search {
-            width: 55%;
-        }
-    }
-
-    .hero {
-        height: 150px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .index-cards {
-        .index-card {
-            max-height: 350px;
-            width: 80%;
-            .index-cover-img {
-                .index-sponsor {
-                    bottom: 85%;
-                }
-            }
-        }
-    }
-    .hero {
-        height: 125px;
     }
 }

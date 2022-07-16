@@ -13,20 +13,22 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     {{-- TomTom Map API --}}
-        <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css'>
-        <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css'>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js"></script>
     <title>Welcome Page</title>
     @if ($user)
         <script>
             window.user = "{{ $user->email }}"
-            window.name = "{{$user->name}}"
+            window.name = "{{ $user->name }}"
         </script>
     @endif
 </head>
 
 <body>
     @include('layouts.nav-index')
-    <div id="root"></div>
+    <main style="margin-top: 70px">
+        <div id="root"></div>
+    </main>
     @include('layouts.footer')
     <script src="{{ asset('js/front.js') }}"></script>
 </body>

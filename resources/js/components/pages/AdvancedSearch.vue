@@ -82,7 +82,15 @@
                     />
                 </div>
             </div>
-            <div id="map" style="width: 300px; height: 200px; margin:30px 0; border-radius: 10px"></div>
+            <div
+                id="map"
+                style="
+                    width: 300px;
+                    height: 200px;
+                    margin: 30px 0;
+                    border-radius: 10px;
+                "
+            ></div>
 
             <p
                 class="no-results-as"
@@ -234,6 +242,7 @@ export default {
             });
         },
         check(serv) {
+            console.log(serv);
             if (this.checked.length == 0) {
                 return true;
             } else {
@@ -282,22 +291,17 @@ export default {
     overflow-y: scroll;
     border: 1px solid grey;
     border-radius: 10px;
-
     &::-webkit-scrollbar {
         width: 10px;
     }
-
-    input {
+    input{
         margin-right: 0;
         margin-left: auto;
     }
-
     ul {
         list-style: none;
-
         li {
             padding: 3px 0;
-
             label {
                 cursor: pointer;
             }
@@ -307,7 +311,6 @@ export default {
 
 .posrev {
     position: relative !important;
-
     .autocomplete {
         z-index: 10;
         margin-top: 1em;
@@ -317,21 +320,17 @@ export default {
         border: 1px solid black;
         border-radius: 20px;
         position: absolute;
-
         ul {
             list-style: none;
-
             li {
                 font-family: monospace;
                 opacity: 0.7;
                 border-bottom: 1px solid grey;
                 padding: 5px 0;
                 cursor: pointer;
-
                 &:last-of-type {
                     border: none;
                 }
-
                 &:hover {
                     opacity: 1;
                 }

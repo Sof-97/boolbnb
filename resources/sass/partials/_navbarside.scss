@@ -1,7 +1,7 @@
 //hamburger menu
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.navbar{
+.navbar {
     z-index: 99;
 
     .nav-container {
@@ -14,16 +14,16 @@
         margin-top: -12px;
         padding: 0 !important;
 
-            li {
-                list-style: none;
-            }
-            a {
-                text-decoration: none;
-                color: #0e2431;
-                font-weight: 500;
-                font-size: 1.2rem;
-                padding: 0.7rem;
-            }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: #0e2431;
+            font-weight: 500;
+            font-size: 1.2rem;
+            padding: 0.7rem;
+        }
 
         .checkbox {
             position: absolute;
@@ -37,7 +37,7 @@
             cursor: pointer;
         }
 
-        .hamburger-lines{
+        .hamburger-lines {
             display: block;
             height: 26px;
             width: 32px;
@@ -71,69 +71,72 @@
                 transition: transform 0.4s ease-in-out;
             }
         }
-
-
-
-    input[type="checkbox"]:checked~.menu-items {
-        transform: translateX(0);
-        width: 25vw;
-    }
-
-    input[type="checkbox"]:checked~.hamburger-lines .line1 {
-        transform: rotate(45deg);
-    }
-
-    input[type="checkbox"]:checked~.hamburger-lines .line2 {
-        transform: scaleY(0);
-    }
-
-    input[type="checkbox"]:checked~.hamburger-lines .line3 {
-        transform: rotate(-45deg);
-    }
-
-    input[type="checkbox"]:checked~.logo {
-        display: none;
-    }
-
-    .menu-items {
-        color: $color-accent !important;
-        display: flex;
-        padding-top: 120px;
-        height: 100vh;
-        width: 100%;
-        transform: translate(-150%);
-        flex-direction: column;
-        margin-left: -40px;
-        padding-left: 50px;
-        transition: transform 0.5s ease-in-out;
-        background-color: $dirty-white;
-
-        .logo {
-            padding-left: 7px;
-            padding-bottom: 12px;
+        
+        input[type="checkbox"]:checked ~ .menu-items {
+            transform: translateX(0);
+            width: 25vw;
         }
 
-        li {
-            margin-bottom: 1.2rem;
-            font-size: 20px;
-            font-weight: 500;
+        input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+            transform: rotate(45deg);
         }
 
-        .navbar-ul {
-            list-style-type: none;
-            margin-bottom: 0 !important;
+        input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+            transform: scaleY(0);
+        }
 
-            .navbar-li {
+        input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+            transform: rotate(-45deg);
+        }
 
-                cursor: pointer;
-                text-decoration: none;
-                color: $color-gray-2;
-                margin-bottom: 15px;
-                a:hover {
-                    color: $color-accent;
+        input[type="checkbox"]:checked ~ .logo {
+            display: none;
+        }
+
+        .menu-items {
+            color: $color-accent !important;
+            display: flex;
+            padding-top: 120px;
+            height: 100vh;
+            width: 100%;
+            transform: translate(-150%);
+            flex-direction: column;
+            margin-left: -40px;
+            padding-left: 50px;
+            transition: transform 0.5s ease-in-out;
+            background-color: $dirty-white;
+
+            .logo {
+                padding-left: 7px;
+                padding-bottom: 12px;
+            }
+
+            li {
+                margin-bottom: 1.2rem;
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+            .navbar-ul {
+                list-style-type: none;
+                margin-bottom: 0 !important;
+
+                .navbar-li {
+                    cursor: pointer;
+                    text-decoration: none;
+                    color: $color-gray-2;
+                    margin-bottom: 15px;
+                    a:hover {
+                        color: $color-accent;
+                    }
                 }
             }
         }
     }
 }
+.nav-logo {
+    a {
+        display: flex;
+        align-items: center;
+    }
 }
