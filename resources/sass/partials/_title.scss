@@ -30,6 +30,11 @@
         justify-content: space-around;
         display: flex;
         align-items: center;
+        span {
+            margin-left: 10px;
+        }
+    }
+}
         padding: 10px 0;
         .nav-logo {
             a {

@@ -12,7 +12,7 @@
                 <span class="align-center">BoolBnB</span>
             </div>
             <ul class="navbar-ul">
-                <li class="navbar-li"><a href="/admin/dashboard">Dashboard</a></li>
+                <li style="margin-top: 5px;" class="navbar-li"><a href="/admin/dashboard">Dashboard</a></li>
                 <li class="navbar-li"><a href="/admin/apartments">I tuoi appartamenti</a></li>
                 <li class="navbar-li"><a href="{{route('admin.stats')}}">Statistiche</a></li>
                 <li class="navbar-li"><a href="{{ route('admin.message') }}">Messaggi</a></li>

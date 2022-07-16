@@ -47,46 +47,6 @@
     }
 }
 
-@media screen and (max-width: 830px) {
-    .sa-container {
-        margin-top: 0;
-        width: 80%;
-        padding: 20px;
-        .sa-cont-img {
-            width: 100%;
-            flex-wrap: wrap;
-            img {
-                width: 100%;
-            }
-            .id {
-                margin-top: 20px;
-                width: 100%;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .sa-container {
-        margin-top: 0;
-        width: 98%;
-        padding: 15px;
-        .sa-cont-img {
-            width: 100%;
-            flex-wrap: wrap;
-            img {
-                width: 100%;
-            }
-            .id {
-                margin-top: 20px;
-                width: 100%;
-            }
-        }
-    }
-    .button-send {
-        width: fit-content;
-    }
-}
 
 input,
 textarea,
@@ -104,6 +64,7 @@ select {
         color: $color-accent;
     }
 }
+
 .id {
     width: calc(50% - 20px);
     height: 350px;
