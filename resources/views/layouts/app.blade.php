@@ -23,6 +23,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Icona -->
+    <link rel="icon" type="image/x-icon" href="href="{{ asset('icon.jpg') }}">
 </head>
 
 <body>
