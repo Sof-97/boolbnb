@@ -1,5 +1,7 @@
 @extends('layouts.create-edit')
-
+@section('title')
+Crea appartamento
+@endsection
 @section('content')
     @if ($errors->any())
         {{ implode('', $errors->all('<div>:message</div>')) }}

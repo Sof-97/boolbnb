@@ -19,10 +19,6 @@
     box-shadow: 5px 5px 10px 0px lightgray;
 }
 
-.form-create-width {
-    width: 45vw;
-}
-
 .price {
     width: 13vw;
 }
@@ -32,7 +28,7 @@
 }
 
 .address-form {
-    width: 60vw;
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -52,7 +48,7 @@
 }
 
 .services-title {
-    margin-bottom: 20px;
+    margin: 20px 0;
     color: $color-accent;
     font-weight: bold;
 }

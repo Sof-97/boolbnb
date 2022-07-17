@@ -854,7 +854,7 @@ ul {
 }
 
 .form-create-width {
-  width: 45vw;
+  width: 43.5vw;
 }
 
 .price {
@@ -866,7 +866,6 @@ ul {
 }
 
 .address-form {
-  width: 60vw;
   margin-top: 20px;
 }
 
@@ -1066,10 +1065,6 @@ input[type=file] {
   box-shadow: 5px 5px 10px 0px lightgray;
 }
 
-.form-create-width {
-  width: 45vw;
-}
-
 .price {
   width: 13vw;
 }
@@ -1079,7 +1074,7 @@ input[type=file] {
 }
 
 .address-form {
-  width: 60vw;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -1099,7 +1094,7 @@ input[type=file] {
 }
 
 .services-title {
-  margin-bottom: 20px;
+  margin: 20px 0;
   color: #ff385c;
   font-weight: bold;
 }
