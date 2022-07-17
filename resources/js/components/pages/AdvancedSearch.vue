@@ -106,7 +106,7 @@
                     >
                         <span class="card-img-as">
                             <img
-                                :src="`${e.cover_image}`"
+                                :src="`/storage/${e.cover_image}`"
                                 alt="Card image cap"
                             />
                             <div class="icons-as">

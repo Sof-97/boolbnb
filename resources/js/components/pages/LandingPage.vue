@@ -49,6 +49,7 @@
                         class="index-img-top"
                         :src="`/storage/${e.cover_image}`"
                         alt="Card image cap"
+                        style="height: 250px"
                     />
                     <!-- Icone Letti e bagni -->
                     <div class="index-cover-img-l">
@@ -84,6 +85,8 @@
                         class="index-img-top"
                         :src="`/storage/${e.cover_image}`"
                         alt="Card image cap"
+                        style="height: 250px"
+
                     />
                     <!-- Icone Letti e bagni -->
                     <div class="index-cover-img-l">

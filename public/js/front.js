@@ -2504,7 +2504,7 @@ var render = function render() {
       staticClass: "card-img-as"
     }, [_c("img", {
       attrs: {
-        src: "".concat(e.cover_image),
+        src: "/storage/".concat(e.cover_image),
         alt: "Card image cap"
       }
     }), _vm._v(" "), _c("div", {
@@ -2626,6 +2626,9 @@ var render = function render() {
       staticClass: "index-sponsor"
     }, [_vm._v("Sponsored")]), _vm._v(" "), _c("img", {
       staticClass: "index-img-top",
+      staticStyle: {
+        height: "250px"
+      },
       attrs: {
         src: "/storage/".concat(e.cover_image),
         alt: "Card image cap"
@@ -2664,6 +2667,9 @@ var render = function render() {
       staticClass: "index-cover-img"
     }, [_c("img", {
       staticClass: "index-img-top",
+      staticStyle: {
+        height: "250px"
+      },
       attrs: {
         src: "/storage/".concat(e.cover_image),
         alt: "Card image cap"
@@ -2763,7 +2769,7 @@ var render = function render() {
     staticClass: "sa-cont-img"
   }, [_c("img", {
     attrs: {
-      src: _vm.apartment.cover_image,
+      src: "/storage/".concat(_vm.apartment.cover_image),
       alt: ""
     }
   }), _vm._v(" "), _c("div", {
