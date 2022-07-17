@@ -1879,3 +1879,15 @@ select::-webkit-file-upload-button {
   font-family: "Segoe", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: lightgray;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ff385c;
+}
+
