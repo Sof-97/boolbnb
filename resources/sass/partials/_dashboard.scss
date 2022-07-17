@@ -37,7 +37,6 @@
 
 .dash-title {
     margin-bottom: 30px;
-    width: 30%;
 }
 
 .description {
@@ -76,5 +75,13 @@
     color: white;
     background-color: gold;
     padding: 6px;
-    
+}
+
+@media screen and (max-width: 700px) {
+    .statistics {
+        .cards {
+            align-items: center;
+            flex-direction: column;
+        }
+    }
 }

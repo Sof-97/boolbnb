@@ -5,13 +5,10 @@
 @section('content')
     <div class="flex-center padding-show">
         <div class="custom padding-show">
-            <div>
-                <div class="pill-show">
+                <div class="pill-show custom">
                     <h2>{{ $apartment->title }}</h2>
-                </div>
             </div>
-            <div class="flex align-center">
-                <div class="relative">
+            <div class="flex align-center wrap-query">
                     <div class="block">
                         <img class="aptimg" src="{{ $apartment->cover_image }}" alt="{{ $apartment->title }}">
                     </div>
@@ -47,7 +44,7 @@
                                     <li>Nessun servizio</li>
                                 @endforelse
                             </ul>
-                            <div class="flex" style="justify-content: flex-end; margin-top:auto;">
+                            <div class="flex" style=" margin-top:1rem;">
                                 <button class="button_accent" style="margin-right: 0.5rem">
                                     <a href="{{ route('admin.stats', $apartment) }}">
                                         Statistiche
@@ -62,7 +59,6 @@
                         </div>
 
                     </div>
-                </div>
             </div>
         </div>
     </div>

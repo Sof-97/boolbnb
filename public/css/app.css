@@ -317,7 +317,6 @@ ul {
 
 .dash-title {
   margin-bottom: 30px;
-  width: 30%;
 }
 
 .description {
@@ -356,6 +355,13 @@ ul {
   color: white;
   background-color: gold;
   padding: 6px;
+}
+
+@media screen and (max-width: 700px) {
+  .statistics .cards {
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .flex {
@@ -463,9 +469,6 @@ ul {
 .navbar .nav-container {
   position: relative;
   height: 60px;
-  max-width: 1050px;
-  width: 90%;
-  margin: auto;
   margin-top: -12px;
   padding: 0 !important;
 }
@@ -530,8 +533,8 @@ ul {
 }
 
 .navbar .nav-container input[type=checkbox]:checked ~ .menu-items {
-  transform: translateX(0);
-  width: 25vw;
+  transform: translateX(-300px);
+  width: 30vw;
 }
 
 .navbar .nav-container input[type=checkbox]:checked ~ .hamburger-lines .line1 {
@@ -552,25 +555,27 @@ ul {
 
 .navbar .nav-container .menu-items {
   color: #ff385c !important;
+  position: absolute;
   display: flex;
-  padding-top: 120px;
+  padding: 80px;
   height: 100vh;
-  width: 100%;
-  transform: translate(-150%);
+  align-items: center;
+  transform: translate(-200%);
   flex-direction: column;
   margin-left: -40px;
-  padding-left: 50px;
   transition: transform 0.5s ease-in-out;
   background-color: #eeeeee;
 }
 
 .navbar .nav-container .menu-items .logo {
+  margin-bottom: 2rem;
   padding-left: 7px;
   padding-bottom: 12px;
 }
 
 .navbar .nav-container .menu-items li {
-  margin-bottom: 1.2rem;
+  display: block;
+  margin: 1.2rem;
   font-size: 20px;
   font-weight: 500;
 }
@@ -596,10 +601,109 @@ ul {
   align-items: center;
 }
 
+@media screen and (max-width: 400px) {
+  .button_accent {
+    padding: 10px 5px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  .title {
+    justify-content: space-between !important;
+  }
+
+  .navbar .nav-container input[type=checkbox]:checked ~ .menu-items {
+    transform: translateX(0px);
+    width: 70vw;
+  }
+
+  .navbar .nav-container .menu-items {
+    min-height: 100%;
+    padding: 10px;
+    width: 0vw;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .navbar .nav-container input[type=checkbox]:checked ~ .menu-items {
+    transform: translateX(-200px);
+    width: 30vw;
+  }
+
+  .navbar .nav-container .menu-items {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar .nav-container input[type=checkbox]:checked ~ .menu-items {
+    transform: translateX(-100px);
+    width: 30vw;
+  }
+
+  .navbar .nav-container .menu-items {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .navbar .nav-container input[type=checkbox]:checked ~ .menu-items {
+    transform: translateX(-50px);
+    width: 40vw;
+  }
+
+  .navbar .nav-container .menu-items {
+    padding: 20px;
+    padding-top: 100px;
+  }
+
+  .navbar .nav-container .logo {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .navbar .nav-container input[type=checkbox]:checked ~ .menu-items {
+    transform: translateX(-50px);
+    width: 40vw;
+  }
+
+  .navbar .nav-container .menu-items {
+    padding: 20px;
+    padding-top: 100px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .navbar .nav-container input[type=checkbox]:checked ~ .menu-items {
+    transform: translateX(-50px);
+    width: 70vw;
+  }
+
+  .navbar .nav-container .menu-items {
+    padding: 20px;
+    padding-top: 100px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .navbar .nav-container input[type=checkbox]:checked ~ .menu-items {
+    transform: translateX(30px);
+    width: 70vw;
+  }
+
+  .navbar .nav-container .menu-items {
+    padding: 20px;
+    padding-top: 100px;
+  }
+}
+
 .title {
   color: #ff385c;
   font-size: 16px;
   font-weight: 700;
+  justify-content: space-around;
 }
 
 .title-border {
@@ -1101,7 +1205,6 @@ input[type=file] {
   padding: 10px;
   border-radius: 30px;
   text-align: center;
-  width: 25%;
   margin: 20px 0;
 }
 
@@ -1169,6 +1272,26 @@ input[type=file] {
   width: fit-content;
   opacity: 0.8;
   margin-right: 0.3rem;
+}
+
+@media screen and (max-width: 400px) {
+  .wrap-query {
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .wrap-query .block {
+    max-width: 100%;
+  }
+
+  .wrap-query .block img {
+    max-width: 100%;
+  }
+
+  .wrap-query .info-show {
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
 }
 
 * {

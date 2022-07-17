@@ -9,11 +9,10 @@
     padding: 10px;
     border-radius: 30px;
     text-align: center;
-    width: 25%;
     margin: 20px 0;
 }
 
-.aptimg{
+.aptimg {
     width: 300px;
     z-index: 1;
     border-radius: 10px;
@@ -70,6 +69,23 @@
             width: fit-content;
             opacity: 0.8;
             margin-right: 0.3rem;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .wrap-query {
+        margin: 0 auto;
+        flex-wrap: wrap;
+        .block {
+            max-width: 100%;
+            img {
+                max-width: 100%;
+            }
+        }
+        .info-show{
+            margin: 20px  0;
+            flex-wrap: wrap;
         }
     }
 }
