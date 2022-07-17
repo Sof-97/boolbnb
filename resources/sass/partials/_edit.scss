@@ -4,7 +4,6 @@
     padding: 10px;
     border-radius: 30px;
     text-align: center;
-    width: 25%;
     margin-top: 35px;
     margin-bottom: 35px;
 }
@@ -186,5 +185,13 @@ input[type="file"] {
 .custom-margin-create {
     .custom{
         width: 90%;
+    }
+}
+
+#app{
+    form{
+        >*{
+            margin: 0;
+        }
     }
 }

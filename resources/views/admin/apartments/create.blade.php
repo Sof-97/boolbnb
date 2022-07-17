@@ -129,7 +129,7 @@
                     <div class="form-group radio">
                         <label for="is_visible" class="services-title">Visibilità</label>
                         <div class="select-visible">
-                            <select name="is_visible" id="is_visible">
+                            <select name="is_visible" id="is_visible" class="select-form-visible">
                                 <option value="1">Sì</option>
                                 <option value="0">No</option>
                             </select>
