@@ -94,6 +94,56 @@ ul {
   border-radius: 10px;
 }
 
+@media screen and (max-width: 900px) {
+  .apartment-padding {
+    max-width: 100%;
+  }
+
+  .apartment-padding table {
+    max-width: 100%;
+  }
+
+  .apartment-padding table tbody {
+    max-width: 100%;
+  }
+
+  .apartment-padding table tbody tr td:first-child,
+  .apartment-padding table tbody tr td:nth-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .apartment-padding {
+    max-width: 100%;
+  }
+
+  .apartment-padding table {
+    max-width: 100%;
+  }
+
+  .apartment-padding table tbody {
+    max-width: 100%;
+  }
+
+  .apartment-padding table tbody tr td:first-child,
+  .apartment-padding table tbody tr td:nth-child(3),
+  .apartment-padding table tbody tr td:nth-child(4) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .margin-section .apartment-padding {
+    flex-direction: column;
+  }
+
+  .margin-section .apartment-padding .sponsorship-card {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
 .hero {
   width: 100%;
   margin: 0 auto;
@@ -1109,7 +1159,7 @@ input[type=file] {
 }
 
 .select-visible {
-  margin-top: 15px;
+  margin: 1rem 0;
 }
 
 .margin-little-forms-label {
@@ -1212,8 +1262,25 @@ input[type=file] {
   width: 90%;
 }
 
-#app form > * {
+#app form {
+  padding: 10px;
+}
+
+#app form .form-group {
   margin: 0;
+}
+
+#app form .form-group input[type=number] {
+  width: 100%;
+  margin: 0;
+}
+
+#app form > * {
+  width: 90%;
+}
+
+#app form > * > textarea {
+  width: 100%;
 }
 
 .padding-show {
@@ -1889,5 +1956,31 @@ select::-webkit-file-upload-button {
 
 ::-webkit-scrollbar-thumb {
   background-color: #ff385c;
+}
+
+.alert {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  border: 3px solid;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.alert.alert-deleted {
+  color: red;
+  border-color: red;
+}
+
+.alert.alert-created {
+  color: green;
+  border-color: green;
+}
+
+.alert.alert-edited {
+  color: lightseagreen;
+  border-color: lightseagreen;
 }
 

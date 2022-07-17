@@ -4,12 +4,12 @@
 @endsection
 @section('content')
     @if (session('success_message'))
-        <div class="alert alert-success">
+        <div class="alert alert-created">
             {{ session('success_message') }}
-        </div>
+        </div>  
     @endif
     @if (count($errors) > 0)
-        <div class="alert alert-danger">
+        <div class="alert alert-deleted">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>

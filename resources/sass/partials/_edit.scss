@@ -112,7 +112,7 @@
 }
 
 .select-visible {
-    margin-top: 15px;
+    margin: 1rem 0;
 }
 
 .margin-little-forms-label {
@@ -183,15 +183,26 @@ input[type="file"] {
 }
 
 .custom-margin-create {
-    .custom{
+    .custom {
         width: 90%;
     }
 }
 
-#app{
-    form{
-        >*{
+#app {
+    form {
+        padding: 10px;
+        .form-group {
             margin: 0;
+            input[type="number"] {
+                width: 100%;
+                margin: 0;
+            }
+        }
+        > * {
+            width: 90%;
+            > textarea {
+                width: 100%;
+            }
         }
     }
 }

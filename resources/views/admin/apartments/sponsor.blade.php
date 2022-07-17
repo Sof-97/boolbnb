@@ -4,7 +4,7 @@ Sponsorship
 @endsection
 @section('content')
     <div class="flex-center margin-section">
-        <div style="height: 80vh;" class="custom flex apartment-padding space-around items-center">
+        <div  class="custom flex apartment-padding space-around items-center">
             @foreach ($sponsorships as $sponsorship)
                 @php
                     $duration = substr($sponsorship->duration, 0, strpos($sponsorship->duration, ":"));
