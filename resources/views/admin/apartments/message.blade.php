@@ -7,10 +7,8 @@
         <h1 class="title-ms">Messaggi</h1>
         @foreach ($apartments as $apt)
         <div class="singleapartment-ms">
-                @foreach ($apt->message as $message)
-                    @if ($loop->iteration == 1)
-                        <h2 class="apartment-name-ms">Appartamento "{{ $apt->title }}"</h2>
-                    @endif
+            <h2 class="apartment-name-ms">Appartamento "{{ $apt->title }}"</h2>
+                @forelse ($apt->message as $message)
                     <div class="message-ms">
                         <p class="message-sender-ms">Messaggio da: <i>{{ $message->name }}</i></p>
                         <p class="message-sender-ms">Email: <u>{{ $message->email_sender }}</u></p>
@@ -18,7 +16,9 @@
                             {{ $message->text }}
                         </p>
                     </div>
-                @endforeach
+                    @empty
+                    <h5>Nessun messaggio</h5>
+                @endforelse
         </div>
         @endforeach
     </div>

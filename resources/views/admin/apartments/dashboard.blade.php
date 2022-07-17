@@ -6,7 +6,7 @@
     @if (session('success_message'))
         <div class="alert alert-created">
             {{ session('success_message') }}
-        </div>  
+        </div>
     @endif
     @if (count($errors) > 0)
         <div class="alert alert-deleted">
@@ -35,7 +35,8 @@
                     <div class="statistics">
                         <div class="cards">
                             <div class="margin-bottom">
-                                <img class="template-image image" src={{ $apartment->cover_image }} alt="">
+                                <img class="template-image image" src={{asset("/storage/$apartment->cover_image") }}
+                                    alt="">
                             </div>
                             <div class="flex wrap description" style="flex-direction: column;">
                                 <div>

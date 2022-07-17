@@ -10,7 +10,7 @@
             </div>
             <div class="flex align-center wrap-query">
                     <div class="block">
-                        <img class="aptimg" src="{{ $apartment->cover_image }}" alt="{{ $apartment->title }}">
+                        <img class="aptimg" src="{{ asset("/storage/$apartment->cover_image") }}" alt="{{ $apartment->title }}">
                     </div>
                     <div class="info-show flex">
                         <div>

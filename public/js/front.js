@@ -2627,7 +2627,7 @@ var render = function render() {
     }, [_vm._v("Sponsored")]), _vm._v(" "), _c("img", {
       staticClass: "index-img-top",
       attrs: {
-        src: "".concat(e.cover_image),
+        src: "/storage/".concat(e.cover_image),
         alt: "Card image cap"
       }
     }), _vm._v(" "), _c("div", {
@@ -2665,7 +2665,7 @@ var render = function render() {
     }, [_c("img", {
       staticClass: "index-img-top",
       attrs: {
-        src: "".concat(e.cover_image),
+        src: "/storage/".concat(e.cover_image),
         alt: "Card image cap"
       }
     }), _vm._v(" "), _c("div", {

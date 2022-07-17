@@ -28,7 +28,7 @@
                 <tbody>
                     @foreach ($apartments as $apartment)
                         <tr>
-                            <td><img src="{{ $apartment->cover_image }}" alt="{{ $apartment->title }}"
+                            <td><img src="{{ asset("/storage/$apartment->cover_image") }}" alt="{{ $apartment->title }}"
                                     class="listaptimg"></td>
                             <td style="padding-right: 30px; padding-left: 10px; font-weight: bold;">
                                 {{ $apartment->title }}</td>
