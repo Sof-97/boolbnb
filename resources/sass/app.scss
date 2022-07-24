@@ -37,3 +37,38 @@
     box-sizing: border-box;
     font-family: "Segoe", sans-serif;
 }
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: lightgray;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: $color-accent;
+}
+
+.alert{
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    border: 3px solid;
+    padding: 20px;
+    border-radius:20px ;
+    background-color: #fff;
+    &.alert-deleted{
+        color: red;
+        border-color: red;
+    }
+    &.alert-created{
+        color: green;
+        border-color: green;
+    }
+    &.alert-edited{
+        color: lightseagreen;
+        border-color: lightseagreen;
+    }
+}

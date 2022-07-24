@@ -20,12 +20,22 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function stats()
+    public function stats($apartment)
     {
-        $id = Auth::id();
-        $apartments = Apartment::with('view')->where('id_user', '=', $id)->get();
+        $apartment = Apartment::where('id', '=', $apartment)->first();
 
-        return view('admin.apartments.stats', compact('apartments'));
+
+        if (Auth::id() == $apartment->id_user) {
+            $views = View::selectRaw('count(month(created_at)) as views')
+                ->where('apartment_id', '=', $apartment->id)
+                ->groupByRaw('month(created_at)')
+                ->get();
+            return view('admin.apartments.stats', compact('apartment', 'views'));
+        } else {
+            $id = Auth::id();
+            $apartments = Apartment::all()->where('id_user', '=', $id);
+            return view('admin.apartments.apartment', compact('apartments'));
+        }
     }
     /**
      * Display a listing of the resource.
@@ -77,9 +87,6 @@ class ApartmentController extends Controller
     {
         $id = Auth::id();
         $apartments = Apartment::all()->where('id_user', '=', $id);
-
-        // $apartments = Apartment::all();
-
         return view('admin.apartments.apartment', compact('apartments'));
     }
 
@@ -226,9 +233,7 @@ class ApartmentController extends Controller
             $data['cover_image'] = $image_url;
         }
         $apartment->update($data);
-
         if (array_key_exists('services', $data))  $apartment->service()->sync($data['services']);
-
         return redirect()->route('admin.apartments.index')->with('modified', "Hai modificato: $apartment->title");
     }
 

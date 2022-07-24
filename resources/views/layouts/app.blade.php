@@ -22,7 +22,14 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Styles -->
+<<<<<<< HEAD
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+=======
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Icona -->
+    <link rel="icon" type="image/x-icon" href="href="{{ asset('icon.jpg') }}">
+>>>>>>> c380dbabf8a3bf20e4187ed9292815070ddb0f31
 </head>
 
 <body>

@@ -28,7 +28,7 @@ Route::middleware('auth')
 
             //Appartamento da sponsorizzare
             Route::get('/sponsorship/{apartment}', 'PaymentController@sponsorship')->name('sponsorship');
-            Route::get('/stats', 'ApartmentController@stats')->name('stats');
+            Route::get('/stats/{apartment}', 'ApartmentController@stats')->name('stats');
             Route::get('/payment/{apartment}/{sponsorship}', 'PaymentController@payment')->name('payment');
             Route::post('/payment/checkout/{apartment}/{sponsorship}', 'PaymentController@checkout')->name('checkout');
         }
