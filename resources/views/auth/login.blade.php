@@ -6,7 +6,7 @@
             <div class="navbar-container">
 
                 <div class="navbar-brand" href="{{ url('/') }}">
-                    <img style="height: 50px; width: 50px;" src="{{ asset('img/airbnb-logo.png') }}" alt="tag">
+                    <img style="height: 50px; width: 50px;" src="{{ secure_asset('img/airbnb-logo.png') }}" alt="tag">
                     <span class="title" style="color: $color-accent">BoolBnB</span>
                 </div>
                 {{-- <button class="navbar-toggler" type="button" data-toggle="collapse"

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
 
     {{-- TomTom Map API --}}
     <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css'>
@@ -30,7 +30,7 @@
         <div id="root"></div>
     </main>
     @include('layouts.footer')
-    <script src="{{ asset('js/front.js') }}"></script>
+    <script src="{{ secure_asset('js/front.js') }}"></script>
 </body>
 
 </html>

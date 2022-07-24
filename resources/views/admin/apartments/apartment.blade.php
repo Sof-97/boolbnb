@@ -75,5 +75,5 @@
     </div>
 @endsection
 @section('script')
-    <script src="{{ asset('js/confirmDelete.js') }}"></script>
+    <script src="{{ secure_asset('js/confirmDelete.js') }}"></script>
 @endsection

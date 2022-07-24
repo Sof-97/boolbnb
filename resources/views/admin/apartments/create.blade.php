@@ -150,5 +150,5 @@
             </div>
         </div>
     </div>
-    <script defer src="{{ asset('js/formCreate.js') }}"></script>
+    <script defer src="{{ secure_asset('js/formCreate.js') }}"></script>
 @endsection

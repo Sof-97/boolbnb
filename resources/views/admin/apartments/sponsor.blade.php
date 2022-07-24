@@ -8,7 +8,7 @@
             @foreach ($sponsorships as $sponsorship)
                 <div class="sponsorship-card">
                     <h2>{{ $sponsorship->name }}</h2>
-                    <img src="{{ asset('img/airbnb-logo.png') }}" alt="logo">
+                    <img src="{{ secure_asset('img/airbnb-logo.png') }}" alt="logo">
                     <p>Durata: {{ $sponsorship->duration }}</p>
                     <p>Prezzo: {{ $sponsorship->price }}</p>
                     <div class="flex" style="justify-content: flex-end">
