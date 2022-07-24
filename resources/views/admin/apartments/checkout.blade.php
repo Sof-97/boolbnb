@@ -1,4 +1,7 @@
 @extends('layouts.backOffice')
+@section('title')
+Checkout
+@endsection
 @section('content')
     <div class="flex-center position-ref full-height">
         <form id="payment-form" action="{{ route('admin.checkout', [$apartment, $sponsorship]) }}" method="post">

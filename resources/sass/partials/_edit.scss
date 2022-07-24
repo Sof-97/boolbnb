@@ -4,7 +4,6 @@
     padding: 10px;
     border-radius: 30px;
     text-align: center;
-    width: 25%;
     margin-top: 35px;
     margin-bottom: 35px;
 }
@@ -20,10 +19,6 @@
     box-shadow: 5px 5px 10px 0px lightgray;
 }
 
-.form-create-width {
-    width: 45vw;
-}
-
 .price {
     width: 13vw;
 }
@@ -33,7 +28,7 @@
 }
 
 .address-form {
-    width: 60vw;
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -53,7 +48,7 @@
 }
 
 .services-title {
-    margin-bottom: 20px;
+    margin: 20px 0;
     color: $color-accent;
     font-weight: bold;
 }
@@ -113,7 +108,7 @@
 }
 
 .select-visible {
-    margin-top: 15px;
+    margin: 1rem 0;
 }
 
 .margin-little-forms-label {
@@ -184,7 +179,26 @@ input[type="file"] {
 }
 
 .custom-margin-create {
-    .custom{
+    .custom {
         width: 90%;
+    }
+}
+
+#app {
+    form {
+        padding: 10px;
+        .form-group {
+            margin: 0;
+            input[type="number"] {
+                width: 100%;
+                margin: 0;
+            }
+        }
+        > * {
+            width: 90%;
+            > textarea {
+                width: 100%;
+            }
+        }
     }
 }

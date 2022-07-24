@@ -8,7 +8,7 @@
             <div class="sa-title">Appartamento</div>
             <span class="sa-owner">{{ apartment.title }}</span>
             <div class="sa-cont-img">
-                <img :src="apartment.cover_image" alt="" />
+                <img :src="`/storage/${apartment.cover_image}`" alt="" />
                 <div id="map" class="id"></div>
             </div>
             <div class="sa-opacity">{{ apartment.description }}</div>

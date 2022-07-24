@@ -1,6 +1,6 @@
 <header>
     <nav class="nav">
-        <div class="navbar-guest">
+        <div class="navbar-guest" style="padding: 5px 0 ">
 
             <div class="nav-logo" href="{{ url('/') }}"><a href="/" style="text-decoration: none; color:inherit">
                     <img style="height: 50px; width: 50px;" src="{{ asset('img/airbnb-logo.png') }}" alt="tag">

@@ -1,6 +1,7 @@
 .template-image {
     height: 160px;
     width: 160px;
+    border-radius: 10px;
 }
 
 .statistics-written {
@@ -36,7 +37,6 @@
 
 .dash-title {
     margin-bottom: 30px;
-    width: 30%;
 }
 
 .description {
@@ -75,5 +75,29 @@
     color: white;
     background-color: gold;
     padding: 6px;
-    
+}
+
+@media screen and (max-width: 700px) {
+    .global-padding{
+        padding: 30px;
+    }
+    .statistics-padding{
+        margin: 0;
+        width: 100% !important;
+    }
+    .statistics {
+        .cards {
+            align-items: center;
+            flex-direction: column;
+            .wrap.description{
+                width: 100%!important;
+                padding: 0;
+                margin:0 ;
+                margin-top: 1.5rem;
+            }
+            button{
+                margin-top: 1.5rem;
+            }
+        }
+    }
 }

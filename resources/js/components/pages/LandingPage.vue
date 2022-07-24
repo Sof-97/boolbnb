@@ -47,8 +47,9 @@
                     <div class="index-sponsor">Sponsored</div>
                     <img
                         class="index-img-top"
-                        :src="`${e.cover_image}`"
+                        :src="`/storage/${e.cover_image}`"
                         alt="Card image cap"
+                        style="height: 250px"
                     />
                     <!-- Icone Letti e bagni -->
                     <div class="index-cover-img-l">
@@ -82,8 +83,10 @@
                 <div class="index-cover-img">
                     <img
                         class="index-img-top"
-                        :src="`${e.cover_image}`"
+                        :src="`/storage/${e.cover_image}`"
                         alt="Card image cap"
+                        style="height: 250px"
+
                     />
                     <!-- Icone Letti e bagni -->
                     <div class="index-cover-img-l">

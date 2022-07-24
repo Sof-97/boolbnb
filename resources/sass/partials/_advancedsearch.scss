@@ -8,6 +8,15 @@
     font-weight: bold;
 }
 
+.radiusdiv{
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0 lightgray;
+    min-width: fit-content;
+    display: inline-block;
+    padding: 10px;
+}
+
 .stanze-letti {
     width: 100px;
     border-radius: 10px;
@@ -99,6 +108,7 @@
     border-radius: 15px;
 }
 .no-results-as {
+    font-size: 3rem;
     font-weight: bold;
     text-align: center;
     padding-top: 100px;

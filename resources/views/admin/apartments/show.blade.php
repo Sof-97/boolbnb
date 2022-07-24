@@ -1,16 +1,16 @@
 @extends('layouts.backOffice')
+@section('title')
+{{ $apartment->title }}
+@endsection
 @section('content')
     <div class="flex-center padding-show">
         <div class="custom padding-show">
-            <div class="">
-                <div class="pill-show">
+                <div class="pill-show custom">
                     <h2>{{ $apartment->title }}</h2>
-                </div>
             </div>
-            <div class="flex align-center">
-                <div class="relative">
+            <div class="flex align-center wrap-query">
                     <div class="block">
-                        <img style="width: 300px; z-index: 1;" src="{{ $apartment->cover_image }}" alt="">
+                        <img class="aptimg" src="{{ asset("/storage/$apartment->cover_image") }}" alt="{{ $apartment->title }}">
                     </div>
                     <div class="info-show flex">
                         <div>
@@ -44,7 +44,12 @@
                                     <li>Nessun servizio</li>
                                 @endforelse
                             </ul>
-                            <div class="flex" style="justify-content: flex-end; margin-top:auto;">
+                            <div class="flex" style=" margin-top:1rem;">
+                                <button class="button_accent" style="margin-right: 0.5rem">
+                                    <a href="{{ route('admin.stats', $apartment) }}">
+                                        Statistiche
+                                    </a>
+                                </button>
                                 <button class="button_accent">
                                     <a href="{{ route('admin.sponsorship', $apartment) }}">
                                         Sponsorizza
@@ -54,7 +59,6 @@
                         </div>
 
                     </div>
-                </div>
             </div>
         </div>
     </div>

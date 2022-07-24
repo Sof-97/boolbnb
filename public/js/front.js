@@ -1931,7 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       baseUrlTomtom: "https://api.tomtom.com/search/2/search/",
-      keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT3r10",
+      keySettingsTomtom: ".json?key=igkbkqwR2f1uQStetPLGqvyGEGFKLvAA&language=it-IT&typeahed=true&limit=7&countrySet=IT",
       apartments: null,
       services: [],
       range: this.radius,
@@ -2389,13 +2389,16 @@ var render = function render() {
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "flex",
     staticStyle: {
-      "align-items": "center"
+      "align-items": "center",
+      "margin-left": "0.39rem"
     }
+  }, [_c("div", {
+    staticClass: "radiusdiv"
   }, [_c("label", {
     attrs: {
       "for": "radius"
     }
-  }, [_vm._v("Raggio di ricerca:")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Raggio di ricerca")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2421,7 +2424,7 @@ var render = function render() {
         _vm.range = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("input", {
+  })])]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2485,7 +2488,7 @@ var render = function render() {
       expression: "!apartments || apartments.length == 0"
     }],
     staticClass: "no-results-as"
-  }, [_vm._v("\r\n                    Nessun appartamento corrispondente.\r\n                ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\r\n                    Nessun appartamento corrispondente\r\n                ")]), _vm._v(" "), _c("div", {
     staticClass: "container-cards-as"
   }, _vm._l(_vm.apartments, function (e, i) {
     return _c("div", {
@@ -2501,7 +2504,7 @@ var render = function render() {
       staticClass: "card-img-as"
     }, [_c("img", {
       attrs: {
-        src: "".concat(e.cover_image),
+        src: "/storage/".concat(e.cover_image),
         alt: "Card image cap"
       }
     }), _vm._v(" "), _c("div", {
@@ -2623,8 +2626,11 @@ var render = function render() {
       staticClass: "index-sponsor"
     }, [_vm._v("Sponsored")]), _vm._v(" "), _c("img", {
       staticClass: "index-img-top",
+      staticStyle: {
+        height: "250px"
+      },
       attrs: {
-        src: "".concat(e.cover_image),
+        src: "/storage/".concat(e.cover_image),
         alt: "Card image cap"
       }
     }), _vm._v(" "), _c("div", {
@@ -2661,8 +2667,11 @@ var render = function render() {
       staticClass: "index-cover-img"
     }, [_c("img", {
       staticClass: "index-img-top",
+      staticStyle: {
+        height: "250px"
+      },
       attrs: {
-        src: "".concat(e.cover_image),
+        src: "/storage/".concat(e.cover_image),
         alt: "Card image cap"
       }
     }), _vm._v(" "), _c("div", {
@@ -2760,7 +2769,7 @@ var render = function render() {
     staticClass: "sa-cont-img"
   }, [_c("img", {
     attrs: {
-      src: _vm.apartment.cover_image,
+      src: "/storage/".concat(_vm.apartment.cover_image),
       alt: ""
     }
   }), _vm._v(" "), _c("div", {
@@ -19535,8 +19544,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\sofes\Documents\Coding\classe_58\boolbnb-team3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\MAMP\htdocs\boolbnb-team3-58\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! D:\MAMP\htdocs\boolbnb-team3-58\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
